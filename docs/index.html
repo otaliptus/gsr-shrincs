@@ -134,39 +134,8 @@
 <h2>Transactions per second</h2>
 <p>If every transaction on the network used one scheme, how many transactions would fit? This follows <a href="https://x.com/n1ckler/status/2039338319603999036">a chart by Jonas Nick</a> and its <a href="https://gist.github.com/jonasnick/0e7a3c4a41063e39afe8a16f70662fd3">script</a>: 4,000,000 weight units per block, one block every 600 seconds, an average transaction with 2.27 inputs and 2.64 outputs. The P2TR row reproduces his number. The other rows use the witness sizes we measured, which include the checker program because there is no native opcode.</p>
 <figure>
-  <figcaption>Transactions per second. Higher is better.</figcaption>
-<div class="plot"><svg viewBox="0 0 640 190" role="img" aria-labelledby="ctps">
-    <title id="ctps">Transactions per second if every transaction used one scheme: P2TR 6.55, native SHRINCS opcode 2.81, SHRINCS in Script stateful 0.53, stateless 0.15, without shared functions 0.03 and 0.02</title>
-    <line x1="240" y1="6" x2="240" y2="184" stroke="var(--axis)" stroke-width="1"/>
-    <g><title>P2TR key spend, today: 6.55 transactions per second, 3,929 per block</title>
-      <text x="0" y="24">P2TR key spend, today</text>
-      <rect x="240" y="10" width="300.0" height="18" rx="4" fill="var(--dim)"/>
-      <text class="val" x="548.0" y="24">6.55</text></g>
-    <g><title>Native opcode, hypothetical: 2.81 transactions per second, 1,684 per block</title>
-      <text x="0" y="54">Native opcode, hypothetical</text>
-      <rect x="240" y="40" width="128.5" height="18" rx="4" fill="var(--dim)"/>
-      <text class="val" x="376.5" y="54">2.81</text></g>
-    <g><title>SHRINCS in Script, stateful: 0.53 transactions per second, 315 per block</title>
-      <text x="0" y="84">Script, stateful, shared</text>
-      <rect x="240" y="70" width="24.1" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="272.1" y="84">0.53</text></g>
-    <g><title>SHRINCS in Script, stateless: 0.14 transactions per second, 87 per block</title>
-      <text x="0" y="114">Script, stateless, shared</text>
-      <rect x="240" y="100" width="6.6" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="254.6" y="114">0.14</text></g>
-    <g><title>Script, stateful, inline: 0.03 transactions per second, 18 per block</title>
-      <text x="0" y="144">Script, stateful, inline</text>
-      <rect x="240" y="130" width="2" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="250" y="144">0.03</text></g>
-    <g><title>Script, stateless, inline: 0.02 transactions per second, 13 per block</title>
-      <text x="0" y="174">Script, stateless, inline</text>
-      <rect x="240" y="160" width="2" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="250" y="174">0.02</text></g>
-  </svg></div>
-  <ul class="legend">
-    <li style="--sw: var(--s1)">Measured in this experiment</li>
-    <li style="--sw: var(--dim)">Reference</li>
-  </ul>
+  <figcaption>His plot, redrawn with our points added. Higher is better.</figcaption>
+<a href="tps.png"><img src="tps.png" alt="Scatter plot of transactions per second against witness bytes per input. Jonas Nick's six points run from P2TR at 6.55 down to SLH-DSA at 0.36. Our points: a hypothetical native opcode at 2.81, SHRINCS in Script stateful at 0.53, stateless at 0.14, and the inline versions at 0.03 and 0.02." style="width:100%;height:auto;display:block;border-radius:4px"></a>
   <details><summary>Show as table</summary>
     <table><tr><th>Scheme</th><th class="n">Tx per second</th><th class="n">Tx per block</th><th class="n">Inputs spent per block</th><th class="n">vbytes per tx</th></tr>
       <tr><td>P2TR key spend, today</td><td class="n">6.55</td><td class="n">3,929</td><td class="n">8,918</td><td class="n">254</td></tr>
