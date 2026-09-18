@@ -13,9 +13,12 @@ python3 scripts/record_tests.py profiled
 python3 -O scripts/run_tests.py optimized > reports/tests-optimized.log 2>&1
 python3 scripts/record_tests.py optimized
 python3 tests/regtest.py --configfile="$PWD/build/bitcoin/test/config.ini" > reports/regtest.log 2>&1
-python3 scripts/export.py
 python3 scripts/measure.py > reports/measure.log 2>&1
 python3 scripts/component_costs.py > reports/components.log 2>&1
 python3 scripts/boundary_costs.py > reports/boundary-costs.log 2>&1
+python3 scripts/parsing_probe.py --reference-binary build/profile/bin/bitcoin-util --jobs "${GSR_BUILD_JOBS:-4}" > reports/parsing-probe.log 2>&1
+python3 scripts/parse_benchmark.py --jobs "${GSR_BUILD_JOBS:-4}" > reports/parser-benchmark.log 2>&1
+python3 scripts/multi_compare.py --binary build/profile/bin/bitcoin-util --output reports/multi-comparison.json > reports/multi-comparison.log 2>&1
+python3 scripts/export.py
 python3 scripts/audit.py
 python3 -O scripts/audit.py

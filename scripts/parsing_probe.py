@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from scripts import profile_build
 from runner.comparison import sample
+from runner.evidence import CORPUS, COSTS, provenance, verify_provenance, sha
 
 
 def prepare(source, output):
@@ -68,27 +69,39 @@ def prepare(source, output):
     return target
 
 
+def build_probe(source, output, jobs):
+    build = output / "build"
+    configure = ["cmake", "-S", source, "-B", build, "-G", "Ninja",
+                 "-DCMAKE_BUILD_TYPE=Release", "-DENABLE_IPC=OFF", "-DENABLE_WALLET=OFF",
+                 "-DBUILD_GUI=OFF", "-DWITH_CCACHE=OFF", "-DBUILD_TESTS=OFF", "-DBUILD_UTIL=ON"]
+    local = ROOT / "build/deps/usr"
+    if local.exists():
+        configure.append("-DCMAKE_PREFIX_PATH=" + str(local))
+    with (output / "build.log").open("w") as log:
+        subprocess.run(configure, stdout=log, stderr=subprocess.STDOUT, check=True)
+        subprocess.run(["cmake", "--build", build, "--target", "bitcoin-util", "-j", str(jobs)],
+                       stdout=log, stderr=subprocess.STDOUT, check=True)
+    return build / "bin/bitcoin-util"
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, default=ROOT / "vendor/bitcoin")
     parser.add_argument("--reference-binary", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=ROOT / "build/parsing-probe")
+    parser.add_argument("--report", type=Path, default=ROOT / "reports/parsing-counts.json")
     parser.add_argument("--jobs", type=int, default=4)
     args = parser.parse_args()
+    if args.jobs < 1:
+        parser.error("jobs must be positive")
     output = args.output.resolve()
     if output == ROOT or ROOT.is_relative_to(output):
         parser.error("output must not contain the active repository")
     output.mkdir(parents=True, exist_ok=True)
     source = prepare(args.source.resolve(), output)
-    build = output / "build"
-    with (output / "build.log").open("w") as log:
-        subprocess.run(["cmake", "-S", source, "-B", build, "-G", "Ninja",
-                        "-DCMAKE_BUILD_TYPE=Release", "-DENABLE_IPC=OFF", "-DENABLE_WALLET=OFF",
-                        "-DBUILD_GUI=OFF", "-DWITH_CCACHE=OFF", "-DBUILD_TESTS=OFF", "-DBUILD_UTIL=ON"],
-                       stdout=log, stderr=subprocess.STDOUT, check=True)
-        subprocess.run(["cmake", "--build", build, "--target", "bitcoin-util", "-j", str(args.jobs)],
-                       stdout=log, stderr=subprocess.STDOUT, check=True)
-    binary = build / "bin/bitcoin-util"
+    binary = build_probe(source, output, args.jobs)
+    binary_names = [str(path.resolve().relative_to(ROOT)) for path in (args.reference_binary, binary)]
+    proof = provenance(ROOT, [CORPUS, COSTS], binary_names)
     records = json.loads(gzip.decompress((ROOT / "reports/regtest-details.json.gz").read_bytes()))
     rows = []
     for row in records["spends"]:
@@ -100,13 +113,18 @@ def main():
         metrics = response["profile"]
         rows.append(dict(name=row["name"], result=result,
                          counts={name: metrics[name] for name in ("parsed_bytes", "parsed_instructions", "skipped_bytes", "skipped_instructions", "skipped_push_bytes")}))
-    report = dict(rows=rows, source_manifest_sha256=hashlib.sha256((output / "parsing-source-manifest.json").read_bytes()).hexdigest(),
+    manifest = (output / "parsing-source-manifest.json").read_bytes()
+    report = dict(rows=rows, provenance=proof, source_manifest_sha256=hashlib.sha256(manifest).hexdigest(),
+                  build_cache_sha256=sha(output / "build/CMakeCache.txt"),
                   binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(),
                   reference_binary_sha256=hashlib.sha256(args.reference_binary.read_bytes()).hexdigest(),
                   corpus_sha256=hashlib.sha256((ROOT / "reports/regtest-details.json.gz").read_bytes()).hexdigest(),
                   scope="Counts inside EvalTapscriptV2Impl, including invoked bodies. Does not count the separate success-opcode scan or decode OP_MULTI's second opcode separately. No causal timing claim.")
-    (output / "counts.json").write_text(json.dumps(report, indent=2) + "\n")
-    print(output / "counts.json", flush=True)
+    verify_provenance(ROOT, proof, [CORPUS, COSTS], binary_names)
+    args.report.parent.mkdir(parents=True, exist_ok=True)
+    args.report.write_text(json.dumps(report, indent=2) + "\n")
+    args.report.with_name("parsing-source-manifest.json.gz").write_bytes(gzip.compress(manifest, mtime=0))
+    print(args.report, flush=True)
 
 
 if __name__ == "__main__":

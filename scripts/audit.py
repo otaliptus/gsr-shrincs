@@ -20,6 +20,7 @@ import io
 from scripts.export import program_artifacts
 from scripts.profile_build import verify_build
 from scripts.record_tests import validate_results
+from runner.followup import audit_followups
 
 
 def sha(path):
@@ -198,6 +199,7 @@ def main():
             any(name in line and "passed" in line for line in log.splitlines()), name
         )
     require("Tests successful" in (ROOT / "reports/regtest.log").read_text())
+    audit_followups(ROOT, env)
     output = dict(
         status="pass",
         source_pins_clean=True,
@@ -206,6 +208,7 @@ def main():
         stateful_depths_tested=255,
         accepted_mined_transactions=len(data["spends"]),
         rejected_transactions=len(data["rejections"]),
+        followup_evidence="current inputs, binaries, drivers, parser schedules, and OP_MULTI cases verified",
         scope="Laboratory verifier/transaction package M0-M7; no external review, production signer, or quantum-safe output wrapper",
         evidence_hashes={
             str(p.relative_to(ROOT)): sha(p)

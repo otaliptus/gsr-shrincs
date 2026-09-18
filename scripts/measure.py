@@ -14,6 +14,7 @@ from runner.checks import require
 from generator.verifier import compile_verifier
 from reference.oracle import decode
 from runner.evaluator import evaluate, is_budget_error
+from runner.evidence import host_environment
 from runner.profile import run_profile
 
 
@@ -78,6 +79,7 @@ def timing(command, request, repeats=11):
 def main():
     vectors = json.loads((ROOT / "fixtures/vectors.json").read_text())["vectors"]
     data = dict(
+        environment=host_environment(),
         standalone=[],
         transactions=[],
         rejected_transactions=[],
@@ -212,6 +214,10 @@ def render_results(data):
     """Format recorded measurements without executing the verifier again."""
     lines = [
         "# Measured results",
+        "",
+        f"Timing environment: **{data['environment']['platform']}**, {data['environment']['machine']}, Python {data['environment']['python'].split()[0]}.",
+        "These timings apply to this machine and method. Do not infer performance regressions from timings across different environments.",
+        "The [environment manifest](environment.json) records build and executable details. The baseline tag retains the earlier Linux measurements.",
         "",
         "These measurements use the pinned fork and SHRINCS parameters. The unmodified local regtest node accepted and mined every listed spend. The transactions contain no budget padding.",
         "",

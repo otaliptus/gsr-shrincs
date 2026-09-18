@@ -4,7 +4,7 @@
       "name": "full-unified",
       "result": {
         "errors": [],
-        "consumed": 20643015,
+        "consumed": 20642955,
         "allowance": 189420000,
         "weight": 18942,
         "transaction_bytes": 18603,
@@ -12,7 +12,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 20643015
+            "consumed": 20642955
           }
         ],
         "classification": "accept"
@@ -29,7 +29,7 @@
       "name": "full-stateful",
       "result": {
         "errors": [],
-        "consumed": 20577516,
+        "consumed": 20577528,
         "allowance": 56630000,
         "weight": 5663,
         "transaction_bytes": 5324,
@@ -37,7 +37,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 20577516
+            "consumed": 20577528
           }
         ],
         "classification": "accept"
@@ -54,7 +54,7 @@
       "name": "full-stateless",
       "result": {
         "errors": [],
-        "consumed": 122351759,
+        "consumed": 119994389,
         "allowance": 203950000,
         "weight": 20395,
         "transaction_bytes": 20056,
@@ -62,7 +62,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 122351759
+            "consumed": 119994389
           }
         ],
         "classification": "accept"
@@ -70,16 +70,16 @@
       "counts": {
         "parsed_bytes": 135275,
         "parsed_instructions": 106787,
-        "skipped_bytes": 31825,
-        "skipped_instructions": 26725,
-        "skipped_push_bytes": 5100
+        "skipped_bytes": 33625,
+        "skipped_instructions": 28225,
+        "skipped_push_bytes": 5400
       }
     },
     {
       "name": "baseline-unified",
       "result": {
         "errors": [],
-        "consumed": 34665042,
+        "consumed": 34665006,
         "allowance": 2297380000,
         "weight": 229738,
         "transaction_bytes": 229399,
@@ -87,7 +87,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 34665042
+            "consumed": 34665006
           }
         ],
         "classification": "accept"
@@ -129,7 +129,7 @@
       "name": "baseline-stateless",
       "result": {
         "errors": [],
-        "consumed": 132702858,
+        "consumed": 138826875,
         "allowance": 1397580000,
         "weight": 139758,
         "transaction_bytes": 139419,
@@ -137,7 +137,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 132702858
+            "consumed": 138826875
           }
         ],
         "classification": "accept"
@@ -145,16 +145,16 @@
       "counts": {
         "parsed_bytes": 133452,
         "parsed_instructions": 116129,
-        "skipped_bytes": 32545,
-        "skipped_instructions": 27325,
-        "skipped_push_bytes": 5220
+        "skipped_bytes": 27865,
+        "skipped_instructions": 23425,
+        "skipped_push_bytes": 4440
       }
     },
     {
       "name": "full-unified-sl",
       "result": {
         "errors": [],
-        "consumed": 121491584,
+        "consumed": 123847703,
         "allowance": 240590000,
         "weight": 24059,
         "transaction_bytes": 23720,
@@ -162,7 +162,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 121491584
+            "consumed": 123847703
           }
         ],
         "classification": "accept"
@@ -170,16 +170,16 @@
       "counts": {
         "parsed_bytes": 138939,
         "parsed_instructions": 106844,
-        "skipped_bytes": 32559,
-        "skipped_instructions": 27339,
-        "skipped_push_bytes": 5220
+        "skipped_bytes": 30759,
+        "skipped_instructions": 25839,
+        "skipped_push_bytes": 4920
       }
     },
     {
       "name": "baseline-unified-sl",
       "result": {
         "errors": [],
-        "consumed": 135972516,
+        "consumed": 138798909,
         "allowance": 2348550000,
         "weight": 234855,
         "transaction_bytes": 234516,
@@ -187,7 +187,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 135972516
+            "consumed": 138798909
           }
         ],
         "classification": "accept"
@@ -195,16 +195,16 @@
       "counts": {
         "parsed_bytes": 228549,
         "parsed_instructions": 185458,
-        "skipped_bytes": 125021,
-        "skipped_instructions": 93974,
-        "skipped_push_bytes": 31047
+        "skipped_bytes": 122861,
+        "skipped_instructions": 92174,
+        "skipped_push_bytes": 30687
       }
     },
     {
       "name": "full-2-input-mixed",
       "result": {
         "errors": [],
-        "consumed": 140256195,
+        "consumed": 143082063,
         "allowance": 425230000,
         "weight": 42523,
         "transaction_bytes": 42154,
@@ -217,7 +217,7 @@
           {
             "input": 1,
             "success": true,
-            "consumed": 119610280
+            "consumed": 122436148
           }
         ],
         "classification": "accept"
@@ -225,16 +225,16 @@
       "counts": {
         "parsed_bytes": 177733,
         "parsed_instructions": 125589,
-        "skipped_bytes": 40005,
-        "skipped_instructions": 33564,
-        "skipped_push_bytes": 6441
+        "skipped_bytes": 37845,
+        "skipped_instructions": 31764,
+        "skipped_push_bytes": 6081
       }
     },
     {
       "name": "full-4-input-mixed",
       "result": {
         "errors": [],
-        "consumed": 283846613,
+        "consumed": 293741186,
         "allowance": 848800000,
         "weight": 84880,
         "transaction_bytes": 84265,
@@ -247,7 +247,7 @@
           {
             "input": 1,
             "success": true,
-            "consumed": 122446443
+            "consumed": 128100258
           },
           {
             "input": 2,
@@ -257,7 +257,7 @@
           {
             "input": 3,
             "success": true,
-            "consumed": 120089724
+            "consumed": 124330482
           }
         ],
         "classification": "accept"
@@ -265,16 +265,16 @@
       "counts": {
         "parsed_bytes": 355466,
         "parsed_instructions": 251178,
-        "skipped_bytes": 77490,
-        "skipped_instructions": 65028,
-        "skipped_push_bytes": 12462
+        "skipped_bytes": 69930,
+        "skipped_instructions": 58728,
+        "skipped_push_bytes": 11202
       }
     },
     {
       "name": "full-cap1-boundary",
       "result": {
         "errors": [],
-        "consumed": 20575792,
+        "consumed": 20575780,
         "allowance": 55070000,
         "weight": 5507,
         "transaction_bytes": 5261,
@@ -282,7 +282,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 20575792
+            "consumed": 20575780
           }
         ],
         "classification": "accept"
@@ -299,7 +299,7 @@
       "name": "full-cap2-boundary",
       "result": {
         "errors": [],
-        "consumed": 41160856,
+        "consumed": 41160868,
         "allowance": 108480000,
         "weight": 10848,
         "transaction_bytes": 10479,
@@ -312,7 +312,7 @@
           {
             "input": 1,
             "success": true,
-            "consumed": 20580428
+            "consumed": 20580440
           }
         ],
         "classification": "accept"
@@ -329,7 +329,7 @@
       "name": "full-cap3-boundary",
       "result": {
         "errors": [],
-        "consumed": 61755216,
+        "consumed": 61755213,
         "allowance": 161890000,
         "weight": 16189,
         "transaction_bytes": 15697,
@@ -342,12 +342,12 @@
           {
             "input": 1,
             "success": true,
-            "consumed": 20585076
+            "consumed": 20585085
           },
           {
             "input": 2,
             "success": true,
-            "consumed": 20585076
+            "consumed": 20585064
           }
         ],
         "classification": "accept"
@@ -364,7 +364,7 @@
       "name": "full-cap4-boundary",
       "result": {
         "errors": [],
-        "consumed": 82358917,
+        "consumed": 82358920,
         "allowance": 215300000,
         "weight": 21530,
         "transaction_bytes": 20915,
@@ -372,12 +372,12 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 20589733
+            "consumed": 20589736
           },
           {
             "input": 1,
             "success": true,
-            "consumed": 20589724
+            "consumed": 20589736
           },
           {
             "input": 2,
@@ -387,7 +387,7 @@
           {
             "input": 3,
             "success": true,
-            "consumed": 20589736
+            "consumed": 20589724
           }
         ],
         "classification": "accept"
@@ -401,9 +401,59 @@
       }
     }
   ],
-  "source_manifest_sha256": "5d2a7ac20ca4d4c52a073ae92d726a34eb536f0d450ca8b1066e0befd607ba6e",
-  "binary_sha256": "0ac2d524e01179192ac2b9c56b599fc48df5554ab79bc6e0461e14367742efa8",
-  "reference_binary_sha256": "044fde632685c44817f09b5b02091479820bba6ace43155a90b5785e830a1c02",
-  "corpus_sha256": "d45c2171cca76e0b02922bf37e41e9c99dcd384f39f26905e8bf2f46be726702",
+  "provenance": {
+    "schema": 1,
+    "inputs": {
+      "reports/regtest-details.json.gz": "5ca33123030ca771b2c03ab3f0c0e573bda1c1f4445bc28e80e498d9425ca67a",
+      "reports/costs.json": "c72e92cd1a41779a822ee73664baf300c1ca19ec4e0fcfb70ddced15b8203a11"
+    },
+    "binaries": {
+      "build/profile/bin/bitcoin-util": "eb6bb2a8770ef5ae9917330dce0fd2930ebbb11f7acb6609f53389a3dd7fd137",
+      "build/parsing-probe/build/bin/bitcoin-util": "2dc8b310fe39968daf304cb47dcc88a3444fcd61b452982cc1c85ece36d67b87"
+    },
+    "drivers": {
+      "generator/script.py": "2c71fdb8d1dd806a562f635c8c9af9d3527965619e87e8fe2e01cf05e4077076",
+      "generator/transaction.py": "2cf8814c2c23e3ea6c3cc7c4032c2b4c397376b8b0ee03862062aa7c9081f6ab",
+      "generator/verifier.py": "db5296addbe5db148a7e1e54561540855c6b22e4a9aed426fdeb569237cc9567",
+      "runner/bitcoin.py": "9033052924c076c173ced31178451eb5c7d3c5e51d0284bf660d4d2f6ca32e1f",
+      "runner/checks.py": "3176bb856a15fd12eee11268a59ada282dbb37c4385d1d4e9c543613fc02f30b",
+      "runner/comparison.py": "0f2c7ef75e41a124c0c075d5939c8420f42da7f2c9b5fff451a79b20d7f5d79b",
+      "runner/evaluator.py": "342ff5d2f780599b662b2a612599ae33c333e108b1b22f71fe02e8e226defaeb",
+      "runner/evidence.py": "eea3c8c0c4a9965df91c621617d4517b8a569fbbcd3f8fe7ac238c4ff236af39",
+      "runner/followup.py": "08f1866caad3f8d56d980483f9af392363933bcd3d91d2b38c4789a0d10ec395",
+      "runner/measuretx.inc": "d52f03ec91bf73cfb1e87b56f1e798e8027001e2d0566fa13cf35bd781803b1c",
+      "runner/parsebench.inc": "50dc37dc2542a97dbeeb7f3aa578297db6201a92270ba795e76958896bff906f",
+      "runner/profile.hpp": "c21bdc855d4dc9479497e2131970d940a38e719d213a76e1c032412d67be5f87",
+      "runner/profile.py": "c89085b0e864731bb92d243ff8be62ba63a2ea4cbb52be63669dd452347fc37d",
+      "reference/oracle.py": "ad95779190e81cd8ecc4b16fa3188d5b295c3cdeb2afce799f379bf0fdcba385",
+      "scripts/audit.py": "461e0822b33cdcc64471891bd09ff6d07b602501426b8e1661630434e15264d2",
+      "scripts/audit_followups.py": "f933c842ebcef781d1af8337195713e82349ea9b75281c18b69f43d2a331b8c8",
+      "scripts/boundary_costs.py": "060bcf45e0b1a7766aa58892d11e595692c1c4119a218ccc1c870b126345ad5a",
+      "scripts/build.sh": "c8ae9b6ddb6c6bee12ab695f91abcb2cff332489596bddfff9e4893d20931f95",
+      "scripts/check.sh": "b7f04aeca179095ab67b45751033bb6f0e7570b5b7c0e9014bab27207fa54e22",
+      "scripts/compare_forks.py": "e5d92bd2404f6b3c4d6632a4d69506c93d1602740264f29604267f4eb0f89021",
+      "scripts/comparison_corpus.py": "3de128f01223e86b98985a6086fc5b399aeec3eac87fad88441957915b8f7871",
+      "scripts/component_costs.py": "98ad642e64efaf67c93077e3763b6308012f53a469be6810851dbb5b2c8fde1c",
+      "scripts/export.py": "c27aef3cdaf98b43ffa150d4eb843102ab7b761b8fc73e17f99e4305ddd68b46",
+      "scripts/fixtures.py": "45c385e5104b11ba0c558f6196c3c720d097f8e2a810ff801ddc29c85ef023c6",
+      "scripts/measure.py": "517e97ad963e1cef6e36d3a1ea031afbca09c45f2e46726e4361c7e136a3732a",
+      "scripts/multi_compare.py": "ab043eb055aa8d749f42812c3f2e7d2727cb4f3f1efe0422da0fe9e22381110c",
+      "scripts/parse_benchmark.py": "3c95d431ec676d7b8962ef22b436196c4e53ea6d8bee871d5e5018edcc334aa5",
+      "scripts/parsing_probe.py": "2f8d9e9002e4bfbd6a26b2b37cd028b27278470a777490fea76fcdc2386965b4",
+      "scripts/profile_build.py": "2f44c5110db70a5fcf93a1f9b5b0a01e4511f0456096cad6f74b5927583bc23e",
+      "scripts/record_tests.py": "6f9f77d85268209ad5138910b3bdb84999a0a2243491a5d4166cdf16314aba40",
+      "scripts/run_tests.py": "abc081b1adb2a990ad813bdc4230d6b1d5b11559940131515b1196a767d82809"
+    },
+    "environment": {
+      "platform": "macOS-26.4-arm64-arm-64bit-Mach-O",
+      "machine": "arm64",
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]"
+    }
+  },
+  "source_manifest_sha256": "3c5e67990057ddf6b0accb3e17b35c759cf7968ee2cd98d60c8decd1d9fdd4aa",
+  "build_cache_sha256": "16c1100b85cba2c3103baaac95d800d488b40f75c6c3ddbf5c72c5417527ec18",
+  "binary_sha256": "2dc8b310fe39968daf304cb47dcc88a3444fcd61b452982cc1c85ece36d67b87",
+  "reference_binary_sha256": "eb6bb2a8770ef5ae9917330dce0fd2930ebbb11f7acb6609f53389a3dd7fd137",
+  "corpus_sha256": "5ca33123030ca771b2c03ab3f0c0e573bda1c1f4445bc28e80e498d9425ca67a",
   "scope": "Counts inside EvalTapscriptV2Impl, including invoked bodies. Does not count the separate success-opcode scan or decode OP_MULTI's second opcode separately. No causal timing claim."
 }

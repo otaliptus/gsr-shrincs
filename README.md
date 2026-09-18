@@ -16,6 +16,7 @@ implementation:
 - [Milestone audit](reports/AUDIT.md)
 - [Review changes](reports/REVIEW-FOLLOWUP.md)
 - [Committed evidence repair](reports/EVIDENCE-REPAIR.md)
+- [Follow-up provenance and portable checks](reports/FOLLOWUP-PROVENANCE.md)
 
 ## Fork-change experiments
 
@@ -124,6 +125,17 @@ python3 scripts/audit.py
 
 The full audit checks local executable hashes. Another machine must build and regenerate its own evidence before running that audit.
 CI also compares the three deterministic test-result files with their committed versions.
+
+To check committed follow-up provenance without the original executables, run:
+
+```sh
+python3 scripts/audit_followups.py --portable
+```
+
+CI runs this check before regeneration. It verifies input hashes, measurement code, recorded binary links, and parser schedules.
+It does not verify local binaries or reproduce performance measurements.
+The complete pipeline also builds separate counting and parser executables, then regenerates parsing and OP_MULTI evidence.
+The full audit checks those local builds against the environment manifest.
 
 The audit checks source and executable hashes, upstream revisions, generated
 programs, and test inputs. It also checks transaction policies, weight allowances,

@@ -7,8 +7,8 @@
       "name": "full-unified",
       "profile": "full",
       "mode": "unified",
-      "txid": "6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6",
-      "block": "30cf0fceb83bbe78c650936e21a877106620c11f30a084187d0381b8e294ad16",
+      "txid": "310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce",
+      "block": "6132ffcbe83dd09c1725ccb7d879f4f4fbadcfb278e8deea6b476b6d230850f1",
       "weight": 18942,
       "vsize": 4736,
       "varops_allowed": 189420000,
@@ -16,15 +16,15 @@
       "public_key_bytes": 48,
       "program_bytes": 17755,
       "control_block_bytes": 65,
-      "message": "bd1a03d2c0710d23a4afd5206285d2f9472b4b574eb625cd8c737248588b8529",
+      "message": "1ad181f758c60a02cc412f684ab20248ec7e1b18575889d445468570d032d539",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3"
     },
     {
       "name": "full-stateful",
       "profile": "full",
       "mode": "stateful",
-      "txid": "0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e",
-      "block": "14a99e4d8c28ad5dfcca5e6cad4fca09045618840584ab866e30e5196c849b13",
+      "txid": "bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5",
+      "block": "2133b85eff9a3d256deed05f9a5e111c5b8b66cb31bd44aefd0248b2c65a39a5",
       "weight": 5663,
       "vsize": 1416,
       "varops_allowed": 56630000,
@@ -32,15 +32,15 @@
       "public_key_bytes": 48,
       "program_bytes": 4476,
       "control_block_bytes": 65,
-      "message": "88693519eabc8ce07cc635196512829f383bf9180fc36f82efe2390a3f7c6ec3",
+      "message": "6f8aaf856aed3e8755f5b6d9a0870b1ce5e0da349d1a6820a0dc92af584f85d6",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3"
     },
     {
       "name": "full-stateless",
       "profile": "full",
       "mode": "stateless",
-      "txid": "c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964",
-      "block": "4ebadd3923b01037da59c3cc532790912eabca09c9a31dc13361d8f9faaf5e3f",
+      "txid": "1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85",
+      "block": "0e9874ed43f3b70e9525734815f88d1e561cc67c94f1d7c943038d8b52cf668f",
       "weight": 20395,
       "vsize": 5099,
       "varops_allowed": 203950000,
@@ -48,15 +48,15 @@
       "public_key_bytes": 48,
       "program_bytes": 14091,
       "control_block_bytes": 65,
-      "message": "f33805887e97234e1984db807af063305704cc03f74423c5351325fe899d5f72",
+      "message": "81eb628c00e92a7ecb646ce559b16f1109b744aed4f1f164a5e4189eabcfc3e9",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3"
     },
     {
       "name": "baseline-unified",
       "profile": "baseline",
       "mode": "unified",
-      "txid": "fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5",
-      "block": "233abe2adbf7107510d9d6af50143f945bfe9b9fc8d21c313e4b9ee0d448b19e",
+      "txid": "c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871",
+      "block": "050bef296d2453aa4fb420721790242f4e769b52a1a62651edbbe5013e25416f",
       "weight": 229738,
       "vsize": 57435,
       "varops_allowed": 2297380000,
@@ -64,15 +64,15 @@
       "public_key_bytes": 48,
       "program_bytes": 228549,
       "control_block_bytes": 65,
-      "message": "dca5ac33bc95a9ec7d48111c0d837657f81cec429cab0a834ddde4e5ffd866c0",
+      "message": "7da3e8e54314f3e462e8d482e34db0f1c9f9373b88d94cf7fb29563e28ddc669",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3"
     },
     {
       "name": "baseline-stateful",
       "profile": "baseline",
       "mode": "stateful",
-      "txid": "93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896",
-      "block": "64a0f78c7d71276a9ab6826586955dfacb100c07751025b2066f3939341a2e44",
+      "txid": "88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194",
+      "block": "524bbca11d5d5c8b40f09ca68e54dcf93d7cd5aadaced7f7c11fb04a893861aa",
       "weight": 96539,
       "vsize": 24135,
       "varops_allowed": 965390000,
@@ -80,15 +80,15 @@
       "public_key_bytes": 48,
       "program_bytes": 95350,
       "control_block_bytes": 65,
-      "message": "cbbd3aaef873d4477a671da54174b0c11f8fba05cb7881b29ba21716e7d5367c",
+      "message": "2b148283de8824e5d6af6547468771bd02fc6e17c48e8da9bc5ca64b728031df",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3"
     },
     {
       "name": "baseline-stateless",
       "profile": "baseline",
       "mode": "stateless",
-      "txid": "929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee",
-      "block": "66687df3011d11ad81efe9304acd77ace4b290fffcb54b7407444a801d9dbe47",
+      "txid": "942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb",
+      "block": "54e088cd5fb708427ddc16528fea9489993aefe0a7a442142623b8518c3de49b",
       "weight": 139758,
       "vsize": 34940,
       "varops_allowed": 1397580000,
@@ -96,15 +96,15 @@
       "public_key_bytes": 48,
       "program_bytes": 133452,
       "control_block_bytes": 65,
-      "message": "027b5388a021af3c9539fecb6029408fbd20073fb189edf6ed6b6c33586ef6fb",
+      "message": "a346f88a33310f573814425e76dcde8db14c243de0ac1da23b287a0f1f851378",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3"
     },
     {
       "name": "full-unified-sl",
       "profile": "full",
       "mode": "unified",
-      "txid": "a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402",
-      "block": "2fea85ae9cd26693bd741072ea305dfd046b1e3466229b4de4b92eb1111c384e",
+      "txid": "2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547",
+      "block": "68bc52313a986cfb84e043e94f9df1f9e2dde3f4ecca737e3b15e2e0f6418431",
       "weight": 24059,
       "vsize": 6015,
       "varops_allowed": 240590000,
@@ -112,15 +112,15 @@
       "public_key_bytes": 48,
       "program_bytes": 17755,
       "control_block_bytes": 65,
-      "message": "8ffe6d2568d6f61315393dd92a589dce139988ae586fd7fac29fd2dbe63ab769",
+      "message": "02b2ef668fda1e5c28b07ebe6aa43d9937caecf478b6e8b7da236f914fbec02b",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3"
     },
     {
       "name": "baseline-unified-sl",
       "profile": "baseline",
       "mode": "unified",
-      "txid": "6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6",
-      "block": "48131cb796289f3ad0293e683896a414ad48634b5a30b775c3bc412e4c34729a",
+      "txid": "61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82",
+      "block": "7b64aef1c0f9c0e2a756c1c3c0fe4a9d339e2e1f3b12ac6b9ff32f1ee476c9b0",
       "weight": 234855,
       "vsize": 58714,
       "varops_allowed": 2348550000,
@@ -128,7 +128,7 @@
       "public_key_bytes": 48,
       "program_bytes": 228549,
       "control_block_bytes": 65,
-      "message": "2b3367253aa3adf52cb0481f83cc2ca64f8cf7bc135b3a9d058b7d7782809669",
+      "message": "8a77f2f13bb88d587b71a5d8d36133a33f53f64033782ebd15dde95bada1f071",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3"
     },
     {
@@ -136,8 +136,8 @@
       "weight": 42523,
       "vsize": 10631,
       "varops_allowed": 425230000,
-      "txid": "c859df81a604edbdec680f90886da20bdac435935a4de32cc9f0409e64689f54",
-      "block": "36f55edd03c936b23eab9fad63e42a6ef354e7a2fc6918463865763fdebeb05f",
+      "txid": "672e70a54658c58ee1e0ca3d86788085645b1e24445bc30e7d95ab8bd536175a",
+      "block": "0f8e26483fe88028fd3a9e28a140b7c83c3c61aeaec7fb17bd4d8b20d72455fd",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3",
       "signature_bytes": 6437,
       "program_bytes": 35510,
@@ -148,8 +148,8 @@
       "weight": 84880,
       "vsize": 21220,
       "varops_allowed": 848800000,
-      "txid": "d233e57da9df056e95028b4c7ce039c372987bca99579aeb0bf7c1682a3aeb06",
-      "block": "58e9a70b5d1f909aed0dfc12aa51b99c14b585fa878ef90b99eaebf3648e7824",
+      "txid": "6e1391fd8dc74511466335a557ceac9138675d79f6fd49ad8786e28c7d938dd9",
+      "block": "437a0901a324090d2c8e4d0ca627723fa45961d6c84907f45ac1e94990473938",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3",
       "signature_bytes": 12874,
       "program_bytes": 71020,
@@ -163,8 +163,8 @@
       "weight": 5507,
       "vsize": 1377,
       "varops_allowed": 55070000,
-      "txid": "90176601f540092bb240d31ac0dacf0a634e1e5fd643e4122a9de7c2798671cb",
-      "block": "72b73f3272f402bb77b78d7cf4dac45e467495488cb3931dde53f273e2e3af75",
+      "txid": "ff0334aa8b3133df8ccf0bc1bea88f3f604daa223b1599edfeee2029e31f2ae1",
+      "block": "247cd8cab37f429f51b9e0f4b5e647cbdcfadeb1e42c3ddd4a8a1267afc45625",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3",
       "signature_bytes": 660,
       "program_bytes": 4476,
@@ -178,8 +178,8 @@
       "weight": 10848,
       "vsize": 2712,
       "varops_allowed": 108480000,
-      "txid": "f40a2027114b71ee4137cc3fd6e1503752cbc0c9362adf31e0fd1281ca85683b",
-      "block": "18767bb17228f47d5b5331a98175f82b6a53871b9f8ba86307412de17be8510b",
+      "txid": "2bba6179cab1642612dd5b036092346680aacc6a76d9559d6226bd1acf97d151",
+      "block": "5727ae39c0de92130a784321e75cca4bda82117d4f02761ae52a8e99d847314c",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3",
       "signature_bytes": 1320,
       "program_bytes": 8952,
@@ -193,8 +193,8 @@
       "weight": 16189,
       "vsize": 4048,
       "varops_allowed": 161890000,
-      "txid": "5e306b755fba5892b65723f069888dce31a66ee8c43c5fd9ce182716d1ccb6ec",
-      "block": "2339e4a42a8d8f6e2227568fa1d4ab9e180ec23a678543dc8c6a20a5976209bd",
+      "txid": "8c0a9b69e4259c82d34c11ec039e6e487b08d8235dc32c518af5576a661debe8",
+      "block": "615612f0c4a350d01b404c437ef3dbffe9714393ea2a81e031cee8b35ea9b9c5",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3",
       "signature_bytes": 1980,
       "program_bytes": 13428,
@@ -208,8 +208,8 @@
       "weight": 21530,
       "vsize": 5383,
       "varops_allowed": 215300000,
-      "txid": "03445331f0377ea845b37438c68ea4eea2b26907a2a633ec22b5317d649f166a",
-      "block": "7516784be3d9da25d197d3c171efbc77c28c7d41fb0e8449df924a6de919ae12",
+      "txid": "e338e131e2c8e96e9aa2ed6338dbcdb5aec755e737f9039aafdf04021b2d2c0e",
+      "block": "2c73bbbb622e7d0fb77127a378c6e17aa70c8ceb11e7ada8cf3258f893b745bb",
       "public_key": "202122232425262728292a2b2c2d2e2f017bd5a63a0ec4689a6e7ab02a58182b6dd07a8d8a607bc9c3b3fcb81ad322a3",
       "signature_bytes": 2640,
       "program_bytes": 17904,
@@ -220,108 +220,108 @@
     {
       "name": "full-unified/version",
       "result": {
-        "txid": "0b4f63105aa7f52c4c19538f75e57271b5a325ae896bfbd774926a4eec228554",
-        "wtxid": "5c3aef693a28ddb3b0e54755b0e74b6d623a612aa60043bc4d0643c599f59c86",
+        "txid": "dc7d819317c71438537c6fe9f37539b8bda5e7d52fc03cad62b66a9fd5525202",
+        "wtxid": "c5d4fab5a722d98c38f3052727e9f87d5e21ff7f2320c61b6fa9913f40e632dc",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 0b4f63105aa7f52c4c19538f75e57271b5a325ae896bfbd774926a4eec228554 (wtxid 5c3aef693a28ddb3b0e54755b0e74b6d623a612aa60043bc4d0643c599f59c86), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of dc7d819317c71438537c6fe9f37539b8bda5e7d52fc03cad62b66a9fd5525202 (wtxid c5d4fab5a722d98c38f3052727e9f87d5e21ff7f2320c61b6fa9913f40e632dc), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/locktime",
       "result": {
-        "txid": "d06502788355b4aa392d64974809ac50d0fc5861039aa09facf017af93ad88e4",
-        "wtxid": "9958ad956bb6e8a135ac22c10895bc1be3bff7ec6528b8788b401febb290dd75",
+        "txid": "66565b9a6cc1ad100f4b55e0b49aedbae903b5beea23bcb161f738165cc6276a",
+        "wtxid": "ad1233b0def568521af8071d08d25726bf0f691b45b86e1e0f29e184badbf8c1",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of d06502788355b4aa392d64974809ac50d0fc5861039aa09facf017af93ad88e4 (wtxid 9958ad956bb6e8a135ac22c10895bc1be3bff7ec6528b8788b401febb290dd75), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 66565b9a6cc1ad100f4b55e0b49aedbae903b5beea23bcb161f738165cc6276a (wtxid ad1233b0def568521af8071d08d25726bf0f691b45b86e1e0f29e184badbf8c1), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/sequence",
       "result": {
-        "txid": "d8f2686486014967faee37c2c80f599b99e22f6a8de09e2b4703cbdfcaed1629",
-        "wtxid": "4e47edcb421bcfb8919e6aca7a3b839bbb16c471fcb123c4c4089bb806944577",
+        "txid": "2b2a858295850e8fc01d4e92fdc29c94c130a26838eb0306ef67038bd2400523",
+        "wtxid": "a8eddd93fb0b686a99d3abc2c10ac4e567e553886daecf7b9510bc192eba2425",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of d8f2686486014967faee37c2c80f599b99e22f6a8de09e2b4703cbdfcaed1629 (wtxid 4e47edcb421bcfb8919e6aca7a3b839bbb16c471fcb123c4c4089bb806944577), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2b2a858295850e8fc01d4e92fdc29c94c130a26838eb0306ef67038bd2400523 (wtxid a8eddd93fb0b686a99d3abc2c10ac4e567e553886daecf7b9510bc192eba2425), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/outpoint-txid",
       "result": {
-        "txid": "98ade3f12ea97b97908e48120e9b806f8d305f08e78c4cd04b02ec392cee44db",
-        "wtxid": "8cba80091e01b3031c52344ca94eec0f7360741070ba2cd9a51d2e00c5368fb5",
+        "txid": "e2b76ef30d685306939d410f34d19e73bba9779d7c0a25b920ccdb3b56414fc7",
+        "wtxid": "82de456dc6cafacfada8fbbe9086f61b36699243748a4a3472a62d3f951558e5",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 98ade3f12ea97b97908e48120e9b806f8d305f08e78c4cd04b02ec392cee44db (wtxid 8cba80091e01b3031c52344ca94eec0f7360741070ba2cd9a51d2e00c5368fb5), spending a66cb500c91dc5abef9f9979c8a735e3543a6f1a93bf45fee49ba92424d99bb0:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of e2b76ef30d685306939d410f34d19e73bba9779d7c0a25b920ccdb3b56414fc7 (wtxid 82de456dc6cafacfada8fbbe9086f61b36699243748a4a3472a62d3f951558e5), spending 61ddc347b2542327212de8d34fcf1b3e67fd49b0f5b2ed7eb1673136eed5578d:0"
       }
     },
     {
       "name": "full-unified/outpoint-index",
       "result": {
-        "txid": "8db1ee256fcde4b21b3df54cb4aa7acf0cf6e1fdbf630e2edcb5935b26385e8c",
-        "wtxid": "fdc8ef30bacdf648138b2a86b5ce51da84ff1d8562ea6a32030e8b515a95ee38",
+        "txid": "ff055ace78c84143eab10910ecccefbeed6de4b72d8defa312cd8ee09efd2411",
+        "wtxid": "f5d72a0ee9e43c38abee0dfcb5458fac55ec3719282fc803eb7518501e3b86c1",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 8db1ee256fcde4b21b3df54cb4aa7acf0cf6e1fdbf630e2edcb5935b26385e8c (wtxid fdc8ef30bacdf648138b2a86b5ce51da84ff1d8562ea6a32030e8b515a95ee38), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:8"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of ff055ace78c84143eab10910ecccefbeed6de4b72d8defa312cd8ee09efd2411 (wtxid f5d72a0ee9e43c38abee0dfcb5458fac55ec3719282fc803eb7518501e3b86c1), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:8"
       }
     },
     {
       "name": "full-unified/output-amount",
       "result": {
-        "txid": "353829bc2daf62871fdfc8af7b2d8e2a42d1aee36e8207097fac90f8383184b8",
-        "wtxid": "22ee244fdb1a0de1da7ba0e8cf09da7fe2a2e1b834a0fbbd960836192959ba11",
+        "txid": "3e854eae06c643c8173f9a62e72e86335f10c6a5f8f8e07a462b1c01557e3209",
+        "wtxid": "3dbfeb3efaaa75df371b9f11720a94efece6460aed15eb78b77f5de7048b70e2",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 353829bc2daf62871fdfc8af7b2d8e2a42d1aee36e8207097fac90f8383184b8 (wtxid 22ee244fdb1a0de1da7ba0e8cf09da7fe2a2e1b834a0fbbd960836192959ba11), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 3e854eae06c643c8173f9a62e72e86335f10c6a5f8f8e07a462b1c01557e3209 (wtxid 3dbfeb3efaaa75df371b9f11720a94efece6460aed15eb78b77f5de7048b70e2), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/output-script",
       "result": {
-        "txid": "c4bbbc3f103ffd75081f0d2cf7d96c34affbc5c185a9db156289f6aecd992b9d",
-        "wtxid": "5113688926177aaeba0de9ef098a83008d9a48bde2b032ec1022e0dd20a58301",
+        "txid": "2539f7e35856d03edf7e46de8bc232241b31394545f511961be492e57aa5772b",
+        "wtxid": "a00ad4999a46f0c4f78a2c2b24e4716adf62fd0a198baf3054ce50b32533e00e",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c4bbbc3f103ffd75081f0d2cf7d96c34affbc5c185a9db156289f6aecd992b9d (wtxid 5113688926177aaeba0de9ef098a83008d9a48bde2b032ec1022e0dd20a58301), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2539f7e35856d03edf7e46de8bc232241b31394545f511961be492e57aa5772b (wtxid a00ad4999a46f0c4f78a2c2b24e4716adf62fd0a198baf3054ce50b32533e00e), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/output-order",
       "result": {
-        "txid": "48c330b5a1de656688440a6147dc065b23566e4068f70dd10bdfc1d871f0ca98",
-        "wtxid": "98cb78e1545aad84743877f56f4150e62871d05c76e2ed9d8798ab8a272f077f",
+        "txid": "68a361f6ea912855226dfa67a6abed00b4b550aa187fc36bb97da5175e903166",
+        "wtxid": "89a642e06dac6ec77e80c949f0942cbfccdcc829a370a51d29a72454103861d6",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 48c330b5a1de656688440a6147dc065b23566e4068f70dd10bdfc1d871f0ca98 (wtxid 98cb78e1545aad84743877f56f4150e62871d05c76e2ed9d8798ab8a272f077f), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 68a361f6ea912855226dfa67a6abed00b4b550aa187fc36bb97da5175e903166 (wtxid 89a642e06dac6ec77e80c949f0942cbfccdcc829a370a51d29a72454103861d6), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/output-count",
       "result": {
-        "txid": "2247f3bee4cd6e07c44e22446c8ef40462199f3a7a946393e30b5b5aa9f7910a",
-        "wtxid": "cb81527a2d0975cee1fe3f80595f3ac9f0c1d35e7bade1c956fce6cabdde2b4c",
+        "txid": "1d485b4c7f6c26b3f07d230b0af90b477c68d81d8d518a59172f1bb3f195af8c",
+        "wtxid": "e90c62c2dd858bccbab7eb1d8bb9030f0b8a2af5fab351493ee8b29de2b12f47",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2247f3bee4cd6e07c44e22446c8ef40462199f3a7a946393e30b5b5aa9f7910a (wtxid cb81527a2d0975cee1fe3f80595f3ac9f0c1d35e7bade1c956fce6cabdde2b4c), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 1d485b4c7f6c26b3f07d230b0af90b477c68d81d8d518a59172f1bb3f195af8c (wtxid e90c62c2dd858bccbab7eb1d8bb9030f0b8a2af5fab351493ee8b29de2b12f47), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/cross-policy",
       "result": {
-        "txid": "6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6",
-        "wtxid": "6da1fdb70f594a994c15951fecb31cf5cc4b5d815b0d7219e50891ed481ac9f8",
+        "txid": "310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce",
+        "wtxid": "c758ead0c9e7bb41c2d4bd9932debf9227ee8fcf94568e592aa8a1bb46c9f9bc",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6 (wtxid 6da1fdb70f594a994c15951fecb31cf5cc4b5d815b0d7219e50891ed481ac9f8), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce (wtxid c758ead0c9e7bb41c2d4bd9932debf9227ee8fcf94568e592aa8a1bb46c9f9bc), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/annex",
       "result": {
-        "txid": "6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6",
-        "wtxid": "5f71c93fd98b1c52a48de2ecc4fe732b742f1de1075ba94e089081ea2849bdec",
+        "txid": "310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce",
+        "wtxid": "088d56ae8c75746babb5765fd6b9265907be57c1c4ad6b6dc0f16e4a259f712d",
         "allowed": false,
         "reject-reason": "bad-witness-nonstandard",
         "reject-details": "bad-witness-nonstandard"
@@ -330,148 +330,148 @@
     {
       "name": "full-unified/extra-witness",
       "result": {
-        "txid": "6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6",
-        "wtxid": "24c69cc202259b5f4e46a83dd04338e86185085755b141bcba550c91b7b3cb94",
+        "txid": "310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce",
+        "wtxid": "0aa4270eb8001e15d07071dfa656bb18075b9f3c6704648883d6fc93837d9846",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6 (wtxid 24c69cc202259b5f4e46a83dd04338e86185085755b141bcba550c91b7b3cb94), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce (wtxid 0aa4270eb8001e15d07071dfa656bb18075b9f3c6704648883d6fc93837d9846), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/spent-amount",
       "result": {
-        "txid": "6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6",
-        "wtxid": "5857d3d31b58cf0ebb63c923a9fd70385f104c20c99081f1ba3089223454242a",
+        "txid": "310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce",
+        "wtxid": "0bc3b7b140f291c51518de0f7e1e16a34d36da59a005f637af4dd9ec4fcc5117",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6 (wtxid 5857d3d31b58cf0ebb63c923a9fd70385f104c20c99081f1ba3089223454242a), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce (wtxid 0bc3b7b140f291c51518de0f7e1e16a34d36da59a005f637af4dd9ec4fcc5117), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/spent-script",
       "result": {
-        "txid": "6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6",
-        "wtxid": "000e5271b89b517c11a40f820324fb593ef268747f048d876b64db357d62b680",
+        "txid": "310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce",
+        "wtxid": "ad0ea0fb422e78513d6b8d37064db9e82ac31476b4ae29f15297abc6ac9d514b",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 6ad673a7ea14630b36e96b2b653611fa3c1b05b0e2eac67aeb7d5b578562dae6 (wtxid 000e5271b89b517c11a40f820324fb593ef268747f048d876b64db357d62b680), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 310dd826a631920867419fa900a05d9803dcc50eb23e2dee63b1b6b9b97e57ce (wtxid ad0ea0fb422e78513d6b8d37064db9e82ac31476b4ae29f15297abc6ac9d514b), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-unified/appended-input-binding",
       "result": {
-        "txid": "5bf39c21be58be6525275ba076fe9bc44ac76b6e92cd3a1f3d4f5e2647569513",
-        "wtxid": "7f49453f465fc5233d86c1fbe5d6ac7a2a7842316c6cd96de41d742273241d72",
+        "txid": "2d30d7b591a96fdf9bd72ec22f65da0a72d126a8262da60f34a8b8cdb1276969",
+        "wtxid": "607637016dd1e70ab93ece3812e1377f9dd59521bf1809020f6e497e35b95baa",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 5bf39c21be58be6525275ba076fe9bc44ac76b6e92cd3a1f3d4f5e2647569513 (wtxid 7f49453f465fc5233d86c1fbe5d6ac7a2a7842316c6cd96de41d742273241d72), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:0"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2d30d7b591a96fdf9bd72ec22f65da0a72d126a8262da60f34a8b8cdb1276969 (wtxid 607637016dd1e70ab93ece3812e1377f9dd59521bf1809020f6e497e35b95baa), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:0"
       }
     },
     {
       "name": "full-stateful/version",
       "result": {
-        "txid": "861c7941955e02229e6c74a1b45eee532df1f08fc1251818ae749e2b86f0dca6",
-        "wtxid": "d60cd82ec64b1836ca8d500e237e2297e0543786127400261a27f234172aaf07",
+        "txid": "9e907d747bd0b4bf97ed9891cbc45424b88676a72fcd12a577f4ea1145466019",
+        "wtxid": "025b5f0c18a4681faa51eed915f8ac203d60e310fb062102a07e23985d293e64",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 861c7941955e02229e6c74a1b45eee532df1f08fc1251818ae749e2b86f0dca6 (wtxid d60cd82ec64b1836ca8d500e237e2297e0543786127400261a27f234172aaf07), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 9e907d747bd0b4bf97ed9891cbc45424b88676a72fcd12a577f4ea1145466019 (wtxid 025b5f0c18a4681faa51eed915f8ac203d60e310fb062102a07e23985d293e64), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/locktime",
       "result": {
-        "txid": "170e73e2eb6a892056481b93bcb41cb5ddfeaec4524d45917add183508407863",
-        "wtxid": "cad2db2c8f50ed7fac54079d7cdeace0918d45133b45ed18a608df0e4049c5e6",
+        "txid": "e5ad17de27fad3c367e0a45c1975f9d153b43b25f125b6f94b1b9d82b2370cb8",
+        "wtxid": "981e2c806bdac184cae96c023f70a0ab0966f578717053f7021d5300553161d5",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 170e73e2eb6a892056481b93bcb41cb5ddfeaec4524d45917add183508407863 (wtxid cad2db2c8f50ed7fac54079d7cdeace0918d45133b45ed18a608df0e4049c5e6), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of e5ad17de27fad3c367e0a45c1975f9d153b43b25f125b6f94b1b9d82b2370cb8 (wtxid 981e2c806bdac184cae96c023f70a0ab0966f578717053f7021d5300553161d5), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/sequence",
       "result": {
-        "txid": "a803d1c905aa3307a418bee8f252ff94c02d452091c987c7964dd46c30ab37ed",
-        "wtxid": "be388243ea114a92654625f3872715dd62e9ad8bedbdd58f94deeb76e17e8a2e",
+        "txid": "72bf06922596f87f02730aadfe425d2682b29cede1e2b2d2ae7077c58b5b7f03",
+        "wtxid": "252f2ca80c1e496e7dc31b422468107c3edc6a1fb13391fbf8d7160fcbc10479",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of a803d1c905aa3307a418bee8f252ff94c02d452091c987c7964dd46c30ab37ed (wtxid be388243ea114a92654625f3872715dd62e9ad8bedbdd58f94deeb76e17e8a2e), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 72bf06922596f87f02730aadfe425d2682b29cede1e2b2d2ae7077c58b5b7f03 (wtxid 252f2ca80c1e496e7dc31b422468107c3edc6a1fb13391fbf8d7160fcbc10479), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/outpoint-txid",
       "result": {
-        "txid": "54114e59a16e72c2569f076dc7ba5f83a90f4f15ab34b024cf4b92ae8330ab72",
-        "wtxid": "d63fc914c5b84dbc528063e8162e39d26661668ebf9f0c4c04db52423ad0a26b",
+        "txid": "890d797e76332495117ff556a0559cbe6fe3223bc4e41589753d82c92e3033a5",
+        "wtxid": "85ecb71cc21edf3a3cb7b2372f1b7dc883237180e94d6a012520d51bbdf1113f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 54114e59a16e72c2569f076dc7ba5f83a90f4f15ab34b024cf4b92ae8330ab72 (wtxid d63fc914c5b84dbc528063e8162e39d26661668ebf9f0c4c04db52423ad0a26b), spending a66cb500c91dc5abef9f9979c8a735e3543a6f1a93bf45fee49ba92424d99bb0:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 890d797e76332495117ff556a0559cbe6fe3223bc4e41589753d82c92e3033a5 (wtxid 85ecb71cc21edf3a3cb7b2372f1b7dc883237180e94d6a012520d51bbdf1113f), spending 61ddc347b2542327212de8d34fcf1b3e67fd49b0f5b2ed7eb1673136eed5578d:1"
       }
     },
     {
       "name": "full-stateful/outpoint-index",
       "result": {
-        "txid": "e07107a84586ecd7075dc417c99cd6890899cbd0c3b533984effd9cfd6413c75",
-        "wtxid": "60942a0bd0aaab61998dd8169145ec0dd1265dd009d7501f4792dbb7b00f486a",
+        "txid": "7200949569569a0e31e57747619dfe13099dd9c583b82c9596eb5ccd9e791e52",
+        "wtxid": "aaf41f2b10615cf04c2fbcf57c303e0547e926243448adbe16342f2168c29c96",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of e07107a84586ecd7075dc417c99cd6890899cbd0c3b533984effd9cfd6413c75 (wtxid 60942a0bd0aaab61998dd8169145ec0dd1265dd009d7501f4792dbb7b00f486a), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:9"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 7200949569569a0e31e57747619dfe13099dd9c583b82c9596eb5ccd9e791e52 (wtxid aaf41f2b10615cf04c2fbcf57c303e0547e926243448adbe16342f2168c29c96), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:9"
       }
     },
     {
       "name": "full-stateful/output-amount",
       "result": {
-        "txid": "136a9c87411789e64cc5a32fd52dfea6f069e5f798ba0ece719d63fde2d9ad75",
-        "wtxid": "8a3e5a7ce29081a7eaeb514d878e0b608de5e926e02641513ed734b52004cc64",
+        "txid": "ebdc0a5a6644cae4e8ac6678d8d55e7810f37fc4e28fa1422c8604fb609e1caa",
+        "wtxid": "2f62a5bddd48f654b8c7f5b5b0143f7feb9054a394e768a47b37e72706944e63",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 136a9c87411789e64cc5a32fd52dfea6f069e5f798ba0ece719d63fde2d9ad75 (wtxid 8a3e5a7ce29081a7eaeb514d878e0b608de5e926e02641513ed734b52004cc64), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of ebdc0a5a6644cae4e8ac6678d8d55e7810f37fc4e28fa1422c8604fb609e1caa (wtxid 2f62a5bddd48f654b8c7f5b5b0143f7feb9054a394e768a47b37e72706944e63), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/output-script",
       "result": {
-        "txid": "10b46956abd395819acd0b8865065ca46910e80dc8ef493bae1e4e2926d8fca0",
-        "wtxid": "300d5eac1c247eeef171964b1c27300cefa561cdba2cf5b8492f13e87dcd2bcd",
+        "txid": "41090545afd2717480cd3bedba8da15c3d233dddbcac9f9f26b65467f4f9fe90",
+        "wtxid": "33282ae22c9f9d0f58ab5ce1a6441fb91b859c1a60d985a71c13341e46516901",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 10b46956abd395819acd0b8865065ca46910e80dc8ef493bae1e4e2926d8fca0 (wtxid 300d5eac1c247eeef171964b1c27300cefa561cdba2cf5b8492f13e87dcd2bcd), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 41090545afd2717480cd3bedba8da15c3d233dddbcac9f9f26b65467f4f9fe90 (wtxid 33282ae22c9f9d0f58ab5ce1a6441fb91b859c1a60d985a71c13341e46516901), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/output-order",
       "result": {
-        "txid": "af7ad964f07ca8e12b3cd0ef958e4a134e6075a6af62e11d816125f1d3ac4d5f",
-        "wtxid": "3e93121d63b91d6cf4dea7cba71cff7a2341dab11d6d32e2a5d9c488b318f035",
+        "txid": "f4a065cde72aa13f68d5bbfdecd61ab5a309112373c91ef130f05a582c3ce076",
+        "wtxid": "6b15c6a7a61b9e518dcd5a175d4fa076d27a1b324f31c4938b61146d9c22b863",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of af7ad964f07ca8e12b3cd0ef958e4a134e6075a6af62e11d816125f1d3ac4d5f (wtxid 3e93121d63b91d6cf4dea7cba71cff7a2341dab11d6d32e2a5d9c488b318f035), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of f4a065cde72aa13f68d5bbfdecd61ab5a309112373c91ef130f05a582c3ce076 (wtxid 6b15c6a7a61b9e518dcd5a175d4fa076d27a1b324f31c4938b61146d9c22b863), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/output-count",
       "result": {
-        "txid": "437b53f0b414ffe2bee9015eef5a89b66cc142407c7cf5e245e708cc5cfc72b0",
-        "wtxid": "f0e79b33c5d05502b1ffebe4ab0b809108df1b2bec7c35d98bc86c1c35c6e1b1",
+        "txid": "69a0aba0f15b9a636f8b9c5e0dbecfb19332958adb6d7300bbe661ff1d0e0fb8",
+        "wtxid": "127860b7989afafcfdb99f33aaff5933dc9f03b5019df3c3a5b68193ec24e9b1",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 437b53f0b414ffe2bee9015eef5a89b66cc142407c7cf5e245e708cc5cfc72b0 (wtxid f0e79b33c5d05502b1ffebe4ab0b809108df1b2bec7c35d98bc86c1c35c6e1b1), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 69a0aba0f15b9a636f8b9c5e0dbecfb19332958adb6d7300bbe661ff1d0e0fb8 (wtxid 127860b7989afafcfdb99f33aaff5933dc9f03b5019df3c3a5b68193ec24e9b1), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/cross-policy",
       "result": {
-        "txid": "0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e",
-        "wtxid": "eee3082420bd75de0ab3915d41224927603011b07147d33f660cba4d28ef6ae5",
+        "txid": "bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5",
+        "wtxid": "9c0928f48c2e7bf658fb3a5538ca7cd62017f2e5f3335f4243a0ebdfb83a1f2d",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e (wtxid eee3082420bd75de0ab3915d41224927603011b07147d33f660cba4d28ef6ae5), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5 (wtxid 9c0928f48c2e7bf658fb3a5538ca7cd62017f2e5f3335f4243a0ebdfb83a1f2d), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/annex",
       "result": {
-        "txid": "0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e",
-        "wtxid": "4ee31b830cebcbd7291ceb0c59d969e8cb2a2f9a39b703c259e144baae8880a0",
+        "txid": "bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5",
+        "wtxid": "38ed5b8e0f1a7e4f29b5a942fa9f7b3ec09aa54c04ac41a6996b6fe52823446f",
         "allowed": false,
         "reject-reason": "bad-witness-nonstandard",
         "reject-details": "bad-witness-nonstandard"
@@ -480,148 +480,148 @@
     {
       "name": "full-stateful/extra-witness",
       "result": {
-        "txid": "0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e",
-        "wtxid": "0ec9c40d3afb505c9ec3e859885ee9a5da1231cc424b6045701e20030848857d",
+        "txid": "bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5",
+        "wtxid": "f19a7c5ffe28418e4747fa2af758e76d9548fa56422d0e4a653457617920178c",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e (wtxid 0ec9c40d3afb505c9ec3e859885ee9a5da1231cc424b6045701e20030848857d), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5 (wtxid f19a7c5ffe28418e4747fa2af758e76d9548fa56422d0e4a653457617920178c), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/spent-amount",
       "result": {
-        "txid": "0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e",
-        "wtxid": "ca2513b7e0ded4bd27b16bb36df451978db1cd40eaf6ede5fa81595649bcc51f",
+        "txid": "bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5",
+        "wtxid": "e423cfd4dca7f09b3c9cf82f4e356d2a889455124505198cc624ac0cf21b48c5",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e (wtxid ca2513b7e0ded4bd27b16bb36df451978db1cd40eaf6ede5fa81595649bcc51f), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5 (wtxid e423cfd4dca7f09b3c9cf82f4e356d2a889455124505198cc624ac0cf21b48c5), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/spent-script",
       "result": {
-        "txid": "0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e",
-        "wtxid": "4b27e42ef89811ec891a8abe1b3918daf0c3e2ea65e2d9f47f8dbb03e6dcbdf4",
+        "txid": "bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5",
+        "wtxid": "365e21d0750ba131533fda6f8da1f0596ad54e38338e9784170fe527a5cbc8d8",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 0e269a1274c4bee718fbc6a98522ab4f55b9cc86796765c2ecdca5ba5d282c5e (wtxid 4b27e42ef89811ec891a8abe1b3918daf0c3e2ea65e2d9f47f8dbb03e6dcbdf4), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of bf7277c0f1619bd948cdf28e9119f8f87c8f85efb2e9b8aeff4865e07bf45ac5 (wtxid 365e21d0750ba131533fda6f8da1f0596ad54e38338e9784170fe527a5cbc8d8), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateful/appended-input-binding",
       "result": {
-        "txid": "28791613e6fd2944460d19415504f06f3fed1aa1f9336242194134bb3728674e",
-        "wtxid": "2abc066c7fbd793884fc052999828cadd839b29444cec0733603d050574bc71e",
+        "txid": "6f3b60b64a4e7789d55c1365892d95fcabf849e9e624e96fb75ca6b3bcc368fe",
+        "wtxid": "95bf6049e917eb5f393d98fae47ee1f124e424b0b0c51100ce4c12c8194bb50e",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 28791613e6fd2944460d19415504f06f3fed1aa1f9336242194134bb3728674e (wtxid 2abc066c7fbd793884fc052999828cadd839b29444cec0733603d050574bc71e), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:1"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 6f3b60b64a4e7789d55c1365892d95fcabf849e9e624e96fb75ca6b3bcc368fe (wtxid 95bf6049e917eb5f393d98fae47ee1f124e424b0b0c51100ce4c12c8194bb50e), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:1"
       }
     },
     {
       "name": "full-stateless/version",
       "result": {
-        "txid": "2f53f36791d2b7dacd04af06b8be8a18536b0143041d0eb0a4a8790b402e2e5a",
-        "wtxid": "8f9a63459b1379ce0bb0947df55dccc486d8ab1259d1e4b9e5e238c851b55b51",
+        "txid": "924b0627b634c18be3eda236d5bbf783623d51940c55d330fa1ac4c3e506d936",
+        "wtxid": "b1f40ff69859a39c7824fa40c3eb1ef0a837c05a9d24b9fc0dae38e4876d572f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2f53f36791d2b7dacd04af06b8be8a18536b0143041d0eb0a4a8790b402e2e5a (wtxid 8f9a63459b1379ce0bb0947df55dccc486d8ab1259d1e4b9e5e238c851b55b51), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 924b0627b634c18be3eda236d5bbf783623d51940c55d330fa1ac4c3e506d936 (wtxid b1f40ff69859a39c7824fa40c3eb1ef0a837c05a9d24b9fc0dae38e4876d572f), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/locktime",
       "result": {
-        "txid": "98e496676773e9e84f2846772ea6acd949d5da68660dcea5d65b07a75d1c598e",
-        "wtxid": "0ae51f45be702d56614faa84cd79203a74201365692da174e0f14a26ddf0dda2",
+        "txid": "3da2013fcc2134baf47bd93e9a89a492fcbc789e9136f5b27eb61ebb3281f779",
+        "wtxid": "2a3cc5c84c1ff0f2bc17375513cc99134792bb44bff93e577760957c4bcc7dda",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 98e496676773e9e84f2846772ea6acd949d5da68660dcea5d65b07a75d1c598e (wtxid 0ae51f45be702d56614faa84cd79203a74201365692da174e0f14a26ddf0dda2), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 3da2013fcc2134baf47bd93e9a89a492fcbc789e9136f5b27eb61ebb3281f779 (wtxid 2a3cc5c84c1ff0f2bc17375513cc99134792bb44bff93e577760957c4bcc7dda), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/sequence",
       "result": {
-        "txid": "7b6354a5435d084b85bf327b8861b9209d9abb4f7cf6ef61893b7ee340aedafd",
-        "wtxid": "30656546818a52f24763614e9f16ea34cd61289a6e24aacd02c2113156fbc8eb",
+        "txid": "67d13f5802b479fefe71c93ad44f84e1387c2580e52992140041750f31b3f980",
+        "wtxid": "6da1957e665c755ccb460548990502481dab26b39b3560d272bd2f42f23bd376",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 7b6354a5435d084b85bf327b8861b9209d9abb4f7cf6ef61893b7ee340aedafd (wtxid 30656546818a52f24763614e9f16ea34cd61289a6e24aacd02c2113156fbc8eb), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 67d13f5802b479fefe71c93ad44f84e1387c2580e52992140041750f31b3f980 (wtxid 6da1957e665c755ccb460548990502481dab26b39b3560d272bd2f42f23bd376), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/outpoint-txid",
       "result": {
-        "txid": "ec13cbcd1afa06352f96fce84be4f45211e47ccf3c8ced1fc5a8d1a00503f15a",
-        "wtxid": "eee20d2dd13c1da5ee56218b7dd9016a23a236a53032594a441ae7128bbe57b5",
+        "txid": "1651773ece2ec06241b5ba37f325aa46cee0d888c7cb1751a29e29575183a3e4",
+        "wtxid": "06d660b0135ccc4e5969b9f71550d4d1f41a1ca2242d8a8f4262ab974c82d339",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of ec13cbcd1afa06352f96fce84be4f45211e47ccf3c8ced1fc5a8d1a00503f15a (wtxid eee20d2dd13c1da5ee56218b7dd9016a23a236a53032594a441ae7128bbe57b5), spending a66cb500c91dc5abef9f9979c8a735e3543a6f1a93bf45fee49ba92424d99bb0:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 1651773ece2ec06241b5ba37f325aa46cee0d888c7cb1751a29e29575183a3e4 (wtxid 06d660b0135ccc4e5969b9f71550d4d1f41a1ca2242d8a8f4262ab974c82d339), spending 61ddc347b2542327212de8d34fcf1b3e67fd49b0f5b2ed7eb1673136eed5578d:2"
       }
     },
     {
       "name": "full-stateless/outpoint-index",
       "result": {
-        "txid": "b4076bcb7b2c203b9f3a93fbf33685788b959171e6d4e09263c7509dfb49230b",
-        "wtxid": "f33fefde18bc60ce24774ac3d860651b70a359444f2a94563d3d7953c65132af",
+        "txid": "a0d5eed4defb59ef2f33fd71462198afe1ed8bbb8e9d86b145fcd6513a0b549e",
+        "wtxid": "da780d2d9f06779fc0596c2f19a3b922b594392a17a051643b15e1f60554fd71",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of b4076bcb7b2c203b9f3a93fbf33685788b959171e6d4e09263c7509dfb49230b (wtxid f33fefde18bc60ce24774ac3d860651b70a359444f2a94563d3d7953c65132af), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:10"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of a0d5eed4defb59ef2f33fd71462198afe1ed8bbb8e9d86b145fcd6513a0b549e (wtxid da780d2d9f06779fc0596c2f19a3b922b594392a17a051643b15e1f60554fd71), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:10"
       }
     },
     {
       "name": "full-stateless/output-amount",
       "result": {
-        "txid": "cc7afd2efc036ab8946c77bd9d39e67ecfc44828738bc96b4d021e87bafbb7f5",
-        "wtxid": "741cba063fab506be7c19dbd9e117c25f85892ffedc01c78e8c8546ba6b506a0",
+        "txid": "f52b3fbbca90d8ef5c23dbff2da896d2fc354a0a4a7bc033413053e72c6656d8",
+        "wtxid": "01ac296a6a10aabb7f2752dae91dca465999123038ed3b860c8f665c3423634a",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of cc7afd2efc036ab8946c77bd9d39e67ecfc44828738bc96b4d021e87bafbb7f5 (wtxid 741cba063fab506be7c19dbd9e117c25f85892ffedc01c78e8c8546ba6b506a0), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of f52b3fbbca90d8ef5c23dbff2da896d2fc354a0a4a7bc033413053e72c6656d8 (wtxid 01ac296a6a10aabb7f2752dae91dca465999123038ed3b860c8f665c3423634a), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/output-script",
       "result": {
-        "txid": "764602199d192905fd1479be23aeae4305a4c3cf139b8afbad6363dc9aca567c",
-        "wtxid": "8cca0a62c3212d4861b8048043d9f89b1f5ce76922cb62495a1e46e0616d3142",
+        "txid": "89c0e74dd8c45123619e8cae5259da6f6c3b152c71889d64e7df8471cedfe2ac",
+        "wtxid": "cdd75ee03927483cc63e9e3fa45e6fb61477dca31e45436e2c0230d4d2cfa90d",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 764602199d192905fd1479be23aeae4305a4c3cf139b8afbad6363dc9aca567c (wtxid 8cca0a62c3212d4861b8048043d9f89b1f5ce76922cb62495a1e46e0616d3142), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 89c0e74dd8c45123619e8cae5259da6f6c3b152c71889d64e7df8471cedfe2ac (wtxid cdd75ee03927483cc63e9e3fa45e6fb61477dca31e45436e2c0230d4d2cfa90d), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/output-order",
       "result": {
-        "txid": "1169cb4e0f90abf4110d8a1622cb272bf16698d8d111933d8ddc66ea4f0a2c9b",
-        "wtxid": "c19fe53264208423b27c00fc4a1aa6010ee834a105594e1b38e6845fbb0685cc",
+        "txid": "6bfc41f51ca45c8a67b577eb3f6e2829c9ff2dea76c0ed870e53f2b53299e756",
+        "wtxid": "4ca2b01053825c72f862109572471a8bba4024d22ee6c633c0669c9eb276ef91",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 1169cb4e0f90abf4110d8a1622cb272bf16698d8d111933d8ddc66ea4f0a2c9b (wtxid c19fe53264208423b27c00fc4a1aa6010ee834a105594e1b38e6845fbb0685cc), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 6bfc41f51ca45c8a67b577eb3f6e2829c9ff2dea76c0ed870e53f2b53299e756 (wtxid 4ca2b01053825c72f862109572471a8bba4024d22ee6c633c0669c9eb276ef91), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/output-count",
       "result": {
-        "txid": "2f019b09610a78fb885c710b47fcfe953c9678cc64bee2c1a7a1d62fa32d899a",
-        "wtxid": "ca8004be018bc23a2619b20c1df2a1c4a42aeb55536a8ffc4a6e04310d0db7fd",
+        "txid": "610866bfb86485be0a2a85c2a16a7ecc1ed3dfd513bf91588de4e9cc406edf2c",
+        "wtxid": "d6c706c0e774a2922eecf6f3b4db824961eee1dd2215d54635754e7fa7d258e9",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2f019b09610a78fb885c710b47fcfe953c9678cc64bee2c1a7a1d62fa32d899a (wtxid ca8004be018bc23a2619b20c1df2a1c4a42aeb55536a8ffc4a6e04310d0db7fd), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 610866bfb86485be0a2a85c2a16a7ecc1ed3dfd513bf91588de4e9cc406edf2c (wtxid d6c706c0e774a2922eecf6f3b4db824961eee1dd2215d54635754e7fa7d258e9), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/cross-policy",
       "result": {
-        "txid": "c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964",
-        "wtxid": "4b50d106a59517904fde8bb8d1340ed438b1ff23dad8471b52690ad6176363b0",
+        "txid": "1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85",
+        "wtxid": "4749cea81b4fc24d74f162dda03391b6eec9261edf45320220439c85050efc6f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964 (wtxid 4b50d106a59517904fde8bb8d1340ed438b1ff23dad8471b52690ad6176363b0), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85 (wtxid 4749cea81b4fc24d74f162dda03391b6eec9261edf45320220439c85050efc6f), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/annex",
       "result": {
-        "txid": "c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964",
-        "wtxid": "4e73242fe7e55eaed190aa835a7814b4379f70ac3cf3a6f7334cd6f260382ee3",
+        "txid": "1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85",
+        "wtxid": "7fbf57b19099d31b5ea138b3d5a081f55b8c26db4ea858b7ab6c9a189493a739",
         "allowed": false,
         "reject-reason": "bad-witness-nonstandard",
         "reject-details": "bad-witness-nonstandard"
@@ -630,148 +630,148 @@
     {
       "name": "full-stateless/extra-witness",
       "result": {
-        "txid": "c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964",
-        "wtxid": "a08953752414f592446292cd6b415c791dc03d1f68f0658a19c0fc79c29f792a",
+        "txid": "1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85",
+        "wtxid": "838857b27ca5559d3aaf18f7375f136d50e2680acb9627e4836620bc2f76cb8b",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964 (wtxid a08953752414f592446292cd6b415c791dc03d1f68f0658a19c0fc79c29f792a), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85 (wtxid 838857b27ca5559d3aaf18f7375f136d50e2680acb9627e4836620bc2f76cb8b), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/spent-amount",
       "result": {
-        "txid": "c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964",
-        "wtxid": "c07a77327209d451c88cbd10bab22621fe05cd37d063ed64f0bb457803582414",
+        "txid": "1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85",
+        "wtxid": "c941969e0286247a7c0c9041939cd79ec63b23717a245480093fdc164d26adaf",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964 (wtxid c07a77327209d451c88cbd10bab22621fe05cd37d063ed64f0bb457803582414), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85 (wtxid c941969e0286247a7c0c9041939cd79ec63b23717a245480093fdc164d26adaf), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/spent-script",
       "result": {
-        "txid": "c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964",
-        "wtxid": "5a514f5fda290c3c8e068ee5de3d8e6accbf6826940324da8c082b73843874ff",
+        "txid": "1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85",
+        "wtxid": "5955bfd201c336d1c19289663942060c2100521f911fa36d0be43c81dad353d1",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of c7712c5188cdcca16976fef615a680fc78fb22f5252d0e00d75cee2a3e9e2964 (wtxid 5a514f5fda290c3c8e068ee5de3d8e6accbf6826940324da8c082b73843874ff), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 1c0843b8d7cc49ec053327e1aa16dd6db9859a55b28e0d48aa0f3eb6c15a8a85 (wtxid 5955bfd201c336d1c19289663942060c2100521f911fa36d0be43c81dad353d1), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "full-stateless/appended-input-binding",
       "result": {
-        "txid": "e745678f69d66d26f571222c0adbba672047b2072c439b31142b13a68845bb3d",
-        "wtxid": "1c69fb00012b8dbee5df553f134bf26969d44f3d838a94fc16c4897335a9e991",
+        "txid": "86923559589092ef3f328fba759bf7d220e248a1a58001c6ca5a845cdfa668f7",
+        "wtxid": "1030e2d5e306794cce3f7cb79bed66e108265825b3fabfdb23480560e175f200",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of e745678f69d66d26f571222c0adbba672047b2072c439b31142b13a68845bb3d (wtxid 1c69fb00012b8dbee5df553f134bf26969d44f3d838a94fc16c4897335a9e991), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:2"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 86923559589092ef3f328fba759bf7d220e248a1a58001c6ca5a845cdfa668f7 (wtxid 1030e2d5e306794cce3f7cb79bed66e108265825b3fabfdb23480560e175f200), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:2"
       }
     },
     {
       "name": "baseline-unified/version",
       "result": {
-        "txid": "18966a115f37fee1157c7a0210a03a0dcfa076c3f7846819812b468c67c3438b",
-        "wtxid": "7806259eedc248c83e32b2bf8d43a654fcac081fad08ca2946a9643fa6d5f842",
+        "txid": "bf37e54918fd687367cf99c4884f163d40cefd6ac29f97fb313df167a4e826e6",
+        "wtxid": "bd9759d64061a181f99b315baa6466ec3de1275278158e51fd7d61a4c4ee8c7f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 18966a115f37fee1157c7a0210a03a0dcfa076c3f7846819812b468c67c3438b (wtxid 7806259eedc248c83e32b2bf8d43a654fcac081fad08ca2946a9643fa6d5f842), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of bf37e54918fd687367cf99c4884f163d40cefd6ac29f97fb313df167a4e826e6 (wtxid bd9759d64061a181f99b315baa6466ec3de1275278158e51fd7d61a4c4ee8c7f), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/locktime",
       "result": {
-        "txid": "14ee8e9b056d4c431e3e3e30b428323382ef5bc70657a7a28b8219df87408c35",
-        "wtxid": "61827d8ac09274181ff9313a4ed557fc349b29e92b4c13c1c3e28bc2a450c747",
+        "txid": "2f45fbaf2e36c3c290b8ece863aa4a2a789248ac11bfafbd0bc7fba39dd588da",
+        "wtxid": "110b73178dbd3ad6077d5c627fbeaf6ead52a106a1751e0b3aaa81415161541c",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 14ee8e9b056d4c431e3e3e30b428323382ef5bc70657a7a28b8219df87408c35 (wtxid 61827d8ac09274181ff9313a4ed557fc349b29e92b4c13c1c3e28bc2a450c747), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2f45fbaf2e36c3c290b8ece863aa4a2a789248ac11bfafbd0bc7fba39dd588da (wtxid 110b73178dbd3ad6077d5c627fbeaf6ead52a106a1751e0b3aaa81415161541c), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/sequence",
       "result": {
-        "txid": "215b363b1abf9e301c933cec8929b0fd000a7d199c65990270115dc7dacece93",
-        "wtxid": "01d09875d13fb9befc6c547efd5308f639d74fd3ad70818114dee52109dd60df",
+        "txid": "2c88442bd1cc80f8d68cf7c6cfc515d7731d6c7398536acdedac8071fe6738d6",
+        "wtxid": "49df46bb7cef7364433fa8627c372b8bca5310c3fd8293a1882796d7a04b5b4a",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 215b363b1abf9e301c933cec8929b0fd000a7d199c65990270115dc7dacece93 (wtxid 01d09875d13fb9befc6c547efd5308f639d74fd3ad70818114dee52109dd60df), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2c88442bd1cc80f8d68cf7c6cfc515d7731d6c7398536acdedac8071fe6738d6 (wtxid 49df46bb7cef7364433fa8627c372b8bca5310c3fd8293a1882796d7a04b5b4a), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/outpoint-txid",
       "result": {
-        "txid": "1aee6038e5c9119a1cf1098071825c9e1664caa183ae82c401fbb3f2e0b3a6b7",
-        "wtxid": "882bc55deea0368daa14aab6cb7063a0ff2e7062199ca2beabe3530518b2d65d",
+        "txid": "e84262d99e63ed0cb3999f9a6a041c96ee3b70f6be9fece2cf7bd434a4e9ade6",
+        "wtxid": "c429fe291eeb3eaf6147ef104ee82732daea4c29965afa287309a519427f39f9",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 1aee6038e5c9119a1cf1098071825c9e1664caa183ae82c401fbb3f2e0b3a6b7 (wtxid 882bc55deea0368daa14aab6cb7063a0ff2e7062199ca2beabe3530518b2d65d), spending a66cb500c91dc5abef9f9979c8a735e3543a6f1a93bf45fee49ba92424d99bb0:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of e84262d99e63ed0cb3999f9a6a041c96ee3b70f6be9fece2cf7bd434a4e9ade6 (wtxid c429fe291eeb3eaf6147ef104ee82732daea4c29965afa287309a519427f39f9), spending 61ddc347b2542327212de8d34fcf1b3e67fd49b0f5b2ed7eb1673136eed5578d:3"
       }
     },
     {
       "name": "baseline-unified/outpoint-index",
       "result": {
-        "txid": "2e62df6567b04cd4882e4ba6380a37c24085516b2ed17e8b137cff94575b645c",
-        "wtxid": "5d64f6bb518d1c070b305f8d6dcfa151632e9cad34c771999388de25f4b6e3f8",
+        "txid": "60284b8bf1706c3d7ce51f3999c6d4b7935c0ee46b3f9d2de9f75b9a84355a9e",
+        "wtxid": "bba775957d20905ab37f2a45d2aaf38dc6120fb3ded25f6b427857d0b67711aa",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2e62df6567b04cd4882e4ba6380a37c24085516b2ed17e8b137cff94575b645c (wtxid 5d64f6bb518d1c070b305f8d6dcfa151632e9cad34c771999388de25f4b6e3f8), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:11"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 60284b8bf1706c3d7ce51f3999c6d4b7935c0ee46b3f9d2de9f75b9a84355a9e (wtxid bba775957d20905ab37f2a45d2aaf38dc6120fb3ded25f6b427857d0b67711aa), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:11"
       }
     },
     {
       "name": "baseline-unified/output-amount",
       "result": {
-        "txid": "06e122d197ac460d475a398d0ee37d0a63baf1847ce044e1c8be5f8907ab9770",
-        "wtxid": "0010dc6d79e97a89e2a5ba761b8e8b7b9897617e22c14df8fe512c8e27b0ab13",
+        "txid": "5776eae33047e6337cce60a70583ca25bbf434fc487a4a65eb7747d46856ecc3",
+        "wtxid": "99bb2e245a4646ad5d9092a33d0b15bf8887c6650769ec80708365ba4a9e58eb",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 06e122d197ac460d475a398d0ee37d0a63baf1847ce044e1c8be5f8907ab9770 (wtxid 0010dc6d79e97a89e2a5ba761b8e8b7b9897617e22c14df8fe512c8e27b0ab13), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 5776eae33047e6337cce60a70583ca25bbf434fc487a4a65eb7747d46856ecc3 (wtxid 99bb2e245a4646ad5d9092a33d0b15bf8887c6650769ec80708365ba4a9e58eb), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/output-script",
       "result": {
-        "txid": "73d5b24b34825b710c01e3dfa1b84985584fb16b9aa784d258847c3e501566d8",
-        "wtxid": "91cbe5391bb1f0c6cce6ca1fa707ed670a3ee4841ec10ee541aa6753f40d4218",
+        "txid": "9acb1c94014e49b8cfe062f6c87a62b94d9c8c0a835977a491490dea643d1c91",
+        "wtxid": "8914e549fd74249a3aaa0837710c4f9a32c34029ff428c5cc07a849d4ec42d0c",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 73d5b24b34825b710c01e3dfa1b84985584fb16b9aa784d258847c3e501566d8 (wtxid 91cbe5391bb1f0c6cce6ca1fa707ed670a3ee4841ec10ee541aa6753f40d4218), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 9acb1c94014e49b8cfe062f6c87a62b94d9c8c0a835977a491490dea643d1c91 (wtxid 8914e549fd74249a3aaa0837710c4f9a32c34029ff428c5cc07a849d4ec42d0c), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/output-order",
       "result": {
-        "txid": "4dd3d329402a61f481bee5bd8a1ce576292421a7e2d56cc216572edc6b90d4a4",
-        "wtxid": "558b1eb785e699e6d52260b67f275e8a1e4fab501e0844834ee42b4672215302",
+        "txid": "3d87173ae84297578fcada41d8ada4d9a8279f6b7a1b9217770246523dee9a04",
+        "wtxid": "febdc3fafd933bc0a3c06a813bc4004d565cd2a99d251f1649f222dc3139194c",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 4dd3d329402a61f481bee5bd8a1ce576292421a7e2d56cc216572edc6b90d4a4 (wtxid 558b1eb785e699e6d52260b67f275e8a1e4fab501e0844834ee42b4672215302), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 3d87173ae84297578fcada41d8ada4d9a8279f6b7a1b9217770246523dee9a04 (wtxid febdc3fafd933bc0a3c06a813bc4004d565cd2a99d251f1649f222dc3139194c), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/output-count",
       "result": {
-        "txid": "af4c423fbe84e75d73cd693e51bf663af881423ffb792be49fe1df8e3d0294cf",
-        "wtxid": "090fd9358a96a7434e0c04809a8b1107f08aa71caba7d2ae6ce6f7c48e23df54",
+        "txid": "2ec9da3ccdaf4042424e125b89c7fb746bd86689bb60f12a013e41eb0dd69452",
+        "wtxid": "031dd523c1997d040364c395427e0c38f44c243a02ca87cd854f87a84d0d81b0",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of af4c423fbe84e75d73cd693e51bf663af881423ffb792be49fe1df8e3d0294cf (wtxid 090fd9358a96a7434e0c04809a8b1107f08aa71caba7d2ae6ce6f7c48e23df54), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2ec9da3ccdaf4042424e125b89c7fb746bd86689bb60f12a013e41eb0dd69452 (wtxid 031dd523c1997d040364c395427e0c38f44c243a02ca87cd854f87a84d0d81b0), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/cross-policy",
       "result": {
-        "txid": "fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5",
-        "wtxid": "3c76de4c75c43584be2ebd02bf4bd4bae69c6590b859b22de9bc3991599790e1",
+        "txid": "c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871",
+        "wtxid": "9e3f43001bd1f42d3c195cb679c5350c72539d9b30ab1f4760861ccc83af9144",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5 (wtxid 3c76de4c75c43584be2ebd02bf4bd4bae69c6590b859b22de9bc3991599790e1), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871 (wtxid 9e3f43001bd1f42d3c195cb679c5350c72539d9b30ab1f4760861ccc83af9144), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/annex",
       "result": {
-        "txid": "fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5",
-        "wtxid": "7c55019cff27739b8e9e8de513f47343e426ebf6d2390fe3004404b99a12d703",
+        "txid": "c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871",
+        "wtxid": "bc98a9a0c85248cd749ddc6b4ecde44e392b7d352a8c96f688d0d8c0a6dd8fa6",
         "allowed": false,
         "reject-reason": "bad-witness-nonstandard",
         "reject-details": "bad-witness-nonstandard"
@@ -780,38 +780,38 @@
     {
       "name": "baseline-unified/extra-witness",
       "result": {
-        "txid": "fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5",
-        "wtxid": "d67c9be0cfb41a369e680c7764dce95ec7790b69f59e6a7c5ca8b8e8f625b9e6",
+        "txid": "c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871",
+        "wtxid": "8ff79ab9217b01103013bcf23817bb6f2a20b53cc7e54bc0d716fc780656949d",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5 (wtxid d67c9be0cfb41a369e680c7764dce95ec7790b69f59e6a7c5ca8b8e8f625b9e6), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871 (wtxid 8ff79ab9217b01103013bcf23817bb6f2a20b53cc7e54bc0d716fc780656949d), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/spent-amount",
       "result": {
-        "txid": "fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5",
-        "wtxid": "d81ae473798df7ffde1752c028ea50d75e57f5942d64258f6517941457b71d9b",
+        "txid": "c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871",
+        "wtxid": "52f37cb0cf98210b44d96211a35faa0622d187b7e75e41f7557e3267a96092cf",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5 (wtxid d81ae473798df7ffde1752c028ea50d75e57f5942d64258f6517941457b71d9b), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871 (wtxid 52f37cb0cf98210b44d96211a35faa0622d187b7e75e41f7557e3267a96092cf), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/spent-script",
       "result": {
-        "txid": "fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5",
-        "wtxid": "5cfc0084b6b6cd65c75d67890a96fd5ede7536f59f8dbc5be0782c87cf4cb374",
+        "txid": "c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871",
+        "wtxid": "ee2f9abc815671233739854bb39de829dfebd6bdbef8870aaa59d39922744885",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of fd1ba9409719a61137715e7745b835f99bad9fa6e9d915ce2e308f0806a7c0b5 (wtxid 5cfc0084b6b6cd65c75d67890a96fd5ede7536f59f8dbc5be0782c87cf4cb374), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:3"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c510ee9b53f4cfb3cfc5604efbabe530bd800b9800d831e0ddc35e990a7b4871 (wtxid ee2f9abc815671233739854bb39de829dfebd6bdbef8870aaa59d39922744885), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:3"
       }
     },
     {
       "name": "baseline-unified/appended-input-binding",
       "result": {
-        "txid": "70b25b2a61a6ef4cbfe22dd557302c0b1f66748b8dbbe288437daff3c0fbd69e",
-        "wtxid": "fc501d46ec4bda1269a07ac624dd6de1638f29e49b3d4ae7588e39be2c8b0c73",
+        "txid": "318c6eeb7c70f0e1e36289344be4281c98416998e0915e5b880b747aaa765ce4",
+        "wtxid": "d749fdef99c242e8539631ccb4b60df6270c184b9061fdb40c19afbf41198f88",
         "allowed": false,
         "reject-reason": "tx-size",
         "reject-details": "tx-size"
@@ -820,108 +820,108 @@
     {
       "name": "baseline-stateful/version",
       "result": {
-        "txid": "0a5ce6761258fea9d96d88f1279611505f5b643ff5fe1d29f1a22d3bbe944a89",
-        "wtxid": "ca8f4ba5e94c525c817a23f1c918a9c8291111c09dda45a16dde1eafed0fce1c",
+        "txid": "5c963c0aaeba5708a465b0d0804b2b354f4e6cb2d4cd5fb9bfd63c06ea1b201e",
+        "wtxid": "dd90c8a112a9abf9c3d0c6ca10567281e8a05959825981208bc85d5f42b6ea49",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 0a5ce6761258fea9d96d88f1279611505f5b643ff5fe1d29f1a22d3bbe944a89 (wtxid ca8f4ba5e94c525c817a23f1c918a9c8291111c09dda45a16dde1eafed0fce1c), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 5c963c0aaeba5708a465b0d0804b2b354f4e6cb2d4cd5fb9bfd63c06ea1b201e (wtxid dd90c8a112a9abf9c3d0c6ca10567281e8a05959825981208bc85d5f42b6ea49), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/locktime",
       "result": {
-        "txid": "d48fc261908bc1065bbbb62252b882e710232272795e6836b97c690d1f68d54b",
-        "wtxid": "0c1954d9333bd338094e6bd350f467d84a29b969642cc4facbbce1747c2bc222",
+        "txid": "409c5fb0cbd0e3c9990f4b4653d9c60cf8f2ab76954ceb12d0ecea913347df5b",
+        "wtxid": "6427377e08ba6b2b674062aa10eecac1efb50a568352e7ba99da4da0cbe6a93e",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of d48fc261908bc1065bbbb62252b882e710232272795e6836b97c690d1f68d54b (wtxid 0c1954d9333bd338094e6bd350f467d84a29b969642cc4facbbce1747c2bc222), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 409c5fb0cbd0e3c9990f4b4653d9c60cf8f2ab76954ceb12d0ecea913347df5b (wtxid 6427377e08ba6b2b674062aa10eecac1efb50a568352e7ba99da4da0cbe6a93e), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/sequence",
       "result": {
-        "txid": "9b9db9f20b94a852e1dabdfb7797700ccffd396e5b5f35c7171afc6c3f77cc8e",
-        "wtxid": "0e2a28e7887b40195e900ef9c0b91e3d8f75c460926731e2dc6b6523e67e7d48",
+        "txid": "e4d8a62131c2c12fd28d62e9f612bf8ccc4d3c7f748cb78489c58a03560b881c",
+        "wtxid": "8db923051e3d7888226eade30eafb2f3733425e954a38fe9d91609794bf511ad",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 9b9db9f20b94a852e1dabdfb7797700ccffd396e5b5f35c7171afc6c3f77cc8e (wtxid 0e2a28e7887b40195e900ef9c0b91e3d8f75c460926731e2dc6b6523e67e7d48), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of e4d8a62131c2c12fd28d62e9f612bf8ccc4d3c7f748cb78489c58a03560b881c (wtxid 8db923051e3d7888226eade30eafb2f3733425e954a38fe9d91609794bf511ad), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/outpoint-txid",
       "result": {
-        "txid": "c65776c64064dbfe6d4eda00f254a88a1b47e68d8150b8c297efa33fbada1491",
-        "wtxid": "ac2fe1827c70912269dd0fd8c5176e2e290e2fa60b00e6ff832f9a826bae0692",
+        "txid": "ec9d0aa8bf2403a83ecd7ecb51a3c439f18e5cec21dd533df33747aaae464f7f",
+        "wtxid": "fc90dd45198d74e5715642b110a987798f7113bce55d37650a8adc803dee721f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c65776c64064dbfe6d4eda00f254a88a1b47e68d8150b8c297efa33fbada1491 (wtxid ac2fe1827c70912269dd0fd8c5176e2e290e2fa60b00e6ff832f9a826bae0692), spending a66cb500c91dc5abef9f9979c8a735e3543a6f1a93bf45fee49ba92424d99bb0:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of ec9d0aa8bf2403a83ecd7ecb51a3c439f18e5cec21dd533df33747aaae464f7f (wtxid fc90dd45198d74e5715642b110a987798f7113bce55d37650a8adc803dee721f), spending 61ddc347b2542327212de8d34fcf1b3e67fd49b0f5b2ed7eb1673136eed5578d:4"
       }
     },
     {
       "name": "baseline-stateful/outpoint-index",
       "result": {
-        "txid": "8e61dcb9a97fde90234fa1a8561261e509ad59ff8735b805e01fc52b8e54a37a",
-        "wtxid": "2cf8d2763f24ffaec2b74fba78e95d633c062f04f986d1886b9a5fcab7b7f0e4",
+        "txid": "826bd25d47d68af6de43f043423026b312ca4911f5af9c36b133172058986628",
+        "wtxid": "47f0bc379d787c7f79fb342273178d42613c829e05ca47dd70c1fbb758e3cd68",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 8e61dcb9a97fde90234fa1a8561261e509ad59ff8735b805e01fc52b8e54a37a (wtxid 2cf8d2763f24ffaec2b74fba78e95d633c062f04f986d1886b9a5fcab7b7f0e4), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:12"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 826bd25d47d68af6de43f043423026b312ca4911f5af9c36b133172058986628 (wtxid 47f0bc379d787c7f79fb342273178d42613c829e05ca47dd70c1fbb758e3cd68), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:12"
       }
     },
     {
       "name": "baseline-stateful/output-amount",
       "result": {
-        "txid": "3bf887666bb0a72ffc815a226ff7860fa3262316d077034e165edcbaf09cc456",
-        "wtxid": "a14910f548f6287acc848d0a720d9543edb84ac61bc6e18981446ed615c6d84b",
+        "txid": "3a1bf9989086a9079f449e8e328aaec32789bb199a26538c8a31d0484f4c22af",
+        "wtxid": "10aa39bad54e68b9faa703c62e18cf43b268d62f539b262cb085cb8b11fd0a75",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 3bf887666bb0a72ffc815a226ff7860fa3262316d077034e165edcbaf09cc456 (wtxid a14910f548f6287acc848d0a720d9543edb84ac61bc6e18981446ed615c6d84b), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 3a1bf9989086a9079f449e8e328aaec32789bb199a26538c8a31d0484f4c22af (wtxid 10aa39bad54e68b9faa703c62e18cf43b268d62f539b262cb085cb8b11fd0a75), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/output-script",
       "result": {
-        "txid": "f4945f458bb3980c81e7d267abe7bc302b3896131c4f4040566bb548dd31b0b6",
-        "wtxid": "4d7e4af2307493115e15ea4b4d1b4657e86c7418f16b3e26088c3516688513d0",
+        "txid": "b5add222b1fce9fe8a73282cb640894c268445b70c2d7fefbc2ca8fd445f72e0",
+        "wtxid": "c246e91dd2dfccb57d2aaa6fd26eb753a5709b3abfc732bfd4d35fc775ac19c6",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of f4945f458bb3980c81e7d267abe7bc302b3896131c4f4040566bb548dd31b0b6 (wtxid 4d7e4af2307493115e15ea4b4d1b4657e86c7418f16b3e26088c3516688513d0), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of b5add222b1fce9fe8a73282cb640894c268445b70c2d7fefbc2ca8fd445f72e0 (wtxid c246e91dd2dfccb57d2aaa6fd26eb753a5709b3abfc732bfd4d35fc775ac19c6), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/output-order",
       "result": {
-        "txid": "fedc2dc23882db96da6ae407accb6ee0b2ddf737cbac6ec9f14186b77b4a4795",
-        "wtxid": "805fa3fd46fa8ddc813815d647230a1804d0780a203cd0f207ae0fce6d1eb204",
+        "txid": "a52b1c6e90b43fa9a386c98af327307f3b4f4cc342bbcd155062257c9255ec5b",
+        "wtxid": "ef8b3977a0e8058ffb4f42e578ffbdc5bef2958e56bf2cf85a15e03d18ea9098",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of fedc2dc23882db96da6ae407accb6ee0b2ddf737cbac6ec9f14186b77b4a4795 (wtxid 805fa3fd46fa8ddc813815d647230a1804d0780a203cd0f207ae0fce6d1eb204), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of a52b1c6e90b43fa9a386c98af327307f3b4f4cc342bbcd155062257c9255ec5b (wtxid ef8b3977a0e8058ffb4f42e578ffbdc5bef2958e56bf2cf85a15e03d18ea9098), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/output-count",
       "result": {
-        "txid": "0fd10654b208125adaab20e371e646539f432d50348401e57dd6c0615a98bb5a",
-        "wtxid": "17f34670e066b81d1a81ecaddb0fdb26473f2f2c7847bbc204fa4ea24ea758a4",
+        "txid": "a33039f869f2e5a90abda9fef50053aeef39457d16c40327856898c986c763dc",
+        "wtxid": "5824df31df7cffa7d71f55c1148d0c63073215050c005c36ae07ad5b2c133b69",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 0fd10654b208125adaab20e371e646539f432d50348401e57dd6c0615a98bb5a (wtxid 17f34670e066b81d1a81ecaddb0fdb26473f2f2c7847bbc204fa4ea24ea758a4), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of a33039f869f2e5a90abda9fef50053aeef39457d16c40327856898c986c763dc (wtxid 5824df31df7cffa7d71f55c1148d0c63073215050c005c36ae07ad5b2c133b69), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/cross-policy",
       "result": {
-        "txid": "93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896",
-        "wtxid": "4b3206e3b89b45eba0f4d8d6073350f3a1f953510b76a9428960cccc943da81a",
+        "txid": "88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194",
+        "wtxid": "69002c6dc162c0ecdb7c3cd13f2cee0c8aa2e021cfb81f1d7b8c7a457eb7ba20",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896 (wtxid 4b3206e3b89b45eba0f4d8d6073350f3a1f953510b76a9428960cccc943da81a), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194 (wtxid 69002c6dc162c0ecdb7c3cd13f2cee0c8aa2e021cfb81f1d7b8c7a457eb7ba20), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/annex",
       "result": {
-        "txid": "93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896",
-        "wtxid": "4a9a09ed290537312fe8b823540e8612347d18c25a687ec6af49fe0de25255cb",
+        "txid": "88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194",
+        "wtxid": "c5bea838c5545fe52089f2e92c53ee9d4c73e95e451cf888ce8da04c47737396",
         "allowed": false,
         "reject-reason": "bad-witness-nonstandard",
         "reject-details": "bad-witness-nonstandard"
@@ -930,148 +930,148 @@
     {
       "name": "baseline-stateful/extra-witness",
       "result": {
-        "txid": "93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896",
-        "wtxid": "117392bcb7ad69656fb55129ac2a0b7f107c74f8d76cecc86908d8ec8649353c",
+        "txid": "88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194",
+        "wtxid": "3885978fffe99a9c0303f1825a1365a98f023044f2ef930b937c94ad4736f069",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896 (wtxid 117392bcb7ad69656fb55129ac2a0b7f107c74f8d76cecc86908d8ec8649353c), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194 (wtxid 3885978fffe99a9c0303f1825a1365a98f023044f2ef930b937c94ad4736f069), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/spent-amount",
       "result": {
-        "txid": "93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896",
-        "wtxid": "d1a10fdc0b7f137dfaa7f5dbc791c6541b0c5d3f7f7bca0a1df93b935e04a29a",
+        "txid": "88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194",
+        "wtxid": "aca525b9f99a793f9b2c8d5101f8e3ec598bc13ce22a59c6d9e6385f177274da",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896 (wtxid d1a10fdc0b7f137dfaa7f5dbc791c6541b0c5d3f7f7bca0a1df93b935e04a29a), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194 (wtxid aca525b9f99a793f9b2c8d5101f8e3ec598bc13ce22a59c6d9e6385f177274da), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/spent-script",
       "result": {
-        "txid": "93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896",
-        "wtxid": "041f8ff235f4e75b0324818c76dc5a40bfd1dcbf891f60bb5f50914e18a3b1b1",
+        "txid": "88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194",
+        "wtxid": "f9cc7539aa920b217b95de88fcedf56f8c9459e0e0528d618851722658c050aa",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 93eab4740fe1fd020c8d22b6dd32055e597d287311cb23dc9723b9ebb1062896 (wtxid 041f8ff235f4e75b0324818c76dc5a40bfd1dcbf891f60bb5f50914e18a3b1b1), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 88f7f315576d1ee21810ce94765d72db6a47286c3c57ca684267505bfd71b194 (wtxid f9cc7539aa920b217b95de88fcedf56f8c9459e0e0528d618851722658c050aa), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateful/appended-input-binding",
       "result": {
-        "txid": "bd6aef4bb7087894c9e63190887be9784107b95bb166b44a1be8d1684708b5fb",
-        "wtxid": "047bccedc3e3b8a51febd5daa53332e6904847174cd67c5b0ff476e2ff8270ee",
+        "txid": "d72ce81c81ead2b85ab990bf93d2a02f02fa17b0b35172db1f540eefba1b088d",
+        "wtxid": "7800b23facb703d06b17607d0f38f135accf359989a2b785858d060f4349a5ab",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of bd6aef4bb7087894c9e63190887be9784107b95bb166b44a1be8d1684708b5fb (wtxid 047bccedc3e3b8a51febd5daa53332e6904847174cd67c5b0ff476e2ff8270ee), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:4"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of d72ce81c81ead2b85ab990bf93d2a02f02fa17b0b35172db1f540eefba1b088d (wtxid 7800b23facb703d06b17607d0f38f135accf359989a2b785858d060f4349a5ab), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:4"
       }
     },
     {
       "name": "baseline-stateless/version",
       "result": {
-        "txid": "0ac8ac1adc9ccb8248385603a75e668b50dc9fc8b8484c84bb211482be1b81ab",
-        "wtxid": "cbfbb0e31f1a6cb4d0e03da6b2458896811556d2a061e88394dc556907f760bb",
+        "txid": "14f6116f693ee7d2164ba6c9769e9b58cac39e439cf4cbf1e4111875fef442f3",
+        "wtxid": "685ae6155427945bb6e7183e8011a38a7b9599fcfaf9f3d441b17b54952301e9",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 0ac8ac1adc9ccb8248385603a75e668b50dc9fc8b8484c84bb211482be1b81ab (wtxid cbfbb0e31f1a6cb4d0e03da6b2458896811556d2a061e88394dc556907f760bb), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 14f6116f693ee7d2164ba6c9769e9b58cac39e439cf4cbf1e4111875fef442f3 (wtxid 685ae6155427945bb6e7183e8011a38a7b9599fcfaf9f3d441b17b54952301e9), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/locktime",
       "result": {
-        "txid": "98cc542f360dc58a31cd2a8ca322fb9b23bde06f21ea198b9ba9ce4aa347ff8b",
-        "wtxid": "cfff1b2030e8e2583747602f2bfdeb8da91eef161985aee95af1596f18191822",
+        "txid": "5f16024d343200b46b65f352ab2c066c056f316e7f10241570c412b9bf7da527",
+        "wtxid": "b201a0852948d64700012a7d36e685382f00a9a921b08174e51ffa23e786d15b",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 98cc542f360dc58a31cd2a8ca322fb9b23bde06f21ea198b9ba9ce4aa347ff8b (wtxid cfff1b2030e8e2583747602f2bfdeb8da91eef161985aee95af1596f18191822), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 5f16024d343200b46b65f352ab2c066c056f316e7f10241570c412b9bf7da527 (wtxid b201a0852948d64700012a7d36e685382f00a9a921b08174e51ffa23e786d15b), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/sequence",
       "result": {
-        "txid": "4fe95e02fb2c69b0ef3fed28ec174c634dbd5681b2b5dd1fb328da10a63ee9b3",
-        "wtxid": "ffc3585a704cf726690962c700bc6d965c0315787000e684336c779e36945b4f",
+        "txid": "e4c291134c2f9194e14a41dc3ffb676df9efbac2e8a3c33e1fcbb193c5a65172",
+        "wtxid": "b7e7c5d68309334bb70b78c36114e2c349a880e8837db55aa47255493aadf4b2",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 4fe95e02fb2c69b0ef3fed28ec174c634dbd5681b2b5dd1fb328da10a63ee9b3 (wtxid ffc3585a704cf726690962c700bc6d965c0315787000e684336c779e36945b4f), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of e4c291134c2f9194e14a41dc3ffb676df9efbac2e8a3c33e1fcbb193c5a65172 (wtxid b7e7c5d68309334bb70b78c36114e2c349a880e8837db55aa47255493aadf4b2), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/outpoint-txid",
       "result": {
-        "txid": "77121b600dd41e37192971cc026c66a3cc641dd6124387b65029658789e49437",
-        "wtxid": "86f58e0317766a2ab92d340c338dfd218ec320e52e92a0c414f18fa65bfddc82",
+        "txid": "47965701ca546a51aaf4f129d9e3f14395476bcd2957d3fc2bea0b6c559bfaee",
+        "wtxid": "5db8eff1d5f1783d6499ef9b277d4b32478af493dc853b38e0e7ae12ccc633b7",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 77121b600dd41e37192971cc026c66a3cc641dd6124387b65029658789e49437 (wtxid 86f58e0317766a2ab92d340c338dfd218ec320e52e92a0c414f18fa65bfddc82), spending a66cb500c91dc5abef9f9979c8a735e3543a6f1a93bf45fee49ba92424d99bb0:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 47965701ca546a51aaf4f129d9e3f14395476bcd2957d3fc2bea0b6c559bfaee (wtxid 5db8eff1d5f1783d6499ef9b277d4b32478af493dc853b38e0e7ae12ccc633b7), spending 61ddc347b2542327212de8d34fcf1b3e67fd49b0f5b2ed7eb1673136eed5578d:5"
       }
     },
     {
       "name": "baseline-stateless/outpoint-index",
       "result": {
-        "txid": "c08505dfef62bcb0fc4da0e692fb9231f7e7652825ed4ada208c2da20eb91d53",
-        "wtxid": "eacaa349d81a3a5f49d5fa9ac33500c4c714001fe167fa443e22057cac9fefdd",
+        "txid": "233d5fb7ed032c1a793738074575b625ace9bfd94b52e3939178c12711d88e04",
+        "wtxid": "d805b53df0b5c3dc50091f9eefe9a6b354dec446b3825a5e29d36956124938b0",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of c08505dfef62bcb0fc4da0e692fb9231f7e7652825ed4ada208c2da20eb91d53 (wtxid eacaa349d81a3a5f49d5fa9ac33500c4c714001fe167fa443e22057cac9fefdd), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:13"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 233d5fb7ed032c1a793738074575b625ace9bfd94b52e3939178c12711d88e04 (wtxid d805b53df0b5c3dc50091f9eefe9a6b354dec446b3825a5e29d36956124938b0), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:13"
       }
     },
     {
       "name": "baseline-stateless/output-amount",
       "result": {
-        "txid": "ae426c3aac0e4bc7983f7865f6cb14d11c44924427cf1f47ded3c6df85cdae17",
-        "wtxid": "3a7c055d6924c662d60ccf2f2fb1cea5cf77b771bfd99604465324d0f708cdc7",
+        "txid": "dfa72d2e43679b48c0699e9742dcf9f983563723fd49da00426dbeac4f95558b",
+        "wtxid": "348ae4ce0614211e3b6b5638df651cafaf643d7f705a6eaed3e4a6e2ba8bf19d",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of ae426c3aac0e4bc7983f7865f6cb14d11c44924427cf1f47ded3c6df85cdae17 (wtxid 3a7c055d6924c662d60ccf2f2fb1cea5cf77b771bfd99604465324d0f708cdc7), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of dfa72d2e43679b48c0699e9742dcf9f983563723fd49da00426dbeac4f95558b (wtxid 348ae4ce0614211e3b6b5638df651cafaf643d7f705a6eaed3e4a6e2ba8bf19d), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/output-script",
       "result": {
-        "txid": "88dfd7aa2af35390c7ab979698ece584d854b13bcd86de17e7a845c155dde8da",
-        "wtxid": "4a9db60464888eb53abde1f6458e4ddd809829ec727e3e4085ba4e8f6ed75117",
+        "txid": "627eff9b7de69806c9a8cb50765a95533d136d7bd64b8b34f3d99e106d7325e9",
+        "wtxid": "70c3b07762a4cf7d5c01d3c8d7c92f158db5d5867fe39b5099238face2dcf5f3",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 88dfd7aa2af35390c7ab979698ece584d854b13bcd86de17e7a845c155dde8da (wtxid 4a9db60464888eb53abde1f6458e4ddd809829ec727e3e4085ba4e8f6ed75117), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 627eff9b7de69806c9a8cb50765a95533d136d7bd64b8b34f3d99e106d7325e9 (wtxid 70c3b07762a4cf7d5c01d3c8d7c92f158db5d5867fe39b5099238face2dcf5f3), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/output-order",
       "result": {
-        "txid": "7c10acf2d4a2bd6982c83c53e0e8f25174ccf4b0791c85abe3c12830139c88e1",
-        "wtxid": "c3f3d39fb83587711bfebe88865e54c83f3e1aedbd99534e7ca7b32b71325018",
+        "txid": "326322040a9563262c705606d5226479d210e2d3405a5d361589fa5955b1b514",
+        "wtxid": "661f5b61a29d24cc208b01ecbf2dd13c5df4c2367f34302c244c2d1ca8dacf02",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 7c10acf2d4a2bd6982c83c53e0e8f25174ccf4b0791c85abe3c12830139c88e1 (wtxid c3f3d39fb83587711bfebe88865e54c83f3e1aedbd99534e7ca7b32b71325018), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 326322040a9563262c705606d5226479d210e2d3405a5d361589fa5955b1b514 (wtxid 661f5b61a29d24cc208b01ecbf2dd13c5df4c2367f34302c244c2d1ca8dacf02), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/output-count",
       "result": {
-        "txid": "83184c60e56cee619f1ba0b763d1e3f2609d837210d47958e4c5e515bfc7e1b6",
-        "wtxid": "8d85b6585e9e5d8b78f822b4f1c64f670792cccd385c5b580d3656de81afe853",
+        "txid": "9f34e8fdfdf34614bed994daf4ea9616bff06d85af0cc1629f72824581c3371e",
+        "wtxid": "3781f5c9fa452d0dc7e633ec112c5ec80715509550ff02baa869854682b01db1",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 83184c60e56cee619f1ba0b763d1e3f2609d837210d47958e4c5e515bfc7e1b6 (wtxid 8d85b6585e9e5d8b78f822b4f1c64f670792cccd385c5b580d3656de81afe853), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 9f34e8fdfdf34614bed994daf4ea9616bff06d85af0cc1629f72824581c3371e (wtxid 3781f5c9fa452d0dc7e633ec112c5ec80715509550ff02baa869854682b01db1), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/cross-policy",
       "result": {
-        "txid": "929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee",
-        "wtxid": "183c172492a281d776f9a4de8224426396e7bcdb0ddd27fcf19f60652e1d1b87",
+        "txid": "942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb",
+        "wtxid": "68807a03004f3ddb0f2e332186f88d2ad72a6f69f341739055dfae5ef5c40009",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee (wtxid 183c172492a281d776f9a4de8224426396e7bcdb0ddd27fcf19f60652e1d1b87), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb (wtxid 68807a03004f3ddb0f2e332186f88d2ad72a6f69f341739055dfae5ef5c40009), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/annex",
       "result": {
-        "txid": "929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee",
-        "wtxid": "fed6cc32905d47f9cb38b721821f463fba37926c5c5f505b02c9dd562c52d11d",
+        "txid": "942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb",
+        "wtxid": "612a1d851ce04cdcf4aee395a7341924edb9999faae4de1eee42a0f46658fed6",
         "allowed": false,
         "reject-reason": "bad-witness-nonstandard",
         "reject-details": "bad-witness-nonstandard"
@@ -1080,148 +1080,148 @@
     {
       "name": "baseline-stateless/extra-witness",
       "result": {
-        "txid": "929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee",
-        "wtxid": "21500070636cf2f3c59460eca6ccbe56bbc6e458ba34e2efaffb2a475e0f3877",
+        "txid": "942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb",
+        "wtxid": "56e0e5f1e41dc3be3da78f506e92b0b14e49760fb861e6f25c83494f6819d175",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee (wtxid 21500070636cf2f3c59460eca6ccbe56bbc6e458ba34e2efaffb2a475e0f3877), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb (wtxid 56e0e5f1e41dc3be3da78f506e92b0b14e49760fb861e6f25c83494f6819d175), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/spent-amount",
       "result": {
-        "txid": "929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee",
-        "wtxid": "7a6c04ef538f86bebeeb76767b18c652996fe6f1ddf32802cb54ff1fcdfd73fd",
+        "txid": "942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb",
+        "wtxid": "69cae1908701873f4eae6f8b1fa224dbb2192a81c7f54722e654f73e7b75e24a",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee (wtxid 7a6c04ef538f86bebeeb76767b18c652996fe6f1ddf32802cb54ff1fcdfd73fd), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb (wtxid 69cae1908701873f4eae6f8b1fa224dbb2192a81c7f54722e654f73e7b75e24a), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/spent-script",
       "result": {
-        "txid": "929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee",
-        "wtxid": "838e3183f100a5ef3bdab3a176b248e49164b8010a202f0531041504e50a5465",
+        "txid": "942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb",
+        "wtxid": "5a301c8fc8576fdc8005ec913e548627876ea9fd6f34aa1d5b6bd44dfe62abf2",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 929718c192767e68fd30ac5222952a2b9196a05248af1aab2d2b981b38fe88ee (wtxid 838e3183f100a5ef3bdab3a176b248e49164b8010a202f0531041504e50a5465), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 942a22ba0ddc51187aad7f88463fe0b511c05de62b89288f51e60384d45b26cb (wtxid 5a301c8fc8576fdc8005ec913e548627876ea9fd6f34aa1d5b6bd44dfe62abf2), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "baseline-stateless/appended-input-binding",
       "result": {
-        "txid": "807e83a779e3337eb18a9b0b446d5ae1ff462a143db7b3923dcbde5dc78b5cfb",
-        "wtxid": "28b0ac7c30b0430a8805a75cd9cb9749d94a579b46336763fdaccd87b2d3ec1e",
+        "txid": "607c4d29473e4dfba065db5a4ae2e99a23b0f685ad94919f1edceedaca98b729",
+        "wtxid": "41e529c35d5e9b0a3515e8e1815239b6a1bd8ef3d743a686952693fde72f532f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 807e83a779e3337eb18a9b0b446d5ae1ff462a143db7b3923dcbde5dc78b5cfb (wtxid 28b0ac7c30b0430a8805a75cd9cb9749d94a579b46336763fdaccd87b2d3ec1e), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:5"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 607c4d29473e4dfba065db5a4ae2e99a23b0f685ad94919f1edceedaca98b729 (wtxid 41e529c35d5e9b0a3515e8e1815239b6a1bd8ef3d743a686952693fde72f532f), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:5"
       }
     },
     {
       "name": "full-unified-sl/version",
       "result": {
-        "txid": "7b315918cb6d936927fb8ad412014797cd4f29994bae4815b149a13910002839",
-        "wtxid": "df6a994296e94b83df51d2a78e76d769ac936065ce0faa8a487e6c75ec8a19f8",
+        "txid": "d4f72c529acbd2099dee0e6e7d39d2fc87a9baccef790f0f7b30bbd940a340ea",
+        "wtxid": "f800afb7cf3f813f7508e855391da31155a40188b49208d390eedacec248f683",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 7b315918cb6d936927fb8ad412014797cd4f29994bae4815b149a13910002839 (wtxid df6a994296e94b83df51d2a78e76d769ac936065ce0faa8a487e6c75ec8a19f8), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of d4f72c529acbd2099dee0e6e7d39d2fc87a9baccef790f0f7b30bbd940a340ea (wtxid f800afb7cf3f813f7508e855391da31155a40188b49208d390eedacec248f683), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/locktime",
       "result": {
-        "txid": "4fd571e543eded3e922f4561c80f0dcc338b5cc658fe9993bde9f751c6839d22",
-        "wtxid": "698c936882d04a9fea104ab4c07591c00c642b11e4884cac9d2530afe55ec217",
+        "txid": "22e5349a4b805c8c1fce36abbd023c063fbd5032562e45427e629c2cf589c457",
+        "wtxid": "5496f59d65b895b3c4be42960c4d44c5503463ba6773ba3b309f62750686fc79",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 4fd571e543eded3e922f4561c80f0dcc338b5cc658fe9993bde9f751c6839d22 (wtxid 698c936882d04a9fea104ab4c07591c00c642b11e4884cac9d2530afe55ec217), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 22e5349a4b805c8c1fce36abbd023c063fbd5032562e45427e629c2cf589c457 (wtxid 5496f59d65b895b3c4be42960c4d44c5503463ba6773ba3b309f62750686fc79), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/sequence",
       "result": {
-        "txid": "97b15e78a541b4df576765fc8e4671c77108cd965f96080a9a97e5656d7ed0b1",
-        "wtxid": "d9133302e6fc1a572e3648cbcaa3b090075092ea4217b9ad7b708c6c2bbe6faf",
+        "txid": "8614aa91f3f2ad6fc1c7896d8e39c31184798f661181026f6244da65f9a41beb",
+        "wtxid": "6f0312511a506ccb8fb9ff8277599a12b95b944dde739534daa0069cb9275f4f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 97b15e78a541b4df576765fc8e4671c77108cd965f96080a9a97e5656d7ed0b1 (wtxid d9133302e6fc1a572e3648cbcaa3b090075092ea4217b9ad7b708c6c2bbe6faf), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 8614aa91f3f2ad6fc1c7896d8e39c31184798f661181026f6244da65f9a41beb (wtxid 6f0312511a506ccb8fb9ff8277599a12b95b944dde739534daa0069cb9275f4f), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/outpoint-txid",
       "result": {
-        "txid": "eadd0ffd1ecd1572bb83707a0e930aab5eeffe1721c17841a27784f322043d34",
-        "wtxid": "531518374d8051a65da313ac7526e7f828e4b5883a71babd4d547aa6c1c901ff",
+        "txid": "5eaf1e9cf6680b536731ed1970baebba46686ea8baaf71f83be7f1ee5287b6de",
+        "wtxid": "0ec1ca9bba099280fb537c7f5a6329f61c6ba24a9e7f1760e07152bfaa5c50bb",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of eadd0ffd1ecd1572bb83707a0e930aab5eeffe1721c17841a27784f322043d34 (wtxid 531518374d8051a65da313ac7526e7f828e4b5883a71babd4d547aa6c1c901ff), spending a66cb500c91dc5abef9f9979c8a735e3543a6f1a93bf45fee49ba92424d99bb0:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 5eaf1e9cf6680b536731ed1970baebba46686ea8baaf71f83be7f1ee5287b6de (wtxid 0ec1ca9bba099280fb537c7f5a6329f61c6ba24a9e7f1760e07152bfaa5c50bb), spending 61ddc347b2542327212de8d34fcf1b3e67fd49b0f5b2ed7eb1673136eed5578d:6"
       }
     },
     {
       "name": "full-unified-sl/outpoint-index",
       "result": {
-        "txid": "43800ea47bd9eeb36603416b06a09202a5b8cab8ac634d1297a99abd899f44ba",
-        "wtxid": "35f55336073f224e1f4555855a90ac6bc5e71a6fae12554ab81d0b1b736e8c95",
+        "txid": "a3b952962e6e64ceaa7cc161d1ad89ac5ccdf848dd15682b2b1deba8646fc7e1",
+        "wtxid": "13c170eeb13e9035c8060a24a3038bab39c1d0a7a36a52023d30a56295bec113",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 43800ea47bd9eeb36603416b06a09202a5b8cab8ac634d1297a99abd899f44ba (wtxid 35f55336073f224e1f4555855a90ac6bc5e71a6fae12554ab81d0b1b736e8c95), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:14"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of a3b952962e6e64ceaa7cc161d1ad89ac5ccdf848dd15682b2b1deba8646fc7e1 (wtxid 13c170eeb13e9035c8060a24a3038bab39c1d0a7a36a52023d30a56295bec113), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:14"
       }
     },
     {
       "name": "full-unified-sl/output-amount",
       "result": {
-        "txid": "f720f9e8a04b8a864627312e5edbb8357e0d69df9babfa52e8c772447ab83937",
-        "wtxid": "c3f357666f392bad126ffad6d64cfd9052a57096a20c3be137f0dedc3f711878",
+        "txid": "80fa881bb17d61ff22ae420fe8137facb317dff31d87deffa44f8024401922a3",
+        "wtxid": "4977a3440e1d319ac234f220d5893439fed49dab37cf92d7222185a89f182a4b",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of f720f9e8a04b8a864627312e5edbb8357e0d69df9babfa52e8c772447ab83937 (wtxid c3f357666f392bad126ffad6d64cfd9052a57096a20c3be137f0dedc3f711878), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 80fa881bb17d61ff22ae420fe8137facb317dff31d87deffa44f8024401922a3 (wtxid 4977a3440e1d319ac234f220d5893439fed49dab37cf92d7222185a89f182a4b), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/output-script",
       "result": {
-        "txid": "2fe0c0fefa3712cfacbfc9082e6c47d1c1d0cdfb8bf163a720ccaa85ebf4bb6f",
-        "wtxid": "bc90385ac8cef5db94a8d97721d56f529b80c6e824dbd2038a77b1d42978f2fe",
+        "txid": "8178a8528ea56d4a2ec7136ea9e02eddbc9ae08c158f418360317f09043c82ee",
+        "wtxid": "ed68983faa35071e87afbfba3a261316eae49a5790ba2346943e8165161fca7b",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2fe0c0fefa3712cfacbfc9082e6c47d1c1d0cdfb8bf163a720ccaa85ebf4bb6f (wtxid bc90385ac8cef5db94a8d97721d56f529b80c6e824dbd2038a77b1d42978f2fe), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 8178a8528ea56d4a2ec7136ea9e02eddbc9ae08c158f418360317f09043c82ee (wtxid ed68983faa35071e87afbfba3a261316eae49a5790ba2346943e8165161fca7b), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/output-order",
       "result": {
-        "txid": "3d9af303f4beeb71db68caac064b5cb0f31b64a342655f3f7cde10407bc2d03e",
-        "wtxid": "f3295530e4a4cee54b0abeb2b5d9a046e2c8dfbd58633dd578f71fefc5d5167b",
+        "txid": "86d93a97928793debc58f79d10eea06dfc4f8a3433417da4902c7f58d6f0934f",
+        "wtxid": "282f3a61c3bacf9e034b0c89b2bc106babb6b038acacb2e1082e140710039311",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 3d9af303f4beeb71db68caac064b5cb0f31b64a342655f3f7cde10407bc2d03e (wtxid f3295530e4a4cee54b0abeb2b5d9a046e2c8dfbd58633dd578f71fefc5d5167b), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 86d93a97928793debc58f79d10eea06dfc4f8a3433417da4902c7f58d6f0934f (wtxid 282f3a61c3bacf9e034b0c89b2bc106babb6b038acacb2e1082e140710039311), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/output-count",
       "result": {
-        "txid": "2a2ac3ca327b7e7f8ca4bc71b0db5079c6c935277f49fa00d053be54b9230ddb",
-        "wtxid": "73c5045e0bab2bf44f7736f3ca85c3807ab4635327ae449b533132170722ec22",
+        "txid": "c99944c35a3155460f5cce631d2dc3a6f6afa00bd3555d02892774b9418b3be5",
+        "wtxid": "1a8c6510f783a185cc17eadb5fc7752c45002a827b7d4e2b0d07a0fcea1e5e26",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2a2ac3ca327b7e7f8ca4bc71b0db5079c6c935277f49fa00d053be54b9230ddb (wtxid 73c5045e0bab2bf44f7736f3ca85c3807ab4635327ae449b533132170722ec22), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of c99944c35a3155460f5cce631d2dc3a6f6afa00bd3555d02892774b9418b3be5 (wtxid 1a8c6510f783a185cc17eadb5fc7752c45002a827b7d4e2b0d07a0fcea1e5e26), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/cross-policy",
       "result": {
-        "txid": "a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402",
-        "wtxid": "e44073533383dc13d13b202aa81c3335073fe687518142e0499ce8e01bf4630b",
+        "txid": "2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547",
+        "wtxid": "99c5778ba8e6376af051c81890092b8a097610672668024832f1c705c65e22a9",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402 (wtxid e44073533383dc13d13b202aa81c3335073fe687518142e0499ce8e01bf4630b), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547 (wtxid 99c5778ba8e6376af051c81890092b8a097610672668024832f1c705c65e22a9), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/annex",
       "result": {
-        "txid": "a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402",
-        "wtxid": "cc42e19809acc5fed4a85e75de16b65f13d3cbd895136ae549410af23781ac9d",
+        "txid": "2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547",
+        "wtxid": "1077819c299feb64e95d7187da76d0ea5f67237f480bcea4ac7baade825d03bb",
         "allowed": false,
         "reject-reason": "bad-witness-nonstandard",
         "reject-details": "bad-witness-nonstandard"
@@ -1230,148 +1230,148 @@
     {
       "name": "full-unified-sl/extra-witness",
       "result": {
-        "txid": "a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402",
-        "wtxid": "b82cbda33164031e6c7a829b546ae802f03c5930e9bbdd86921ef43ad9390580",
+        "txid": "2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547",
+        "wtxid": "6174140c8d304bbd3d11d2da03a1c8d4fe9f058ba825e3aea0bd6baeb0976f00",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402 (wtxid b82cbda33164031e6c7a829b546ae802f03c5930e9bbdd86921ef43ad9390580), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547 (wtxid 6174140c8d304bbd3d11d2da03a1c8d4fe9f058ba825e3aea0bd6baeb0976f00), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/spent-amount",
       "result": {
-        "txid": "a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402",
-        "wtxid": "2c9d5308407f53d66e7e703979b24460bffd0f9e1d607939c92ad9df4d8648f7",
+        "txid": "2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547",
+        "wtxid": "bd1382fd49dd746e91f0dd4f993602ed3f9d7b36ca13559698b655d05addcf6d",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402 (wtxid 2c9d5308407f53d66e7e703979b24460bffd0f9e1d607939c92ad9df4d8648f7), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547 (wtxid bd1382fd49dd746e91f0dd4f993602ed3f9d7b36ca13559698b655d05addcf6d), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/spent-script",
       "result": {
-        "txid": "a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402",
-        "wtxid": "23fad75b4109dda5eaa9dc35314ab04a96db4476b2788570c995d22b337dfade",
+        "txid": "2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547",
+        "wtxid": "5ae2039b9de52e80f5c6ec1dae55375a3a093dc9ce27c6104d52856020ae7641",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of a7a927c81aba83b525b9a6f3eded1efabe9c2510e579a0561cd39f79b02f1402 (wtxid 23fad75b4109dda5eaa9dc35314ab04a96db4476b2788570c995d22b337dfade), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2bac0b856786f0ec072c15529f56d55b13124680717d69b71b86a34601b50547 (wtxid 5ae2039b9de52e80f5c6ec1dae55375a3a093dc9ce27c6104d52856020ae7641), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "full-unified-sl/appended-input-binding",
       "result": {
-        "txid": "11f67f00004ce3c5db520fecb617c703cd966b48abdf0a36d7d8d67f729bc8bd",
-        "wtxid": "c61b899b495b914c1e20cfa0744786d8f3d7f6fd50d6bac550f317139881dcbe",
+        "txid": "b5261f3f81003029fa42688f23fa485e4f08a085e9f3d0a650ec16f99c56bb6f",
+        "wtxid": "9d188f4786999644ed513bc6fafa554c462801233c15219af87fd12a025ff3d5",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 11f67f00004ce3c5db520fecb617c703cd966b48abdf0a36d7d8d67f729bc8bd (wtxid c61b899b495b914c1e20cfa0744786d8f3d7f6fd50d6bac550f317139881dcbe), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:6"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of b5261f3f81003029fa42688f23fa485e4f08a085e9f3d0a650ec16f99c56bb6f (wtxid 9d188f4786999644ed513bc6fafa554c462801233c15219af87fd12a025ff3d5), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:6"
       }
     },
     {
       "name": "baseline-unified-sl/version",
       "result": {
-        "txid": "afe003011f4b1046885e216cfa4381755d0290f9e5f64a420f8249574cbe3827",
-        "wtxid": "68999062f5f4729ea8ba59415158d92deb87297ab4a82e75f8616e30d5adf84c",
+        "txid": "e8904cf6153416ac23b7903a9d34c422bab22bf7e2fb1f18b5c20e31cead2eff",
+        "wtxid": "9fa28c7cd93235574283119969aa9e23b66ec7d71bb1b8840ce18c88c573aea1",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of afe003011f4b1046885e216cfa4381755d0290f9e5f64a420f8249574cbe3827 (wtxid 68999062f5f4729ea8ba59415158d92deb87297ab4a82e75f8616e30d5adf84c), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of e8904cf6153416ac23b7903a9d34c422bab22bf7e2fb1f18b5c20e31cead2eff (wtxid 9fa28c7cd93235574283119969aa9e23b66ec7d71bb1b8840ce18c88c573aea1), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/locktime",
       "result": {
-        "txid": "e0572f273e42f564ce29ad4eab7d895c9292528537fb31a17331d387da071f3e",
-        "wtxid": "9d420827a1c805087f6cc163fc235c1dbd670b3772c27fbc994888999ab1ba8b",
+        "txid": "dfb86b50aa77fe4cfce7a090e390a177a5b4815e5eed2a5621181fb1c9e39722",
+        "wtxid": "fb79c08e1efa3d81bf0f361e2fb51098916445c5601827e2e2616c7266d66bf0",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of e0572f273e42f564ce29ad4eab7d895c9292528537fb31a17331d387da071f3e (wtxid 9d420827a1c805087f6cc163fc235c1dbd670b3772c27fbc994888999ab1ba8b), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of dfb86b50aa77fe4cfce7a090e390a177a5b4815e5eed2a5621181fb1c9e39722 (wtxid fb79c08e1efa3d81bf0f361e2fb51098916445c5601827e2e2616c7266d66bf0), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/sequence",
       "result": {
-        "txid": "c3cd44d87f26ee6f13445add6a3dfd5b8359c71c32e70f63a4e63d24a23fe1d1",
-        "wtxid": "83a6bacbe192a0cb8f5b09e75baecd8730b7f2348712902686c021f317f8fd69",
+        "txid": "f0bcb720a34aaf8a45151860ff2f95e7ac37269aab04cdfa6d430c8b7d37df48",
+        "wtxid": "60d5a11d6babf8cef86f9bf73599ba4edb77812bf946296574592af9c64dcb5a",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of c3cd44d87f26ee6f13445add6a3dfd5b8359c71c32e70f63a4e63d24a23fe1d1 (wtxid 83a6bacbe192a0cb8f5b09e75baecd8730b7f2348712902686c021f317f8fd69), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of f0bcb720a34aaf8a45151860ff2f95e7ac37269aab04cdfa6d430c8b7d37df48 (wtxid 60d5a11d6babf8cef86f9bf73599ba4edb77812bf946296574592af9c64dcb5a), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/outpoint-txid",
       "result": {
-        "txid": "2d34684c42fd0227fbaf7409a6f0b31d7eac086bea8a39cafd1b60ad4ffe9981",
-        "wtxid": "ff53c4a7fadce076702783d1b24d69e3e213610965b8296b3a65e7d51b632d65",
+        "txid": "b28f6e734ea6c9ae57f87d08fc0471a667dc94f05022d9e9f6a3a497f0463bdc",
+        "wtxid": "09b9d85a117da4ebff7be4bd74c772bce08d99f2b4fcf5b93b635fc9fc88902c",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 2d34684c42fd0227fbaf7409a6f0b31d7eac086bea8a39cafd1b60ad4ffe9981 (wtxid ff53c4a7fadce076702783d1b24d69e3e213610965b8296b3a65e7d51b632d65), spending a66cb500c91dc5abef9f9979c8a735e3543a6f1a93bf45fee49ba92424d99bb0:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of b28f6e734ea6c9ae57f87d08fc0471a667dc94f05022d9e9f6a3a497f0463bdc (wtxid 09b9d85a117da4ebff7be4bd74c772bce08d99f2b4fcf5b93b635fc9fc88902c), spending 61ddc347b2542327212de8d34fcf1b3e67fd49b0f5b2ed7eb1673136eed5578d:7"
       }
     },
     {
       "name": "baseline-unified-sl/outpoint-index",
       "result": {
-        "txid": "bb9503f0364df7e911a044fbb76d26999347c8fd836e48b6c31ec2f092248f32",
-        "wtxid": "f2ee54c4074a5f6a8d70bfee5714dca8c7482c71838bc06609e8eae89ec823fb",
+        "txid": "169a659e60fbbeeeaf546b56ebdb1049d5e7e5e6d282d85b0152ee5463161d2d",
+        "wtxid": "bebc2ca1ce6bfce0e689e8f3b725dcb9333ff56cf86a5612d1e6ee78a99610cc",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of bb9503f0364df7e911a044fbb76d26999347c8fd836e48b6c31ec2f092248f32 (wtxid f2ee54c4074a5f6a8d70bfee5714dca8c7482c71838bc06609e8eae89ec823fb), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:15"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 169a659e60fbbeeeaf546b56ebdb1049d5e7e5e6d282d85b0152ee5463161d2d (wtxid bebc2ca1ce6bfce0e689e8f3b725dcb9333ff56cf86a5612d1e6ee78a99610cc), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:15"
       }
     },
     {
       "name": "baseline-unified-sl/output-amount",
       "result": {
-        "txid": "cd7133bfa9dab67ebfa3aa20404ac5fbd5fff3092c0d01de10c2f13941d83f61",
-        "wtxid": "61401621ccf3151ee0e20587096aca6d1cc61d82b154de5fdd0f3901fe7d4636",
+        "txid": "8e111f3483b717ed5374ddc31ce2d846e68d51caeb323ac95898bf950d060237",
+        "wtxid": "f3b0fdfca25ae164c7313e7b9cf6f3753c7cb855bb8523be5eb54edf21bd1065",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of cd7133bfa9dab67ebfa3aa20404ac5fbd5fff3092c0d01de10c2f13941d83f61 (wtxid 61401621ccf3151ee0e20587096aca6d1cc61d82b154de5fdd0f3901fe7d4636), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 8e111f3483b717ed5374ddc31ce2d846e68d51caeb323ac95898bf950d060237 (wtxid f3b0fdfca25ae164c7313e7b9cf6f3753c7cb855bb8523be5eb54edf21bd1065), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/output-script",
       "result": {
-        "txid": "63d0778c5dafb7bbb921e059c490dd6b1883e0d75a9af3cfd254e902d7e8f68a",
-        "wtxid": "6230d0242897a1b4d803b4eb8291aa1957200f0a45e03197205a650def87465d",
+        "txid": "9bf48282b96a95729956b4947deac2521b7e159770d7ec1f37e9366cc89e2811",
+        "wtxid": "c4332f2150bf86b6f02269f1e74a74926b8f69995b8d8c6357c22cdabf933dfa",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 63d0778c5dafb7bbb921e059c490dd6b1883e0d75a9af3cfd254e902d7e8f68a (wtxid 6230d0242897a1b4d803b4eb8291aa1957200f0a45e03197205a650def87465d), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 9bf48282b96a95729956b4947deac2521b7e159770d7ec1f37e9366cc89e2811 (wtxid c4332f2150bf86b6f02269f1e74a74926b8f69995b8d8c6357c22cdabf933dfa), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/output-order",
       "result": {
-        "txid": "6c84e167b516fc1519cde7eea0f8275d4d0d23b8ab65e637fc4f2c612be78745",
-        "wtxid": "635d6c4b4db83825271ba7a448733427ebfcb36c51b99d8e04f4b4cd44208572",
+        "txid": "721dcb29afbc365fc166f5c424e63c2727e8a0db8ab33b47949272cf9c9455a2",
+        "wtxid": "dd1f376b71725504b103d08c4152dd2173f2aa3d189588abae97b3cfff9bcc28",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 6c84e167b516fc1519cde7eea0f8275d4d0d23b8ab65e637fc4f2c612be78745 (wtxid 635d6c4b4db83825271ba7a448733427ebfcb36c51b99d8e04f4b4cd44208572), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 721dcb29afbc365fc166f5c424e63c2727e8a0db8ab33b47949272cf9c9455a2 (wtxid dd1f376b71725504b103d08c4152dd2173f2aa3d189588abae97b3cfff9bcc28), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/output-count",
       "result": {
-        "txid": "97d29a087aedae3749417d89119745c409e21f042092a2d75e049f2efeeb0f7e",
-        "wtxid": "0e3ec8b09ff2fe523d19228e577dd7c9b279ecf6f6e375ce3f3243c1669de7f1",
+        "txid": "50b728452db170db92e3817b7dc31d680938034e8ad047a0f5059ffe8e04270b",
+        "wtxid": "cb062f398034fe8eb9bbf203325f35496e0bead865bef09c8c52b3b9a655f9e0",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 97d29a087aedae3749417d89119745c409e21f042092a2d75e049f2efeeb0f7e (wtxid 0e3ec8b09ff2fe523d19228e577dd7c9b279ecf6f6e375ce3f3243c1669de7f1), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 50b728452db170db92e3817b7dc31d680938034e8ad047a0f5059ffe8e04270b (wtxid cb062f398034fe8eb9bbf203325f35496e0bead865bef09c8c52b3b9a655f9e0), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/cross-policy",
       "result": {
-        "txid": "6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6",
-        "wtxid": "22c72b18a5f74977edff35e1b785a38179d3ec970abc8c4e42f457fba832c411",
+        "txid": "61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82",
+        "wtxid": "114d325be095135bae47ff062a5ea4ce19f8206218b30a84cf34e6b56efcf7c8",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6 (wtxid 22c72b18a5f74977edff35e1b785a38179d3ec970abc8c4e42f457fba832c411), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82 (wtxid 114d325be095135bae47ff062a5ea4ce19f8206218b30a84cf34e6b56efcf7c8), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/annex",
       "result": {
-        "txid": "6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6",
-        "wtxid": "7c1d5266eb05b30b1cd91b62586de12f9a5e2a7d53e17e2d01e122e2141dd4ee",
+        "txid": "61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82",
+        "wtxid": "187fe43c0d16959e0dedfba84a1700626206d715134864615cf76984f1057b2a",
         "allowed": false,
         "reject-reason": "bad-witness-nonstandard",
         "reject-details": "bad-witness-nonstandard"
@@ -1380,38 +1380,38 @@
     {
       "name": "baseline-unified-sl/extra-witness",
       "result": {
-        "txid": "6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6",
-        "wtxid": "7d2c0f682bf19398efcee49f30644a645a786b2b0e87c001c2c2547534315f5f",
+        "txid": "61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82",
+        "wtxid": "6ac233ad2e4e479fcd7a6c165a932368e121cab5a3e290fe1df2184748c90a03",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6 (wtxid 7d2c0f682bf19398efcee49f30644a645a786b2b0e87c001c2c2547534315f5f), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82 (wtxid 6ac233ad2e4e479fcd7a6c165a932368e121cab5a3e290fe1df2184748c90a03), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/spent-amount",
       "result": {
-        "txid": "6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6",
-        "wtxid": "8c8398f875cb148c092684dafdcf67f27c6b50b475751141fd8bd32c3684b229",
+        "txid": "61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82",
+        "wtxid": "988406c8915a1d9f3688ed0f2ebaf3541cb5765cac4b1d8456ede23f2e7bffbc",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6 (wtxid 8c8398f875cb148c092684dafdcf67f27c6b50b475751141fd8bd32c3684b229), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82 (wtxid 988406c8915a1d9f3688ed0f2ebaf3541cb5765cac4b1d8456ede23f2e7bffbc), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/spent-script",
       "result": {
-        "txid": "6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6",
-        "wtxid": "4cb01d00e4d5cf1b64e3667d41371210af8ebe1d70c9a51d4f8f31491c5f88f6",
+        "txid": "61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82",
+        "wtxid": "fa3f0f45652f0bceb786e443787e4f74be9845ec4c2d5fcc9e2eae2b1bb03dae",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 6dad518c110382bd8edce919d1a4564414a09e4a40a76c1a24aba508df2a33f6 (wtxid 4cb01d00e4d5cf1b64e3667d41371210af8ebe1d70c9a51d4f8f31491c5f88f6), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:7"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 61f1c11aac137a5d4bfbe9c668be2662ae30bd31a4f18161adc47a860b6aad82 (wtxid fa3f0f45652f0bceb786e443787e4f74be9845ec4c2d5fcc9e2eae2b1bb03dae), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:7"
       }
     },
     {
       "name": "baseline-unified-sl/appended-input-binding",
       "result": {
-        "txid": "c47d41cc27ed51a968037dbfbd371960e29bca8437396891b6d8e38ea3382c28",
-        "wtxid": "149c31ed11b03a0a350259feb09d11d514f997af690decb3618ebc7b2c330380",
+        "txid": "d324eff0187646fb931669bb98db76f686cda0320ce6e6f0d26cc55c72162c67",
+        "wtxid": "50e23ad850b3bdc23fff6025161e22a72fe745e3e694eea69a60626c074ef83f",
         "allowed": false,
         "reject-reason": "tx-size",
         "reject-details": "tx-size"
@@ -1420,51 +1420,51 @@
     {
       "name": "multi2/current-input-binding",
       "result": {
-        "txid": "c859df81a604edbdec680f90886da20bdac435935a4de32cc9f0409e64689f54",
-        "wtxid": "d722785497d4f8e4b0b91168486ed878ed56589a4e8dd62b78817b9fc5de9ec2",
+        "txid": "672e70a54658c58ee1e0ca3d86788085645b1e24445bc30e7d95ab8bd536175a",
+        "wtxid": "4f0564aa24c44e00a026532a0ab84aeaee8946e98b3d0cbf8c12f46d9da10857",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of c859df81a604edbdec680f90886da20bdac435935a4de32cc9f0409e64689f54 (wtxid d722785497d4f8e4b0b91168486ed878ed56589a4e8dd62b78817b9fc5de9ec2), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:16"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 672e70a54658c58ee1e0ca3d86788085645b1e24445bc30e7d95ab8bd536175a (wtxid 4f0564aa24c44e00a026532a0ab84aeaee8946e98b3d0cbf8c12f46d9da10857), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:16"
       }
     },
     {
       "name": "multi2/input-order",
       "result": {
-        "txid": "90dc903bb69bc2a9f95b2c8453882955c62b00db9823c697f9d6ef879e54d013",
-        "wtxid": "ff81b5cd39b4cf42b9ef808e4036ae0365b394a19f2c2cf5b70b57d799e35da8",
+        "txid": "9ce132fad6a7c6066a6096aa2e41dba9eea8af8a986be6e30097156bcdba36bb",
+        "wtxid": "adba87671f1df4ca210963c73f6ae533f6eb87bb7659413b712e9e6b0bcf829f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 90dc903bb69bc2a9f95b2c8453882955c62b00db9823c697f9d6ef879e54d013 (wtxid ff81b5cd39b4cf42b9ef808e4036ae0365b394a19f2c2cf5b70b57d799e35da8), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:17"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 9ce132fad6a7c6066a6096aa2e41dba9eea8af8a986be6e30097156bcdba36bb (wtxid adba87671f1df4ca210963c73f6ae533f6eb87bb7659413b712e9e6b0bcf829f), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:17"
       }
     },
     {
       "name": "multi4/current-input-binding",
       "result": {
-        "txid": "d233e57da9df056e95028b4c7ce039c372987bca99579aeb0bf7c1682a3aeb06",
-        "wtxid": "a83a678a07be2e8c45dcbed0d24451fe0766fc3303297882b0ea3eca6117b79a",
+        "txid": "6e1391fd8dc74511466335a557ceac9138675d79f6fd49ad8786e28c7d938dd9",
+        "wtxid": "261df2c4f8aa1ccd8e83a2bbc12efaf9fafe97fe9068974a1745760a8b64c07f",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of d233e57da9df056e95028b4c7ce039c372987bca99579aeb0bf7c1682a3aeb06 (wtxid a83a678a07be2e8c45dcbed0d24451fe0766fc3303297882b0ea3eca6117b79a), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:18"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 6e1391fd8dc74511466335a557ceac9138675d79f6fd49ad8786e28c7d938dd9 (wtxid 261df2c4f8aa1ccd8e83a2bbc12efaf9fafe97fe9068974a1745760a8b64c07f), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:18"
       }
     },
     {
       "name": "multi4/input-order",
       "result": {
-        "txid": "4189550b177bb0f0b48fbd18edc296992b1210e101d78598512571068f04ee97",
-        "wtxid": "fdb7e448c031232babb2238f77fcb13cd6cad1beefd0924f2ed462ca8f8ef2a7",
+        "txid": "c16c2198ca64746fefc929da79da85db304a3b65d7fd58852e2a248fe2dfaf0a",
+        "wtxid": "807fe0f2030f8f36e57f4446aec6dbfd3281e1ca6c6d4b9ce25c056512639ab6",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element)",
-        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of 4189550b177bb0f0b48fbd18edc296992b1210e101d78598512571068f04ee97 (wtxid fdb7e448c031232babb2238f77fcb13cd6cad1beefd0924f2ed462ca8f8ef2a7), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:21"
+        "reject-details": "mempool-script-verify-flag-failed (Script evaluated without error but finished with a false/empty top stack element), input 0 of c16c2198ca64746fefc929da79da85db304a3b65d7fd58852e2a248fe2dfaf0a (wtxid 807fe0f2030f8f36e57f4446aec6dbfd3281e1ca6c6d4b9ce25c056512639ab6), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:21"
       }
     },
     {
       "name": "cap1/validly-signed-over-limit",
       "result": {
-        "txid": "82e342a3ea1d92b0d466529eb396640d5becb17f6175c7a6e6ccdea262637eed",
-        "wtxid": "2cc3559208a44bb8878ddd5d0957ac31e7994db09b923acc0667c7e16cd54c4f",
+        "txid": "c5909db7fc8b6db24d0c6c968039e885212e24944cafc8dceb3dbb776949673c",
+        "wtxid": "3da011254a9a4cce283c92e4b2b2549fc09e78ee6fb3b31ce195b89c885abc09",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 82e342a3ea1d92b0d466529eb396640d5becb17f6175c7a6e6ccdea262637eed (wtxid 2cc3559208a44bb8878ddd5d0957ac31e7994db09b923acc0667c7e16cd54c4f), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:22"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of c5909db7fc8b6db24d0c6c968039e885212e24944cafc8dceb3dbb776949673c (wtxid 3da011254a9a4cce283c92e4b2b2549fc09e78ee6fb3b31ce195b89c885abc09), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:22"
       },
       "max_inputs": 1,
       "mode": "stateful",
@@ -1474,11 +1474,11 @@
     {
       "name": "cap2/validly-signed-over-limit",
       "result": {
-        "txid": "15c34503c2f283f8abc72a362525de3670bfa4613e4434ca9dbae716986f9573",
-        "wtxid": "f8a3cd74cc29fe886db363549142a209d216fe17bbf8b3e81efd6420562b14c4",
+        "txid": "2d16ddde8637163a3a6b373ff637da46d2afb7b6974f907844a67509095fcf56",
+        "wtxid": "4572ae81aaa0f0cdf13d948d8a3edff36a3a1e21f28b5847d7fa2db35fd896cf",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 15c34503c2f283f8abc72a362525de3670bfa4613e4434ca9dbae716986f9573 (wtxid f8a3cd74cc29fe886db363549142a209d216fe17bbf8b3e81efd6420562b14c4), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:24"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 2d16ddde8637163a3a6b373ff637da46d2afb7b6974f907844a67509095fcf56 (wtxid 4572ae81aaa0f0cdf13d948d8a3edff36a3a1e21f28b5847d7fa2db35fd896cf), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:24"
       },
       "max_inputs": 2,
       "mode": "stateful",
@@ -1488,11 +1488,11 @@
     {
       "name": "cap3/validly-signed-over-limit",
       "result": {
-        "txid": "06471209887a40a179df66585855b52556dd0098a08db2b23b83320a34e13138",
-        "wtxid": "ac55582a9193b5c45fc6873b9c32f5b2fa3288d9a291907c52b6c7b7f94f08a7",
+        "txid": "fb024099cdeaf90944254dcaf76c800a6122e98eb11ec0a5879e677cd5a82000",
+        "wtxid": "f51d47cc751dc68d482d760f9f8beef15e5fec6491f68cca2e70c7ffd6154bca",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 06471209887a40a179df66585855b52556dd0098a08db2b23b83320a34e13138 (wtxid ac55582a9193b5c45fc6873b9c32f5b2fa3288d9a291907c52b6c7b7f94f08a7), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:27"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of fb024099cdeaf90944254dcaf76c800a6122e98eb11ec0a5879e677cd5a82000 (wtxid f51d47cc751dc68d482d760f9f8beef15e5fec6491f68cca2e70c7ffd6154bca), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:27"
       },
       "max_inputs": 3,
       "mode": "stateful",
@@ -1502,11 +1502,11 @@
     {
       "name": "cap4/validly-signed-over-limit",
       "result": {
-        "txid": "6705a8f27c38a75a49fd7f12071872d93627a6fe4ed5387403d9f5dfa1736464",
-        "wtxid": "63e4149e8ef863e02a4b766b277f45d27b338eaaebf11c0a3bdbbcab49be7fc6",
+        "txid": "b77e830d215ec8cc4e0de269babc3f0f303e39eca5e8063e68aafa7b5845c555",
+        "wtxid": "53bfe3fe26cf43a60c234df558242ca8a7c2a8f27938b6f99568c96f68f742bc",
         "allowed": false,
         "reject-reason": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation)",
-        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of 6705a8f27c38a75a49fd7f12071872d93627a6fe4ed5387403d9f5dfa1736464 (wtxid 63e4149e8ef863e02a4b766b277f45d27b338eaaebf11c0a3bdbbcab49be7fc6), spending 0300ab2db4c2937d911bcb981e704c3830976c046483df60f7e15f2a504e297a:31"
+        "reject-details": "mempool-script-verify-flag-failed (Script failed an OP_VERIFY operation), input 0 of b77e830d215ec8cc4e0de269babc3f0f303e39eca5e8063e68aafa7b5845c555 (wtxid 53bfe3fe26cf43a60c234df558242ca8a7c2a8f27938b6f99568c96f68f742bc), spending a345914215cd06522cac1e1aadd4933d7bc7f24699bbbe84ea43cbc747b243c4:31"
       },
       "max_inputs": 4,
       "mode": "stateful",

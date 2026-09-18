@@ -1,8 +1,56 @@
 {
-  "binary_sha256": "044fde632685c44817f09b5b02091479820bba6ace43155a90b5785e830a1c02",
-  "source_sha256": "20b2f8dcd6a66c7253ac9f2fd2fc204dedb8c0adc876c42932e21eafa9a3df06",
+  "provenance": {
+    "schema": 1,
+    "inputs": {},
+    "binaries": {
+      "build/profile/bin/bitcoin-util": "eb6bb2a8770ef5ae9917330dce0fd2930ebbb11f7acb6609f53389a3dd7fd137"
+    },
+    "drivers": {
+      "generator/script.py": "2c71fdb8d1dd806a562f635c8c9af9d3527965619e87e8fe2e01cf05e4077076",
+      "generator/transaction.py": "2cf8814c2c23e3ea6c3cc7c4032c2b4c397376b8b0ee03862062aa7c9081f6ab",
+      "generator/verifier.py": "db5296addbe5db148a7e1e54561540855c6b22e4a9aed426fdeb569237cc9567",
+      "runner/bitcoin.py": "9033052924c076c173ced31178451eb5c7d3c5e51d0284bf660d4d2f6ca32e1f",
+      "runner/checks.py": "3176bb856a15fd12eee11268a59ada282dbb37c4385d1d4e9c543613fc02f30b",
+      "runner/comparison.py": "0f2c7ef75e41a124c0c075d5939c8420f42da7f2c9b5fff451a79b20d7f5d79b",
+      "runner/evaluator.py": "342ff5d2f780599b662b2a612599ae33c333e108b1b22f71fe02e8e226defaeb",
+      "runner/evidence.py": "eea3c8c0c4a9965df91c621617d4517b8a569fbbcd3f8fe7ac238c4ff236af39",
+      "runner/followup.py": "08f1866caad3f8d56d980483f9af392363933bcd3d91d2b38c4789a0d10ec395",
+      "runner/measuretx.inc": "d52f03ec91bf73cfb1e87b56f1e798e8027001e2d0566fa13cf35bd781803b1c",
+      "runner/parsebench.inc": "50dc37dc2542a97dbeeb7f3aa578297db6201a92270ba795e76958896bff906f",
+      "runner/profile.hpp": "c21bdc855d4dc9479497e2131970d940a38e719d213a76e1c032412d67be5f87",
+      "runner/profile.py": "c89085b0e864731bb92d243ff8be62ba63a2ea4cbb52be63669dd452347fc37d",
+      "reference/oracle.py": "ad95779190e81cd8ecc4b16fa3188d5b295c3cdeb2afce799f379bf0fdcba385",
+      "scripts/audit.py": "461e0822b33cdcc64471891bd09ff6d07b602501426b8e1661630434e15264d2",
+      "scripts/audit_followups.py": "f933c842ebcef781d1af8337195713e82349ea9b75281c18b69f43d2a331b8c8",
+      "scripts/boundary_costs.py": "060bcf45e0b1a7766aa58892d11e595692c1c4119a218ccc1c870b126345ad5a",
+      "scripts/build.sh": "c8ae9b6ddb6c6bee12ab695f91abcb2cff332489596bddfff9e4893d20931f95",
+      "scripts/check.sh": "b7f04aeca179095ab67b45751033bb6f0e7570b5b7c0e9014bab27207fa54e22",
+      "scripts/compare_forks.py": "e5d92bd2404f6b3c4d6632a4d69506c93d1602740264f29604267f4eb0f89021",
+      "scripts/comparison_corpus.py": "3de128f01223e86b98985a6086fc5b399aeec3eac87fad88441957915b8f7871",
+      "scripts/component_costs.py": "98ad642e64efaf67c93077e3763b6308012f53a469be6810851dbb5b2c8fde1c",
+      "scripts/export.py": "c27aef3cdaf98b43ffa150d4eb843102ab7b761b8fc73e17f99e4305ddd68b46",
+      "scripts/fixtures.py": "45c385e5104b11ba0c558f6196c3c720d097f8e2a810ff801ddc29c85ef023c6",
+      "scripts/measure.py": "517e97ad963e1cef6e36d3a1ea031afbca09c45f2e46726e4361c7e136a3732a",
+      "scripts/multi_compare.py": "ab043eb055aa8d749f42812c3f2e7d2727cb4f3f1efe0422da0fe9e22381110c",
+      "scripts/parse_benchmark.py": "3c95d431ec676d7b8962ef22b436196c4e53ea6d8bee871d5e5018edcc334aa5",
+      "scripts/parsing_probe.py": "2f8d9e9002e4bfbd6a26b2b37cd028b27278470a777490fea76fcdc2386965b4",
+      "scripts/profile_build.py": "2f44c5110db70a5fcf93a1f9b5b0a01e4511f0456096cad6f74b5927583bc23e",
+      "scripts/record_tests.py": "6f9f77d85268209ad5138910b3bdb84999a0a2243491a5d4166cdf16314aba40",
+      "scripts/run_tests.py": "abc081b1adb2a990ad813bdc4230d6b1d5b11559940131515b1196a767d82809"
+    },
+    "environment": {
+      "platform": "macOS-26.4-arm64-arm-64bit-Mach-O",
+      "machine": "arm64",
+      "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]"
+    }
+  },
+  "corpus_sha256": "28e8e77eb7bc0748064e855fbc92ac2fcdd4f6c10c8c78b6baf0ed892713c8bf",
+  "repeats": 31,
+  "binary_sha256": "eb6bb2a8770ef5ae9917330dce0fd2930ebbb11f7acb6609f53389a3dd7fd137",
+  "source_sha256": "ab043eb055aa8d749f42812c3f2e7d2727cb4f3f1efe0422da0fe9e22381110c",
   "environment": {
     "platform": "macOS-26.4-arm64-arm-64bit-Mach-O",
+    "machine": "arm64",
     "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
     "timing": "Counters disabled, profiling hooks present; host load is not controlled"
   },
@@ -34,8 +82,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 25428,
+          "allowance": 3160000,
+          "weight": 316,
+          "transaction_bytes": 133,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 25428,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15960000,
+          "weight": 1596,
+          "transaction_bytes": 453,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2760000,
+          "weight": 276,
+          "transaction_bytes": 123,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 64542,
+        "interpreter_ns": 266292,
         "observations_enabled": true,
         "peak_stack_entries": 3,
         "peak_stack_bytes": 7,
@@ -66,39 +170,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        49334,
-        48292,
-        45833,
-        47083,
-        43333,
-        43458,
-        43875,
-        49583,
-        46792,
-        43958,
-        44000,
-        43417,
-        44125,
-        46917,
-        56041,
-        50125,
-        46834,
-        43291,
-        50875,
+        45792,
+        44167,
+        55333,
         46542,
-        46584,
-        44084,
-        47000,
-        53958,
-        53333,
-        44500,
-        43459,
-        45250,
+        50792,
+        43584,
+        45791,
+        44417,
+        43417,
+        45292,
+        47334,
+        44167,
+        45167,
+        43125,
+        43458,
+        46083,
+        43542,
+        43291,
+        45084,
+        43833,
+        44083,
+        45584,
+        43625,
+        43917,
+        46000,
+        44208,
+        52375,
+        45291,
         44292,
-        43667,
-        44458
+        44333,
+        46292
       ],
-      "median_ns": 45833
+      "median_ns": 44417
     },
     {
       "construction": "selector",
@@ -120,8 +224,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 24194,
+          "allowance": 3130000,
+          "weight": 313,
+          "transaction_bytes": 130,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 24194,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15930000,
+          "weight": 1593,
+          "transaction_bytes": 450,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2730000,
+          "weight": 273,
+          "transaction_bytes": 120,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 52791,
+        "interpreter_ns": 137333,
         "observations_enabled": true,
         "peak_stack_entries": 3,
         "peak_stack_bytes": 6,
@@ -150,39 +310,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        56458,
-        49042,
-        46542,
-        40708,
-        41375,
-        40166,
-        43375,
-        52292,
-        44708,
-        40875,
-        41291,
-        40625,
-        43375,
-        50458,
-        56083,
+        44167,
+        41875,
+        41875,
+        40667,
+        42834,
+        41583,
+        46458,
+        47000,
+        41042,
+        40125,
+        43333,
         40500,
-        41458,
-        41041,
-        41083,
-        46083,
-        44625,
-        41833,
-        41750,
         40792,
-        41125,
+        42250,
+        40792,
+        40042,
+        52416,
+        40750,
+        43750,
+        41666,
+        40458,
+        40791,
+        42000,
+        40500,
+        40250,
+        42458,
+        40709,
+        41500,
         41875,
-        40875,
-        41458,
-        41875,
-        40625,
-        40708
+        40292,
+        41917
       ],
-      "median_ns": 41458
+      "median_ns": 41583
     },
     {
       "construction": "unroll",
@@ -204,8 +364,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 352780,
+          "allowance": 5800000,
+          "weight": 580,
+          "transaction_bytes": 397,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 352780,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 18600000,
+          "weight": 1860,
+          "transaction_bytes": 717,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 5400000,
+          "weight": 540,
+          "transaction_bytes": 387,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 58167,
+        "interpreter_ns": 134000,
         "observations_enabled": true,
         "peak_stack_entries": 4,
         "peak_stack_bytes": 7,
@@ -254,39 +470,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        53209,
-        52167,
-        55209,
-        56416,
-        55584,
-        52458,
-        51750,
-        51792,
-        54542,
-        51958,
-        51291,
+        51708,
+        51625,
+        55541,
+        52541,
+        52416,
+        57042,
+        52500,
         52708,
-        54542,
-        51916,
-        61834,
-        57167,
-        53084,
-        52417,
-        52625,
-        53041,
-        52500,
-        55250,
-        54166,
-        51833,
-        51916,
-        52084,
+        53583,
+        53417,
+        51709,
+        54292,
+        51375,
+        54375,
+        53584,
+        52250,
+        51291,
+        59084,
+        53750,
         53000,
-        52125,
-        52500,
-        53208,
-        53167
+        57916,
+        53084,
+        52834,
+        52833,
+        52542,
+        52708,
+        54459,
+        53125,
+        57459,
+        55500,
+        53208
       ],
-      "median_ns": 52708
+      "median_ns": 53084
     },
     {
       "construction": "multi",
@@ -308,8 +524,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 26743,
+          "allowance": 3560000,
+          "weight": 356,
+          "transaction_bytes": 143,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 26743,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15960000,
+          "weight": 1596,
+          "transaction_bytes": 453,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2760000,
+          "weight": 276,
+          "transaction_bytes": 123,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 48041,
+        "interpreter_ns": 46041,
         "observations_enabled": true,
         "peak_stack_entries": 3,
         "peak_stack_bytes": 7,
@@ -340,39 +612,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        44417,
-        43750,
-        62708,
-        46291,
-        47792,
-        43792,
-        45250,
-        44750,
-        43750,
-        44458,
-        43667,
-        43625,
-        45250,
-        43208,
-        43167,
-        44292,
-        47333,
+        45875,
+        44167,
         43500,
-        45583,
-        62542,
-        55416,
-        58084,
-        44500,
-        46958,
-        56416,
-        51375,
         45416,
-        50542,
-        50792,
-        54833,
-        55750
+        48750,
+        45583,
+        46208,
+        44583,
+        45500,
+        47042,
+        43833,
+        43458,
+        44833,
+        42958,
+        57667,
+        46917,
+        44750,
+        47500,
+        59375,
+        52750,
+        48000,
+        46458,
+        43667,
+        44875,
+        45041,
+        43416,
+        44667,
+        46417,
+        45500,
+        51208,
+        52750
       ],
-      "median_ns": 45416
+      "median_ns": 45500
     },
     {
       "construction": "selector",
@@ -394,8 +666,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 24242,
+          "allowance": 3530000,
+          "weight": 353,
+          "transaction_bytes": 140,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 24242,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15930000,
+          "weight": 1593,
+          "transaction_bytes": 450,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2730000,
+          "weight": 273,
+          "transaction_bytes": 120,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 43500,
+        "interpreter_ns": 42750,
         "observations_enabled": true,
         "peak_stack_entries": 3,
         "peak_stack_bytes": 6,
@@ -424,39 +752,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        40834,
-        47541,
-        56750,
-        41291,
-        43209,
-        41334,
-        41000,
-        42666,
-        40833,
+        40417,
+        42250,
         40500,
-        41292,
-        42000,
+        43666,
+        43875,
+        43041,
+        47750,
+        42167,
+        40583,
+        40916,
+        42375,
+        41542,
         40292,
-        41333,
-        41334,
-        40834,
-        42458,
-        41000,
-        40666,
-        55250,
-        46292,
-        41083,
-        44583,
-        43542,
-        43916,
-        42417,
-        41625,
-        40791,
-        42000,
-        47584,
-        41125
+        49042,
+        44333,
+        40250,
+        41875,
+        39875,
+        55291,
+        50833,
+        46000,
+        40833,
+        44375,
+        45916,
+        40958,
+        43250,
+        40375,
+        40417,
+        41791,
+        40708,
+        41750
       ],
-      "median_ns": 41334
+      "median_ns": 41875
     },
     {
       "construction": "unroll",
@@ -478,8 +806,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 354111,
+          "allowance": 6200000,
+          "weight": 620,
+          "transaction_bytes": 407,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 354111,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 18600000,
+          "weight": 1860,
+          "transaction_bytes": 717,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 5400000,
+          "weight": 540,
+          "transaction_bytes": 387,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 57458,
+        "interpreter_ns": 58750,
         "observations_enabled": true,
         "peak_stack_entries": 5,
         "peak_stack_bytes": 9,
@@ -529,39 +913,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
+        53167,
+        51791,
+        58417,
+        60875,
+        62666,
+        64042,
+        55167,
+        55000,
+        53458,
         52875,
-        52250,
-        63458,
-        56167,
-        57958,
-        54583,
-        52291,
-        57459,
-        53417,
-        53916,
-        54167,
-        54375,
-        52583,
-        52583,
-        52708,
-        52708,
-        55042,
-        52875,
-        53709,
-        52458,
+        52750,
+        54625,
+        53792,
+        53084,
+        59000,
         59250,
-        54500,
-        56167,
-        60625,
-        55375,
-        61500,
-        52916,
+        53750,
+        54000,
+        81083,
+        66000,
+        56334,
+        52625,
         52542,
-        54416,
-        57291,
-        53292
+        54792,
+        54375,
+        53917,
+        57625,
+        56667,
+        52833,
+        56583,
+        52291
       ],
-      "median_ns": 54167
+      "median_ns": 54625
     },
     {
       "construction": "multi",
@@ -583,8 +967,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 29405,
+          "allowance": 4360000,
+          "weight": 436,
+          "transaction_bytes": 163,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 29405,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15960000,
+          "weight": 1596,
+          "transaction_bytes": 453,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2760000,
+          "weight": 276,
+          "transaction_bytes": 123,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 45083,
+        "interpreter_ns": 46000,
         "observations_enabled": true,
         "peak_stack_entries": 5,
         "peak_stack_bytes": 13,
@@ -615,39 +1055,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        52625,
-        46792,
-        48292,
-        54542,
-        45250,
-        45250,
-        45292,
-        47333,
-        44209,
-        45000,
-        44333,
-        51041,
-        45875,
-        44875,
-        43958,
-        54333,
-        45167,
-        48959,
-        45208,
-        47292,
-        61250,
-        49875,
-        54500,
+        46208,
         44583,
-        45708,
-        45166,
-        60334,
-        51583,
-        48125,
-        44333,
-        45917
+        44750,
+        45666,
+        45375,
+        44083,
+        45334,
+        45250,
+        46708,
+        47708,
+        47708,
+        43958,
+        45792,
+        44041,
+        44791,
+        49750,
+        52084,
+        47375,
+        48375,
+        49792,
+        44500,
+        45875,
+        45375,
+        45667,
+        45750,
+        47209,
+        44916,
+        48042,
+        55500,
+        43750,
+        48250
       ],
-      "median_ns": 45917
+      "median_ns": 45750
     },
     {
       "construction": "selector",
@@ -669,8 +1109,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 24338,
+          "allowance": 4330000,
+          "weight": 433,
+          "transaction_bytes": 160,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 24338,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15930000,
+          "weight": 1593,
+          "transaction_bytes": 450,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2730000,
+          "weight": 273,
+          "transaction_bytes": 120,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 49667,
+        "interpreter_ns": 53625,
         "observations_enabled": true,
         "peak_stack_entries": 3,
         "peak_stack_bytes": 6,
@@ -699,37 +1195,37 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        55792,
-        49500,
-        41125,
-        55250,
-        44084,
-        50042,
-        41125,
+        40584,
+        42833,
+        40916,
+        48667,
+        46833,
+        40125,
+        40458,
+        52625,
+        40708,
+        42125,
+        42500,
+        41583,
+        40041,
+        41750,
+        40250,
+        46375,
+        45083,
         41875,
-        41125,
-        40792,
-        41541,
-        41375,
-        40666,
-        41625,
-        48834,
-        47875,
+        41208,
+        42167,
+        41583,
+        40500,
+        51208,
         41875,
-        40834,
-        41333,
-        51291,
-        46167,
-        41166,
-        45750,
-        43833,
-        40292,
-        60458,
-        50833,
-        41209,
-        46792,
-        40792,
-        40875
+        43625,
+        42500,
+        40250,
+        40459,
+        42708,
+        42375,
+        43334
       ],
       "median_ns": 41875
     },
@@ -753,8 +1249,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 356773,
+          "allowance": 7000000,
+          "weight": 700,
+          "transaction_bytes": 427,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 356773,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 18600000,
+          "weight": 1860,
+          "transaction_bytes": 717,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 5400000,
+          "weight": 540,
+          "transaction_bytes": 387,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 67459,
+        "interpreter_ns": 57375,
         "observations_enabled": true,
         "peak_stack_entries": 7,
         "peak_stack_bytes": 15,
@@ -804,39 +1356,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        59459,
-        65500,
-        57708,
-        75000,
-        55709,
-        56125,
-        54541,
-        54500,
-        55209,
-        60959,
-        53667,
-        54958,
-        54666,
-        53667,
-        61833,
-        57750,
-        55042,
-        58500,
-        56875,
-        54375,
-        55208,
-        54708,
-        59000,
-        54375,
-        53458,
-        54542,
+        53542,
+        53250,
+        57291,
+        53500,
+        53750,
+        55750,
+        55500,
+        58250,
+        55750,
+        56000,
+        53125,
+        55375,
+        53750,
+        53583,
+        81958,
+        66917,
+        55916,
+        59208,
+        55958,
+        54000,
         55250,
-        54834,
-        60166,
-        58333,
-        56542
+        55000,
+        54833,
+        70750,
+        55084,
+        57041,
+        55917,
+        53500,
+        53750,
+        61875,
+        56042
       ],
-      "median_ns": 55250
+      "median_ns": 55500
     },
     {
       "construction": "multi",
@@ -858,8 +1410,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 34729,
+          "allowance": 5960000,
+          "weight": 596,
+          "transaction_bytes": 203,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 34729,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15960000,
+          "weight": 1596,
+          "transaction_bytes": 453,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2760000,
+          "weight": 276,
+          "transaction_bytes": 123,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 47583,
+        "interpreter_ns": 50000,
         "observations_enabled": true,
         "peak_stack_entries": 9,
         "peak_stack_bytes": 25,
@@ -890,39 +1498,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        47458,
-        46292,
-        46042,
-        46041,
-        45083,
-        46375,
-        47209,
-        46084,
-        46125,
-        45917,
-        45917,
-        52167,
-        47333,
-        45500,
-        45916,
-        53750,
-        46125,
-        45833,
+        48042,
+        75458,
+        55125,
+        61292,
+        52708,
+        51084,
+        56458,
         46625,
-        45667,
-        46333,
-        46958,
-        45791,
-        45083,
-        47250,
-        47083,
-        44792,
-        46375,
-        45959,
+        45708,
+        53125,
+        49292,
+        56083,
+        53375,
+        48958,
+        45875,
+        50833,
         46250,
-        49917
+        50125,
+        48083,
+        49792,
+        49458,
+        71625,
+        45959,
+        46292,
+        47917,
+        54792,
+        49542,
+        46708,
+        49541,
+        53125,
+        50125
       ],
-      "median_ns": 46125
+      "median_ns": 49792
     },
     {
       "construction": "selector",
@@ -944,8 +1552,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 24530,
+          "allowance": 5930000,
+          "weight": 593,
+          "transaction_bytes": 200,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 24530,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15930000,
+          "weight": 1593,
+          "transaction_bytes": 450,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2730000,
+          "weight": 273,
+          "transaction_bytes": 120,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 45167,
+        "interpreter_ns": 45333,
         "observations_enabled": true,
         "peak_stack_entries": 3,
         "peak_stack_bytes": 6,
@@ -974,39 +1638,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        44500,
-        43000,
-        41458,
-        40209,
-        41500,
-        44791,
-        40750,
-        41583,
-        41041,
-        41375,
-        41542,
-        41583,
         40875,
-        42584,
-        41167,
-        41250,
-        41500,
-        40667,
-        40708,
-        41500,
-        42250,
-        40708,
-        41584,
-        40542,
-        40708,
-        42291,
-        40625,
+        56208,
+        49583,
+        43583,
+        49541,
+        55125,
+        52583,
+        53375,
+        42208,
+        40292,
+        45291,
+        45333,
+        44791,
+        49958,
+        44042,
         40917,
-        41709,
-        41834,
+        43458,
+        41542,
+        49750,
+        42375,
+        44333,
+        44833,
+        47000,
+        45041,
+        49708,
+        46042,
+        40666,
+        41959,
+        42666,
+        41458,
         41000
       ],
-      "median_ns": 41458
+      "median_ns": 44791
     },
     {
       "construction": "unroll",
@@ -1028,8 +1692,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 362097,
+          "allowance": 8600000,
+          "weight": 860,
+          "transaction_bytes": 467,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 362097,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 18600000,
+          "weight": 1860,
+          "transaction_bytes": 717,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 5400000,
+          "weight": 540,
+          "transaction_bytes": 387,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 58916,
+        "interpreter_ns": 60541,
         "observations_enabled": true,
         "peak_stack_entries": 11,
         "peak_stack_bytes": 27,
@@ -1079,39 +1799,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        56125,
-        58500,
-        55041,
-        55250,
-        55834,
-        59375,
-        55959,
-        55250,
-        57750,
         55417,
-        55500,
-        57584,
-        55375,
-        55875,
-        55833,
-        55750,
-        56000,
-        55500,
-        56000,
-        56167,
-        56083,
-        55333,
-        56541,
-        56500,
+        56708,
+        60292,
         55292,
-        64708,
-        55791,
-        55791,
-        56041,
-        58959,
-        55000
+        55875,
+        58209,
+        65292,
+        59000,
+        64500,
+        58042,
+        54583,
+        61583,
+        55125,
+        55833,
+        56708,
+        61041,
+        62083,
+        61417,
+        70083,
+        55167,
+        56125,
+        55042,
+        60750,
+        56541,
+        55167,
+        59958,
+        57917,
+        61833,
+        57125,
+        57416,
+        54917
       ],
-      "median_ns": 55875
+      "median_ns": 57416
     },
     {
       "construction": "multi",
@@ -1133,8 +1853,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 45329,
+          "allowance": 9160000,
+          "weight": 916,
+          "transaction_bytes": 283,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 45329,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15960000,
+          "weight": 1596,
+          "transaction_bytes": 453,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2760000,
+          "weight": 276,
+          "transaction_bytes": 123,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 48916,
+        "interpreter_ns": 48042,
         "observations_enabled": true,
         "peak_stack_entries": 17,
         "peak_stack_bytes": 33,
@@ -1165,39 +1941,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        50666,
-        47250,
-        47292,
-        48917,
-        47292,
-        47500,
-        49708,
-        48250,
-        48042,
-        49542,
-        47833,
-        48666,
-        50291,
-        47625,
-        48041,
-        49958,
-        47459,
-        47250,
-        49500,
-        47625,
-        49291,
-        49958,
-        47791,
-        47250,
-        49041,
-        48208,
-        48000,
-        47500,
-        47292,
+        50083,
+        48333,
+        47667,
+        48833,
+        50250,
+        52375,
+        52375,
+        52916,
+        54542,
+        53583,
+        62209,
         47125,
-        48250
+        49708,
+        47667,
+        47583,
+        53708,
+        47500,
+        47416,
+        51916,
+        66667,
+        67625,
+        60500,
+        51125,
+        51042,
+        51958,
+        46708,
+        47875,
+        51917,
+        47250,
+        49750,
+        48417
       ],
-      "median_ns": 48041
+      "median_ns": 50250
     },
     {
       "construction": "selector",
@@ -1219,8 +1995,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 24914,
+          "allowance": 9130000,
+          "weight": 913,
+          "transaction_bytes": 280,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 24914,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15930000,
+          "weight": 1593,
+          "transaction_bytes": 450,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2730000,
+          "weight": 273,
+          "transaction_bytes": 120,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 44834,
+        "interpreter_ns": 50000,
         "observations_enabled": true,
         "peak_stack_entries": 3,
         "peak_stack_bytes": 6,
@@ -1249,39 +2081,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        42500,
-        42084,
-        41083,
-        43541,
-        41875,
-        41417,
-        41917,
-        41875,
-        42000,
-        45834,
-        45333,
-        41917,
+        45250,
+        46750,
+        46292,
+        41500,
+        43458,
         41708,
-        44417,
-        43042,
-        42083,
-        42666,
+        41750,
+        42459,
+        46792,
+        57917,
+        42708,
+        41750,
+        50625,
+        43209,
+        41166,
+        40959,
+        42542,
+        41000,
+        41500,
+        62125,
+        42042,
+        56250,
         42292,
-        42083,
-        44375,
-        41875,
-        41416,
-        41958,
-        42000,
-        41667,
-        44000,
-        41875,
         41583,
-        41792,
-        57125,
-        42333
+        49500,
+        47542,
+        46583,
+        41042,
+        55625,
+        46167,
+        40709
       ],
-      "median_ns": 42000
+      "median_ns": 42708
     },
     {
       "construction": "unroll",
@@ -1303,8 +2135,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 372697,
+          "allowance": 11800000,
+          "weight": 1180,
+          "transaction_bytes": 547,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 372697,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 18600000,
+          "weight": 1860,
+          "transaction_bytes": 717,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 5400000,
+          "weight": 540,
+          "transaction_bytes": 387,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 60833,
+        "interpreter_ns": 62959,
         "observations_enabled": true,
         "peak_stack_entries": 19,
         "peak_stack_bytes": 35,
@@ -1354,39 +2242,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        56459,
-        56333,
-        57958,
-        61666,
-        56334,
-        57458,
-        56875,
-        57083,
-        57416,
-        57167,
-        59416,
-        62792,
-        56708,
-        56625,
-        58958,
-        58833,
-        56959,
-        57958,
-        57167,
+        56709,
+        59458,
+        64875,
+        68333,
+        59250,
+        64709,
+        56167,
         57042,
-        58042,
-        56458,
-        58584,
-        57000,
-        73083,
-        56708,
-        57667,
-        56791,
-        55750,
-        57000,
-        55875
+        73666,
+        56291,
+        55084,
+        56875,
+        56958,
+        57084,
+        68625,
+        56125,
+        67542,
+        57375,
+        59333,
+        57042,
+        72292,
+        74500,
+        59125,
+        62125,
+        56042,
+        56209,
+        57500,
+        59709,
+        59750,
+        64042,
+        65958
       ],
-      "median_ns": 57083
+      "median_ns": 59250
     },
     {
       "construction": "multi",
@@ -1408,8 +2296,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 66577,
+          "allowance": 15560000,
+          "weight": 1556,
+          "transaction_bytes": 443,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 66577,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15960000,
+          "weight": 1596,
+          "transaction_bytes": 453,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2760000,
+          "weight": 276,
+          "transaction_bytes": 123,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 56167,
+        "interpreter_ns": 59542,
         "observations_enabled": true,
         "peak_stack_entries": 33,
         "peak_stack_bytes": 65,
@@ -1440,39 +2384,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        51000,
-        51333,
-        49625,
-        55250,
-        53042,
-        88500,
-        50833,
-        49625,
-        50334,
-        50375,
-        53042,
+        51833,
         49917,
-        52000,
-        49541,
-        50541,
-        50000,
-        49292,
-        49542,
-        50500,
-        55125,
+        49208,
+        51167,
+        49333,
+        49000,
+        56167,
+        60875,
+        49667,
+        51792,
+        51417,
+        64542,
+        60584,
+        49666,
+        50166,
         50250,
-        50625,
-        50209,
-        50208,
-        50916,
-        49750,
-        50916,
+        48875,
+        49709,
         51042,
-        51084,
-        50750,
-        52000
+        50375,
+        54958,
+        52375,
+        53375,
+        50208,
+        53416,
+        50792,
+        49375,
+        50875,
+        49083,
+        49333,
+        50916
       ],
-      "median_ns": 50625
+      "median_ns": 50792
     },
     {
       "construction": "selector",
@@ -1494,8 +2438,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 25682,
+          "allowance": 15530000,
+          "weight": 1553,
+          "transaction_bytes": 440,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 25682,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 15930000,
+          "weight": 1593,
+          "transaction_bytes": 450,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 2730000,
+          "weight": 273,
+          "transaction_bytes": 120,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 43625,
+        "interpreter_ns": 44458,
         "observations_enabled": true,
         "peak_stack_entries": 3,
         "peak_stack_bytes": 6,
@@ -1524,39 +2524,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        42417,
-        41667,
-        41333,
-        42291,
-        41916,
+        41750,
+        42917,
         40708,
-        41916,
-        42084,
-        46500,
         40750,
-        45792,
-        41166,
-        41333,
-        43125,
-        41250,
-        42292,
-        42042,
-        40708,
-        41208,
-        42708,
-        40792,
-        42125,
-        42125,
-        41084,
+        42958,
+        40917,
+        40875,
         42667,
-        42625,
+        40500,
+        40667,
+        42208,
         41125,
-        45333,
-        42500,
-        41709,
-        41625
+        40875,
+        42209,
+        44083,
+        40417,
+        49500,
+        41000,
+        40584,
+        41750,
+        41333,
+        41792,
+        42125,
+        41458,
+        46083,
+        42834,
+        41000,
+        41292,
+        41792,
+        41500,
+        40500
       ],
-      "median_ns": 41916
+      "median_ns": 41458
     },
     {
       "construction": "unroll",
@@ -1578,8 +2578,64 @@
         ],
         "classification": "accept"
       },
+      "negative_results": {
+        "wrong_sum": {
+          "errors": [
+            "Script evaluated without error but finished with a false/empty top stack element"
+          ],
+          "consumed": 393945,
+          "allowance": 18200000,
+          "weight": 1820,
+          "transaction_bytes": 707,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 393945,
+              "error": "Script evaluated without error but finished with a false/empty top stack element"
+            }
+          ],
+          "classification": "reject"
+        },
+        "over_limit": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 16078,
+          "allowance": 18600000,
+          "weight": 1860,
+          "transaction_bytes": 717,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 16078,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        },
+        "empty": {
+          "errors": [
+            "Script failed an OP_VERIFY operation"
+          ],
+          "consumed": 9268,
+          "allowance": 5400000,
+          "weight": 540,
+          "transaction_bytes": 387,
+          "inputs": [
+            {
+              "input": 0,
+              "success": false,
+              "consumed": 9268,
+              "error": "Script failed an OP_VERIFY operation"
+            }
+          ],
+          "classification": "reject"
+        }
+      },
       "metrics": {
-        "interpreter_ns": 64000,
+        "interpreter_ns": 67458,
         "observations_enabled": true,
         "peak_stack_entries": 35,
         "peak_stack_bytes": 67,
@@ -1629,39 +2685,39 @@
         "function_body_varops_inclusive": {}
       },
       "times_ns": [
-        61666,
-        61667,
-        64542,
-        60583,
-        60750,
-        61500,
-        64209,
-        60708,
-        62209,
-        61292,
+        60209,
+        59833,
+        62917,
+        64500,
+        64167,
+        63167,
+        63625,
+        62167,
+        69375,
         60500,
-        61583,
-        60625,
-        62459,
-        60875,
-        59292,
-        60459,
-        65875,
-        59958,
-        64583,
+        71167,
+        63458,
         61333,
-        60167,
-        63459,
-        62291,
-        61625,
-        60500,
-        64333,
-        61500,
-        60500,
+        60083,
+        62167,
+        60875,
+        65875,
         61417,
-        60250
+        64459,
+        60250,
+        63750,
+        60417,
+        61000,
+        63500,
+        62167,
+        60625,
+        63708,
+        62125,
+        62791,
+        62792,
+        63875
       ],
-      "median_ns": 61417
+      "median_ns": 62791
     }
   ]
 }

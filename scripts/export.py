@@ -133,8 +133,9 @@ def main():
                 ROOT / "build/bitcoin/bin/bitcoin-util",
                 ROOT / "build/bitcoin/bin/bitcoind",
                 ROOT / "build/profile/bin/bitcoin-util",
+                ROOT / "build/parsing-probe/build/bin/bitcoin-util",
+                ROOT / "build/parser-benchmark/build/bin/bitcoin-util",
             )
-            if p.exists()
         },
         dependencies={p.name: digest(p) for p in (ROOT / "build/deps").glob("*.deb")},
     )
@@ -156,8 +157,9 @@ def main():
         if Path("/proc/cpuinfo").exists()
         else platform.processor()
     )
-    for name in ("bitcoin", "profile"):
-        cache = ROOT / f"build/{name}/CMakeCache.txt"
+    for name, directory in (("bitcoin", "bitcoin"), ("profile", "profile"),
+                            ("parsing_probe", "parsing-probe/build"), ("parser_benchmark", "parser-benchmark/build")):
+        cache = ROOT / "build" / directory / "CMakeCache.txt"
         if cache.exists():
             metadata[f"{name}_build_flags"] = [
                 line

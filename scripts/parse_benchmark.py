@@ -5,7 +5,6 @@ import gzip
 import hashlib
 import json
 from pathlib import Path
-import platform
 import statistics
 import subprocess
 import sys
@@ -14,8 +13,9 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from generator.transaction import compile_policy
 from runner.bitcoin import NUMS_XONLY  # Loads the pinned transaction decoding module.
-from scripts.parsing_probe import prepare
+from scripts.parsing_probe import prepare, build_probe
 from scripts.profile_build import replace_once, hashes
+from runner.evidence import CORPUS, COSTS, COUNTS, provenance, verify_provenance, host_environment, value_sha, sha
 from test_framework.messages import tx_from_hex
 
 
@@ -53,15 +53,17 @@ def run(binary, schedule, copy_data, passes=16):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--probe-root", type=Path, default=ROOT / "build/parsing-probe")
+    parser.add_argument("--probe-root", type=Path, default=ROOT / "build/parser-benchmark")
     parser.add_argument("--output", type=Path, default=ROOT / "reports/parser-benchmark.json")
     parser.add_argument("--repeats", type=int, default=21)
+    parser.add_argument("--jobs", type=int, default=4)
     args = parser.parse_args()
-    if args.repeats < 1:
-        parser.error("repeats must be positive")
+    if args.repeats < 1 or args.jobs < 1:
+        parser.error("repeats and jobs must be positive")
     probe = args.probe_root.resolve()
-    if not (probe / "build/CMakeCache.txt").exists():
-        parser.error("run parsing_probe.py first to configure its isolated build")
+    if probe == ROOT or ROOT.is_relative_to(probe) or probe == ROOT / "build/parsing-probe":
+        parser.error("benchmark needs its own build directory")
+    probe.mkdir(parents=True, exist_ok=True)
     source = prepare(ROOT / "vendor/bitcoin", probe)
     util = source / "src/bitcoin-util.cpp"
     text = util.read_text()
@@ -72,10 +74,9 @@ def main():
     text = replace_once(text, needle, '        } else if (cmd->command == "parsebench") {\n            ret = ParseBenchCommand(cmd->args, strPrint);\n' + needle)
     util.write_text(text)
     source_hashes = hashes(source)
-    with (probe / "parser-build.log").open("w") as log:
-        subprocess.run(["cmake", "--build", probe / "build", "--target", "bitcoin-util", "-j", "4"],
-                       stdout=log, stderr=subprocess.STDOUT, check=True)
-    binary = probe / "build/bin/bitcoin-util"
+    binary = build_probe(source, probe, args.jobs)
+    binary_names = [str(binary.relative_to(ROOT))]
+    proof = provenance(ROOT, [CORPUS, COSTS, COUNTS], binary_names)
     records = json.loads(gzip.decompress((ROOT / "reports/regtest-details.json.gz").read_bytes()))
     costs = {r["name"]: r for r in json.loads((ROOT / "reports/costs.json").read_text())["transactions"]}
     counts = {r["name"]: r for r in json.loads((ROOT / "reports/parsing-counts.json").read_text())["rows"]}
@@ -95,10 +96,13 @@ def main():
                     samples["with_payload_copy" if copy_data else "without_payload_copy"].append(result["elapsed_ns"] / 16)
         if len(checksums) != 1:
             raise ValueError("parser variants decoded different instructions")
-        rows.append(dict(name=row["name"], schedule_sha256=hashlib.sha256(json.dumps(schedule, sort_keys=True).encode()).hexdigest(),
+        rows.append(dict(name=row["name"], schedule_sha256=value_sha(schedule),
                          counts=expected, samples_ns=samples,
                          median_ns={name: statistics.median(values) for name, values in samples.items()}))
-    data = dict(rows=rows, environment=dict(platform=platform.platform(), python=sys.version, host_load="not controlled"),
+    verify_provenance(ROOT, proof, [CORPUS, COSTS, COUNTS], binary_names)
+    data = dict(rows=rows, provenance=proof, repeats=args.repeats, passes=16,
+                build_cache_sha256=sha(probe / "build/CMakeCache.txt"),
+                environment=dict(**host_environment(), host_load="not controlled"),
                 binary_sha256=hashlib.sha256(binary.read_bytes()).hexdigest(), source_files=source_hashes,
                 driver_files={name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in (
                     "scripts/parse_benchmark.py", "scripts/parsing_probe.py", "runner/parsebench.inc")},

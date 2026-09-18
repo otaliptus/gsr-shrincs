@@ -40,6 +40,13 @@ CI now checks the three deterministic test-result files against Git.
 Read `reports/EVIDENCE-REPAIR.md` for the repair, validation, and design-note qualifications.
 After source or build changes, run the complete pipeline before committing evidence. An export alone does not update test provenance.
 
+The next review identified stale follow-up inputs and binaries after main-report regeneration.
+The pipeline now regenerates parsing counts, parser timings, and OP_MULTI measurements, then audits their exact dependencies.
+The counter and parser benchmark use separate builds. Both binaries appear in the environment manifest.
+CI checks committed follow-up provenance before regeneration with `python3 scripts/audit_followups.py --portable`.
+This portable check does not require local builds. The full audit still checks the recorded local executables.
+The expanded suite has 37 methods. Read `reports/FOLLOWUP-PROVENANCE.md` for validation and timing qualifications.
+
 The original handoff follows. Its pre-implementation status is historical; the later implementation reports supersede it.
 
 > **Implementation update — 18 September 2026:** Milestones M0–M7 are complete.

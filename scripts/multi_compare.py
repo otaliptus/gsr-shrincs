@@ -4,7 +4,6 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
-import platform
 import statistics
 import sys
 
@@ -13,6 +12,7 @@ sys.path.insert(0, str(ROOT))
 from generator.script import push
 from runner.bitcoin import NUMS_XONLY, control_block
 from runner.comparison import sample
+from runner.evidence import provenance, verify_provenance, value_sha, host_environment
 from test_framework.messages import CTransaction, CTxIn, COutPoint, CTxOut, CTxInWitness
 from test_framework.script import CScript, taproot_construct, LEAF_VERSION_TAPSCRIPT_V2
 
@@ -21,6 +21,7 @@ TOTAL = bytes.fromhex("008000000000")
 AMOUNTS = bytes.fromhex("000000020001")
 LIMIT = 32
 EXPECTED = 1_000_000
+OUTPUT_COUNTS = (1, 2, 4, 8, 16, 32)
 
 
 def programs():
@@ -59,8 +60,13 @@ def main():
     if args.repeats < 1:
         parser.error("repeats must be positive")
     codes = programs()
+    binary_names = [str(args.binary.resolve().relative_to(ROOT))]
+    proof = provenance(ROOT, [], binary_names)
+    corpus = {name: {str(count): dict(valid=request_for(code, count), wrong_sum=request_for(code, count, 1),
+                                     over_limit=request_for(code, LIMIT + 1), empty=request_for(code, 0))
+                     for count in OUTPUT_COUNTS} for name, code in codes.items()}
     rows = []
-    for count in (1, 2, 4, 8, 16, 32):
+    for count in OUTPUT_COUNTS:
         requests = {name: request_for(code, count) for name, code in codes.items()}
         records = {}
         for name, request in requests.items():
@@ -78,6 +84,7 @@ def main():
                 raise RuntimeError(("empty output list did not reject", name, empty))
             records[name] = dict(construction=name, output_count=count, script_bytes=len(codes[name]),
                                  script_sha256=hashlib.sha256(codes[name]).hexdigest(), result=result,
+                                 negative_results=dict(wrong_sum=bad, over_limit=over, empty=empty),
                                  metrics=response["profile"], times_ns=[])
         for iteration in range(args.repeats + 1):
             names = list(codes)
@@ -91,9 +98,11 @@ def main():
         for row in records.values():
             row["median_ns"] = statistics.median(row["times_ns"])
             rows.append(row)
-    data = dict(binary_sha256=hashlib.sha256(args.binary.read_bytes()).hexdigest(),
+    verify_provenance(ROOT, proof, [], binary_names)
+    data = dict(provenance=proof, corpus_sha256=value_sha(corpus), repeats=args.repeats,
+                binary_sha256=hashlib.sha256(args.binary.read_bytes()).hexdigest(),
                 source_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-                environment=dict(platform=platform.platform(), python=sys.version,
+                environment=dict(**host_environment(),
                                  timing="Counters disabled, profiling hooks present; host load is not controlled"),
                 scope="Offline Script predicates; not funded transactions or a complete authorization policy",
                 rule="1 <= output count <= 32 and sum of all output amounts equals 1000000 satoshis",

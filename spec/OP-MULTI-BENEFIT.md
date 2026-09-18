@@ -71,6 +71,10 @@ python3 scripts/multi_compare.py \
 
 Raw evidence: [multi-comparison.json](../reports/multi-comparison.json).
 The file records programs, transaction weights, resource costs, timing samples, and executable hashes.
+The complete check pipeline regenerates this evidence with the current profiling executable.
+Its provenance must match the binary recorded in `reports/environment.json`.
+The audit reconstructs the deterministic transaction corpus and checks its hash, programs, accepted cases, and recorded negative outcomes.
+This corpus belongs to the output-sum experiment. It is separate from the SHRINCS transaction corpus.
 
 ## Limits of the conclusion
 

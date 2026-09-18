@@ -18,6 +18,9 @@
     "tests.test_comparison.ComparisonContracts.test_native_disagreement_is_not_a_measurement",
     "tests.test_comparison.ComparisonContracts.test_process_failure_remains_failure",
     "tests.test_comparison.ComparisonContracts.test_unexpected_acceptance_does_not_pass_negative_case",
+    "tests.test_followup_evidence.FollowupEvidence.test_input_binary_driver_and_environment_drift",
+    "tests.test_followup_evidence.FollowupEvidence.test_multi_corpus_and_negative_outcomes",
+    "tests.test_followup_evidence.FollowupEvidence.test_parsing_accounting_schedule_and_samples",
     "tests.test_runner.EvaluatorContract.test_accept_reject_budget",
     "tests.test_runner.EvaluatorContract.test_failures_are_not_rejections",
     "tests.test_verifier.Components.test_addressed_hashes",
@@ -35,7 +38,7 @@
     "tests.test_verifier.StatelessComponents.test_fors_digest_extremes_and_unused_bits",
     "tests.test_verifier.StatelessComponents.test_wots_tw_checksum_boundaries"
   ],
-  "tests_run": 34,
+  "tests_run": 37,
   "success": true,
   "skipped": [],
   "failures": [],

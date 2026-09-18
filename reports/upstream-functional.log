@@ -1,18 +1,18 @@
-Temporary test directory at /var/folders/q7/58wkn0k15c3266mnlt65c_040000gn/T/test_runner_₿_🏃_20260918_142604
-1/4 - feature_tapscript_v2.py passed, Duration: 4 s
+Temporary test directory at /var/folders/q7/58wkn0k15c3266mnlt65c_040000gn/T/test_runner_₿_🏃_20260918_150440
+1/4 - feature_tapscript_v2.py passed, Duration: 5 s
 2/4 - feature_tapscript_v2_op_tx_vaults.py passed, Duration: 1 s
-3/4 - feature_tapscript_v2_taproot.py passed, Duration: 8 s
-4/4 - tool_utils.py passed, Duration: 4 s
+3/4 - feature_tapscript_v2_taproot.py passed, Duration: 9 s
+4/4 - tool_utils.py passed, Duration: 3 s
 Remaining jobs: [feature_tapscript_v2_taproot.py, tool_utils.py]
 Remaining jobs: [tool_utils.py]
 
 TEST                                 | STATUS    | DURATION
 
-feature_tapscript_v2.py              | ✓ Passed  | 4 s
+feature_tapscript_v2.py              | ✓ Passed  | 5 s
 feature_tapscript_v2_op_tx_vaults.py | ✓ Passed  | 1 s
-feature_tapscript_v2_taproot.py      | ✓ Passed  | 8 s
-tool_utils.py                        | ✓ Passed  | 4 s
+feature_tapscript_v2_taproot.py      | ✓ Passed  | 9 s
+tool_utils.py                        | ✓ Passed  | 3 s
 
-ALL                                  | ✓ Passed  | 17 s (accumulated) 
-Runtime: 9 s
+ALL                                  | ✓ Passed  | 18 s (accumulated) 
+Runtime: 10 s
 
