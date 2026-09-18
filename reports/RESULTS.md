@@ -1,6 +1,6 @@
 # Measured results
 
-Timing environment: **macOS-26.4-arm64-arm-64bit-Mach-O**, arm64, Python 3.14.6.
+Timing environment: **Linux-6.12.105+deb13-amd64-x86_64-with-glibc2.41**, x86_64, Python 3.13.5.
 These timings apply to this machine and method. Do not infer performance regressions from timings across different environments.
 The [environment manifest](environment.json) records build and executable details. The baseline tag retains the earlier Linux measurements.
 
@@ -8,20 +8,20 @@ These measurements use the pinned fork and SHRINCS parameters. The unmodified lo
 
 | Program / signature mode | Script bytes | Signature bytes | Weight | vbytes | Varops used / allowed | Budget used |
 |---|---:|---:|---:|---:|---:|---:|
-| full-unified | 17755 | 660 | 18,942 | 4,736 | 20,642,955 / 189,420,000 | 10.9% |
-| full-stateful | 4476 | 660 | 5,663 | 1,416 | 20,577,528 / 56,630,000 | 36.3% |
-| full-stateless | 14091 | 5777 | 20,395 | 5,099 | 119,994,389 / 203,950,000 | 58.8% |
-| baseline-unified | 228549 | 660 | 229,738 | 57,435 | 34,665,006 / 2,297,380,000 | 1.5% |
-| baseline-stateful | 95350 | 660 | 96,539 | 24,135 | 24,150,510 / 965,390,000 | 2.5% |
-| baseline-stateless | 133452 | 5777 | 139,758 | 34,940 | 138,826,875 / 1,397,580,000 | 9.9% |
-| full-unified-sl | 17755 | 5777 | 24,059 | 6,015 | 123,847,703 / 240,590,000 | 51.5% |
-| baseline-unified-sl | 228549 | 5777 | 234,855 | 58,714 | 138,798,909 / 2,348,550,000 | 5.9% |
-| full-2-input-mixed | 35510 | 6437 | 42,523 | 10,631 | 143,082,063 / 425,230,000 | 33.6% |
-| full-4-input-mixed | 71020 | 12874 | 84,880 | 21,220 | 293,741,186 / 848,800,000 | 34.6% |
-| full-cap1-boundary | 4476 | 660 | 5,507 | 1,377 | 20,575,780 / 55,070,000 | 37.4% |
-| full-cap2-boundary | 8952 | 1320 | 10,848 | 2,712 | 41,160,868 / 108,480,000 | 37.9% |
-| full-cap3-boundary | 13428 | 1980 | 16,189 | 4,048 | 61,755,213 / 161,890,000 | 38.1% |
-| full-cap4-boundary | 17904 | 2640 | 21,530 | 5,383 | 82,358,920 / 215,300,000 | 38.3% |
+| full-unified | 17755 | 660 | 18,942 | 4,736 | 20,643,015 / 189,420,000 | 10.9% |
+| full-stateful | 4476 | 660 | 5,663 | 1,416 | 20,577,516 / 56,630,000 | 36.3% |
+| full-stateless | 14091 | 5777 | 20,395 | 5,099 | 119,995,631 / 203,950,000 | 58.8% |
+| baseline-unified | 228549 | 660 | 229,738 | 57,435 | 34,665,018 / 2,297,380,000 | 1.5% |
+| baseline-stateful | 95350 | 660 | 96,539 | 24,135 | 24,150,522 / 965,390,000 | 2.5% |
+| baseline-stateless | 133452 | 5777 | 139,758 | 34,940 | 134,115,036 / 1,397,580,000 | 9.6% |
+| full-unified-sl | 17755 | 5777 | 24,059 | 6,015 | 125,261,069 / 240,590,000 | 52.1% |
+| baseline-unified-sl | 228549 | 5777 | 234,855 | 58,714 | 135,031,014 / 2,348,550,000 | 5.7% |
+| full-2-input-mixed | 35510 | 6437 | 42,523 | 10,631 | 143,082,288 / 425,230,000 | 33.6% |
+| full-4-input-mixed | 71020 | 12874 | 84,880 | 21,220 | 280,547,777 / 848,800,000 | 33.1% |
+| full-cap1-boundary | 4476 | 660 | 5,507 | 1,377 | 20,575,792 / 55,070,000 | 37.4% |
+| full-cap2-boundary | 8952 | 1320 | 10,848 | 2,712 | 41,160,865 / 108,480,000 | 37.9% |
+| full-cap3-boundary | 13428 | 1980 | 16,189 | 4,048 | 61,755,228 / 161,890,000 | 38.1% |
+| full-cap4-boundary | 17904 | 2640 | 21,530 | 5,383 | 82,358,905 / 215,300,000 | 38.3% |
 
 The stateful spend uses 1,416 vbytes. The same transaction shape used 6,879 vbytes at commit `6e1e807`. This is a reduction of 79.4%. The Script uses shared authentication functions with a fixed execution bound and no call cycle. Each child receives only its required path portion.
 
@@ -35,20 +35,20 @@ A smaller program reduces witness weight. In this fork, lower weight also reduce
 
 | Program | Peak stack bytes | Stack + functions bytes | Maximum item | Invoked body bytes | Median interpreter ms, counters off |
 |---|---:|---:|---:|---:|---:|
-| full-unified | 8,152 | 21,210 | 7,411 | 21,039 | 1.014 |
-| full-stateful | 3,824 | 7,971 | 2,672 | 21,039 | 0.972 |
-| full-stateless | 17,875 | 31,665 | 7,411 | 121,184 | 5.088 |
-| baseline-unified | 3,624 | 3,624 | 660 | 0 | 3.690 |
-| baseline-stateful | 3,624 | 3,624 | 660 | 0 | 1.910 |
-| baseline-stateless | 17,875 | 17,875 | 5,777 | 0 | 6.225 |
-| full-unified-sl | 17,876 | 35,262 | 7,411 | 121,184 | 5.261 |
-| baseline-unified-sl | 17,875 | 17,875 | 5,777 | 0 | 7.196 |
-| full-2-input-mixed | 17,875 | 35,261 | 7,411 | 121,184 | 6.195 |
-| full-4-input-mixed | 17,875 | 35,261 | 7,411 | 121,184 | 12.515 |
-| full-cap1-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 0.981 |
-| full-cap2-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 1.890 |
-| full-cap3-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 2.819 |
-| full-cap4-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 3.780 |
+| full-unified | 8,152 | 21,210 | 7,411 | 21,039 | 0.679 |
+| full-stateful | 3,824 | 7,971 | 2,672 | 21,039 | 0.653 |
+| full-stateless | 17,875 | 31,665 | 7,411 | 121,184 | 3.174 |
+| baseline-unified | 3,624 | 3,624 | 660 | 0 | 2.477 |
+| baseline-stateful | 3,624 | 3,624 | 660 | 0 | 1.260 |
+| baseline-stateless | 17,876 | 17,876 | 5,777 | 0 | 3.710 |
+| full-unified-sl | 17,875 | 35,261 | 7,411 | 121,184 | 3.310 |
+| baseline-unified-sl | 17,876 | 17,876 | 5,777 | 0 | 4.263 |
+| full-2-input-mixed | 17,876 | 35,262 | 7,411 | 121,184 | 3.788 |
+| full-4-input-mixed | 17,876 | 35,262 | 7,411 | 121,184 | 7.465 |
+| full-cap1-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 0.684 |
+| full-cap2-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 1.195 |
+| full-cap3-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 1.750 |
+| full-cap4-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 2.276 |
 
 All 128 recorded negative transactions also fail the offline Script checker with transaction data. These include annex and large two-input cases that relay policy rejects before Script executes.
 

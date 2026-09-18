@@ -35,7 +35,7 @@ Read these files in this order. Each one answers a question.
 6. [generator/verifier.py](generator/verifier.py): the verifier. [generator/script.py](generator/script.py) is the compiler under it, and [generator/transaction.py](generator/transaction.py) is the spending policy.
 7. [reports/AUDIT.md](reports/AUDIT.md): each milestone and the evidence that closed it.
 8. [reports/REVIEW-FOLLOWUP.md](reports/REVIEW-FOLLOWUP.md): how shared functions reduced the stateful program from 26 kB to 4.5 kB.
-9. The fork-change notes: [spec/OP-MULTI-BENEFIT.md](spec/OP-MULTI-BENEFIT.md), [spec/FUNCTION-DESIGN.md](spec/FUNCTION-DESIGN.md), [reports/PARSING-ANALYSIS.md](reports/PARSING-ANALYSIS.md), [spec/SIMPLICITY-COMPATIBILITY.md](spec/SIMPLICITY-COMPATIBILITY.md), and [spec/FORK-COMPARISON.md](spec/FORK-COMPARISON.md).
+9. The fork-change notes: [spec/OP-MULTI-BENEFIT.md](spec/OP-MULTI-BENEFIT.md), [spec/OP-MULTI-SCENARIO.md](spec/OP-MULTI-SCENARIO.md), [spec/FUNCTION-DESIGN.md](spec/FUNCTION-DESIGN.md), [reports/PARSING-ANALYSIS.md](reports/PARSING-ANALYSIS.md), [spec/SIMPLICITY-COMPATIBILITY.md](spec/SIMPLICITY-COMPATIBILITY.md), and [spec/FORK-COMPARISON.md](spec/FORK-COMPARISON.md).
 10. [tests/test_verifier.py](tests/test_verifier.py) and [tests/regtest.py](tests/regtest.py): what was tested against the reference and on the regtest node.
 
 To check a claim rather than read about it, run `./scripts/check.sh` after the build. The [GitHub Actions workflow](.github/workflows/verify.yml) does the same from a clean checkout.
@@ -64,6 +64,7 @@ Its [clean-checkout CI run](https://github.com/otaliptus/gsr-shrincs/actions/run
 - [Measured OP_MULTI comparison](spec/OP-MULTI-BENEFIT.md)
 - [Parsed-work counts and timing limits](reports/PARSING-ANALYSIS.md)
 - [Pinned Simplicity compatibility check](spec/SIMPLICITY-COMPATIBILITY.md)
+- [OP_MULTI inside the checker, a laboratory extension](spec/OP-MULTI-SCENARIO.md)
 
 The comparison driver accepts another fork commit and an optional compiler commit.
 It builds separate checkouts. It does not update the pinned submodules or overwrite historical reports.

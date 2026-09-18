@@ -1,0 +1,296 @@
+{
+  "scope": "Laboratory extension of the audited full profile; the audited programs are unchanged",
+  "provenance": {
+    "schema": 1,
+    "inputs": {
+      "fixtures/vectors.json": "b4e9e0bb3890e26ad964a36853c606b6771494866e00c17b2846d300a3af4457"
+    },
+    "binaries": {
+      "build/bitcoin/bin/bitcoin-util": "06ee8b397763451823b76329fa06570e11ab3638a7fee0bfe5a4cee2d852492a",
+      "build/profile/bin/bitcoin-util": "ed8ae2da27c58e95d058ac8a48b9685a3acac404af4c90c4d740d344f65c69e0"
+    },
+    "drivers": {
+      "generator/multi.py": "68e42dd94299faaa215ac7092a17b4a48bb35a73245d01c3da9bc1082dc4e3f8",
+      "generator/script.py": "2c71fdb8d1dd806a562f635c8c9af9d3527965619e87e8fe2e01cf05e4077076",
+      "generator/transaction.py": "2cf8814c2c23e3ea6c3cc7c4032c2b4c397376b8b0ee03862062aa7c9081f6ab",
+      "generator/verifier.py": "db5296addbe5db148a7e1e54561540855c6b22e4a9aed426fdeb569237cc9567",
+      "runner/bitcoin.py": "9033052924c076c173ced31178451eb5c7d3c5e51d0284bf660d4d2f6ca32e1f",
+      "runner/checks.py": "3176bb856a15fd12eee11268a59ada282dbb37c4385d1d4e9c543613fc02f30b",
+      "runner/comparison.py": "0f2c7ef75e41a124c0c075d5939c8420f42da7f2c9b5fff451a79b20d7f5d79b",
+      "runner/evaluator.py": "342ff5d2f780599b662b2a612599ae33c333e108b1b22f71fe02e8e226defaeb",
+      "runner/evidence.py": "6113d1dd9141a587a56e96eff4c94c7680204c866fd91b0e689c5c77be1e3339",
+      "runner/followup.py": "4e4998dfbaf4fd1f93f3877137f147eafc47167d53b74303bf24753b821f5bef",
+      "runner/measuretx.inc": "d52f03ec91bf73cfb1e87b56f1e798e8027001e2d0566fa13cf35bd781803b1c",
+      "runner/parsebench.inc": "50dc37dc2542a97dbeeb7f3aa578297db6201a92270ba795e76958896bff906f",
+      "runner/profile.hpp": "c21bdc855d4dc9479497e2131970d940a38e719d213a76e1c032412d67be5f87",
+      "runner/profile.py": "c89085b0e864731bb92d243ff8be62ba63a2ea4cbb52be63669dd452347fc37d",
+      "reference/oracle.py": "ad95779190e81cd8ecc4b16fa3188d5b295c3cdeb2afce799f379bf0fdcba385",
+      "scripts/audit.py": "461e0822b33cdcc64471891bd09ff6d07b602501426b8e1661630434e15264d2",
+      "scripts/audit_followups.py": "f933c842ebcef781d1af8337195713e82349ea9b75281c18b69f43d2a331b8c8",
+      "scripts/boundary_costs.py": "060bcf45e0b1a7766aa58892d11e595692c1c4119a218ccc1c870b126345ad5a",
+      "scripts/build.sh": "c8ae9b6ddb6c6bee12ab695f91abcb2cff332489596bddfff9e4893d20931f95",
+      "scripts/check.sh": "57c7e9ee9d6a2d94e6f4e2618a29b5aa31d456e3416cb9b72e0c6e826e85e4b9",
+      "scripts/compare_forks.py": "e5d92bd2404f6b3c4d6632a4d69506c93d1602740264f29604267f4eb0f89021",
+      "scripts/comparison_corpus.py": "3de128f01223e86b98985a6086fc5b399aeec3eac87fad88441957915b8f7871",
+      "scripts/component_costs.py": "98ad642e64efaf67c93077e3763b6308012f53a469be6810851dbb5b2c8fde1c",
+      "scripts/export.py": "c27aef3cdaf98b43ffa150d4eb843102ab7b761b8fc73e17f99e4305ddd68b46",
+      "scripts/fixtures.py": "45c385e5104b11ba0c558f6196c3c720d097f8e2a810ff801ddc29c85ef023c6",
+      "scripts/measure.py": "517e97ad963e1cef6e36d3a1ea031afbca09c45f2e46726e4361c7e136a3732a",
+      "scripts/multi_compare.py": "ab043eb055aa8d749f42812c3f2e7d2727cb4f3f1efe0422da0fe9e22381110c",
+      "scripts/multi_scenario.py": "873b269b0f2fdd00d59ed6af69e7d06c07e7b0275285ea812791cbfd0e6af7a1",
+      "scripts/parse_benchmark.py": "3c95d431ec676d7b8962ef22b436196c4e53ea6d8bee871d5e5018edcc334aa5",
+      "scripts/parsing_probe.py": "2f8d9e9002e4bfbd6a26b2b37cd028b27278470a777490fea76fcdc2386965b4",
+      "scripts/profile_build.py": "2f44c5110db70a5fcf93a1f9b5b0a01e4511f0456096cad6f74b5927583bc23e",
+      "scripts/record_tests.py": "6f9f77d85268209ad5138910b3bdb84999a0a2243491a5d4166cdf16314aba40",
+      "scripts/run_tests.py": "abc081b1adb2a990ad813bdc4230d6b1d5b11559940131515b1196a767d82809"
+    },
+    "environment": {
+      "platform": "Linux-6.12.105+deb13-amd64-x86_64-with-glibc2.41",
+      "machine": "x86_64",
+      "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]"
+    }
+  },
+  "environment": {
+    "platform": "Linux-6.12.105+deb13-amd64-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]"
+  },
+  "repeats": 7,
+  "agreement_cases": 406,
+  "sample_depths": [
+    1,
+    64,
+    255
+  ],
+  "standalone_program_bytes": {
+    "full-unified": 17614,
+    "catfix-unified": 16158,
+    "multi-unified": 15848,
+    "full-stateful": 4335,
+    "catfix-stateful": 3989,
+    "multi-stateful": 3923,
+    "full-stateless": 13950,
+    "catfix-stateless": 12772,
+    "multi-stateless": 12520
+  },
+  "transactions": {
+    "full-stateful": {
+      "variant": "full",
+      "mode": "stateful",
+      "signature_bytes": 660,
+      "program_bytes": 4476,
+      "times_ns": [
+        686935,
+        682106,
+        677076,
+        670404,
+        680934,
+        668670,
+        676044
+      ],
+      "function_body_bytes": 4147,
+      "control_block_bytes": 65,
+      "transaction_bytes": 5324,
+      "weight": 5663,
+      "vbytes": 1416,
+      "varops_consumed": 20577528,
+      "varops_allowed": 56630000,
+      "budget_fraction": 0.3633679675083878,
+      "median_interpreter_ms": 0.677076,
+      "metrics": {
+        "opcodes": 13701,
+        "fixed_charge": 18542750,
+        "sha256_calls": 253,
+        "invocations": 62,
+        "peak_total_bytes": 7971,
+        "max_item_bytes": 2672,
+        "executed_function_body_bytes": 21039
+      },
+      "multi_uses": {},
+      "program_sha256": "d656c3548157ea1df5c25dc8b1fe8eee9b1219ab0e6d8646f1256691af1f13e0"
+    },
+    "catfix-stateful": {
+      "variant": "catfix",
+      "mode": "stateful",
+      "signature_bytes": 660,
+      "program_bytes": 4130,
+      "times_ns": [
+        639273,
+        633812,
+        636908,
+        634553,
+        625877,
+        695742,
+        621037
+      ],
+      "function_body_bytes": 3803,
+      "control_block_bytes": 65,
+      "transaction_bytes": 4978,
+      "weight": 5317,
+      "vbytes": 1330,
+      "varops_consumed": 18838994,
+      "varops_allowed": 53170000,
+      "budget_fraction": 0.35431623095730674,
+      "median_interpreter_ms": 0.634553,
+      "metrics": {
+        "opcodes": 12387,
+        "fixed_charge": 16900250,
+        "sha256_calls": 253,
+        "invocations": 62,
+        "peak_total_bytes": 7627,
+        "max_item_bytes": 2410,
+        "executed_function_body_bytes": 18751
+      },
+      "multi_uses": {},
+      "program_sha256": "3c10dfd37e000a40151fa222c2ee1586ada39d25210d23ccddf0fac60b38645a"
+    },
+    "multi-stateful": {
+      "variant": "multi",
+      "mode": "stateful",
+      "signature_bytes": 660,
+      "program_bytes": 4064,
+      "times_ns": [
+        666566,
+        650164,
+        660223,
+        671095,
+        638261,
+        681294,
+        650164
+      ],
+      "function_body_bytes": 3745,
+      "control_block_bytes": 65,
+      "transaction_bytes": 4912,
+      "weight": 5251,
+      "vbytes": 1313,
+      "varops_consumed": 19143887,
+      "varops_allowed": 52510000,
+      "budget_fraction": 0.3645760236145496,
+      "median_interpreter_ms": 0.660223,
+      "metrics": {
+        "opcodes": 11884,
+        "fixed_charge": 16271500,
+        "sha256_calls": 1,
+        "invocations": 62,
+        "peak_total_bytes": 7570,
+        "max_item_bytes": 2398,
+        "executed_function_body_bytes": 18608
+      },
+      "multi_uses": {
+        "DROP": 14,
+        "SHA256": 20,
+        "CAT": 34
+      },
+      "program_sha256": "a5817d0d270c7b7ef0113211cb9512a17808f52167f2c0142a0d892aab33b3f7"
+    },
+    "full-stateless": {
+      "variant": "full",
+      "mode": "stateless",
+      "signature_bytes": 5777,
+      "program_bytes": 14091,
+      "times_ns": [
+        3287480,
+        3622742,
+        3214208,
+        3297580,
+        3574308,
+        3317238,
+        3274946
+      ],
+      "function_body_bytes": 13790,
+      "control_block_bytes": 65,
+      "transaction_bytes": 20056,
+      "weight": 20395,
+      "vbytes": 5099,
+      "varops_consumed": 119995961,
+      "varops_allowed": 203950000,
+      "budget_fraction": 0.5883597009070851,
+      "median_interpreter_ms": 3.29758,
+      "metrics": {
+        "opcodes": 78562,
+        "fixed_charge": 106357500,
+        "sha256_calls": 1469,
+        "invocations": 357,
+        "peak_total_bytes": 31665,
+        "max_item_bytes": 7411,
+        "executed_function_body_bytes": 121184
+      },
+      "multi_uses": {},
+      "program_sha256": "fa0327df8b05e61c795fcb902f751675be9c5fcee965dead635a351909be2e34"
+    },
+    "catfix-stateless": {
+      "variant": "catfix",
+      "mode": "stateless",
+      "signature_bytes": 5777,
+      "program_bytes": 12913,
+      "times_ns": [
+        3042374,
+        3048065,
+        2992817,
+        2999611,
+        2960314,
+        3309794,
+        3016955
+      ],
+      "function_body_bytes": 12614,
+      "control_block_bytes": 65,
+      "transaction_bytes": 18878,
+      "weight": 19217,
+      "vbytes": 4805,
+      "varops_consumed": 112114253,
+      "varops_allowed": 192170000,
+      "budget_fraction": 0.583411838476349,
+      "median_interpreter_ms": 3.016955,
+      "metrics": {
+        "opcodes": 72194,
+        "fixed_charge": 98397500,
+        "sha256_calls": 1574,
+        "invocations": 357,
+        "peak_total_bytes": 30490,
+        "max_item_bytes": 6807,
+        "executed_function_body_bytes": 107388
+      },
+      "multi_uses": {},
+      "program_sha256": "910d6aa54d9c239feae1c1527365bce7186dbc3a949f0ed5f9d8c9ebccdcc791"
+    },
+    "multi-stateless": {
+      "variant": "multi",
+      "mode": "stateless",
+      "signature_bytes": 5777,
+      "program_bytes": 12661,
+      "times_ns": [
+        3534261,
+        3222434,
+        3547216,
+        3241211,
+        3062213,
+        3233035,
+        3078163
+      ],
+      "function_body_bytes": 12366,
+      "control_block_bytes": 65,
+      "transaction_bytes": 18626,
+      "weight": 18965,
+      "vbytes": 4742,
+      "varops_consumed": 120942956,
+      "varops_allowed": 189650000,
+      "budget_fraction": 0.6377166148167678,
+      "median_interpreter_ms": 3.233035,
+      "metrics": {
+        "opcodes": 72749,
+        "fixed_charge": 99091250,
+        "sha256_calls": 1,
+        "invocations": 357,
+        "peak_total_bytes": 30240,
+        "max_item_bytes": 6629,
+        "executed_function_body_bytes": 106404
+      },
+      "multi_uses": {
+        "DROP": 6,
+        "SHA256": 30,
+        "CAT": 211
+      },
+      "program_sha256": "b36ffe3a6425040bca5f3f24ed3739b37640d9a4b42c7b1fc7fe5dbd398ad05a"
+    }
+  }
+}

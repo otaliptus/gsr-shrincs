@@ -1,305 +1,305 @@
 Running 76 test cases...
 [1;34;49mEntering test module "Bitcoin Core Test Suite"
-[0;39;49m[1;33;49mtest/addrman_tests.cpp:52: Test suite "addrman_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/allocator_tests.cpp:17: Test suite "allocator_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/amount_tests.cpp:12: Test suite "amount_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/argsman_tests.cpp:25: Test suite "argsman_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/arith_uint256_tests.cpp:19: Test suite "arith_uint256_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/banman_tests.cpp:16: Test suite "banman_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/base32_tests.cpp:14: Test suite "base32_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/base58_tests.cpp:22: Test suite "base58_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/base64_tests.cpp:14: Test suite "base64_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/baseindex_tests.cpp:18: Test suite "baseindex_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/bech32_tests.cpp:13: Test suite "bech32_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/bip32_tests.cpp:160: Test suite "bip32_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/bip324_tests.cpp:164: Test suite "bip324_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/blockchain_tests.cpp:54: Test suite "blockchain_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/blockencodings_tests.cpp:20: Test suite "blockencodings_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/blockfilter_index_tests.cpp:47: Test suite "blockfilter_index_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/blockfilter_tests.cpp:19: Test suite "blockfilter_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/blockmanager_tests.cpp:28: Test suite "blockmanager_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/bloom_tests.cpp:34: Test suite "bloom_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/bswap_tests.cpp:9: Test suite "bswap_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/btcsignals_tests.cpp:35: Test suite "btcsignals_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/caches_tests.cpp:22: Test suite "caches_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/chain_tests.cpp:13: Test suite "chain_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/chainstate_write_tests.cpp:18: Test suite "chainstate_write_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/checkqueue_tests.cpp:180: Test suite "checkqueue_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/cluster_linearize_tests.cpp:15: Test suite "cluster_linearize_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/coins_tests.cpp:286: Test suite "coins_tests_base" is skipped because disabled
-[0;39;49m[1;33;49mtest/coins_tests.cpp:297: Test suite "coins_tests_dbbase" is skipped because disabled
-[0;39;49m[1;33;49mtest/coins_tests.cpp:307: Test suite "coins_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/coinscachepair_tests.cpp:11: Test suite "coinscachepair_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/coinstatsindex_tests.cpp:32: Test suite "coinstatsindex_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/coinsviewoverlay_tests.cpp:101: Test suite "coinsviewoverlay_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/coinsviewoverlay_tests.cpp:275: Test suite "coinsviewoverlay_tests_noworkers" is skipped because disabled
-[0;39;49m[1;33;49mtest/common_url_tests.cpp:12: Test suite "common_url_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/compress_tests.cpp:26: Test suite "compress_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/crypto_tests.cpp:377: Test suite "crypto_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/cuckoocache_tests.cpp:33: Test suite "cuckoocache_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/dbwrapper_tests.cpp:20: Test suite "dbwrapper_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/denialofservice_tests.cpp:36: Test suite "denialofservice_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/descriptor_tests.cpp:597: Test suite "descriptor_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/disconnected_transactions.cpp:10: Test suite "disconnected_transactions" is skipped because disabled
-[0;39;49m[1;33;49mtest/feefrac_tests.cpp:10: Test suite "feefrac_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/feerounder_tests.cpp:12: Test suite "feerounder_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/flatfile_tests.cpp:13: Test suite "flatfile_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/fs_tests.cpp:15: Test suite "fs_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/getarg_tests.cpp:22: Test suite "getarg_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/hash_tests.cpp:16: Test suite "hash_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/headers_sync_chainwork_tests.cpp:142: Test suite "headers_sync_chainwork_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/httpserver_tests.cpp:35: Test suite "httpserver_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/i2p_tests.cpp:46: Test suite "i2p_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/interfaces_tests.cpp:17: Test suite "interfaces_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/key_io_tests.cpp:21: Test suite "key_io_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/key_tests.cpp:39: Test suite "key_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/logging_tests.cpp:33: Test suite "logging_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/mempool_tests.cpp:17: Test suite "mempool_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/merkle_tests.cpp:12: Test suite "merkle_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/merkleblock_tests.cpp:15: Test suite "merkleblock_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/miner_tests.cpp:94: Test suite "miner_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/miniminer_tests.cpp:16: Test suite "miniminer_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/miniscript_tests.cpp:499: Test suite "miniscript_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/minisketch_tests.cpp:18: Test suite "minisketch_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/multisig_tests.cpp:21: Test suite "multisig_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/bip328_tests.cpp:25: Test suite "bip328_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/net_peer_connection_tests.cpp:37: Test suite "net_peer_connection_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/net_peer_eviction_tests.cpp:18: Test suite "net_peer_eviction_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/net_tests.cpp:42: Test suite "net_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/netbase_tests.cpp:26: Test suite "netbase_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/node_init_tests.cpp:21: Test suite "node_init_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/node_warnings_tests.cpp:13: Test suite "node_warnings_tests" is skipped because disabled
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:169: Entering test suite "op_tx_tests"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:171: Entering test case "reference_vectors"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:171: Leaving test case "reference_vectors"; testing time: 94607us
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:256: Entering test case "interpreter_dispatch_and_execution_cost"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:256: Leaving test case "interpreter_dispatch_and_execution_cost"; testing time: 1214us
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:282: Entering test case "runtime_range_operands"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:282: Leaving test case "runtime_range_operands"; testing time: 672us
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:314: Entering test case "undefined_selector_fails_closed"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:314: Leaving test case "undefined_selector_fails_closed"; testing time: 873us
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:345: Entering test case "future_selector_version_succeeds"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:345: Leaving test case "future_selector_version_succeeds"; testing time: 638us
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:381: Entering test case "codeseparator_opcode_position_after_multi_csfs"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:381: Leaving test case "codeseparator_opcode_position_after_multi_csfs"; testing time: 2602us
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:426: Entering test case "bip341_sighash_construction_csfs"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:426: Leaving test case "bip341_sighash_construction_csfs"; testing time: 1261us
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:517: Entering test case "bip118_style_anyprevout_sighash_construction_csfs"
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:517: Leaving test case "bip118_style_anyprevout_sighash_construction_csfs"; testing time: 934us
-[0;39;49m[1;34;49mtest/op_tx_tests.cpp:169: Leaving test suite "op_tx_tests"; testing time: 102945us
-[0;39;49m[1;33;49mtest/orphanage_tests.cpp:24: Test suite "orphanage_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/pcp_tests.cpp:251: Test suite "pcp_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/peerman_tests.cpp:25: Test suite "peerman_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/pmt_tests.cpp:32: Test suite "pmt_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/policyestimator_tests.cpp:18: Test suite "policyestimator_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/pool_tests.cpp:18: Test suite "pool_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/pow_tests.cpp:15: Test suite "pow_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/prevector_tests.cpp:16: Test suite "prevector_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/private_broadcast_tests.cpp:25: Test suite "private_broadcast_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/psbt_tests.cpp:10: Test suite "psbt_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/random_tests.cpp:16: Test suite "random_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/rbf_tests.cpp:17: Test suite "rbf_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/rest_tests.cpp:13: Test suite "rest_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/result_tests.cpp:19: Test suite "result_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/reverselock_tests.cpp:12: Test suite "reverselock_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/rpc_tests.cpp:88: Test suite "rpc_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/sanity_tests.cpp:10: Test suite "sanity_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/scheduler_tests.cpp:16: Test suite "scheduler_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/script_assets_tests.cpp:30: Test suite "script_assets_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/script_p2sh_tests.cpp:60: Test suite "script_p2sh_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/script_parse_tests.cpp:12: Test suite "script_parse_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/script_segwit_tests.cpp:10: Test suite "script_segwit_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/script_standard_tests.cpp:23: Test suite "script_standard_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/script_tests.cpp:435: Test suite "script_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/scriptnum_tests.cpp:13: Test suite "scriptnum_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/serfloat_tests.cpp:17: Test suite "serfloat_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/serialize_tests.cpp:18: Test suite "serialize_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/settings_tests.cpp:52: Test suite "settings_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/sighash_tests.cpp:120: Test suite "sighash_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/sigopcount_tests.cpp:29: Test suite "sigopcount_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/skiplist_tests.cpp:17: Test suite "skiplist_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/sock_tests.cpp:19: Test suite "sock_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/span_tests.cpp:43: Test suite "span_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/streams_tests.cpp:20: Test suite "streams_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/sync_tests.cpp:79: Test suite "sync_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/system_ram_tests.cpp:13: Test suite "system_ram_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/system_tests.cpp:61: Test suite "system_tests" is skipped because disabled
-[0;39;49m[1;34;49mtest/tapscript_v2_json_tests.cpp:32: Entering test suite "tapscript_v2_json_tests"
-[0;39;49m[1;34;49mtest/tapscript_v2_json_tests.cpp:202: Entering test case "tapscript_v2_varops_json_tests"
-[0;39;49m[1;34;49mtest/tapscript_v2_json_tests.cpp:202: Leaving test case "tapscript_v2_varops_json_tests"; testing time: 21830us
-[0;39;49m[1;34;49mtest/tapscript_v2_json_tests.cpp:207: Entering test case "tapscript_v2_restored_ops_json_tests"
-[0;39;49m[1;34;49mtest/tapscript_v2_json_tests.cpp:207: Leaving test case "tapscript_v2_restored_ops_json_tests"; testing time: 4020us
-[0;39;49m[1;34;49mtest/tapscript_v2_json_tests.cpp:32: Leaving test suite "tapscript_v2_json_tests"; testing time: 25886us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:211: Entering test suite "tapscript_v2_tests"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:213: Entering test case "op_success_classification"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:213: Leaving test case "op_success_classification"; testing time: 791us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:253: Entering test case "meta_opcodes_are_tapscript_v2_only_redefinitions"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:253: Leaving test case "meta_opcodes_are_tapscript_v2_only_redefinitions"; testing time: 628us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:273: Entering test case "function_invocation_executes_field_fragment"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:273: Leaving test case "function_invocation_executes_field_fragment"; testing time: 983us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:286: Entering test case "literal_push_copying_budget"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:286: Leaving test case "literal_push_copying_budget"; testing time: 1882us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:312: Entering test case "function_invocation_shares_altstack"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:312: Leaving test case "function_invocation_shares_altstack"; testing time: 688us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:325: Entering test case "multi_applies_supported_targets"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:325: Leaving test case "multi_applies_supported_targets"; testing time: 684us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:373: Entering test case "multi_count_and_execution_rules"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:373: Leaving test case "multi_count_and_execution_rules"; testing time: 988us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:420: Entering test case "function_ids_are_canonical_and_immutable"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:420: Leaving test case "function_ids_are_canonical_and_immutable"; testing time: 571us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:443: Entering test case "function_bodies_are_validated_when_invoked"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:443: Leaving test case "function_bodies_are_validated_when_invoked"; testing time: 602us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:483: Entering test case "function_invocation_rejects_recursion"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:483: Leaving test case "function_invocation_rejects_recursion"; testing time: 605us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:509: Entering test case "function_signature_uses_callers_codeseparator"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:509: Leaving test case "function_signature_uses_callers_codeseparator"; testing time: 780us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:527: Entering test case "invoked_op_success_is_terminal"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:527: Leaving test case "invoked_op_success_is_terminal"; testing time: 2050us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:565: Entering test case "function_execution_and_storage_limits"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:565: Leaving test case "function_execution_and_storage_limits"; testing time: 5177us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:605: Entering test case "base_evalscript_rejects_tapscript_v2"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:605: Leaving test case "base_evalscript_rejects_tapscript_v2"; testing time: 718us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:618: Entering test case "tapscript_v2_leaf_requires_script_restoration_flag"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:618: Leaving test case "tapscript_v2_leaf_requires_script_restoration_flag"; testing time: 1177us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:652: Entering test case "tapleaf_versions_isolate_restored_opcodes"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:652: Leaving test case "tapleaf_versions_isolate_restored_opcodes"; testing time: 1060us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:683: Entering test case "splice_opcodes_follow_bip441_byte_ranges"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:683: Leaving test case "splice_opcodes_follow_bip441_byte_ranges"; testing time: 636us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:728: Entering test case "length_operands_charge_encoded_width_even_when_value_is_zero"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:728: Leaving test case "length_operands_charge_encoded_width_even_when_value_is_zero"; testing time: 634us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:757: Entering test case "restored_bit_opcodes_preserve_non_arithmetic_width"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:757: Leaving test case "restored_bit_opcodes_preserve_non_arithmetic_width"; testing time: 633us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:770: Entering test case "restored_shift_opcodes_are_raw_bitshifts"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:770: Leaving test case "restored_shift_opcodes_are_raw_bitshifts"; testing time: 585us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:799: Entering test case "tapscript_v2_costed_opcodes_reject_missing_stack_elements"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:799: Leaving test case "tapscript_v2_costed_opcodes_reject_missing_stack_elements"; testing time: 601us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:862: Entering test case "bip342_restricted_opcodes_remain_restricted_in_tapscript_v2"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:862: Leaving test case "bip342_restricted_opcodes_remain_restricted_in_tapscript_v2"; testing time: 880us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:869: Entering test case "restored_multiply_divide_and_modulo_opcodes"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:869: Leaving test case "restored_multiply_divide_and_modulo_opcodes"; testing time: 604us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:884: Entering test case "extended_arithmetic_is_unsigned_and_normalized"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:884: Leaving test case "extended_arithmetic_is_unsigned_and_normalized"; testing time: 648us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:900: Entering test case "checksigadd_failure_normalizes_numeric_operand"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:900: Leaving test case "checksigadd_failure_normalizes_numeric_operand"; testing time: 721us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:917: Entering test case "checksigadd_enforces_numeric_result_boundaries"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:917: Leaving test case "checksigadd_enforces_numeric_result_boundaries"; testing time: 2829us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:972: Entering test case "bip440_costed_legacy_ops_use_unsigned_values"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:972: Leaving test case "bip440_costed_legacy_ops_use_unsigned_values"; testing time: 617us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:991: Entering test case "costed_legacy_ops_report_exact_semantic_failures"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:991: Leaving test case "costed_legacy_ops_report_exact_semantic_failures"; testing time: 574us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1004: Entering test case "locktime_sequence_operands_must_fit_transaction_fields"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1004: Leaving test case "locktime_sequence_operands_must_fit_transaction_fields"; testing time: 595us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1072: Entering test case "hash_opcodes_follow_bip441_limits"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1072: Leaving test case "hash_opcodes_follow_bip441_limits"; testing time: 648us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1102: Entering test case "tapscript_v2_stack_limits_are_enforced"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1102: Leaving test case "tapscript_v2_stack_limits_are_enforced"; testing time: 16185us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1151: Entering test case "copying_opcodes_enforce_total_stack_size_with_altstack"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1151: Leaving test case "copying_opcodes_enforce_total_stack_size_with_altstack"; testing time: 11199us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1194: Entering test case "tapscript_v2_witness_initial_stack_limits_are_enforced"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1194: Leaving test case "tapscript_v2_witness_initial_stack_limits_are_enforced"; testing time: 2599us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1217: Entering test case "tapscript_v2_pushes_use_the_expanded_stack_element_limit"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1217: Leaving test case "tapscript_v2_pushes_use_the_expanded_stack_element_limit"; testing time: 14520us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1234: Entering test case "tapscript_v2_skipped_branches_validate_pushes"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1234: Leaving test case "tapscript_v2_skipped_branches_validate_pushes"; testing time: 1463us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1252: Entering test case "restored_ops_enforce_stack_element_limit_edges"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1252: Leaving test case "restored_ops_enforce_stack_element_limit_edges"; testing time: 5633us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1280: Entering test case "varops_budget_must_cover_exact_bip_cost"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1280: Leaving test case "varops_budget_must_cover_exact_bip_cost"; testing time: 912us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1311: Entering test case "signature_varops_charge_depends_on_nonempty_signature"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1311: Leaving test case "signature_varops_charge_depends_on_nonempty_signature"; testing time: 1298us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1387: Entering test case "op_success_redefinitions_are_checked_before_execution"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1387: Leaving test case "op_success_redefinitions_are_checked_before_execution"; testing time: 2148us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1488: Entering test case "nop4_is_upgradable_nop_in_tapscript_v2"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1488: Leaving test case "nop4_is_upgradable_nop_in_tapscript_v2"; testing time: 782us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1504: Entering test case "tapscript_v2_treats_future_pubkeys_as_unknown_pubkey_type"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1504: Leaving test case "tapscript_v2_treats_future_pubkeys_as_unknown_pubkey_type"; testing time: 755us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1530: Entering test case "tapscript_v2_conditionals_require_minimal_inputs"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1530: Leaving test case "tapscript_v2_conditionals_require_minimal_inputs"; testing time: 655us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1545: Entering test case "unexecuted_branches_do_not_charge_or_execute_costed_ops"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1545: Leaving test case "unexecuted_branches_do_not_charge_or_execute_costed_ops"; testing time: 625us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1552: Entering test case "tapscript_v2_standard_verify_uses_unmetered_overload"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1552: Leaving test case "tapscript_v2_standard_verify_uses_unmetered_overload"; testing time: 673us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1565: Entering test case "checksigfromstack"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1565: Leaving test case "checksigfromstack"; testing time: 773us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1600: Entering test case "tweakadd"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1600: Leaving test case "tweakadd"; testing time: 688us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1665: Entering test case "byterev"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1665: Leaving test case "byterev"; testing time: 652us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1695: Entering test case "taproot_script_signing_propagates_leaf_sigversion"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1695: Leaving test case "taproot_script_signing_propagates_leaf_sigversion"; testing time: 2034us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1721: Entering test case "tapscript_v2_psbt_finalized_witness_is_signed_and_verified"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1721: Leaving test case "tapscript_v2_psbt_finalized_witness_is_signed_and_verified"; testing time: 1147us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1742: Entering test case "tapscript_v2_psbt_and_signtransaction_use_transaction_wide_varops_budget"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1742: Leaving test case "tapscript_v2_psbt_and_signtransaction_use_transaction_wide_varops_budget"; testing time: 13325us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1795: Entering test case "tapscript_v2_psbt_single_input_over_finalized_budget_is_rejected"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1795: Leaving test case "tapscript_v2_psbt_single_input_over_finalized_budget_is_rejected"; testing time: 951us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1832: Entering test case "tapscript_v2_signtransaction_accepts_finalized_witness"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1832: Leaving test case "tapscript_v2_signtransaction_accepts_finalized_witness"; testing time: 739us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1846: Entering test case "witness_path_uses_tapscript_v2_final_success_rule"
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:1846: Leaving test case "witness_path_uses_tapscript_v2_final_success_rule"; testing time: 893us
-[0;39;49m[1;34;49mtest/tapscript_v2_tests.cpp:211: Leaving test suite "tapscript_v2_tests"; testing time: 111953us
-[0;39;49m[1;33;49mtest/testnet4_miner_tests.cpp:34: Test suite "testnet4_miner_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/threadpool_tests.cpp:49: Test suite "threadpool_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/timeoffsets_tests.cpp:24: Test suite "timeoffsets_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/torcontrol_tests.cpp:17: Test suite "torcontrol_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/transaction_tests.cpp:172: Test suite "transaction_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/translation_tests.cpp:10: Test suite "translation_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txdownload_tests.cpp:20: Test suite "txdownload_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txgraph_tests.cpp:14: Test suite "txgraph_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txindex_tests.cpp:15: Test suite "txindex_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txospenderindex_tests.cpp:12: Test suite "txospenderindex_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txpackage_tests.cpp:51: Test suite "txpackage_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txreconciliation_tests.cpp:12: Test suite "txreconciliation_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txrequest_tests.cpp:750: Test suite "txrequest_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txvalidation_tests.cpp:22: Test suite "txvalidation_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/txvalidationcache_tests.cpp:29: Test suite "txvalidationcache_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/uint256_tests.cpp:19: Test suite "uint256_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/util_check_tests.cpp:10: Test suite "util_check_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/util_expected_tests.cpp:17: Test suite "util_expected_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/util_string_tests.cpp:15: Test suite "util_string_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/util_tests.cpp:72: Test suite "util_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/util_threadnames_tests.cpp:18: Test suite "util_threadnames_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/util_trace_tests.cpp:18: Test suite "util_trace_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/val64_internal_tests.cpp:25: Test suite "val64_internal_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/val64_semantics_tests.cpp:39: Test suite "val64_semantics_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/validation_block_tests.cpp:49: Test suite "validation_block_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/validation_chainstate_tests.cpp:34: Test suite "validation_chainstate_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/validation_chainstatemanager_tests.cpp:37: Test suite "validation_chainstatemanager_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/validation_flush_tests.cpp:14: Test suite "validation_flush_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/validation_tests.cpp:22: Test suite "validation_tests" is skipped because disabled
-[0;39;49m[1;33;49mtest/validationinterface_tests.cpp:16: Test suite "validationinterface_tests" is skipped because disabled
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:22: Entering test suite "valtype_stack_tests"
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:24: Entering test case "valtype_stack_mutation_accounting"
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:24: Leaving test case "valtype_stack_mutation_accounting"; testing time: 788us
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:56: Entering test case "valtype_stack_const_copy_word_capacity"
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:56: Leaving test case "valtype_stack_const_copy_word_capacity"; testing time: 890us
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:77: Entering test case "valtype_stack_erase_boundaries"
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:77: Leaving test case "valtype_stack_erase_boundaries"; testing time: 585us
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:94: Entering test case "valtype_stack_empty_elements_and_failures"
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:94: Leaving test case "valtype_stack_empty_elements_and_failures"; testing time: 1552us
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:116: Entering test case "valtype_stack_move_preserves_accounting"
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:116: Leaving test case "valtype_stack_move_preserves_accounting"; testing time: 564us
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:146: Entering test case "valtype_stack_reordering_preserves_accounting"
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:146: Leaving test case "valtype_stack_reordering_preserves_accounting"; testing time: 584us
-[0;39;49m[1;34;49mtest/valtype_stack_tests.cpp:22: Leaving test suite "valtype_stack_tests"; testing time: 5048us
-[0;39;49m[1;34;49mtest/varops_tests.cpp:20: Entering test suite "varops_tests"
-[0;39;49m[1;34;49mtest/varops_tests.cpp:22: Entering test case "participating_input_funding"
-[0;39;49m[1;34;49mtest/varops_tests.cpp:22: Leaving test case "participating_input_funding"; testing time: 54us
-[0;39;49m[1;34;49mtest/varops_tests.cpp:64: Entering test case "bip440_cost_constants"
-[0;39;49m[1;34;49mtest/varops_tests.cpp:64: Leaving test case "bip440_cost_constants"; testing time: 27us
-[0;39;49m[1;34;49mtest/varops_tests.cpp:110: Entering test case "bip441_multiply_and_divide_costs_are_64_bit"
-[0;39;49m[1;34;49mtest/varops_tests.cpp:110: Leaving test case "bip441_multiply_and_divide_costs_are_64_bit"; testing time: 14us
-[0;39;49m[1;34;49mtest/varops_tests.cpp:139: Entering test case "bip440_and_bip441_word_granular_cost_helpers"
-[0;39;49m[1;34;49mtest/varops_tests.cpp:139: Leaving test case "bip440_and_bip441_word_granular_cost_helpers"; testing time: 12us
-[0;39;49m[1;34;49mtest/varops_tests.cpp:170: Entering test case "budget_does_not_overspend"
-[0;39;49m[1;34;49mtest/varops_tests.cpp:170: Leaving test case "budget_does_not_overspend"; testing time: 10us
-[0;39;49m[1;34;49mtest/varops_tests.cpp:193: Entering test case "budget_can_be_unmetered"
-[0;39;49m[1;34;49mtest/varops_tests.cpp:193: Leaving test case "budget_can_be_unmetered"; testing time: 9us
-[0;39;49m[1;34;49mtest/varops_tests.cpp:202: Entering test case "budget_is_transaction_wide_and_thread_safe"
-[0;39;49m[1;34;49mtest/varops_tests.cpp:202: Leaving test case "budget_is_transaction_wide_and_thread_safe"; testing time: 33175us
-[0;39;49m[1;34;49mtest/varops_tests.cpp:20: Leaving test suite "varops_tests"; testing time: 33368us
-[0;39;49m[1;33;49mtest/versionbits_tests.cpp:187: Test suite "versionbits_tests" is skipped because disabled
-[0;39;49m[1;34;49mLeaving test module "Bitcoin Core Test Suite"; testing time: 279892us
+[0;39;49m[1;33;49m./test/addrman_tests.cpp(52): Test suite "addrman_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/allocator_tests.cpp(17): Test suite "allocator_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/amount_tests.cpp(12): Test suite "amount_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/argsman_tests.cpp(25): Test suite "argsman_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/arith_uint256_tests.cpp(19): Test suite "arith_uint256_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/banman_tests.cpp(16): Test suite "banman_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/base32_tests.cpp(14): Test suite "base32_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/base58_tests.cpp(22): Test suite "base58_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/base64_tests.cpp(14): Test suite "base64_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/baseindex_tests.cpp(18): Test suite "baseindex_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/bech32_tests.cpp(13): Test suite "bech32_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/bip32_tests.cpp(160): Test suite "bip32_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/bip324_tests.cpp(164): Test suite "bip324_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/blockchain_tests.cpp(54): Test suite "blockchain_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/blockencodings_tests.cpp(20): Test suite "blockencodings_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/blockfilter_index_tests.cpp(47): Test suite "blockfilter_index_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/blockfilter_tests.cpp(19): Test suite "blockfilter_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/blockmanager_tests.cpp(28): Test suite "blockmanager_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/bloom_tests.cpp(34): Test suite "bloom_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/bswap_tests.cpp(9): Test suite "bswap_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/btcsignals_tests.cpp(35): Test suite "btcsignals_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/caches_tests.cpp(22): Test suite "caches_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/chain_tests.cpp(13): Test suite "chain_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/chainstate_write_tests.cpp(18): Test suite "chainstate_write_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/checkqueue_tests.cpp(180): Test suite "checkqueue_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/cluster_linearize_tests.cpp(15): Test suite "cluster_linearize_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/coins_tests.cpp(286): Test suite "coins_tests_base" is skipped because disabled
+[0;39;49m[1;33;49m./test/coins_tests.cpp(297): Test suite "coins_tests_dbbase" is skipped because disabled
+[0;39;49m[1;33;49m./test/coins_tests.cpp(307): Test suite "coins_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/coinscachepair_tests.cpp(11): Test suite "coinscachepair_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/coinstatsindex_tests.cpp(32): Test suite "coinstatsindex_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/coinsviewoverlay_tests.cpp(101): Test suite "coinsviewoverlay_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/coinsviewoverlay_tests.cpp(275): Test suite "coinsviewoverlay_tests_noworkers" is skipped because disabled
+[0;39;49m[1;33;49m./test/common_url_tests.cpp(12): Test suite "common_url_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/compress_tests.cpp(26): Test suite "compress_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/crypto_tests.cpp(377): Test suite "crypto_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/cuckoocache_tests.cpp(33): Test suite "cuckoocache_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/dbwrapper_tests.cpp(20): Test suite "dbwrapper_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/denialofservice_tests.cpp(36): Test suite "denialofservice_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/descriptor_tests.cpp(597): Test suite "descriptor_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/disconnected_transactions.cpp(10): Test suite "disconnected_transactions" is skipped because disabled
+[0;39;49m[1;33;49m./test/feefrac_tests.cpp(10): Test suite "feefrac_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/feerounder_tests.cpp(12): Test suite "feerounder_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/flatfile_tests.cpp(13): Test suite "flatfile_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/fs_tests.cpp(15): Test suite "fs_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/getarg_tests.cpp(22): Test suite "getarg_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/hash_tests.cpp(16): Test suite "hash_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/headers_sync_chainwork_tests.cpp(142): Test suite "headers_sync_chainwork_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/httpserver_tests.cpp(35): Test suite "httpserver_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/i2p_tests.cpp(46): Test suite "i2p_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/interfaces_tests.cpp(17): Test suite "interfaces_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/key_io_tests.cpp(21): Test suite "key_io_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/key_tests.cpp(39): Test suite "key_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/logging_tests.cpp(33): Test suite "logging_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/mempool_tests.cpp(17): Test suite "mempool_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/merkle_tests.cpp(12): Test suite "merkle_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/merkleblock_tests.cpp(15): Test suite "merkleblock_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/miner_tests.cpp(94): Test suite "miner_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/miniminer_tests.cpp(16): Test suite "miniminer_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/miniscript_tests.cpp(499): Test suite "miniscript_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/minisketch_tests.cpp(18): Test suite "minisketch_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/multisig_tests.cpp(21): Test suite "multisig_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/bip328_tests.cpp(25): Test suite "bip328_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/net_peer_connection_tests.cpp(37): Test suite "net_peer_connection_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/net_peer_eviction_tests.cpp(18): Test suite "net_peer_eviction_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/net_tests.cpp(42): Test suite "net_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/netbase_tests.cpp(26): Test suite "netbase_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/node_init_tests.cpp(21): Test suite "node_init_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/node_warnings_tests.cpp(13): Test suite "node_warnings_tests" is skipped because disabled
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(169): Entering test suite "op_tx_tests"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(171): Entering test case "reference_vectors"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(171): Leaving test case "reference_vectors"; testing time: 49232us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(256): Entering test case "interpreter_dispatch_and_execution_cost"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(256): Leaving test case "interpreter_dispatch_and_execution_cost"; testing time: 679us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(282): Entering test case "runtime_range_operands"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(282): Leaving test case "runtime_range_operands"; testing time: 485us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(314): Entering test case "undefined_selector_fails_closed"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(314): Leaving test case "undefined_selector_fails_closed"; testing time: 459us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(345): Entering test case "future_selector_version_succeeds"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(345): Leaving test case "future_selector_version_succeeds"; testing time: 456us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(381): Entering test case "codeseparator_opcode_position_after_multi_csfs"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(381): Leaving test case "codeseparator_opcode_position_after_multi_csfs"; testing time: 573us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(426): Entering test case "bip341_sighash_construction_csfs"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(426): Leaving test case "bip341_sighash_construction_csfs"; testing time: 541us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(517): Entering test case "bip118_style_anyprevout_sighash_construction_csfs"
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(517): Leaving test case "bip118_style_anyprevout_sighash_construction_csfs"; testing time: 616us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(169): Leaving test suite "op_tx_tests"; testing time: 53134us
+[0;39;49m[1;33;49m./test/orphanage_tests.cpp(24): Test suite "orphanage_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/pcp_tests.cpp(251): Test suite "pcp_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/peerman_tests.cpp(25): Test suite "peerman_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/pmt_tests.cpp(32): Test suite "pmt_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/policyestimator_tests.cpp(18): Test suite "policyestimator_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/pool_tests.cpp(18): Test suite "pool_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/pow_tests.cpp(15): Test suite "pow_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/prevector_tests.cpp(16): Test suite "prevector_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/private_broadcast_tests.cpp(25): Test suite "private_broadcast_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/psbt_tests.cpp(10): Test suite "psbt_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/random_tests.cpp(16): Test suite "random_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/rbf_tests.cpp(17): Test suite "rbf_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/rest_tests.cpp(13): Test suite "rest_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/result_tests.cpp(19): Test suite "result_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/reverselock_tests.cpp(12): Test suite "reverselock_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/rpc_tests.cpp(88): Test suite "rpc_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/sanity_tests.cpp(10): Test suite "sanity_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/scheduler_tests.cpp(16): Test suite "scheduler_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/script_assets_tests.cpp(30): Test suite "script_assets_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/script_p2sh_tests.cpp(60): Test suite "script_p2sh_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/script_parse_tests.cpp(12): Test suite "script_parse_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/script_segwit_tests.cpp(10): Test suite "script_segwit_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/script_standard_tests.cpp(23): Test suite "script_standard_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/script_tests.cpp(435): Test suite "script_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/scriptnum_tests.cpp(13): Test suite "scriptnum_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/serfloat_tests.cpp(17): Test suite "serfloat_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/serialize_tests.cpp(18): Test suite "serialize_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/settings_tests.cpp(52): Test suite "settings_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/sighash_tests.cpp(120): Test suite "sighash_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/sigopcount_tests.cpp(29): Test suite "sigopcount_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/skiplist_tests.cpp(17): Test suite "skiplist_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/sock_tests.cpp(19): Test suite "sock_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/span_tests.cpp(43): Test suite "span_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/streams_tests.cpp(20): Test suite "streams_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/sync_tests.cpp(79): Test suite "sync_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/system_ram_tests.cpp(13): Test suite "system_ram_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/system_tests.cpp(61): Test suite "system_tests" is skipped because disabled
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(32): Entering test suite "tapscript_v2_json_tests"
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(202): Entering test case "tapscript_v2_varops_json_tests"
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(202): Leaving test case "tapscript_v2_varops_json_tests"; testing time: 68943us
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(207): Entering test case "tapscript_v2_restored_ops_json_tests"
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(207): Leaving test case "tapscript_v2_restored_ops_json_tests"; testing time: 8661us
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(32): Leaving test suite "tapscript_v2_json_tests"; testing time: 77640us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(211): Entering test suite "tapscript_v2_tests"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(213): Entering test case "op_success_classification"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(213): Leaving test case "op_success_classification"; testing time: 782us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(253): Entering test case "meta_opcodes_are_tapscript_v2_only_redefinitions"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(253): Leaving test case "meta_opcodes_are_tapscript_v2_only_redefinitions"; testing time: 605us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(273): Entering test case "function_invocation_executes_field_fragment"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(273): Leaving test case "function_invocation_executes_field_fragment"; testing time: 645us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(286): Entering test case "literal_push_copying_budget"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(286): Leaving test case "literal_push_copying_budget"; testing time: 8651us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(312): Entering test case "function_invocation_shares_altstack"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(312): Leaving test case "function_invocation_shares_altstack"; testing time: 569us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(325): Entering test case "multi_applies_supported_targets"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(325): Leaving test case "multi_applies_supported_targets"; testing time: 614us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(373): Entering test case "multi_count_and_execution_rules"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(373): Leaving test case "multi_count_and_execution_rules"; testing time: 619us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(420): Entering test case "function_ids_are_canonical_and_immutable"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(420): Leaving test case "function_ids_are_canonical_and_immutable"; testing time: 482us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(443): Entering test case "function_bodies_are_validated_when_invoked"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(443): Leaving test case "function_bodies_are_validated_when_invoked"; testing time: 614us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(483): Entering test case "function_invocation_rejects_recursion"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(483): Leaving test case "function_invocation_rejects_recursion"; testing time: 486us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(509): Entering test case "function_signature_uses_callers_codeseparator"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(509): Leaving test case "function_signature_uses_callers_codeseparator"; testing time: 463us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(527): Entering test case "invoked_op_success_is_terminal"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(527): Leaving test case "invoked_op_success_is_terminal"; testing time: 657us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(565): Entering test case "function_execution_and_storage_limits"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(565): Leaving test case "function_execution_and_storage_limits"; testing time: 20631us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(605): Entering test case "base_evalscript_rejects_tapscript_v2"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(605): Leaving test case "base_evalscript_rejects_tapscript_v2"; testing time: 670us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(618): Entering test case "tapscript_v2_leaf_requires_script_restoration_flag"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(618): Leaving test case "tapscript_v2_leaf_requires_script_restoration_flag"; testing time: 700us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(652): Entering test case "tapleaf_versions_isolate_restored_opcodes"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(652): Leaving test case "tapleaf_versions_isolate_restored_opcodes"; testing time: 708us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(683): Entering test case "splice_opcodes_follow_bip441_byte_ranges"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(683): Leaving test case "splice_opcodes_follow_bip441_byte_ranges"; testing time: 503us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(728): Entering test case "length_operands_charge_encoded_width_even_when_value_is_zero"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(728): Leaving test case "length_operands_charge_encoded_width_even_when_value_is_zero"; testing time: 468us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(757): Entering test case "restored_bit_opcodes_preserve_non_arithmetic_width"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(757): Leaving test case "restored_bit_opcodes_preserve_non_arithmetic_width"; testing time: 449us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(770): Entering test case "restored_shift_opcodes_are_raw_bitshifts"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(770): Leaving test case "restored_shift_opcodes_are_raw_bitshifts"; testing time: 628us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(799): Entering test case "tapscript_v2_costed_opcodes_reject_missing_stack_elements"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(799): Leaving test case "tapscript_v2_costed_opcodes_reject_missing_stack_elements"; testing time: 641us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(862): Entering test case "bip342_restricted_opcodes_remain_restricted_in_tapscript_v2"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(862): Leaving test case "bip342_restricted_opcodes_remain_restricted_in_tapscript_v2"; testing time: 593us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(869): Entering test case "restored_multiply_divide_and_modulo_opcodes"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(869): Leaving test case "restored_multiply_divide_and_modulo_opcodes"; testing time: 496us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(884): Entering test case "extended_arithmetic_is_unsigned_and_normalized"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(884): Leaving test case "extended_arithmetic_is_unsigned_and_normalized"; testing time: 465us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(900): Entering test case "checksigadd_failure_normalizes_numeric_operand"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(900): Leaving test case "checksigadd_failure_normalizes_numeric_operand"; testing time: 491us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(917): Entering test case "checksigadd_enforces_numeric_result_boundaries"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(917): Leaving test case "checksigadd_enforces_numeric_result_boundaries"; testing time: 12338us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(972): Entering test case "bip440_costed_legacy_ops_use_unsigned_values"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(972): Leaving test case "bip440_costed_legacy_ops_use_unsigned_values"; testing time: 638us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(991): Entering test case "costed_legacy_ops_report_exact_semantic_failures"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(991): Leaving test case "costed_legacy_ops_report_exact_semantic_failures"; testing time: 456us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1004): Entering test case "locktime_sequence_operands_must_fit_transaction_fields"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1004): Leaving test case "locktime_sequence_operands_must_fit_transaction_fields"; testing time: 588us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1072): Entering test case "hash_opcodes_follow_bip441_limits"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1072): Leaving test case "hash_opcodes_follow_bip441_limits"; testing time: 638us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1102): Entering test case "tapscript_v2_stack_limits_are_enforced"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1102): Leaving test case "tapscript_v2_stack_limits_are_enforced"; testing time: 59119us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1151): Entering test case "copying_opcodes_enforce_total_stack_size_with_altstack"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1151): Leaving test case "copying_opcodes_enforce_total_stack_size_with_altstack"; testing time: 88013us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1194): Entering test case "tapscript_v2_witness_initial_stack_limits_are_enforced"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1194): Leaving test case "tapscript_v2_witness_initial_stack_limits_are_enforced"; testing time: 11699us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1217): Entering test case "tapscript_v2_pushes_use_the_expanded_stack_element_limit"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1217): Leaving test case "tapscript_v2_pushes_use_the_expanded_stack_element_limit"; testing time: 31134us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1234): Entering test case "tapscript_v2_skipped_branches_validate_pushes"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1234): Leaving test case "tapscript_v2_skipped_branches_validate_pushes"; testing time: 8548us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1252): Entering test case "restored_ops_enforce_stack_element_limit_edges"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1252): Leaving test case "restored_ops_enforce_stack_element_limit_edges"; testing time: 27486us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1280): Entering test case "varops_budget_must_cover_exact_bip_cost"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1280): Leaving test case "varops_budget_must_cover_exact_bip_cost"; testing time: 849us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1311): Entering test case "signature_varops_charge_depends_on_nonempty_signature"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1311): Leaving test case "signature_varops_charge_depends_on_nonempty_signature"; testing time: 1073us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1387): Entering test case "op_success_redefinitions_are_checked_before_execution"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1387): Leaving test case "op_success_redefinitions_are_checked_before_execution"; testing time: 11176us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1488): Entering test case "nop4_is_upgradable_nop_in_tapscript_v2"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1488): Leaving test case "nop4_is_upgradable_nop_in_tapscript_v2"; testing time: 883us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1504): Entering test case "tapscript_v2_treats_future_pubkeys_as_unknown_pubkey_type"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1504): Leaving test case "tapscript_v2_treats_future_pubkeys_as_unknown_pubkey_type"; testing time: 650us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1530): Entering test case "tapscript_v2_conditionals_require_minimal_inputs"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1530): Leaving test case "tapscript_v2_conditionals_require_minimal_inputs"; testing time: 614us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1545): Entering test case "unexecuted_branches_do_not_charge_or_execute_costed_ops"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1545): Leaving test case "unexecuted_branches_do_not_charge_or_execute_costed_ops"; testing time: 469us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1552): Entering test case "tapscript_v2_standard_verify_uses_unmetered_overload"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1552): Leaving test case "tapscript_v2_standard_verify_uses_unmetered_overload"; testing time: 626us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1565): Entering test case "checksigfromstack"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1565): Leaving test case "checksigfromstack"; testing time: 587us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1600): Entering test case "tweakadd"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1600): Leaving test case "tweakadd"; testing time: 675us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1665): Entering test case "byterev"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1665): Leaving test case "byterev"; testing time: 597us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1695): Entering test case "taproot_script_signing_propagates_leaf_sigversion"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1695): Leaving test case "taproot_script_signing_propagates_leaf_sigversion"; testing time: 721us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1721): Entering test case "tapscript_v2_psbt_finalized_witness_is_signed_and_verified"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1721): Leaving test case "tapscript_v2_psbt_finalized_witness_is_signed_and_verified"; testing time: 609us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1742): Entering test case "tapscript_v2_psbt_and_signtransaction_use_transaction_wide_varops_budget"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1742): Leaving test case "tapscript_v2_psbt_and_signtransaction_use_transaction_wide_varops_budget"; testing time: 8198us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1795): Entering test case "tapscript_v2_psbt_single_input_over_finalized_budget_is_rejected"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1795): Leaving test case "tapscript_v2_psbt_single_input_over_finalized_budget_is_rejected"; testing time: 669us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1832): Entering test case "tapscript_v2_signtransaction_accepts_finalized_witness"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1832): Leaving test case "tapscript_v2_signtransaction_accepts_finalized_witness"; testing time: 515us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1846): Entering test case "witness_path_uses_tapscript_v2_final_success_rule"
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1846): Leaving test case "witness_path_uses_tapscript_v2_final_success_rule"; testing time: 705us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(211): Leaving test suite "tapscript_v2_tests"; testing time: 313549us
+[0;39;49m[1;33;49m./test/testnet4_miner_tests.cpp(34): Test suite "testnet4_miner_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/threadpool_tests.cpp(49): Test suite "threadpool_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/timeoffsets_tests.cpp(24): Test suite "timeoffsets_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/torcontrol_tests.cpp(17): Test suite "torcontrol_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/transaction_tests.cpp(172): Test suite "transaction_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/translation_tests.cpp(10): Test suite "translation_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txdownload_tests.cpp(20): Test suite "txdownload_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txgraph_tests.cpp(14): Test suite "txgraph_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txindex_tests.cpp(15): Test suite "txindex_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txospenderindex_tests.cpp(12): Test suite "txospenderindex_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txpackage_tests.cpp(51): Test suite "txpackage_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txreconciliation_tests.cpp(12): Test suite "txreconciliation_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txrequest_tests.cpp(750): Test suite "txrequest_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txvalidation_tests.cpp(22): Test suite "txvalidation_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/txvalidationcache_tests.cpp(29): Test suite "txvalidationcache_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/uint256_tests.cpp(19): Test suite "uint256_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/util_check_tests.cpp(10): Test suite "util_check_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/util_expected_tests.cpp(17): Test suite "util_expected_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/util_string_tests.cpp(15): Test suite "util_string_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/util_tests.cpp(72): Test suite "util_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/util_threadnames_tests.cpp(18): Test suite "util_threadnames_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/util_trace_tests.cpp(18): Test suite "util_trace_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/val64_internal_tests.cpp(25): Test suite "val64_internal_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/val64_semantics_tests.cpp(39): Test suite "val64_semantics_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/validation_block_tests.cpp(49): Test suite "validation_block_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/validation_chainstate_tests.cpp(34): Test suite "validation_chainstate_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/validation_chainstatemanager_tests.cpp(37): Test suite "validation_chainstatemanager_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/validation_flush_tests.cpp(14): Test suite "validation_flush_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/validation_tests.cpp(22): Test suite "validation_tests" is skipped because disabled
+[0;39;49m[1;33;49m./test/validationinterface_tests.cpp(16): Test suite "validationinterface_tests" is skipped because disabled
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(22): Entering test suite "valtype_stack_tests"
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(24): Entering test case "valtype_stack_mutation_accounting"
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(24): Leaving test case "valtype_stack_mutation_accounting"; testing time: 614us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(56): Entering test case "valtype_stack_const_copy_word_capacity"
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(56): Leaving test case "valtype_stack_const_copy_word_capacity"; testing time: 470us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(77): Entering test case "valtype_stack_erase_boundaries"
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(77): Leaving test case "valtype_stack_erase_boundaries"; testing time: 597us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(94): Entering test case "valtype_stack_empty_elements_and_failures"
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(94): Leaving test case "valtype_stack_empty_elements_and_failures"; testing time: 650us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(116): Entering test case "valtype_stack_move_preserves_accounting"
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(116): Leaving test case "valtype_stack_move_preserves_accounting"; testing time: 465us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(146): Entering test case "valtype_stack_reordering_preserves_accounting"
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(146): Leaving test case "valtype_stack_reordering_preserves_accounting"; testing time: 452us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(22): Leaving test suite "valtype_stack_tests"; testing time: 3309us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(20): Entering test suite "varops_tests"
+[0;39;49m[1;34;49m./test/varops_tests.cpp(22): Entering test case "participating_input_funding"
+[0;39;49m[1;34;49m./test/varops_tests.cpp(22): Leaving test case "participating_input_funding"; testing time: 75us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(64): Entering test case "bip440_cost_constants"
+[0;39;49m[1;34;49m./test/varops_tests.cpp(64): Leaving test case "bip440_cost_constants"; testing time: 53us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(110): Entering test case "bip441_multiply_and_divide_costs_are_64_bit"
+[0;39;49m[1;34;49m./test/varops_tests.cpp(110): Leaving test case "bip441_multiply_and_divide_costs_are_64_bit"; testing time: 52us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(139): Entering test case "bip440_and_bip441_word_granular_cost_helpers"
+[0;39;49m[1;34;49m./test/varops_tests.cpp(139): Leaving test case "bip440_and_bip441_word_granular_cost_helpers"; testing time: 50us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(170): Entering test case "budget_does_not_overspend"
+[0;39;49m[1;34;49m./test/varops_tests.cpp(170): Leaving test case "budget_does_not_overspend"; testing time: 49us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(193): Entering test case "budget_can_be_unmetered"
+[0;39;49m[1;34;49m./test/varops_tests.cpp(193): Leaving test case "budget_can_be_unmetered"; testing time: 47us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(202): Entering test case "budget_is_transaction_wide_and_thread_safe"
+[0;39;49m[1;34;49m./test/varops_tests.cpp(202): Leaving test case "budget_is_transaction_wide_and_thread_safe"; testing time: 6312us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(20): Leaving test suite "varops_tests"; testing time: 6685us
+[0;39;49m[1;33;49m./test/versionbits_tests.cpp(187): Test suite "versionbits_tests" is skipped because disabled
+[0;39;49m[1;34;49mLeaving test module "Bitcoin Core Test Suite"; testing time: 454821us
 [0;39;49m
 [1;32;49m*** No errors detected
 [0;39;49m

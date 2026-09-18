@@ -19,6 +19,7 @@ python3 scripts/boundary_costs.py > reports/boundary-costs.log 2>&1
 python3 scripts/parsing_probe.py --reference-binary build/profile/bin/bitcoin-util --jobs "${GSR_BUILD_JOBS:-4}" > reports/parsing-probe.log 2>&1
 python3 scripts/parse_benchmark.py --jobs "${GSR_BUILD_JOBS:-4}" > reports/parser-benchmark.log 2>&1
 python3 scripts/multi_compare.py --binary build/profile/bin/bitcoin-util --output reports/multi-comparison.json > reports/multi-comparison.log 2>&1
+python3 scripts/multi_scenario.py > reports/multi-scenario.log 2>&1
 python3 scripts/export.py
 python3 scripts/audit.py
 python3 -O scripts/audit.py

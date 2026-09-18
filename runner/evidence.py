@@ -53,6 +53,7 @@ def verify_provenance(root, recorded, inputs, binaries, environment=None, *, che
 CORPUS = "reports/regtest-details.json.gz"
 COSTS = "reports/costs.json"
 COUNTS = "reports/parsing-counts.json"
+NATIVE = "build/bitcoin/bin/bitcoin-util"
 PROFILE = "build/profile/bin/bitcoin-util"
 PROBE = "build/parsing-probe/build/bin/bitcoin-util"
 PARSER = "build/parser-benchmark/build/bin/bitcoin-util"

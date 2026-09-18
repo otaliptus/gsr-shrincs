@@ -7,7 +7,7 @@ import statistics
 
 from runner.checks import require
 from runner.evaluator import is_budget_error
-from runner.evidence import CORPUS, COSTS, COUNTS, PROFILE, PROBE, PARSER, sha, value_sha, verify_provenance
+from runner.evidence import CORPUS, COSTS, COUNTS, NATIVE, PROFILE, PROBE, PARSER, sha, value_sha, verify_provenance
 from scripts.profile_build import hashes, overlay_inputs
 from scripts.parse_benchmark import schedule_for
 from scripts.multi_compare import programs, request_for, OUTPUT_COUNTS, LIMIT
@@ -83,6 +83,30 @@ def validate_multi(data):
         samples(row["times_ns"], row["median_ns"], data["repeats"])
 
 
+def validate_multi_scenario(root, data):
+    from generator import multi
+    from generator.transaction import compile_policy
+    from reference.oracle import PUBLIC_SEED, scheme
+
+    expected = {f"{name}-{mode}" for name in ("full", "catfix", "multi") for mode in ("stateful", "stateless")}
+    rows = data["transactions"]
+    require(set(rows) == expected, "OP_MULTI scenario row inventory changed")
+    require(type(data["agreement_cases"]) is int and data["agreement_cases"] > 0, "OP_MULTI scenario agreement missing")
+    _, pk = scheme.shrincs_keygen(PUBLIC_SEED, b"\x01\x08")
+    for key, row in rows.items():
+        name, mode = row["variant"], row["mode"]
+        code = compile_policy(pk, mode=mode, profile="full").code if name == "full" else multi.compile_policy(name, pk, mode=mode).code
+        require(row["program_bytes"] == len(code) and row["program_sha256"] == hashlib.sha256(code).hexdigest(),
+                ("OP_MULTI scenario program changed", key))
+        require(0 < row["varops_consumed"] <= row["varops_allowed"] and row["varops_allowed"] == 10000 * row["weight"],
+                ("OP_MULTI scenario accounting invalid", key))
+        require(bool(row["multi_uses"]) == (name == "multi"), ("OP_MULTI use inventory wrong", key))
+        samples(row["times_ns"], row["median_interpreter_ms"] * 1e6, data["repeats"])
+    for mode in ("stateful", "stateless"):
+        require(rows[f"full-{mode}"]["program_bytes"] > rows[f"catfix-{mode}"]["program_bytes"] > rows[f"multi-{mode}"]["program_bytes"],
+                "OP_MULTI scenario size ordering changed")
+
+
 def check_overlay(source, target):
     allowed = {"src/script/interpreter.cpp", "src/bitcoin-util.cpp", "src/gsr_profile.hpp"}
     require(set(target) == set(source) | {"src/gsr_profile.hpp"}, "unexpected follow-up source files")
@@ -98,7 +122,9 @@ def audit_followups(root, environment, *, check_builds=True):
     verify_provenance(root, counts["provenance"], [CORPUS, COSTS], [PROFILE, PROBE], environment, check_binaries=check_builds)
     verify_provenance(root, benchmark["provenance"], [CORPUS, COSTS, COUNTS], [PARSER], environment, check_binaries=check_builds)
     verify_provenance(root, multi["provenance"], [], [PROFILE], environment, check_binaries=check_builds)
-    for report in (benchmark, multi, load(COSTS)):
+    scenario = load("reports/multi-scenario.json")
+    verify_provenance(root, scenario["provenance"], ["fixtures/vectors.json"], [NATIVE, PROFILE], environment, check_binaries=check_builds)
+    for report in (benchmark, multi, scenario, load(COSTS)):
         require({key: report["environment"][key] for key in ("platform", "machine", "python")} ==
                 {key: environment[key] for key in ("platform", "machine", "python")}, "measurement environment label differs")
     require(counts["corpus_sha256"] == sha(root / CORPUS), "stale parsing corpus")
@@ -130,3 +156,4 @@ def audit_followups(root, environment, *, check_builds=True):
     spends = json.loads(gzip.decompress((root / CORPUS).read_bytes()))["spends"]
     validate_parsing(counts, benchmark, spends, load(COSTS))
     validate_multi(multi)
+    validate_multi_scenario(root, scenario)

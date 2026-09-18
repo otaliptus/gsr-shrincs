@@ -1,0 +1,7 @@
+agreement: 406 cases across three variants
+full-stateful        program=  4,476 vbytes= 1,416 varops=  20,577,528  36.3% ops= 13,701 multi={} 0.68ms
+catfix-stateful      program=  4,130 vbytes= 1,330 varops=  18,838,994  35.4% ops= 12,387 multi={} 0.63ms
+multi-stateful       program=  4,064 vbytes= 1,313 varops=  19,143,887  36.5% ops= 11,884 multi={'DROP': 14, 'SHA256': 20, 'CAT': 34} 0.66ms
+full-stateless       program= 14,091 vbytes= 5,099 varops= 119,995,961  58.8% ops= 78,562 multi={} 3.30ms
+catfix-stateless     program= 12,913 vbytes= 4,805 varops= 112,114,253  58.3% ops= 72,194 multi={} 3.02ms
+multi-stateless      program= 12,661 vbytes= 4,742 varops= 120,942,956  63.8% ops= 72,749 multi={'DROP': 6, 'SHA256': 30, 'CAT': 211} 3.23ms

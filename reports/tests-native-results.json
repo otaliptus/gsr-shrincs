@@ -21,6 +21,8 @@
     "tests.test_followup_evidence.FollowupEvidence.test_input_binary_driver_and_environment_drift",
     "tests.test_followup_evidence.FollowupEvidence.test_multi_corpus_and_negative_outcomes",
     "tests.test_followup_evidence.FollowupEvidence.test_parsing_accounting_schedule_and_samples",
+    "tests.test_multi.MultiExtension.test_extension_leaves_audited_compiler_unchanged",
+    "tests.test_multi.MultiExtension.test_variants_agree_and_use_multi_only_when_asked",
     "tests.test_runner.EvaluatorContract.test_accept_reject_budget",
     "tests.test_runner.EvaluatorContract.test_failures_are_not_rejections",
     "tests.test_verifier.Components.test_addressed_hashes",
@@ -38,7 +40,7 @@
     "tests.test_verifier.StatelessComponents.test_fors_digest_extremes_and_unused_bits",
     "tests.test_verifier.StatelessComponents.test_wots_tw_checksum_boundaries"
   ],
-  "tests_run": 37,
+  "tests_run": 39,
   "success": true,
   "skipped": [],
   "failures": [],
