@@ -7,7 +7,8 @@ transaction-bound regtest spends.
 
 Start with [measured results](reports/RESULTS.md), [accepted inputs](spec/ACCEPTANCE.md),
 [transaction transcript](spec/TRANSCRIPT.md), and the [milestone audit](reports/AUDIT.md).
-The original research plan is [PLAN.md](PLAN.md); [HANDOFF.md](HANDOFF.md) preserves
+The [review follow-up](reports/REVIEW-FOLLOWUP.md) records the tooling repairs and
+stateful size optimization. The original research plan is [PLAN.md](PLAN.md); [HANDOFF.md](HANDOFF.md) preserves
 its requirements and the original pre-implementation snapshot.
 
 ## Reproduce
@@ -51,7 +52,11 @@ python3 scripts/audit.py
 
 The final audit checks source/binary hashes, clean source pins, fresh generated
 programs, fixture verification, current transaction policy bytecode, actual weight
-allowances, all recorded positive/negative transaction results, and test logs.
+allowances, all recorded positive/negative transaction results, and structured test outcomes. Native, profiled and optimized-Python runs must
+cover the complete discovered suite. Disassemblies and source maps are regenerated
+and compared as well as binaries. Profiling cache contents and the built executable
+are bound by verified source/build manifests. A GitHub Actions workflow performs
+a clean build and runs the same pipeline.
 Timings, test durations, local block hashes and funding transactions can vary by
 machine/run. Bytecode and public fixtures are deterministic.
 
@@ -64,7 +69,8 @@ from runner.evaluator import evaluate
 program = compile_verifier(profile="full", mode="unified")
 # Bytes: signature, 48-byte public key, 32-byte message.
 result = evaluate(program.code, [signature, public_key, message], budget=allowance)
-assert result.success and result.stack == []
+if not result.success or result.stack:
+    raise ValueError("signature verification failed")
 ```
 
 `baseline` inlines the restoration-only verifier; `bytes` adds byte reversal while

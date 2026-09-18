@@ -13,13 +13,16 @@ example, a different scheme, a host-trusted digest, or an unlimited transaction 
 | M3 — full stateful range | Genuine balanced and unbalanced keygen/sign/verify fixtures; every depth 1..255 at index zero and maximum under three code-generation profiles; index-width/range failures, exact lengths, root/message/key/context/path mutations; resource metrics for all 1,530 boundary executions | Complete |
 | M4 — stateless and unified | Full FORS, WOTS-TW, XMSS and five-layer hypertree; genuine stateless signatures under two public test keys; FORS all-zero/all-one digest and unused-bit agreement; WOTS-TW checksum extremes; both mode-specific leaves and unified dispatch; all cross-root/context checks preserved | Complete |
 | M5 — costs and optimization | Baseline inline, byte-helper inline, and function profiles accept the same corpus; deterministic bytecode/source maps; exact varops, stack/item/function ceilings, SHA256 counts/compressions, per-function inclusive costs, rejected-input costs, timing distributions and CLI overhead; one-mode vs combined placement; two/four-input shared budgets; no padding | Complete |
-| M6 — authenticated spend | `spec/TRANSCRIPT.md`, OP_TX policy and `tests/regtest.py`; ten actual accepted/mined spends under the unmodified fork; 124 covered-field/replay/annex/count/ordering failures; all also checked through transaction-aware C++ with recorded UTXOs; true weight×10,000 allowance | Complete |
+| M6 — authenticated spend | `spec/TRANSCRIPT.md`, OP_TX policy and `tests/regtest.py`; fourteen actual accepted/mined spends under the unmodified fork; 128 negative transactions, including four freshly signed cap+1 cases; all also checked through transaction-aware C++ with recorded UTXOs; true weight×10,000 allowance | Complete |
 | M7 — review package | `README.md` rebuild commands; public seeds/provenance; source pins and hashes; binaries/disassembly/maps under `generated/`; raw logs and compressed transaction/resource evidence; `scripts/check.sh` and `scripts/audit.py`; explicit limitations below | Complete |
+
+The review follow-up is summarized in [REVIEW-FOLLOWUP.md](REVIEW-FOLLOWUP.md).
+Current sizes and budget fractions are generated in [RESULTS.md](RESULTS.md).
 
 ## Evidence interpretation
 
-- `tests.log` and `tests-profiled.log` run the same 16 test methods; their loops cover
-  far more than 16 individual executions. Each checks the full supported stateful
+- `tests.log` and `tests-profiled.log` and `tests-optimized.log` run the same discovered test methods; their loops cover
+  many individual executions. Structured results record exact test IDs and outcomes. Each checks the full supported stateful
   range under baseline, byte-helper and full-function generation. Process failures
   raise harness errors instead of counting as rejected signatures.
 - `fixtures/vectors.json` contains 40 deterministic public fixtures: ten genuine
@@ -48,6 +51,8 @@ example, a different scheme, a host-trusted digest, or an unlimited transaction 
   Script failure as well. These are not reported as node cryptographic failures.
 - All source pins remain unchanged. The measurement overlay lives in a separate
   disposable source/build tree and never changes the regtest node or its limits.
+  Every cached source is synchronized, the permitted overlay diff is verified, and
+  a build manifest binds the executable to the source/overlay manifests.
   Timing with counters disabled still includes conditional instrumentation hooks;
   process/protocol overhead is measured separately. No native-only timing is inferred.
 

@@ -25,13 +25,13 @@
       "maximum_invoked_body_bytes": 0
     },
     "full": {
-      "varops_min": 21384976,
-      "varops_max": 56900175,
-      "peak_total_bytes": 53686,
-      "peak_total_entries": 44,
-      "maximum_item": 22809,
-      "maximum_invoked_body_bytes": 52479
+      "varops_min": 19133253,
+      "varops_max": 78137608,
+      "peak_total_bytes": 36408,
+      "peak_total_entries": 100,
+      "maximum_item": 7411,
+      "maximum_invoked_body_bytes": 68074
     }
   },
-  "details_sha256": "20f96822be06e1da16750dd8205455c2e0d399c934c221630a4114d2bf35dc32"
+  "details_sha256": "f11acc22329e7eeec8d4abda84527b34cfaf07b4e1d5327338ecaf7eddde03b3"
 }

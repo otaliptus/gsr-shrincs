@@ -30,14 +30,14 @@
     "function_body_bytes": 0
   },
   "full-unified": {
-    "bytes": 39466,
-    "sha256": "695efca2ee364ef942571fd94568e0772ecfd755474587a7a28a308322ba7421",
-    "function_body_bytes": 39271
+    "bytes": 17614,
+    "sha256": "926d91afd48bf8e583725b7d441327bd7b50ed9b533f4c91a9648f820afb7167",
+    "function_body_bytes": 17386
   },
   "full-stateful": {
-    "bytes": 26187,
-    "sha256": "c8255e2d8cff6ac3078562c6d68768f6e8ff4d2771694159310a577ca4ae4f31",
-    "function_body_bytes": 26032
+    "bytes": 4335,
+    "sha256": "c616644d53acbe6da6b0028a28d261c5cca10d155aa4dcda53ac78d12d02aac7",
+    "function_body_bytes": 4147
   },
   "full-stateless": {
     "bytes": 13950,
