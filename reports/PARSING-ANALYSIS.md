@@ -70,6 +70,10 @@ BIP 440 explicitly treats interpretation overhead as limited by block size.
 The current fork also has a fixed execution charge. These are distinct accounting mechanisms.
 Source: [BIP 440 assumptions](https://bips.dev/440/).
 
+Function invocation already charges for copying the body bytes. Active data pushes also have copying charges.
+Thus, a skipped instruction lacks its normal execution charge, but other charges and limits can still cover related work.
+A proposed parsing charge must account for these existing mechanisms.
+
 The hypothesis to test next is narrower:
 
 > A substantial part of the extra time in the inline stateful program comes from parsing its untaken branches.

@@ -9,6 +9,7 @@ from unittest.mock import patch
 from runner.comparison import sha, validate_corpus, request_for, run_pair, summarize
 from runner.evaluator import HarnessError, Result
 from scripts.compare_forks import checkout, resolve
+from scripts.comparison_corpus import transaction_cases
 
 
 def corpus(expected=True):
@@ -31,6 +32,20 @@ def fake_native(script, stack, budget, *, binary):
 
 
 class ComparisonContracts(unittest.TestCase):
+    def test_extra_witness_keeps_original_signature_size(self):
+        rows = {row["id"]: row for row in transaction_cases(
+            Path(__file__).resolve().parents[1], committed=True)}
+        checked = 0
+        for name, row in rows.items():
+            if not name.endswith("/extra-witness"):
+                continue
+            spend = "spends/" + name.removeprefix("rejections/").removesuffix("/extra-witness")
+            self.assertEqual(row["artifacts"]["signature_bytes"],
+                             rows[spend]["artifacts"]["signature_bytes"])
+            self.assertGreater(row["artifacts"]["weight"], rows[spend]["artifacts"]["weight"])
+            checked += 1
+        self.assertEqual(checked, 8)
+
     def test_bytes_and_inventory_are_checked(self):
         original = corpus()
         self.assertEqual(validate_corpus(original), {"small"})

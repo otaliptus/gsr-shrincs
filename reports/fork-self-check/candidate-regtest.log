@@ -1,0 +1,15 @@
+
+COMMAND ["/opt/homebrew/opt/python@3.14/bin/python3.14", "/Users/talip/Desktop/pivotal/gsr-shrincs/build/comparisons/self-check/candidate/tests/regtest.py", "--configfile=/Users/talip/Desktop/pivotal/gsr-shrincs/build/comparisons/self-check/candidate/build/bitcoin/test/config.ini"]
+2026-09-18T11:56:49.420864Z TestFramework (INFO): PRNG seed is: 5460863773427329749
+2026-09-18T11:56:49.481448Z TestFramework (INFO): Initializing test directory /var/folders/q7/58wkn0k15c3266mnlt65c_040000gn/T/bitcoin_func_test_e5svzh6o
+2026-09-18T11:56:52.433808Z TestFramework (INFO): Accepted full-unified: 18942 weight, 660 signature bytes
+2026-09-18T11:56:53.154560Z TestFramework (INFO): Accepted full-stateful: 5663 weight, 660 signature bytes
+2026-09-18T11:56:56.643686Z TestFramework (INFO): Accepted full-stateless: 20395 weight, 5777 signature bytes
+2026-09-18T11:57:02.917617Z TestFramework (INFO): Accepted baseline-unified: 229738 weight, 660 signature bytes
+2026-09-18T11:57:03.728136Z TestFramework (INFO): Accepted baseline-stateful: 96539 weight, 660 signature bytes
+2026-09-18T11:57:07.280070Z TestFramework (INFO): Accepted baseline-stateless: 139758 weight, 5777 signature bytes
+2026-09-18T11:57:16.545692Z TestFramework (INFO): Accepted full-unified-sl: 24059 weight, 5777 signature bytes
+2026-09-18T11:57:25.688268Z TestFramework (INFO): Accepted baseline-unified-sl: 234855 weight, 5777 signature bytes
+2026-09-18T11:57:47.763616Z TestFramework (INFO): Stopping nodes
+2026-09-18T11:57:47.946033Z TestFramework (INFO): Cleaning up /var/folders/q7/58wkn0k15c3266mnlt65c_040000gn/T/bitcoin_func_test_e5svzh6o on exit
+2026-09-18T11:57:47.946681Z TestFramework (INFO): Tests successful

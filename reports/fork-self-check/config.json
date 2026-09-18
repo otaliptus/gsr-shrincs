@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "mode": "both",
+  "baseline_harness": "937e05811e45b1b61f505201ac8f06c05abf2253",
+  "candidate_harness": "937e05811e45b1b61f505201ac8f06c05abf2253",
+  "baseline_fork": "d2799052604eb138c5a79acf88514a0c8b07f4ef",
+  "candidate_fork": "d2799052604eb138c5a79acf88514a0c8b07f4ef",
+  "repeats": 5,
+  "jobs": 4,
+  "fork_repository": "/Users/talip/Desktop/pivotal/gsr-shrincs/vendor/bitcoin",
+  "cmake_prefix": "None",
+  "build_cache": "/Users/talip/Desktop/pivotal/gsr-shrincs/build/comparisons/self-check",
+  "driver_sha256": {
+    "scripts/compare_forks.py": "e5d92bd2404f6b3c4d6632a4d69506c93d1602740264f29604267f4eb0f89021",
+    "scripts/comparison_corpus.py": "4c34a569d8458072d65b69ef768de1ba39db57f456d1d4635526a4884939cc3b",
+    "runner/comparison.py": "9f81a971bc352bf0eca5a846d3dbdff8d15dbbc5d056434dbc2086d29e950dda",
+    "runner/profile.py": "c89085b0e864731bb92d243ff8be62ba63a2ea4cbb52be63669dd452347fc37d",
+    "runner/evaluator.py": "cf1f788c2b63ac39584741a1840f041e9827d54eebaac3e9f41f084b1fd804a1"
+  }
+}

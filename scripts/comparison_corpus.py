@@ -41,7 +41,7 @@ def transaction_cases(root, committed=False):
                 id=f"{group}/{row['name']}", command="measuretx", expected=expected,
                 request=dict(transaction=row["raw_transaction"], spent_outputs=row["spent_outputs"]),
                 artifacts=dict(program_bytes=sum(len(items[-2]) for items in witness),
-                               signature_bytes=sum(len(items[0]) for items in witness),
+                               signature_bytes=sum(len(items[-3]) for items in witness),
                                control_block_bytes=sum(len(items[-1]) for items in witness),
                                weight=tx.get_weight(), vsize=tx.get_vsize()),
             ))

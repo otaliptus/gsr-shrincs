@@ -22,6 +22,18 @@ The pinned Simplicity implementation has different parameters and a different to
 New comparison outputs live under `build/comparisons/` unless explicitly exported.
 Read their status and configuration before treating them as evidence. Partial journals and development runs are not completed experiments.
 
+The completed self-check is archived in `reports/fork-self-check/`.
+Both modes passed 2,632 cases. Each checkout also mined fourteen spends and recorded 128 expected node rejections.
+Read the archive README for fresh-input cost differences and the subsequent negative-case size-metadata correction.
+The implementation at `490242c` passed clean-checkout CI; `reports/follow-up-ci.json` records that run.
+
+Next, select a committed candidate fork revision. Run replay and recompile against that revision.
+For function changes, implement the calling convention and compiler adaptation before comparing costs.
+The self-check establishes harness consistency, not compatibility with an untested fork change.
+Establish parsing's causal share of interpreter time before proposing a new charge.
+Defer OP_MULTI on the measured all-output sum case. Require a separate construction for any additional target.
+Do not begin a headline Simplicity size comparison until the full verification relation and compiler provenance match.
+
 The original handoff follows. Its pre-implementation status is historical; the later implementation reports supersede it.
 
 > **Implementation update — 18 September 2026:** Milestones M0–M7 are complete.

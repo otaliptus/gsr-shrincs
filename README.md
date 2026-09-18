@@ -23,6 +23,7 @@ The original reports describe that package. New experiments retain separate evid
 Its [clean-checkout CI run](https://github.com/otaliptus/gsr-shrincs/actions/runs/35338011287) passed at that exact commit.
 
 - [Replay and recompile comparison procedure](spec/FORK-COMPARISON.md)
+- [Completed comparison self-check and raw evidence](reports/fork-self-check/README.md)
 - [Proposed function design](spec/FUNCTION-DESIGN.md)
 - [Measured OP_MULTI comparison](spec/OP-MULTI-BENEFIT.md)
 - [Parsed-work counts and timing limits](reports/PARSING-ANALYSIS.md)
@@ -31,6 +32,8 @@ Its [clean-checkout CI run](https://github.com/otaliptus/gsr-shrincs/actions/run
 The comparison driver accepts another fork commit and an optional compiler commit.
 It builds separate checkouts. It does not update the pinned submodules or overwrite historical reports.
 No consensus costs or function opcodes have changed in this follow-up.
+Both comparison modes passed 2,632 cases against independent builds of the baseline.
+The implementation at `490242c` also passed [clean-checkout CI](https://github.com/otaliptus/gsr-shrincs/actions/runs/35340926491).
 
 [PLAN.md](PLAN.md) and [HANDOFF.md](HANDOFF.md) preserve the original requirements
 and project state. [WRITING.md](WRITING.md) gives the current writing instructions.
