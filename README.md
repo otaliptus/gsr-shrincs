@@ -15,11 +15,13 @@ implementation:
 - [Execution profiles](spec/FEATURES.md)
 - [Milestone audit](reports/AUDIT.md)
 - [Review changes](reports/REVIEW-FOLLOWUP.md)
+- [Committed evidence repair](reports/EVIDENCE-REPAIR.md)
 
 ## Fork-change experiments
 
 The measured package is frozen at tag `baseline-2026-09-18`, commit `937e058`.
-The original reports describe that package. New experiments retain separate evidence.
+The tag preserves the original reports. Top-level reports are regenerated with the current checkout's complete check procedure.
+Separate experiments retain their own evidence.
 Its [clean-checkout CI run](https://github.com/otaliptus/gsr-shrincs/actions/runs/35338011287) passed at that exact commit.
 
 - [Replay and recompile comparison procedure](spec/FORK-COMPARISON.md)
@@ -34,6 +36,7 @@ It builds separate checkouts. It does not update the pinned submodules or overwr
 No consensus costs or function opcodes have changed in this follow-up.
 Both comparison modes passed 2,632 cases against independent builds of the baseline.
 The implementation at `490242c` also passed [clean-checkout CI](https://github.com/otaliptus/gsr-shrincs/actions/runs/35340926491).
+That run predates the committed-test-coverage check described in the evidence repair.
 
 [PLAN.md](PLAN.md) and [HANDOFF.md](HANDOFF.md) preserve the original requirements
 and project state. [WRITING.md](WRITING.md) gives the current writing instructions.
@@ -51,9 +54,8 @@ The build requires the following tools:
 - Localhost networking for regtest
 
 The fork's [Linux build instructions](vendor/bitcoin/doc/build-unix.md) list the
-platform dependencies. The recorded run used Python 3.13.5, GCC 14.2, and Boost
-1.83. [environment.json](reports/environment.json) records the compiler flags and
-source hashes.
+platform dependencies. [environment.json](reports/environment.json) records the
+measured platform, compiler, build flags, and source hashes.
 
 1. Clone the repository and its submodules.
 
@@ -110,25 +112,18 @@ To run only the verifier tests after the normal build, use this command:
 python3 -m unittest discover -s tests -v
 ```
 
-To regenerate the programs and reports, do these steps:
+After a source or build change, regenerate all evidence with `./scripts/check.sh`.
+This includes test results, test provenance, fresh transactions, measurements, and the environment manifest.
+Exporting programs and measurements alone does not refresh test provenance.
 
-1. Generate the bytecode and its readable forms.
+To recheck unchanged evidence on the machine that produced it, run:
 
-   ```sh
-   python3 scripts/export.py
-   ```
+```sh
+python3 scripts/audit.py
+```
 
-2. With the profiling build and recorded regtest transactions available, measure execution.
-
-   ```sh
-   python3 scripts/measure.py
-   ```
-
-3. Check the generated evidence.
-
-   ```sh
-   python3 scripts/audit.py
-   ```
+The full audit checks local executable hashes. Another machine must build and regenerate its own evidence before running that audit.
+CI also compares the three deterministic test-result files with their committed versions.
 
 The audit checks source and executable hashes, upstream revisions, generated
 programs, and test inputs. It also checks transaction policies, weight allowances,

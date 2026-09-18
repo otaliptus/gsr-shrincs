@@ -6,7 +6,7 @@ from pathlib import Path
 import statistics
 
 from runner import profile
-from runner.evaluator import HarnessError, evaluate
+from runner.evaluator import HarnessError, evaluate, is_budget_error
 
 
 def sha(data):
@@ -69,7 +69,7 @@ def outcome(command, request, response):
                       transaction_bytes=len(bytes.fromhex(request["transaction"])), inputs=response["inputs"])
     result["classification"] = (
         "accept" if response["success"] else
-        "budget" if any("budget" in e.lower() for e in errors) else "reject"
+        "budget" if any(is_budget_error(e) for e in errors) else "reject"
     )
     return result
 

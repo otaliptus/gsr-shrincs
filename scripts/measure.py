@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT))
 from runner.checks import require
 from generator.verifier import compile_verifier
 from reference.oracle import decode
-from runner.evaluator import evaluate
+from runner.evaluator import evaluate, is_budget_error
 from runner.profile import run_profile
 
 
@@ -182,7 +182,7 @@ def main():
         result = run_profile("measuretx", request)
         require(not result["success"], row["name"])
         require(
-            not any("budget" in x.get("error", "").lower() for x in result["inputs"]),
+            not any(is_budget_error(x.get("error")) for x in result["inputs"]),
             row["name"],
         )
         data["rejected_transactions"].append(

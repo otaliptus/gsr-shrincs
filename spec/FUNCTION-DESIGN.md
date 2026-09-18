@@ -20,6 +20,11 @@ The required property is fixed executable code, not a particular spelling of the
 Validate definition structure before execution. Specify duplicate identifiers, missing definitions, forward references, and unused definitions.
 Opcode validation must parse instructions. Bytes inside data pushes are data, even if their values match opcode numbers.
 
+The current OP_INVOKE runs `CheckTapscriptOpSuccess` on the body for each call.
+Immutable bodies permit one validation pass per definition within a script evaluation.
+This removes repeated scans. The current scan has no separate charge, although invocation already charges for copying the body bytes.
+The proposed error rule for unsupported instructions remains a separate requirement. Static storage alone does not enforce that rule.
+
 ## Call frames
 
 A frame is the set of values a function can access during a call.

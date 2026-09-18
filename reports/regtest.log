@@ -1,13 +1,13 @@
-2026-09-18T09:21:04.440396Z TestFramework (INFO): PRNG seed is: 4891752247442149727
-2026-09-18T09:21:04.491428Z TestFramework (INFO): Initializing test directory /home/taliwork/.cache/opencode/tmp/bitcoin_func_test__9sxok49
-2026-09-18T09:21:06.431063Z TestFramework (INFO): Accepted full-unified: 18942 weight, 660 signature bytes
-2026-09-18T09:21:07.044841Z TestFramework (INFO): Accepted full-stateful: 5663 weight, 660 signature bytes
-2026-09-18T09:21:10.055527Z TestFramework (INFO): Accepted full-stateless: 20395 weight, 5777 signature bytes
-2026-09-18T09:21:15.445728Z TestFramework (INFO): Accepted baseline-unified: 229738 weight, 660 signature bytes
-2026-09-18T09:21:16.182889Z TestFramework (INFO): Accepted baseline-stateful: 96539 weight, 660 signature bytes
-2026-09-18T09:21:19.153438Z TestFramework (INFO): Accepted baseline-stateless: 139758 weight, 5777 signature bytes
-2026-09-18T09:21:26.935621Z TestFramework (INFO): Accepted full-unified-sl: 24059 weight, 5777 signature bytes
-2026-09-18T09:21:34.660759Z TestFramework (INFO): Accepted baseline-unified-sl: 234855 weight, 5777 signature bytes
-2026-09-18T09:21:53.764971Z TestFramework (INFO): Stopping nodes
-2026-09-18T09:21:53.916454Z TestFramework (INFO): Cleaning up /home/taliwork/.cache/opencode/tmp/bitcoin_func_test__9sxok49 on exit
-2026-09-18T09:21:53.916481Z TestFramework (INFO): Tests successful
+2026-09-18T12:34:38.457185Z TestFramework (INFO): PRNG seed is: 1551933835678031517
+2026-09-18T12:34:38.511898Z TestFramework (INFO): Initializing test directory /var/folders/q7/58wkn0k15c3266mnlt65c_040000gn/T/bitcoin_func_test_6vi38suo
+2026-09-18T12:34:40.880710Z TestFramework (INFO): Accepted full-unified: 18942 weight, 660 signature bytes
+2026-09-18T12:34:41.608094Z TestFramework (INFO): Accepted full-stateful: 5663 weight, 660 signature bytes
+2026-09-18T12:34:45.213040Z TestFramework (INFO): Accepted full-stateless: 20395 weight, 5777 signature bytes
+2026-09-18T12:34:51.714435Z TestFramework (INFO): Accepted baseline-unified: 229738 weight, 660 signature bytes
+2026-09-18T12:34:52.558577Z TestFramework (INFO): Accepted baseline-stateful: 96539 weight, 660 signature bytes
+2026-09-18T12:34:56.163077Z TestFramework (INFO): Accepted baseline-stateless: 139758 weight, 5777 signature bytes
+2026-09-18T12:35:05.646679Z TestFramework (INFO): Accepted full-unified-sl: 24059 weight, 5777 signature bytes
+2026-09-18T12:35:15.043456Z TestFramework (INFO): Accepted baseline-unified-sl: 234855 weight, 5777 signature bytes
+2026-09-18T12:35:37.626258Z TestFramework (INFO): Stopping nodes
+2026-09-18T12:35:37.793051Z TestFramework (INFO): Cleaning up /var/folders/q7/58wkn0k15c3266mnlt65c_040000gn/T/bitcoin_func_test_6vi38suo on exit
+2026-09-18T12:35:37.793163Z TestFramework (INFO): Tests successful

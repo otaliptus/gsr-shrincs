@@ -3,6 +3,10 @@
 Recommendation: defer OP_MULTI on the evidence of this construction alone.
 The existing OP_TX total selector performs the measured task with fewer bytes and fewer varops.
 
+The main reason is coverage of the only demonstrated construction by a simple, existing operation.
+That substitute is easy to review. This construction supplies no additional capability that justifies the general OP_MULTI dispatcher.
+The three-byte saving and the varops difference are secondary. Both programs fit comfortably within their transaction allowances.
+
 This result does not establish that every possible OP_MULTI application is redundant.
 A proposed additional target needs a concrete construction and an equivalent comparison.
 
@@ -44,6 +48,7 @@ The third construction handles variable counts within the same bound. It is not 
 The figures include the shared count checks and final comparison.
 They are not intrinsic opcode costs.
 The selector also has the smallest complete transaction in these examples because the other transaction fields have the same sizes.
+The bounded unroll mostly pays the fixed per-opcode charge. Recalibrating that charge will change its measured cost substantially.
 
 ## Measurement scope
 

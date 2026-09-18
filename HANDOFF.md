@@ -34,6 +34,12 @@ Establish parsing's causal share of interpreter time before proposing a new char
 Defer OP_MULTI on the measured all-output sum case. Require a separate construction for any additional target.
 Do not begin a headline Simplicity size comparison until the full verification relation and compiler provenance match.
 
+The subsequent review found stale committed coverage records: 26 recorded methods versus 34 discovered methods.
+The complete local pipeline regenerated all reports and provenance. Both normal and optimized evidence audits passed.
+CI now checks the three deterministic test-result files against Git.
+Read `reports/EVIDENCE-REPAIR.md` for the repair, validation, and design-note qualifications.
+After source or build changes, run the complete pipeline before committing evidence. An export alone does not update test provenance.
+
 The original handoff follows. Its pre-implementation status is historical; the later implementation reports supersede it.
 
 > **Implementation update — 18 September 2026:** Milestones M0–M7 are complete.

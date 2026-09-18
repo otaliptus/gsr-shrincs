@@ -75,6 +75,9 @@ Use `--build-cache PATH` to reuse isolated checkouts from an earlier comparison.
 Both checkout revisions must match exactly. The command rejects changed source files.
 The new result directory records fresh measurements and the reused binary hashes.
 
+The checkouts are shared clones. They borrow objects from the source repositories.
+Pruning those repositories can break the checkouts. Keep the sources intact for the lifetime of each experiment.
+
 The profiling overlay has explicit source anchors. It stops if a fork change moves an expected interface.
 Port the overlay in a new harness commit before comparing that fork.
 Do not weaken the overlay checks to make an unsupported fork appear compatible.

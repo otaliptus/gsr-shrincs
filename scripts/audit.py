@@ -10,6 +10,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from runner.checks import require
+from runner.evaluator import is_budget_error
 from generator.verifier import compile_verifier, CONTEXT
 from generator.transaction import compile_policy
 from reference.oracle import verify, decode
@@ -148,7 +149,7 @@ def main():
     for row in costs["rejected_transactions"]:
         require(not row["node_result"]["allowed"])
         require(any(not x["success"] for x in row["failure"]))
-        require(not any("budget" in x.get("error", "").lower() for x in row["failure"]))
+        require(not any(is_budget_error(x.get("error")) for x in row["failure"]))
     components = json.loads((ROOT / "reports/components.json").read_text())
     require(
         components["cases"] == 384 and all(x["accepted"] for x in components["rows"])

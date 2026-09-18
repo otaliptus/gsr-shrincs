@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from runner.comparison import sha, validate_corpus, request_for, run_pair, summarize
+from runner.comparison import sha, validate_corpus, request_for, run_pair, summarize, outcome
 from runner.evaluator import HarnessError, Result
 from scripts.compare_forks import checkout, resolve
 from scripts.comparison_corpus import transaction_cases
@@ -83,6 +83,19 @@ class ComparisonContracts(unittest.TestCase):
         self.assertEqual(summarize(rows)["candidate_unexpected"], 1)
 
     def test_budget_exhaustion_is_not_an_expected_rejection(self):
+        for error, expected in (("Varops budget exceeded", "budget"),
+                                ("unrelated budget message", "reject")):
+            with self.subTest(error=error):
+                native_result = Result(False, error, [], 0, 10000, 0.1)
+                self.assertEqual(native_result.classification, expected)
+                standalone = outcome("evalscript", {"varops_budget": 10000, "script": "51"},
+                    {"success": False, "error": error, "varops-budget-remaining": 0, "stack-after": []})
+                transaction = outcome("measuretx", {"transaction": "00"},
+                    {"success": False, "inputs": [{"success": False, "error": error}],
+                     "varops_consumed": 10000, "varops_allowed": 10000, "weight": 1})
+                self.assertEqual(standalone["classification"], expected)
+                self.assertEqual(transaction["classification"], expected)
+
         def exhausted(*args):
             result, response = fake_sample(*args)
             result.update(classification="budget", errors=["Varops budget exceeded"], consumed=10000)

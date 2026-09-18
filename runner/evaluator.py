@@ -18,6 +18,10 @@ class HarnessError(RuntimeError):
     pass
 
 
+def is_budget_error(error):
+    return error == "Varops budget exceeded"
+
+
 @dataclass
 class Result:
     success: bool
@@ -31,7 +35,7 @@ class Result:
     def classification(self):
         if self.success:
             return "accept"
-        return "budget" if self.error == "Varops budget exceeded" else "reject"
+        return "budget" if is_budget_error(self.error) else "reject"
 
 
 def evaluate(

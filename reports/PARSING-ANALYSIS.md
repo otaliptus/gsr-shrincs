@@ -61,6 +61,8 @@ Evidence: [parser-benchmark.json](parser-benchmark.json). This includes source h
 The historical report gives approximately 38,000 varops per microsecond for the full stateless spend.
 It gives approximately 13,650 for inline unified stateful execution.
 These rates use the earlier report's machine and timing method.
+The [baseline measurements](https://github.com/otaliptus/gsr-shrincs/blob/937e05811e45b1b61f505201ac8f06c05abf2253/reports/RESULTS.md) preserve these figures.
+Later top-level report regeneration does not replace that historical evidence.
 
 A ratio near 2.8 does not prove incorrect pricing.
 The model may intentionally charge different workloads conservatively.
@@ -81,6 +83,14 @@ The hypothesis to test next is narrower:
 The isolated benchmark supports this hypothesis but does not prove its share of the full runtime difference.
 A controlled interpreter comparison or independent sampling profile must establish that causal share.
 Keep acceptance and varops fixed in that comparison.
+
+Test a per-instruction hypothesis alongside a per-byte hypothesis.
+The inline unified case sends 160,691 skipped instructions through the interpreter loop.
+Each iteration checks execution state, decoded instruction size, and dispatch conditions.
+Conditional instructions also update the condition stack. Ordinary skipped instructions do not each update that stack.
+The isolated benchmark includes opcode decoding, but omits these interpreter checks.
+Their cost can track instruction count more closely than encoded bytes.
+This suggests a controlled comparison of instruction counts and bytes. It does not yet select a consensus charge.
 
 Do not infer CPU-time shares from opcode counts or inclusive function costs.
 Do not add inclusive function costs together; nested work would be counted more than once.

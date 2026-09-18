@@ -32,6 +32,8 @@ jobs:
         run: ./scripts/check.sh
       - name: Verify deterministic generated review artifacts
         run: git diff --exit-code -- generated/
+      - name: Verify committed test coverage
+        run: git diff --exit-code -- reports/tests-native-results.json reports/tests-profiled-results.json reports/tests-optimized-results.json
       - uses: actions/upload-artifact@v4
         if: always()
         with:
