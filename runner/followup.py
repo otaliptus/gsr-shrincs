@@ -83,28 +83,78 @@ def validate_multi(data):
         samples(row["times_ns"], row["median_ns"], data["repeats"])
 
 
-def validate_multi_scenario(root, data):
+def validate_multi_scenario(root, data, *, check_builds=True):
+    import io
     from generator import multi
     from generator.transaction import compile_policy
-    from reference.oracle import PUBLIC_SEED, scheme
+    from generator.verifier import compile_verifier
+    from reference.oracle import PUBLIC_SEED, decode, scheme, verify
+    from runner.bitcoin import message
+    from runner.evaluator import evaluate
+    from runner.profile import run_profile
+    from test_framework.messages import CTxOut, tx_from_hex
 
-    expected = {f"{name}-{mode}" for name in ("full", "catfix", "multi") for mode in ("stateful", "stateless")}
-    rows = data["transactions"]
-    require(set(rows) == expected, "OP_MULTI scenario row inventory changed")
-    require(type(data["agreement_cases"]) is int and data["agreement_cases"] > 0, "OP_MULTI scenario agreement missing")
-    _, pk = scheme.shrincs_keygen(PUBLIC_SEED, b"\x01\x08")
-    for key, row in rows.items():
+    audited = ("baseline", "bytes", "full")
+    variants = tuple(data["variants"])
+    require(set(variants) >= set(audited) and set(data["audited"]) == set(audited), "OP_MULTI scenario variant set changed")
+    modes = ("stateful", "stateless")
+    expected = {f"{name}-{mode}" for name in variants for mode in modes}
+    require(set(data["standalone"]) == expected and set(data["transactions"]) == expected, "OP_MULTI scenario row inventory changed")
+    inventory = data["agreement"]
+    vectors = json.loads((root / "fixtures/vectors.json").read_text())["vectors"]
+    require(inventory["vectors"] == len(vectors) and inventory["leaf_forms"] == 2 and inventory["index_extremes"] == 2,
+            "OP_MULTI scenario agreement inventory changed")
+    computed = len(vectors) * 2 * inventory["argument_variants"] + len(inventory["sample_depths"]) * 2
+    require(inventory["expected_cases"] == computed == data["agreement_cases"], "OP_MULTI scenario agreement count inconsistent")
+
+    def program(name, mode):
+        return compile_verifier(name, mode) if name in audited else multi.compile_verifier(name, mode)
+
+    for key, row in data["standalone"].items():
         name, mode = row["variant"], row["mode"]
-        code = compile_policy(pk, mode=mode, profile="full").code if name == "full" else multi.compile_policy(name, pk, mode=mode).code
+        vector = next(v for v in vectors if v["name"] == row["fixture"])
+        args = decode(vector)
+        require((bytes.fromhex(vector["signature"])[0] == 255) == (mode == "stateless"), ("OP_MULTI fixture type", key))
+        require(row["input_sha256"] == hashlib.sha256(b"".join(args)).hexdigest(), ("OP_MULTI standalone input changed", key))
+        code = program(name, mode).code
+        require(row["program_bytes"] == len(code) and row["program_sha256"] == hashlib.sha256(code).hexdigest(),
+                ("OP_MULTI standalone program changed", key))
+        require(row["metrics"]["fixed_charge"] <= row["varops_consumed"] < data["standalone_budget"] and
+                row["metrics"]["fixed_charge"] >= 1250 * row["metrics"]["sha256_calls"], ("OP_MULTI standalone accounting", key))
+        require(bool(row["multi_uses"]) == (name in ("multi", "multisel")), ("OP_MULTI use inventory wrong", key))
+        if check_builds:
+            result = evaluate(code, args, data["standalone_budget"])
+            require(result.success and result.consumed == row["varops_consumed"], ("OP_MULTI standalone result differs", key))
+    _, pk = scheme.shrincs_keygen(PUBLIC_SEED, b"\x01\x08")
+    for key, row in data["transactions"].items():
+        name, mode = row["variant"], row["mode"]
+        code = compile_policy(pk, mode=mode, profile=name).code if name in audited else multi.compile_policy(name, pk, mode=mode).code
         require(row["program_bytes"] == len(code) and row["program_sha256"] == hashlib.sha256(code).hexdigest(),
                 ("OP_MULTI scenario program changed", key))
-        require(0 < row["varops_consumed"] <= row["varops_allowed"] and row["varops_allowed"] == 10000 * row["weight"],
-                ("OP_MULTI scenario accounting invalid", key))
-        require(bool(row["multi_uses"]) == (name == "multi"), ("OP_MULTI use inventory wrong", key))
+        tx = tx_from_hex(row["raw_transaction"])
+        sig, script, control = tx.wit.vtxinwit[0].scriptWitness.stack
+        require(script == code and len(sig) == row["signature_bytes"] and len(control) == row["control_block_bytes"],
+                ("OP_MULTI scenario witness differs", key))
+        require((len(tx.serialize()), tx.get_weight(), tx.get_vsize()) == (row["transaction_bytes"], row["weight"], row["vbytes"]),
+                ("OP_MULTI scenario size differs from its transaction", key))
+        spent = []
+        for serialized in row["spent_outputs"]:
+            item = CTxOut()
+            item.deserialize(io.BytesIO(bytes.fromhex(serialized)))
+            spent.append(item)
+        require(bytes.fromhex(row["public_key"]) == pk, ("OP_MULTI scenario key", key))
+        require(verify(message(tx, spent, 0, script), sig, pk), ("OP_MULTI scenario signature invalid", key))
+        require(row["varops_allowed"] == 10000 * row["weight"] and 0 < row["varops_consumed"] <= row["varops_allowed"] and
+                row["budget_fraction"] == row["varops_consumed"] / row["varops_allowed"] and
+                row["metrics"]["fixed_charge"] <= row["varops_consumed"], ("OP_MULTI scenario accounting invalid", key))
+        require(bool(row["multi_uses"]) == (name in ("multi", "multisel")), ("OP_MULTI use inventory wrong", key))
         samples(row["times_ns"], row["median_interpreter_ms"] * 1e6, data["repeats"])
-    for mode in ("stateful", "stateless"):
-        require(rows[f"full-{mode}"]["program_bytes"] > rows[f"catfix-{mode}"]["program_bytes"] > rows[f"multi-{mode}"]["program_bytes"],
-                "OP_MULTI scenario size ordering changed")
+        if check_builds:
+            result = run_profile("measuretx", dict(transaction=row["raw_transaction"], spent_outputs=row["spent_outputs"], profile=False))
+            require(result["success"] and result["varops_consumed"] == row["varops_consumed"], ("OP_MULTI scenario execution differs", key))
+    for mode in modes:
+        sizes = [data["transactions"][f"{name}-{mode}"]["program_bytes"] for name in ("baseline", "bytes", "full", "catfix", "multi")]
+        require(sizes == sorted(sizes, reverse=True), "OP_MULTI scenario size ordering changed")
 
 
 def check_overlay(source, target):
@@ -156,4 +206,4 @@ def audit_followups(root, environment, *, check_builds=True):
     spends = json.loads(gzip.decompress((root / CORPUS).read_bytes()))["spends"]
     validate_parsing(counts, benchmark, spends, load(COSTS))
     validate_multi(multi)
-    validate_multi_scenario(root, scenario)
+    validate_multi_scenario(root, scenario, check_builds=check_builds)

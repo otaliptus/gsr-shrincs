@@ -144,6 +144,22 @@ def prepare():
     )
     needle = "            // Size limits\n            const size_t stack_entries{stack.size() + altstack.size()};"
     text = replace_once(text, needle, "            gsr_observe();\n" + needle)
+    # OP_MULTI performs its logical operations and any hashing inside EvalMulti,
+    # outside the main loop's counters. Observe them at their charging points.
+    needle = "    if (!AddMultiCost(count_cost, MultiLogicalOpcodeCount(target, count) * varops::ExecutionCost(target))) {"
+    text = replace_once(
+        text,
+        needle,
+        "    if (gsr_profile.enabled) gsr_profile.multi_operations[static_cast<uint8_t>(target)] += MultiLogicalOpcodeCount(target, count);\n"
+        + needle,
+    )
+    needle = "        hasher.Finalize(result.data());"
+    text = replace_once(
+        text,
+        needle,
+        needle
+        + "\n        if (gsr_profile.enabled) { ++gsr_profile.sha_calls; gsr_profile.sha_compressions += (input_bytes+9+63)/64; }",
+    )
     write_changed(TARGET / "src/script/interpreter.cpp", text)
     text = (SOURCE / "src/bitcoin-util.cpp").read_text()
     text = (

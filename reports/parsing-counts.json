@@ -29,7 +29,7 @@
       "name": "full-stateful",
       "result": {
         "errors": [],
-        "consumed": 20577516,
+        "consumed": 20577528,
         "allowance": 56630000,
         "weight": 5663,
         "transaction_bytes": 5324,
@@ -37,7 +37,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 20577516
+            "consumed": 20577528
           }
         ],
         "classification": "accept"
@@ -54,7 +54,7 @@
       "name": "full-stateless",
       "result": {
         "errors": [],
-        "consumed": 119995631,
+        "consumed": 119995772,
         "allowance": 203950000,
         "weight": 20395,
         "transaction_bytes": 20056,
@@ -62,7 +62,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 119995631
+            "consumed": 119995772
           }
         ],
         "classification": "accept"
@@ -129,7 +129,7 @@
       "name": "baseline-stateless",
       "result": {
         "errors": [],
-        "consumed": 134115036,
+        "consumed": 133173219,
         "allowance": 1397580000,
         "weight": 139758,
         "transaction_bytes": 139419,
@@ -137,7 +137,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 134115036
+            "consumed": 133173219
           }
         ],
         "classification": "accept"
@@ -145,16 +145,16 @@
       "counts": {
         "parsed_bytes": 133452,
         "parsed_instructions": 116129,
-        "skipped_bytes": 31465,
-        "skipped_instructions": 26425,
-        "skipped_push_bytes": 5040
+        "skipped_bytes": 32185,
+        "skipped_instructions": 27025,
+        "skipped_push_bytes": 5160
       }
     },
     {
       "name": "full-unified-sl",
       "result": {
         "errors": [],
-        "consumed": 125261069,
+        "consumed": 118192964,
         "allowance": 240590000,
         "weight": 24059,
         "transaction_bytes": 23720,
@@ -162,7 +162,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 125261069
+            "consumed": 118192964
           }
         ],
         "classification": "accept"
@@ -170,16 +170,16 @@
       "counts": {
         "parsed_bytes": 138939,
         "parsed_instructions": 106844,
-        "skipped_bytes": 29679,
-        "skipped_instructions": 24939,
-        "skipped_push_bytes": 4740
+        "skipped_bytes": 35079,
+        "skipped_instructions": 29439,
+        "skipped_push_bytes": 5640
       }
     },
     {
       "name": "baseline-unified-sl",
       "result": {
         "errors": [],
-        "consumed": 135031014,
+        "consumed": 135030030,
         "allowance": 2348550000,
         "weight": 234855,
         "transaction_bytes": 234516,
@@ -187,7 +187,7 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 135031014
+            "consumed": 135030030
           }
         ],
         "classification": "accept"
@@ -204,7 +204,7 @@
       "name": "full-2-input-mixed",
       "result": {
         "errors": [],
-        "consumed": 143082288,
+        "consumed": 142139973,
         "allowance": 425230000,
         "weight": 42523,
         "transaction_bytes": 42154,
@@ -212,12 +212,12 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 20645927
+            "consumed": 20645903
           },
           {
             "input": 1,
             "success": true,
-            "consumed": 122436361
+            "consumed": 121494070
           }
         ],
         "classification": "accept"
@@ -225,16 +225,16 @@
       "counts": {
         "parsed_bytes": 177733,
         "parsed_instructions": 125589,
-        "skipped_bytes": 37845,
-        "skipped_instructions": 31764,
-        "skipped_push_bytes": 6081
+        "skipped_bytes": 38565,
+        "skipped_instructions": 32364,
+        "skipped_push_bytes": 6201
       }
     },
     {
       "name": "full-4-input-mixed",
       "result": {
         "errors": [],
-        "consumed": 280547777,
+        "consumed": 288086759,
         "allowance": 848800000,
         "weight": 84880,
         "transaction_bytes": 84265,
@@ -247,17 +247,17 @@
           {
             "input": 1,
             "success": true,
-            "consumed": 118204788
+            "consumed": 123858897
           },
           {
             "input": 2,
             "success": true,
-            "consumed": 20655187
+            "consumed": 20655223
           },
           {
             "input": 3,
             "success": true,
-            "consumed": 121032579
+            "consumed": 122917416
           }
         ],
         "classification": "accept"
@@ -265,9 +265,9 @@
       "counts": {
         "parsed_bytes": 355466,
         "parsed_instructions": 251178,
-        "skipped_bytes": 80010,
-        "skipped_instructions": 67128,
-        "skipped_push_bytes": 12882
+        "skipped_bytes": 74250,
+        "skipped_instructions": 62328,
+        "skipped_push_bytes": 11922
       }
     },
     {
@@ -299,7 +299,7 @@
       "name": "full-cap2-boundary",
       "result": {
         "errors": [],
-        "consumed": 41160865,
+        "consumed": 41160844,
         "allowance": 108480000,
         "weight": 10848,
         "transaction_bytes": 10479,
@@ -312,7 +312,7 @@
           {
             "input": 1,
             "success": true,
-            "consumed": 20580437
+            "consumed": 20580416
           }
         ],
         "classification": "accept"
@@ -342,12 +342,12 @@
           {
             "input": 1,
             "success": true,
-            "consumed": 20585088
+            "consumed": 20585064
           },
           {
             "input": 2,
             "success": true,
-            "consumed": 20585064
+            "consumed": 20585088
           }
         ],
         "classification": "accept"
@@ -364,7 +364,7 @@
       "name": "full-cap4-boundary",
       "result": {
         "errors": [],
-        "consumed": 82358905,
+        "consumed": 82358884,
         "allowance": 215300000,
         "weight": 21530,
         "transaction_bytes": 20915,
@@ -372,12 +372,12 @@
           {
             "input": 0,
             "success": true,
-            "consumed": 20589724
+            "consumed": 20589712
           },
           {
             "input": 1,
             "success": true,
-            "consumed": 20589733
+            "consumed": 20589724
           },
           {
             "input": 2,
@@ -404,15 +404,15 @@
   "provenance": {
     "schema": 1,
     "inputs": {
-      "reports/regtest-details.json.gz": "864607eb32b38c5234990a38c2408918c8b50d8a2a5fc647885c60ed7c319cb9",
-      "reports/costs.json": "fdd2946f893fadbbb3fc58aecf02e0cba15d23c4f969afed1094c85a43982f47"
+      "reports/regtest-details.json.gz": "403abe71c1dab83755b5face6a0e671134520986d77f9520fd3d38fc065af2b7",
+      "reports/costs.json": "29ca417588eb0a9d3efd1cc967f6cbc23436dd0303e0c3961fd5b01e933012f6"
     },
     "binaries": {
-      "build/profile/bin/bitcoin-util": "ed8ae2da27c58e95d058ac8a48b9685a3acac404af4c90c4d740d344f65c69e0",
-      "build/parsing-probe/build/bin/bitcoin-util": "e3d810a0d1a1cc30bab2257c88655811a14f616d393b7cf61954c7addec25069"
+      "build/profile/bin/bitcoin-util": "3157344d23d135dbb28116750846aba362a931e8f9daf911783757b55300c1cd",
+      "build/parsing-probe/build/bin/bitcoin-util": "4cce4898bdaad59f9511db4abe7eb78806fa6ec53a8ac78f91ad48eb4be9fcf9"
     },
     "drivers": {
-      "generator/multi.py": "68e42dd94299faaa215ac7092a17b4a48bb35a73245d01c3da9bc1082dc4e3f8",
+      "generator/multi.py": "41dc7cddeec22aff88140d065087fccd9ad0a5745d84c39795dc21f4f2db6ef3",
       "generator/script.py": "2c71fdb8d1dd806a562f635c8c9af9d3527965619e87e8fe2e01cf05e4077076",
       "generator/transaction.py": "2cf8814c2c23e3ea6c3cc7c4032c2b4c397376b8b0ee03862062aa7c9081f6ab",
       "generator/verifier.py": "db5296addbe5db148a7e1e54561540855c6b22e4a9aed426fdeb569237cc9567",
@@ -421,11 +421,11 @@
       "runner/comparison.py": "0f2c7ef75e41a124c0c075d5939c8420f42da7f2c9b5fff451a79b20d7f5d79b",
       "runner/evaluator.py": "342ff5d2f780599b662b2a612599ae33c333e108b1b22f71fe02e8e226defaeb",
       "runner/evidence.py": "6113d1dd9141a587a56e96eff4c94c7680204c866fd91b0e689c5c77be1e3339",
-      "runner/followup.py": "4e4998dfbaf4fd1f93f3877137f147eafc47167d53b74303bf24753b821f5bef",
+      "runner/followup.py": "9660af167cbccd34f7c37b791890c26afd74e75476caa32c011b4f1083e499f2",
       "runner/measuretx.inc": "d52f03ec91bf73cfb1e87b56f1e798e8027001e2d0566fa13cf35bd781803b1c",
       "runner/parsebench.inc": "50dc37dc2542a97dbeeb7f3aa578297db6201a92270ba795e76958896bff906f",
-      "runner/profile.hpp": "c21bdc855d4dc9479497e2131970d940a38e719d213a76e1c032412d67be5f87",
-      "runner/profile.py": "c89085b0e864731bb92d243ff8be62ba63a2ea4cbb52be63669dd452347fc37d",
+      "runner/profile.hpp": "aacd994526915dc48774ced157270c85ede3506e1d4c69f57a53d2829ea03738",
+      "runner/profile.py": "251a10a7b37a8b59407408a51fe54877098a3b945e51fadfd47618b40e10f8ca",
       "reference/oracle.py": "ad95779190e81cd8ecc4b16fa3188d5b295c3cdeb2afce799f379bf0fdcba385",
       "scripts/audit.py": "461e0822b33cdcc64471891bd09ff6d07b602501426b8e1661630434e15264d2",
       "scripts/audit_followups.py": "f933c842ebcef781d1af8337195713e82349ea9b75281c18b69f43d2a331b8c8",
@@ -439,10 +439,10 @@
       "scripts/fixtures.py": "45c385e5104b11ba0c558f6196c3c720d097f8e2a810ff801ddc29c85ef023c6",
       "scripts/measure.py": "517e97ad963e1cef6e36d3a1ea031afbca09c45f2e46726e4361c7e136a3732a",
       "scripts/multi_compare.py": "ab043eb055aa8d749f42812c3f2e7d2727cb4f3f1efe0422da0fe9e22381110c",
-      "scripts/multi_scenario.py": "873b269b0f2fdd00d59ed6af69e7d06c07e7b0275285ea812791cbfd0e6af7a1",
+      "scripts/multi_scenario.py": "ba990e33fc0e2bb971dcdf890136d07e06390fb7f922d78aa40e579c574bce83",
       "scripts/parse_benchmark.py": "3c95d431ec676d7b8962ef22b436196c4e53ea6d8bee871d5e5018edcc334aa5",
       "scripts/parsing_probe.py": "2f8d9e9002e4bfbd6a26b2b37cd028b27278470a777490fea76fcdc2386965b4",
-      "scripts/profile_build.py": "2f44c5110db70a5fcf93a1f9b5b0a01e4511f0456096cad6f74b5927583bc23e",
+      "scripts/profile_build.py": "8353ae349117820b59cc3d04e050ec68cff82cb56fb8b7f8cd2ab82620d48686",
       "scripts/record_tests.py": "6f9f77d85268209ad5138910b3bdb84999a0a2243491a5d4166cdf16314aba40",
       "scripts/run_tests.py": "abc081b1adb2a990ad813bdc4230d6b1d5b11559940131515b1196a767d82809"
     },
@@ -452,10 +452,10 @@
       "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]"
     }
   },
-  "source_manifest_sha256": "3c5e67990057ddf6b0accb3e17b35c759cf7968ee2cd98d60c8decd1d9fdd4aa",
+  "source_manifest_sha256": "1d23b31319c34cbdc9f5d91bca2b533237ca281d777adaa905445603c60bbf19",
   "build_cache_sha256": "fe51460bc0d1d4afa524ae6a4a4c91168bac2fd0e6f565ca7e9479e4d3aa4d51",
-  "binary_sha256": "e3d810a0d1a1cc30bab2257c88655811a14f616d393b7cf61954c7addec25069",
-  "reference_binary_sha256": "ed8ae2da27c58e95d058ac8a48b9685a3acac404af4c90c4d740d344f65c69e0",
-  "corpus_sha256": "864607eb32b38c5234990a38c2408918c8b50d8a2a5fc647885c60ed7c319cb9",
+  "binary_sha256": "4cce4898bdaad59f9511db4abe7eb78806fa6ec53a8ac78f91ad48eb4be9fcf9",
+  "reference_binary_sha256": "3157344d23d135dbb28116750846aba362a931e8f9daf911783757b55300c1cd",
+  "corpus_sha256": "403abe71c1dab83755b5face6a0e671134520986d77f9520fd3d38fc065af2b7",
   "scope": "Counts inside EvalTapscriptV2Impl, including invoked bodies. Does not count the separate success-opcode scan or decode OP_MULTI's second opcode separately. No causal timing claim."
 }

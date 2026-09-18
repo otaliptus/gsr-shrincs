@@ -16,10 +16,12 @@ class MultiExtension(unittest.TestCase):
 
     def test_variants_agree_and_use_multi_only_when_asked(self):
         selected = [self.vectors[0], next(v for v in self.vectors if bytes.fromhex(v["signature"])[0] == 255)]
-        for name in ("catfix", "multi"):
+        for name in ("catfix", "multi", "multisel"):
             program = multi.compile_verifier(name)
             uses = multi.multi_uses(program.code, [v[1] for v in program.functions.values()])
-            self.assertEqual(bool(uses), name == "multi", name)
+            self.assertEqual(bool(uses), name != "catfix", name)
+            if name == "multisel":
+                self.assertEqual(set(uses), {"SHA256"})
             self.assertLess(len(program.code), len(self.audited), name)
             for vector in selected:
                 sig, pk, msg = decode(vector)

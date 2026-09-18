@@ -71,22 +71,22 @@ Running 76 test cases...
 [0;39;49m[1;33;49m./test/node_warnings_tests.cpp(13): Test suite "node_warnings_tests" is skipped because disabled
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(169): Entering test suite "op_tx_tests"
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(171): Entering test case "reference_vectors"
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(171): Leaving test case "reference_vectors"; testing time: 49232us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(171): Leaving test case "reference_vectors"; testing time: 39749us
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(256): Entering test case "interpreter_dispatch_and_execution_cost"
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(256): Leaving test case "interpreter_dispatch_and_execution_cost"; testing time: 679us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(256): Leaving test case "interpreter_dispatch_and_execution_cost"; testing time: 670us
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(282): Entering test case "runtime_range_operands"
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(282): Leaving test case "runtime_range_operands"; testing time: 485us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(282): Leaving test case "runtime_range_operands"; testing time: 480us
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(314): Entering test case "undefined_selector_fails_closed"
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(314): Leaving test case "undefined_selector_fails_closed"; testing time: 459us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(314): Leaving test case "undefined_selector_fails_closed"; testing time: 452us
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(345): Entering test case "future_selector_version_succeeds"
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(345): Leaving test case "future_selector_version_succeeds"; testing time: 456us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(345): Leaving test case "future_selector_version_succeeds"; testing time: 448us
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(381): Entering test case "codeseparator_opcode_position_after_multi_csfs"
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(381): Leaving test case "codeseparator_opcode_position_after_multi_csfs"; testing time: 573us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(381): Leaving test case "codeseparator_opcode_position_after_multi_csfs"; testing time: 577us
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(426): Entering test case "bip341_sighash_construction_csfs"
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(426): Leaving test case "bip341_sighash_construction_csfs"; testing time: 541us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(426): Leaving test case "bip341_sighash_construction_csfs"; testing time: 537us
 [0;39;49m[1;34;49m./test/op_tx_tests.cpp(517): Entering test case "bip118_style_anyprevout_sighash_construction_csfs"
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(517): Leaving test case "bip118_style_anyprevout_sighash_construction_csfs"; testing time: 616us
-[0;39;49m[1;34;49m./test/op_tx_tests.cpp(169): Leaving test suite "op_tx_tests"; testing time: 53134us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(517): Leaving test case "bip118_style_anyprevout_sighash_construction_csfs"; testing time: 600us
+[0;39;49m[1;34;49m./test/op_tx_tests.cpp(169): Leaving test suite "op_tx_tests"; testing time: 43603us
 [0;39;49m[1;33;49m./test/orphanage_tests.cpp(24): Test suite "orphanage_tests" is skipped because disabled
 [0;39;49m[1;33;49m./test/pcp_tests.cpp(251): Test suite "pcp_tests" is skipped because disabled
 [0;39;49m[1;33;49m./test/peerman_tests.cpp(25): Test suite "peerman_tests" is skipped because disabled
@@ -126,118 +126,118 @@ Running 76 test cases...
 [0;39;49m[1;33;49m./test/system_tests.cpp(61): Test suite "system_tests" is skipped because disabled
 [0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(32): Entering test suite "tapscript_v2_json_tests"
 [0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(202): Entering test case "tapscript_v2_varops_json_tests"
-[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(202): Leaving test case "tapscript_v2_varops_json_tests"; testing time: 68943us
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(202): Leaving test case "tapscript_v2_varops_json_tests"; testing time: 39955us
 [0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(207): Entering test case "tapscript_v2_restored_ops_json_tests"
-[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(207): Leaving test case "tapscript_v2_restored_ops_json_tests"; testing time: 8661us
-[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(32): Leaving test suite "tapscript_v2_json_tests"; testing time: 77640us
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(207): Leaving test case "tapscript_v2_restored_ops_json_tests"; testing time: 5832us
+[0;39;49m[1;34;49m./test/tapscript_v2_json_tests.cpp(32): Leaving test suite "tapscript_v2_json_tests"; testing time: 45821us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(211): Entering test suite "tapscript_v2_tests"
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(213): Entering test case "op_success_classification"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(213): Leaving test case "op_success_classification"; testing time: 782us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(213): Leaving test case "op_success_classification"; testing time: 639us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(253): Entering test case "meta_opcodes_are_tapscript_v2_only_redefinitions"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(253): Leaving test case "meta_opcodes_are_tapscript_v2_only_redefinitions"; testing time: 605us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(253): Leaving test case "meta_opcodes_are_tapscript_v2_only_redefinitions"; testing time: 456us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(273): Entering test case "function_invocation_executes_field_fragment"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(273): Leaving test case "function_invocation_executes_field_fragment"; testing time: 645us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(273): Leaving test case "function_invocation_executes_field_fragment"; testing time: 459us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(286): Entering test case "literal_push_copying_budget"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(286): Leaving test case "literal_push_copying_budget"; testing time: 8651us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(286): Leaving test case "literal_push_copying_budget"; testing time: 6087us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(312): Entering test case "function_invocation_shares_altstack"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(312): Leaving test case "function_invocation_shares_altstack"; testing time: 569us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(312): Leaving test case "function_invocation_shares_altstack"; testing time: 491us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(325): Entering test case "multi_applies_supported_targets"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(325): Leaving test case "multi_applies_supported_targets"; testing time: 614us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(325): Leaving test case "multi_applies_supported_targets"; testing time: 495us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(373): Entering test case "multi_count_and_execution_rules"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(373): Leaving test case "multi_count_and_execution_rules"; testing time: 619us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(373): Leaving test case "multi_count_and_execution_rules"; testing time: 468us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(420): Entering test case "function_ids_are_canonical_and_immutable"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(420): Leaving test case "function_ids_are_canonical_and_immutable"; testing time: 482us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(420): Leaving test case "function_ids_are_canonical_and_immutable"; testing time: 454us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(443): Entering test case "function_bodies_are_validated_when_invoked"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(443): Leaving test case "function_bodies_are_validated_when_invoked"; testing time: 614us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(443): Leaving test case "function_bodies_are_validated_when_invoked"; testing time: 458us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(483): Entering test case "function_invocation_rejects_recursion"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(483): Leaving test case "function_invocation_rejects_recursion"; testing time: 486us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(483): Leaving test case "function_invocation_rejects_recursion"; testing time: 443us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(509): Entering test case "function_signature_uses_callers_codeseparator"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(509): Leaving test case "function_signature_uses_callers_codeseparator"; testing time: 463us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(509): Leaving test case "function_signature_uses_callers_codeseparator"; testing time: 436us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(527): Entering test case "invoked_op_success_is_terminal"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(527): Leaving test case "invoked_op_success_is_terminal"; testing time: 657us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(527): Leaving test case "invoked_op_success_is_terminal"; testing time: 632us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(565): Entering test case "function_execution_and_storage_limits"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(565): Leaving test case "function_execution_and_storage_limits"; testing time: 20631us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(565): Leaving test case "function_execution_and_storage_limits"; testing time: 16926us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(605): Entering test case "base_evalscript_rejects_tapscript_v2"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(605): Leaving test case "base_evalscript_rejects_tapscript_v2"; testing time: 670us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(605): Leaving test case "base_evalscript_rejects_tapscript_v2"; testing time: 657us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(618): Entering test case "tapscript_v2_leaf_requires_script_restoration_flag"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(618): Leaving test case "tapscript_v2_leaf_requires_script_restoration_flag"; testing time: 700us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(618): Leaving test case "tapscript_v2_leaf_requires_script_restoration_flag"; testing time: 710us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(652): Entering test case "tapleaf_versions_isolate_restored_opcodes"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(652): Leaving test case "tapleaf_versions_isolate_restored_opcodes"; testing time: 708us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(652): Leaving test case "tapleaf_versions_isolate_restored_opcodes"; testing time: 655us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(683): Entering test case "splice_opcodes_follow_bip441_byte_ranges"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(683): Leaving test case "splice_opcodes_follow_bip441_byte_ranges"; testing time: 503us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(683): Leaving test case "splice_opcodes_follow_bip441_byte_ranges"; testing time: 487us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(728): Entering test case "length_operands_charge_encoded_width_even_when_value_is_zero"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(728): Leaving test case "length_operands_charge_encoded_width_even_when_value_is_zero"; testing time: 468us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(728): Leaving test case "length_operands_charge_encoded_width_even_when_value_is_zero"; testing time: 458us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(757): Entering test case "restored_bit_opcodes_preserve_non_arithmetic_width"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(757): Leaving test case "restored_bit_opcodes_preserve_non_arithmetic_width"; testing time: 449us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(757): Leaving test case "restored_bit_opcodes_preserve_non_arithmetic_width"; testing time: 441us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(770): Entering test case "restored_shift_opcodes_are_raw_bitshifts"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(770): Leaving test case "restored_shift_opcodes_are_raw_bitshifts"; testing time: 628us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(770): Leaving test case "restored_shift_opcodes_are_raw_bitshifts"; testing time: 470us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(799): Entering test case "tapscript_v2_costed_opcodes_reject_missing_stack_elements"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(799): Leaving test case "tapscript_v2_costed_opcodes_reject_missing_stack_elements"; testing time: 641us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(799): Leaving test case "tapscript_v2_costed_opcodes_reject_missing_stack_elements"; testing time: 477us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(862): Entering test case "bip342_restricted_opcodes_remain_restricted_in_tapscript_v2"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(862): Leaving test case "bip342_restricted_opcodes_remain_restricted_in_tapscript_v2"; testing time: 593us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(862): Leaving test case "bip342_restricted_opcodes_remain_restricted_in_tapscript_v2"; testing time: 445us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(869): Entering test case "restored_multiply_divide_and_modulo_opcodes"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(869): Leaving test case "restored_multiply_divide_and_modulo_opcodes"; testing time: 496us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(869): Leaving test case "restored_multiply_divide_and_modulo_opcodes"; testing time: 464us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(884): Entering test case "extended_arithmetic_is_unsigned_and_normalized"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(884): Leaving test case "extended_arithmetic_is_unsigned_and_normalized"; testing time: 465us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(884): Leaving test case "extended_arithmetic_is_unsigned_and_normalized"; testing time: 447us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(900): Entering test case "checksigadd_failure_normalizes_numeric_operand"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(900): Leaving test case "checksigadd_failure_normalizes_numeric_operand"; testing time: 491us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(900): Leaving test case "checksigadd_failure_normalizes_numeric_operand"; testing time: 478us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(917): Entering test case "checksigadd_enforces_numeric_result_boundaries"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(917): Leaving test case "checksigadd_enforces_numeric_result_boundaries"; testing time: 12338us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(917): Leaving test case "checksigadd_enforces_numeric_result_boundaries"; testing time: 7905us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(972): Entering test case "bip440_costed_legacy_ops_use_unsigned_values"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(972): Leaving test case "bip440_costed_legacy_ops_use_unsigned_values"; testing time: 638us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(972): Leaving test case "bip440_costed_legacy_ops_use_unsigned_values"; testing time: 745us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(991): Entering test case "costed_legacy_ops_report_exact_semantic_failures"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(991): Leaving test case "costed_legacy_ops_report_exact_semantic_failures"; testing time: 456us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(991): Leaving test case "costed_legacy_ops_report_exact_semantic_failures"; testing time: 462us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1004): Entering test case "locktime_sequence_operands_must_fit_transaction_fields"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1004): Leaving test case "locktime_sequence_operands_must_fit_transaction_fields"; testing time: 588us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1004): Leaving test case "locktime_sequence_operands_must_fit_transaction_fields"; testing time: 443us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1072): Entering test case "hash_opcodes_follow_bip441_limits"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1072): Leaving test case "hash_opcodes_follow_bip441_limits"; testing time: 638us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1072): Leaving test case "hash_opcodes_follow_bip441_limits"; testing time: 456us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1102): Entering test case "tapscript_v2_stack_limits_are_enforced"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1102): Leaving test case "tapscript_v2_stack_limits_are_enforced"; testing time: 59119us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1102): Leaving test case "tapscript_v2_stack_limits_are_enforced"; testing time: 46312us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1151): Entering test case "copying_opcodes_enforce_total_stack_size_with_altstack"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1151): Leaving test case "copying_opcodes_enforce_total_stack_size_with_altstack"; testing time: 88013us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1151): Leaving test case "copying_opcodes_enforce_total_stack_size_with_altstack"; testing time: 51884us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1194): Entering test case "tapscript_v2_witness_initial_stack_limits_are_enforced"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1194): Leaving test case "tapscript_v2_witness_initial_stack_limits_are_enforced"; testing time: 11699us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1194): Leaving test case "tapscript_v2_witness_initial_stack_limits_are_enforced"; testing time: 6931us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1217): Entering test case "tapscript_v2_pushes_use_the_expanded_stack_element_limit"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1217): Leaving test case "tapscript_v2_pushes_use_the_expanded_stack_element_limit"; testing time: 31134us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1217): Leaving test case "tapscript_v2_pushes_use_the_expanded_stack_element_limit"; testing time: 22468us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1234): Entering test case "tapscript_v2_skipped_branches_validate_pushes"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1234): Leaving test case "tapscript_v2_skipped_branches_validate_pushes"; testing time: 8548us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1234): Leaving test case "tapscript_v2_skipped_branches_validate_pushes"; testing time: 6312us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1252): Entering test case "restored_ops_enforce_stack_element_limit_edges"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1252): Leaving test case "restored_ops_enforce_stack_element_limit_edges"; testing time: 27486us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1252): Leaving test case "restored_ops_enforce_stack_element_limit_edges"; testing time: 15910us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1280): Entering test case "varops_budget_must_cover_exact_bip_cost"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1280): Leaving test case "varops_budget_must_cover_exact_bip_cost"; testing time: 849us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1280): Leaving test case "varops_budget_must_cover_exact_bip_cost"; testing time: 693us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1311): Entering test case "signature_varops_charge_depends_on_nonempty_signature"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1311): Leaving test case "signature_varops_charge_depends_on_nonempty_signature"; testing time: 1073us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1311): Leaving test case "signature_varops_charge_depends_on_nonempty_signature"; testing time: 910us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1387): Entering test case "op_success_redefinitions_are_checked_before_execution"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1387): Leaving test case "op_success_redefinitions_are_checked_before_execution"; testing time: 11176us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1387): Leaving test case "op_success_redefinitions_are_checked_before_execution"; testing time: 6674us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1488): Entering test case "nop4_is_upgradable_nop_in_tapscript_v2"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1488): Leaving test case "nop4_is_upgradable_nop_in_tapscript_v2"; testing time: 883us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1488): Leaving test case "nop4_is_upgradable_nop_in_tapscript_v2"; testing time: 715us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1504): Entering test case "tapscript_v2_treats_future_pubkeys_as_unknown_pubkey_type"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1504): Leaving test case "tapscript_v2_treats_future_pubkeys_as_unknown_pubkey_type"; testing time: 650us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1504): Leaving test case "tapscript_v2_treats_future_pubkeys_as_unknown_pubkey_type"; testing time: 627us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1530): Entering test case "tapscript_v2_conditionals_require_minimal_inputs"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1530): Leaving test case "tapscript_v2_conditionals_require_minimal_inputs"; testing time: 614us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1530): Leaving test case "tapscript_v2_conditionals_require_minimal_inputs"; testing time: 454us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1545): Entering test case "unexecuted_branches_do_not_charge_or_execute_costed_ops"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1545): Leaving test case "unexecuted_branches_do_not_charge_or_execute_costed_ops"; testing time: 469us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1545): Leaving test case "unexecuted_branches_do_not_charge_or_execute_costed_ops"; testing time: 442us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1552): Entering test case "tapscript_v2_standard_verify_uses_unmetered_overload"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1552): Leaving test case "tapscript_v2_standard_verify_uses_unmetered_overload"; testing time: 626us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1552): Leaving test case "tapscript_v2_standard_verify_uses_unmetered_overload"; testing time: 495us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1565): Entering test case "checksigfromstack"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1565): Leaving test case "checksigfromstack"; testing time: 587us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1565): Leaving test case "checksigfromstack"; testing time: 558us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1600): Entering test case "tweakadd"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1600): Leaving test case "tweakadd"; testing time: 675us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1600): Leaving test case "tweakadd"; testing time: 525us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1665): Entering test case "byterev"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1665): Leaving test case "byterev"; testing time: 597us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1665): Leaving test case "byterev"; testing time: 445us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1695): Entering test case "taproot_script_signing_propagates_leaf_sigversion"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1695): Leaving test case "taproot_script_signing_propagates_leaf_sigversion"; testing time: 721us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1695): Leaving test case "taproot_script_signing_propagates_leaf_sigversion"; testing time: 569us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1721): Entering test case "tapscript_v2_psbt_finalized_witness_is_signed_and_verified"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1721): Leaving test case "tapscript_v2_psbt_finalized_witness_is_signed_and_verified"; testing time: 609us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1721): Leaving test case "tapscript_v2_psbt_finalized_witness_is_signed_and_verified"; testing time: 581us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1742): Entering test case "tapscript_v2_psbt_and_signtransaction_use_transaction_wide_varops_budget"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1742): Leaving test case "tapscript_v2_psbt_and_signtransaction_use_transaction_wide_varops_budget"; testing time: 8198us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1742): Leaving test case "tapscript_v2_psbt_and_signtransaction_use_transaction_wide_varops_budget"; testing time: 8141us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1795): Entering test case "tapscript_v2_psbt_single_input_over_finalized_budget_is_rejected"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1795): Leaving test case "tapscript_v2_psbt_single_input_over_finalized_budget_is_rejected"; testing time: 669us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1795): Leaving test case "tapscript_v2_psbt_single_input_over_finalized_budget_is_rejected"; testing time: 670us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1832): Entering test case "tapscript_v2_signtransaction_accepts_finalized_witness"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1832): Leaving test case "tapscript_v2_signtransaction_accepts_finalized_witness"; testing time: 515us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1832): Leaving test case "tapscript_v2_signtransaction_accepts_finalized_witness"; testing time: 544us
 [0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1846): Entering test case "witness_path_uses_tapscript_v2_final_success_rule"
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1846): Leaving test case "witness_path_uses_tapscript_v2_final_success_rule"; testing time: 705us
-[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(211): Leaving test suite "tapscript_v2_tests"; testing time: 313549us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(1846): Leaving test case "witness_path_uses_tapscript_v2_final_success_rule"; testing time: 703us
+[0;39;49m[1;34;49m./test/tapscript_v2_tests.cpp(211): Leaving test suite "tapscript_v2_tests"; testing time: 218843us
 [0;39;49m[1;33;49m./test/testnet4_miner_tests.cpp(34): Test suite "testnet4_miner_tests" is skipped because disabled
 [0;39;49m[1;33;49m./test/threadpool_tests.cpp(49): Test suite "threadpool_tests" is skipped because disabled
 [0;39;49m[1;33;49m./test/timeoffsets_tests.cpp(24): Test suite "timeoffsets_tests" is skipped because disabled
@@ -270,21 +270,21 @@ Running 76 test cases...
 [0;39;49m[1;33;49m./test/validationinterface_tests.cpp(16): Test suite "validationinterface_tests" is skipped because disabled
 [0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(22): Entering test suite "valtype_stack_tests"
 [0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(24): Entering test case "valtype_stack_mutation_accounting"
-[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(24): Leaving test case "valtype_stack_mutation_accounting"; testing time: 614us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(24): Leaving test case "valtype_stack_mutation_accounting"; testing time: 448us
 [0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(56): Entering test case "valtype_stack_const_copy_word_capacity"
-[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(56): Leaving test case "valtype_stack_const_copy_word_capacity"; testing time: 470us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(56): Leaving test case "valtype_stack_const_copy_word_capacity"; testing time: 443us
 [0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(77): Entering test case "valtype_stack_erase_boundaries"
-[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(77): Leaving test case "valtype_stack_erase_boundaries"; testing time: 597us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(77): Leaving test case "valtype_stack_erase_boundaries"; testing time: 436us
 [0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(94): Entering test case "valtype_stack_empty_elements_and_failures"
-[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(94): Leaving test case "valtype_stack_empty_elements_and_failures"; testing time: 650us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(94): Leaving test case "valtype_stack_empty_elements_and_failures"; testing time: 495us
 [0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(116): Entering test case "valtype_stack_move_preserves_accounting"
-[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(116): Leaving test case "valtype_stack_move_preserves_accounting"; testing time: 465us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(116): Leaving test case "valtype_stack_move_preserves_accounting"; testing time: 437us
 [0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(146): Entering test case "valtype_stack_reordering_preserves_accounting"
-[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(146): Leaving test case "valtype_stack_reordering_preserves_accounting"; testing time: 452us
-[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(22): Leaving test suite "valtype_stack_tests"; testing time: 3309us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(146): Leaving test case "valtype_stack_reordering_preserves_accounting"; testing time: 440us
+[0;39;49m[1;34;49m./test/valtype_stack_tests.cpp(22): Leaving test suite "valtype_stack_tests"; testing time: 2760us
 [0;39;49m[1;34;49m./test/varops_tests.cpp(20): Entering test suite "varops_tests"
 [0;39;49m[1;34;49m./test/varops_tests.cpp(22): Entering test case "participating_input_funding"
-[0;39;49m[1;34;49m./test/varops_tests.cpp(22): Leaving test case "participating_input_funding"; testing time: 75us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(22): Leaving test case "participating_input_funding"; testing time: 80us
 [0;39;49m[1;34;49m./test/varops_tests.cpp(64): Entering test case "bip440_cost_constants"
 [0;39;49m[1;34;49m./test/varops_tests.cpp(64): Leaving test case "bip440_cost_constants"; testing time: 53us
 [0;39;49m[1;34;49m./test/varops_tests.cpp(110): Entering test case "bip441_multiply_and_divide_costs_are_64_bit"
@@ -296,10 +296,10 @@ Running 76 test cases...
 [0;39;49m[1;34;49m./test/varops_tests.cpp(193): Entering test case "budget_can_be_unmetered"
 [0;39;49m[1;34;49m./test/varops_tests.cpp(193): Leaving test case "budget_can_be_unmetered"; testing time: 47us
 [0;39;49m[1;34;49m./test/varops_tests.cpp(202): Entering test case "budget_is_transaction_wide_and_thread_safe"
-[0;39;49m[1;34;49m./test/varops_tests.cpp(202): Leaving test case "budget_is_transaction_wide_and_thread_safe"; testing time: 6312us
-[0;39;49m[1;34;49m./test/varops_tests.cpp(20): Leaving test suite "varops_tests"; testing time: 6685us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(202): Leaving test case "budget_is_transaction_wide_and_thread_safe"; testing time: 6258us
+[0;39;49m[1;34;49m./test/varops_tests.cpp(20): Leaving test suite "varops_tests"; testing time: 6634us
 [0;39;49m[1;33;49m./test/versionbits_tests.cpp(187): Test suite "versionbits_tests" is skipped because disabled
-[0;39;49m[1;34;49mLeaving test module "Bitcoin Core Test Suite"; testing time: 454821us
+[0;39;49m[1;34;49mLeaving test module "Bitcoin Core Test Suite"; testing time: 318174us
 [0;39;49m
 [1;32;49m*** No errors detected
 [0;39;49m

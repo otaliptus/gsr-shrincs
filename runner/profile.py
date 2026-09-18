@@ -46,7 +46,7 @@ def run_profile(command, request):
             "sha256_compressions",
         ):
             require(type(metrics[key]) is int and metrics[key] >= 0)
-        for key in ("opcodes", "function_calls", "function_body_varops_inclusive"):
+        for key in ("opcodes", "function_calls", "function_body_varops_inclusive", "multi_operations"):
             require(type(metrics[key]) is dict)
             require(
                 all(

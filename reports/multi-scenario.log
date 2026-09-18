@@ -1,7 +1,25 @@
-agreement: 406 cases across three variants
-full-stateful        program=  4,476 vbytes= 1,416 varops=  20,577,528  36.3% ops= 13,701 multi={} 0.68ms
-catfix-stateful      program=  4,130 vbytes= 1,330 varops=  18,838,994  35.4% ops= 12,387 multi={} 0.63ms
-multi-stateful       program=  4,064 vbytes= 1,313 varops=  19,143,887  36.5% ops= 11,884 multi={'DROP': 14, 'SHA256': 20, 'CAT': 34} 0.66ms
-full-stateless       program= 14,091 vbytes= 5,099 varops= 119,995,961  58.8% ops= 78,562 multi={} 3.30ms
-catfix-stateless     program= 12,913 vbytes= 4,805 varops= 112,114,253  58.3% ops= 72,194 multi={} 3.02ms
-multi-stateless      program= 12,661 vbytes= 4,742 varops= 120,942,956  63.8% ops= 72,749 multi={'DROP': 6, 'SHA256': 30, 'CAT': 211} 3.23ms
+agreement: 406 cases
+standalone  baseline-stateful    program= 95,209 varops=  23,029,889 sha=  248 multi={}
+standalone  bytes-stateful       program= 52,038 varops=  22,226,377 sha=  248 multi={}
+standalone  full-stateful        program=  4,335 varops=  19,645,115 sha=  248 multi={}
+standalone  catfix-stateful      program=  3,989 varops=  17,957,817 sha=  248 multi={}
+standalone  multi-stateful       program=  3,923 varops=  18,241,221 sha=  248 multi={'DROP': 14, 'SHA256': 20, 'CAT': 34}
+standalone  multisel-stateful    program=  3,983 varops=  17,956,698 sha=  248 multi={'SHA256': 2}
+standalone  baseline-stateless   program=133,311 varops= 133,585,802 sha= 1543 multi={}
+standalone  bytes-stateless      program=120,607 varops= 119,995,084 sha= 1543 multi={}
+standalone  full-stateless       program= 13,950 varops= 122,293,006 sha= 1543 multi={}
+standalone  catfix-stateless     program= 12,772 varops= 111,270,250 sha= 1543 multi={}
+standalone  multi-stateless      program= 12,520 varops= 113,227,624 sha= 1543 multi={'DROP': 6, 'SHA256': 30, 'CAT': 211}
+standalone  multisel-stateless   program= 12,726 varops= 111,269,830 sha= 1543 multi={'SHA256': 12}
+transaction baseline-stateful    vbytes=24,135 varops=  24,150,510   2.5% 1.28ms
+transaction bytes-stateful       vbytes=13,342 varops=  22,761,377   4.3% 0.92ms
+transaction full-stateful        vbytes= 1,416 varops=  20,577,528  36.3% 0.67ms
+transaction catfix-stateful      vbytes= 1,330 varops=  18,838,994  35.4% 0.63ms
+transaction multi-stateful       vbytes= 1,313 varops=  19,143,887  36.5% 0.66ms
+transaction multisel-stateful    vbytes= 1,328 varops=  18,837,884  35.5% 0.65ms
+transaction baseline-stateless   vbytes=34,940 varops= 130,347,114   9.3% 3.62ms
+transaction bytes-stateless      vbytes=31,764 varops= 119,112,473   9.4% 3.27ms
+transaction full-stateless       vbytes= 5,099 varops= 119,995,961  58.8% 3.18ms
+transaction catfix-stateless     vbytes= 4,805 varops= 112,114,253  58.3% 2.97ms
+transaction multi-stateless      vbytes= 4,742 varops= 120,942,956  63.8% 3.26ms
+transaction multisel-stateless   vbytes= 4,793 varops= 112,898,411  58.9% 3.00ms

@@ -11,7 +11,7 @@ struct GsrProfile {
     bool enabled{true};
     uint64_t stack_entries{}, stack_bytes{}, total_entries{}, total_bytes{}, max_item{};
     uint64_t function_storage{}, executed_bodies{}, invocations{}, sha_calls{}, sha_compressions{};
-    std::array<uint64_t,256> opcodes{}, function_calls{}, function_varops{};
+    std::array<uint64_t,256> opcodes{}, function_calls{}, function_varops{}, multi_operations{};
     UniValue Json(uint64_t ns) const {
         UniValue r{UniValue::VOBJ};
         r.pushKV("interpreter_ns",ns);
@@ -21,13 +21,14 @@ struct GsrProfile {
         r.pushKV("max_item_bytes",max_item); r.pushKV("function_storage_bytes",function_storage);
         r.pushKV("executed_function_body_bytes",executed_bodies); r.pushKV("invocations",invocations);
         r.pushKV("sha256_calls",sha_calls); r.pushKV("sha256_compressions",sha_compressions);
-        UniValue ops{UniValue::VOBJ}, calls{UniValue::VOBJ}, costs{UniValue::VOBJ};
+        UniValue ops{UniValue::VOBJ}, calls{UniValue::VOBJ}, costs{UniValue::VOBJ}, multi{UniValue::VOBJ};
         for(size_t i=0;i<256;++i) {
             if(opcodes[i]) ops.pushKV(std::to_string(i),opcodes[i]);
             if(function_calls[i]) calls.pushKV(std::to_string(i),function_calls[i]);
             if(function_varops[i]) costs.pushKV(std::to_string(i),function_varops[i]);
+            if(multi_operations[i]) multi.pushKV(std::to_string(i),multi_operations[i]);
         }
-        r.pushKV("opcodes",ops); r.pushKV("function_calls",calls); r.pushKV("function_body_varops_inclusive",costs);
+        r.pushKV("opcodes",ops); r.pushKV("function_calls",calls); r.pushKV("function_body_varops_inclusive",costs); r.pushKV("multi_operations",multi);
         return r;
     }
 };
