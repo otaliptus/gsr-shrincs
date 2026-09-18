@@ -131,6 +131,47 @@
 </ol>
 </details>
 
+<h2>How big is a SHRINCS transaction?</h2>
+<p>One input, two outputs, one SHRINCS signature, using the compact checker with shared functions. These are the real transactions the test network mined.</p>
+<div class="big">
+  <div class="tile"><div class="label">Stateful spend</div><div class="value">1,416 vbytes</div><div class="label">5,324 bytes on the wire, 5,663 weight units</div></div>
+  <div class="tile"><div class="label">Stateless spend</div><div class="value">5,099 vbytes</div><div class="label">20,056 bytes on the wire, 20,395 weight units</div></div>
+</div>
+<figure>
+  <figcaption>What the bytes are. Same scale for both transactions.</figcaption>
+  <div class="plot"><svg viewBox="0 0 640 110" role="img" aria-labelledby="c0t">
+    <title id="c0t">Composition of each transaction in bytes: signature, checker program, control block, and the rest of the transaction</title>
+    <text x="0" y="30">Stateful</text>
+    <g><title>Signature: 660 bytes</title><rect x="90" y="16" width="15.1" height="20" rx="4" fill="var(--s1)"/></g>
+    <g><title>Checker program: 4,476 bytes</title><rect x="107.1" y="16" width="102.7" height="20" fill="var(--s2)"/></g>
+    <g><title>Control block: 65 bytes</title><rect x="211.8" y="16" width="1.5" height="20" fill="var(--s3)"/></g>
+    <g><title>Rest of the transaction (inputs, outputs, counts): 123 bytes</title><rect x="215.3" y="16" width="2.8" height="20" rx="4" fill="var(--dim)"/></g>
+    <text class="val" x="226.1" y="30">5,324</text>
+    <text x="0" y="80">Stateless</text>
+    <g><title>Signature: 5,777 bytes</title><rect x="90" y="66" width="132.5" height="20" rx="4" fill="var(--s1)"/></g>
+    <g><title>Checker program: 14,091 bytes</title><rect x="224.5" y="66" width="323.2" height="20" fill="var(--s2)"/></g>
+    <g><title>Control block: 65 bytes</title><rect x="549.7" y="66" width="1.5" height="20" fill="var(--s3)"/></g>
+    <g><title>Rest of the transaction: 123 bytes</title><rect x="553.2" y="66" width="2.8" height="20" rx="4" fill="var(--dim)"/></g>
+    <text class="val" x="564.0" y="80">20,056</text>
+  </svg></div>
+  <ul class="legend">
+    <li style="--sw: var(--s1)">Signature</li>
+    <li style="--sw: var(--s2)">Checker program</li>
+    <li style="--sw: var(--s3)">Control block</li>
+    <li style="--sw: var(--dim)">Rest of the transaction</li>
+  </ul>
+  <details><summary>Show as table</summary>
+    <table><tr><th>Part</th><th class="n">Stateful, bytes</th><th class="n">Stateless, bytes</th></tr>
+      <tr><td>Signature</td><td class="n">660</td><td class="n">5,777</td></tr>
+      <tr><td>Checker program</td><td class="n">4,476</td><td class="n">14,091</td></tr>
+      <tr><td>Control block</td><td class="n">65</td><td class="n">65</td></tr>
+      <tr><td>Rest of the transaction</td><td class="n">123</td><td class="n">123</td></tr>
+      <tr><th>Total on the wire</th><th class="n">5,324</th><th class="n">20,056</th></tr>
+      <tr><th>Virtual size</th><th class="n">1,416</th><th class="n">5,099</th></tr></table>
+  </details>
+</figure>
+<p>The program is the biggest part, not the signature. Fees are paid per vbyte, and witness bytes count for a quarter, so the stateful spend costs about ten times an ordinary payment of around 150 vbytes. Without shared functions the same spends are 24,135 and 34,940 vbytes.</p>
+
 <div class="big">
   <div class="tile"><div class="label">Valid spends mined</div><div class="value">14</div></div>
   <div class="tile"><div class="label">Tampered spends rejected</div><div class="value">128</div></div>
