@@ -6,6 +6,7 @@ and generated/manifest.json. The page stamps the hashes of the reports it was bu
 
     python3 docs/build_page.py
 """
+from html import escape
 import hashlib
 import json
 import sys
@@ -13,7 +14,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
+from generator import multi
 from generator.script import OPS
+from generator.transaction import compile_policy
+from generator.verifier import compile_verifier
 
 INV = {v: k for k, v in OPS.items()}
 FIXED = {"INVOKE": 4000, "MUL": 3000, "DIV": 3000, "MOD": 3000, "NUMEQUAL": 3000, "LESSTHAN": 3000,
@@ -24,6 +28,76 @@ LABELS = {"baseline": "Restored opcodes (inline)", "bytes": "OP_BYTEREV (inline)
           "multi": "OP_MULTI — all uses", "multisel": "OP_MULTI — selective hashing"}
 SHORT = LABELS
 ORDER = ("baseline", "bytes", "full", "catfix", "multi", "multisel")
+
+
+OPCODE_DETAILS = {}
+
+
+def instruction_names(program):
+    """Read instructions, never pushed data; inspect declared function bodies separately."""
+    names, pushes = set(), set()
+    for code in (program.code, *(body[1] for body in program.functions.values())):
+        pos = 0
+        while pos < len(code):
+            opcode = code[pos]
+            pos += 1
+            if 1 <= opcode <= 75:
+                pushes.add(opcode)
+                pos += opcode
+            elif opcode in (76, 77, 78):
+                width = 1 << (opcode - 76)
+                names.add({76: "OP_PUSHDATA1", 77: "OP_PUSHDATA2", 78: "OP_PUSHDATA4"}[opcode])
+                size = int.from_bytes(code[pos:pos + width], "little")
+                pos += width + size
+            else:
+                names.add(opcode_name(opcode))
+            if pos > len(code):
+                raise ValueError("Truncated instruction in opcode inventory")
+    return names, pushes
+
+
+def prepare_opcode_details(report):
+    OPCODE_DETAILS.clear()
+    for scope, rows in (("transactions", report["transactions"]), ("standalone", report["standalone"])):
+        for name in ORDER:
+            union_names, union_pushes = set(), set()
+            for mode in ("stateful", "stateless"):
+                row = rows[f"{name}-{mode}"]
+                if scope == "transactions":
+                    pk = bytes.fromhex(row["public_key"])
+                    program = (compile_policy(pk, mode=mode, profile=name) if name not in multi.VARIANTS
+                               else multi.compile_policy(name, pk, mode=mode))
+                else:
+                    program = (compile_verifier(name, mode) if name not in multi.VARIANTS
+                               else multi.compile_verifier(name, mode))
+                if hashlib.sha256(program.code).hexdigest() != row["program_sha256"]:
+                    raise ValueError(f"Opcode inventory differs from report: {scope}/{name}-{mode}")
+                names, pushes = instruction_names(program)
+                union_names.update(names)
+                union_pushes.update(pushes)
+                OPCODE_DETAILS[f"{scope}-{name}-{mode}"] = dict(
+                    title=LABELS[name], note=f"{mode.capitalize()} {'transaction policy and verifier' if scope == 'transactions' else 'standalone verifier'}. "
+                    "All unique opcodes present, including function bodies and conditional branches. This is not an execution trace.",
+                    opcodes=sorted(names), pushes=sorted(pushes))
+            OPCODE_DETAILS[f"{scope}-{name}-both"] = dict(
+                title=LABELS[name], note="Combined opcode list for the stateful and stateless transaction programs. Includes function bodies and conditional branches.",
+                opcodes=sorted(union_names), pushes=sorted(union_pushes))
+    OPCODE_DETAILS["p2tr"] = dict(title="Today: P2TR key spend", note="No Script opcodes execute in a Taproot key-path spend. The node verifies the Schnorr signature natively. OP_CHECKSIG is not executed here.", opcodes=[], pushes=[])
+    OPCODE_DETAILS["native"] = dict(title="Native SHRINCS opcode (hypothetical)", note="No implemented opcode list exists. This row estimates size for a proposed built-in SHRINCS verifier. No opcode name or byte value has been assigned in this experiment.", opcodes=[], pushes=[])
+
+
+def tip_key(label, mode="both", scope="transactions"):
+    if label.startswith("Today: P2TR"):
+        return "p2tr"
+    if label.startswith("Native SHRINCS"):
+        return "native"
+    name = next(name for name in ORDER if label == LABELS[name])
+    return f"{scope}-{name}-{mode}"
+
+
+def opcode_label(label, mode="both", scope="transactions", key=None):
+    key = key or tip_key(label, mode, scope)
+    return f'<button type="button" class="opcode-label" data-opcodes="{key}" aria-expanded="false" aria-controls="opcode-panel">{escape(label)}</button>'
 
 
 def f(n):
@@ -91,18 +165,18 @@ def size_chart(rows, mode):
         short = label.replace(" (hypothetical)", "")
         for k, v in SHORT.items():
             short = short.replace(LABELS[k], v)
-        out.append(f'<g><title>{label}: {f(vb)} vbytes</title><text x="0" y="{y + 14}">{short}</text>'
+        out.append(f'<g class="opcode-label" role="button" tabindex="0" data-opcodes="{tip_key(label, mode)}" aria-label="{escape(label)}: {f(vb)} vbytes. Show opcodes" aria-expanded="false" aria-controls="opcode-panel"><title>{label}: {f(vb)} vbytes</title><text x="0" y="{y + 14}">{short}</text>'
                    f'<rect x="{x0}" y="{y}" width="{w}" height="18" rx="4" fill="var(--{col})"/>'
                    f'<text class="val" x="{x0 + w + 8}" y="{y + 14}">{f(vb)}</text></g>')
     out.append("</svg></div>")
     return "\n".join(out)
 
 
-def size_table(rows):
+def size_table(rows, mode):
     out = ['<table><tr><th>Implementation</th><th class="n">Signature</th><th class="n">Program</th><th class="n">Control block</th>'
            '<th class="n">Whole tx, bytes</th><th class="n">Weight</th><th class="n">vbytes</th><th class="n">Fee at 1 sat/vB</th><th class="n">Fee at 10 sat/vB</th></tr>']
     for label, sg, pg, cb, b, w, vb, _ in rows:
-        out.append(f'<tr><td>{label}</td><td class="n">{f(sg)}</td><td class="n">{f(pg) if pg else "none"}</td><td class="n">{f(cb) if cb else "none"}</td>'
+        out.append(f'<tr><td>{opcode_label(label, mode)}</td><td class="n">{f(sg)}</td><td class="n">{f(pg) if pg else "none"}</td><td class="n">{f(cb) if cb else "none"}</td>'
                    f'<td class="n">{f(b)}</td><td class="n">{f(w)}</td><td class="n">{f(vb)}</td><td class="n">{f(vb)} sat</td><td class="n">{f(vb * 10)} sat</td></tr>')
     return "\n".join(out) + "</table>"
 
@@ -114,7 +188,7 @@ def cost_table(tx, mode):
     for name in ORDER:
         r = tx[f"{name}-{mode}"]
         m = r["metrics"]
-        out.append(f'<tr><td>{LABELS[name]}</td><td class="n">{f(r["varops_consumed"])}</td><td class="n">{f(r["varops_allowed"])}</td>'
+        out.append(f'<tr><td>{opcode_label(LABELS[name], mode)}</td><td class="n">{f(r["varops_consumed"])}</td><td class="n">{f(r["varops_allowed"])}</td>'
                    f'<td class="n">{r["budget_fraction"]:.1%}</td><td class="n">{r["median_interpreter_ms"]:.2f} ms</td><td class="n">{f(m["opcodes"])}</td>'
                    f'<td class="n">{f(m["sha256_calls"])}</td><td class="n">{f(m["invocations"])}</td><td class="n">{f(m["peak_total_bytes"])} B</td>'
                    f'<td class="n">{f(m["max_item_bytes"])} B</td></tr>')
@@ -129,7 +203,7 @@ def standalone_table(st, mode):
         r = st[f"{name}-{mode}"]
         m = r["metrics"]
         change = "" if name == "full" else f'{(r["varops_consumed"] - base) / base:+.1%}'
-        out.append(f'<tr><td>{LABELS[name]}</td><td class="n">{f(r["program_bytes"])}</td><td class="n">{f(r["varops_consumed"])}</td>'
+        out.append(f'<tr><td>{opcode_label(LABELS[name], mode, "standalone")}</td><td class="n">{f(r["program_bytes"])}</td><td class="n">{f(r["varops_consumed"])}</td>'
                    f'<td class="n">{change}</td><td class="n">{f(m["fixed_charge"])}</td><td class="n">{f(m["sha256_calls"])}</td>'
                    f'<td class="n">{f(sum(r["multi_uses"].values()))}</td></tr>')
     return "\n".join(out) + "</table>"
@@ -137,16 +211,16 @@ def standalone_table(st, mode):
 
 def tps_table(tx):
     out = ['<table><tr><th>Implementation</th><th class="n">Witness bytes per input</th><th class="n">Tx per second</th><th class="n">Tx per block</th></tr>',
-           f'<tr><td>Today: P2TR key spend</td><td class="n">64</td><td class="n">{tps([64]):.2f}</td><td class="n">{f(round(tps([64]) * 600))}</td></tr>']
+           f'<tr><td>{opcode_label("Today: P2TR key spend")}</td><td class="n">64</td><td class="n">{tps([64]):.2f}</td><td class="n">{f(round(tps([64]) * 600))}</td></tr>']
     for mode in ("stateful", "stateless"):
         for name in ORDER:
             r = tx[f"{name}-{mode}"]
             items = [r["signature_bytes"], r["program_bytes"], r["control_block_bytes"]]
             t = tps(items)
-            out.append(f'<tr><td>{LABELS[name]}, {mode}</td><td class="n">{f(sum(items))}</td><td class="n">{t:.2f}</td><td class="n">{f(round(t * 600))}</td></tr>')
+            out.append(f'<tr><td>{opcode_label(LABELS[name], mode)}, {mode}</td><td class="n">{f(sum(items))}</td><td class="n">{t:.2f}</td><td class="n">{f(round(t * 600))}</td></tr>')
         sig = tx[f"full-{mode}"]["signature_bytes"]
         t = tps([sig])
-        out.append(f'<tr><td>Native SHRINCS opcode (hypothetical), {mode}</td><td class="n">{f(sig)}</td><td class="n">{t:.2f}</td><td class="n">{f(round(t * 600))}</td></tr>')
+        out.append(f'<tr><td>{opcode_label("Native SHRINCS opcode (hypothetical)")}, {mode}</td><td class="n">{f(sig)}</td><td class="n">{t:.2f}</td><td class="n">{f(round(t * 600))}</td></tr>')
     return "\n".join(out) + "</table>"
 
 
@@ -157,11 +231,18 @@ def mined_tables(costs, manifest):
     for name, label in (("full-stateful", "Stateful, shared"), ("baseline-stateful", "Stateful, inline"), ("full-stateless", "Stateless, shared"),
                         ("baseline-stateless", "Stateless, inline"), ("full-unified", "Unified, shared"), ("baseline-unified", "Unified, inline")):
         r = rows[name]
+        program = compile_policy(bytes.fromhex(r["public_key"]), mode=r["mode"], profile=r["profile"])
+        if len(program.code) != r["program_bytes"]:
+            raise ValueError(f"Mined opcode inventory size mismatch: {name}")
+        names, pushes = instruction_names(program)
+        OPCODE_DETAILS[f"mined-{name}"] = dict(title=label,
+            note="Mined transaction policy and verifier. All unique opcodes present, including function bodies and conditional branches.",
+            opcodes=sorted(names), pushes=sorted(pushes))
         m = r["metrics"]
         ops = sum(m["opcodes"].values())
         fixed = sum(v * fixed_price(k) for k, v in m["opcodes"].items())
         body = manifest[name]["function_body_bytes"]
-        out.append(f'<tr><td>{label}</td><td class="n">{f(r["program_bytes"])}</td><td class="n">{f(body)}</td><td class="n">{f(ops)}</td><td class="n">{f(m["invocations"])}</td>'
+        out.append(f'<tr><td>{opcode_label(label, key="mined-" + name)}</td><td class="n">{f(r["program_bytes"])}</td><td class="n">{f(body)}</td><td class="n">{f(ops)}</td><td class="n">{f(m["invocations"])}</td>'
                    f'<td class="n">{f(m["sha256_calls"])}</td><td class="n">{f(fixed)}</td><td class="n">{f(r["varops_consumed"])}</td><td class="n">{fixed / r["varops_consumed"]:.0%}</td>'
                    f'<td class="n">{r["budget_fraction"]:.1%}</td></tr>')
     out.append("</table></div>")
@@ -190,6 +271,7 @@ def main():
     costs = json.loads((ROOT / "reports/costs.json").read_text())
     manifest = json.loads((ROOT / "generated/manifest.json").read_text())
     tx, st = report["transactions"], report["standalone"]
+    prepare_opcode_details(report)
     # Identify the inputs by content, not by commit: the reports may not be committed yet
     # when the page is built, and CI regenerates the page from the committed reports to
     # check that the committed page matches them.
@@ -224,13 +306,13 @@ def main():
 <figure><figcaption>Transaction size in vbytes. Lower is better.</figcaption>
 {size_chart(size_sf, "stateful")}
 <ul class="legend"><li style="--sw: var(--s1)">Measured</li><li style="--sw: var(--dim)">Reference or hypothetical</li></ul>
-<details><summary>Show as table</summary><div class="wide">{size_table(size_sf)}</div></details></figure>
+<details><summary>Show as table</summary><div class="wide">{size_table(size_sf, "stateful")}</div></details></figure>
 
 <h3>Stateless signature, {f(sl["signature_bytes"])} bytes</h3>
 <figure><figcaption>Transaction size in vbytes. Lower is better.</figcaption>
 {size_chart(size_sl, "stateless")}
 <ul class="legend"><li style="--sw: var(--s1)">Measured</li><li style="--sw: var(--dim)">Reference or hypothetical</li></ul>
-<details><summary>Show as table</summary><div class="wide">{size_table(size_sl)}</div></details></figure>
+<details><summary>Show as table</summary><div class="wide">{size_table(size_sl, "stateless")}</div></details></figure>
 
 <p>Reading the two charts: with restored opcodes alone, the checker program is {f(tx["baseline-stateful"]["program_bytes"])} bytes and the spend costs {f(tx["baseline-stateful"]["vbytes"])} vbytes, about {round(tx["baseline-stateful"]["vbytes"] / 130)} ordinary payments. Byte reversal alone cuts the program almost in half. Functions cut it by a further factor of twelve, to {f(sf["vbytes"])} vbytes, about {round(sf["vbytes"] / 130)} ordinary payments. The join fix takes {f(sf["vbytes"] - tx["catfix-stateful"]["vbytes"])} vbytes more off. A native opcode would bring it to {f(d_sf)} vbytes, about twice an ordinary payment. For the stateless type the signature itself is {f(sl["signature_bytes"])} bytes, so even a native opcode leaves the spend at {f(d_sl)} vbytes.</p>
 
@@ -309,6 +391,13 @@ def main():
 </body>
 </html>
 '''
+    # Static overview and feasibility labels use the union of both signature types.
+    for label in (*LABELS.values(), "Today: P2TR key spend", "Native SHRINCS opcode"):
+        for tag in ("td", "th"):
+            page = page.replace(f"<{tag}>{label}</{tag}>", f"<{tag}>{opcode_label(label)}</{tag}>")
+    payload = json.dumps(OPCODE_DETAILS, ensure_ascii=False).replace("<", "\\u003c")
+    panel = '<aside id="opcode-panel" class="opcode-panel" aria-label="Opcode list" hidden></aside>'
+    page = page.replace("</body>", panel + '<script id="opcode-data" type="application/json">' + payload + '</script><script src="opcode-tooltips.js"></script></body>')
     (ROOT / "docs/index.html").write_text(page)
     print("docs/index.html", len(page))
 
