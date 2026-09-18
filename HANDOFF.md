@@ -11,9 +11,11 @@ Read `spec/FUNCTION-DESIGN.md`, `spec/OP-MULTI-BENEFIT.md`, `reports/PARSING-ANA
 
 The original package is tagged `baseline-2026-09-18` at `937e05811e45b1b61f505201ac8f06c05abf2253`.
 Verify the tag and CI result remotely. A tag alone does not establish a successful clean build.
+Run `35338011287` completed successfully at that exact commit. `reports/baseline-ci.json` records the result.
 
 No function opcode or consensus cost has changed in this follow-up.
 The parsing counters establish skipped work, not its causal share of CPU time.
+The isolated parser benchmark also matches all fourteen observed parsing schedules. It does not measure the entire interpreter.
 The OP_TX total selector wins the tested all-output sum construction on program bytes and varops.
 The pinned Simplicity implementation has different parameters and a different top-level key relation.
 

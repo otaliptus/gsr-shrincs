@@ -20,6 +20,7 @@ implementation:
 
 The measured package is frozen at tag `baseline-2026-09-18`, commit `937e058`.
 The original reports describe that package. New experiments retain separate evidence.
+Its [clean-checkout CI run](https://github.com/otaliptus/gsr-shrincs/actions/runs/35338011287) passed at that exact commit.
 
 - [Replay and recompile comparison procedure](spec/FORK-COMPARISON.md)
 - [Proposed function design](spec/FUNCTION-DESIGN.md)

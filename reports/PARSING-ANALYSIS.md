@@ -32,6 +32,32 @@ The source and executable hashes identify the observation build.
 
 ## What the timing spread means
 
+An isolated C++ benchmark replays the observed parsing schedule for all fourteen spends.
+It uses the pinned `CScript::GetOp` implementation with and without payload copying.
+Every schedule matches the interpreter's recorded byte and instruction counts.
+
+| Recorded spend | Parsing with payload copy, median microseconds | Decoding without payload copy, median microseconds |
+|---|---:|---:|
+| Full, stateful | 63.1 | 58.8 |
+| Full, stateless | 346.9 | 331.7 |
+| Inline, unified, stateful execution | 631.4 | 596.3 |
+| Inline, stateful | 253.3 | 217.8 |
+| Inline, stateless | 374.2 | 373.8 |
+
+Each value uses 21 samples after warm-up. Each sample repeats the recorded schedule sixteen times.
+The variants decode the same instruction sequence. No signature or stress program is synthesized for this benchmark.
+
+These figures support the presence of substantial parsing work in the inline unified program.
+Payload copying alone does not explain most of its isolated parser time.
+The no-copy result excludes the success-opcode checks that accompany the real preliminary scan.
+
+The isolated loop reuses a payload buffer within a body. Its allocation behavior differs from execution.
+It also omits branch-state management, stack operations, hashing, and function calls.
+Do not subtract these times from interpreter timings to claim an exact CPU-time share.
+The machine and concurrent load differ from the historical timing report below.
+
+Evidence: [parser-benchmark.json](parser-benchmark.json). This includes source hashes, executable hashes, counts, and raw samples.
+
 The historical report gives approximately 38,000 varops per microsecond for the full stateless spend.
 It gives approximately 13,650 for inline unified stateful execution.
 These rates use the earlier report's machine and timing method.
@@ -48,9 +74,8 @@ The hypothesis to test next is narrower:
 
 > A substantial part of the extra time in the inline stateful program comes from parsing its untaken branches.
 
-The next timing experiment must isolate parsing on these existing valid programs.
-Separate parsing and allocation from executed arithmetic, stack operations, and hashing.
-Use an independent sampling profiler or a controlled implementation comparison.
+The isolated benchmark supports this hypothesis but does not prove its share of the full runtime difference.
+A controlled interpreter comparison or independent sampling profile must establish that causal share.
 Keep acceptance and varops fixed in that comparison.
 
 Do not infer CPU-time shares from opcode counts or inclusive function costs.
@@ -84,3 +109,11 @@ python3 scripts/parsing_probe.py \
 ```
 
 The command builds a separate observation executable. It does not modify the pinned fork.
+
+After that build, run the isolated parser benchmark:
+
+```sh
+python3 scripts/parse_benchmark.py --repeats 21
+```
+
+This adds a laboratory command to the separate executable. It does not change Script execution or charging rules.
