@@ -43,7 +43,7 @@
     const dismiss = add('button', '×');
     dismiss.type = 'button';
     dismiss.className = 'opcode-close';
-    dismiss.setAttribute('aria-label', 'Close opcode list');
+    dismiss.setAttribute('aria-label', 'Close added opcodes');
     dismiss.addEventListener('click', () => {
       const previous = active;
       previous.focus();
@@ -52,14 +52,10 @@
     add('strong', details.title);
     add('p', details.note);
     if (details.opcodes.length) {
-      add('h3', 'Full opcode list');
+      add('h3', 'Added or restored opcodes used');
       const list = add('div', '');
       list.className = 'opcode-chips';
       for (const name of details.opcodes) add('code', name, list);
-    }
-    if (details.pushes.length) {
-      add('h3', 'Direct data pushes');
-      add('p', `${details.pushes.join(', ')} bytes. Each length has its own push byte. Pushed values are data, not instructions.`);
     }
     trigger.setAttribute('aria-expanded', 'true');
     panel.hidden = false;

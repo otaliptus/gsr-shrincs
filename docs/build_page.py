@@ -31,6 +31,21 @@ ORDER = ("baseline", "bytes", "full", "catfix", "multi", "multisel")
 
 
 OPCODE_DETAILS = {}
+# Disabled byte/arithmetic instructions restored by GSR, plus the fork's extensions.
+# Ordinary Bitcoin opcodes and data pushes do not belong in these tooltips.
+ADDED_OPCODES = {
+    "OP_CAT", "OP_SUBSTR", "OP_LEFT", "OP_RIGHT", "OP_INVERT", "OP_AND", "OP_OR", "OP_XOR",
+    "OP_2MUL", "OP_2DIV", "OP_MUL", "OP_DIV", "OP_MOD", "OP_LSHIFT", "OP_RSHIFT",
+    "OP_TX", "OP_BYTEREV", "OP_DEFINE", "OP_INVOKE", "OP_MULTI",
+}
+TECHNIQUES = {
+    "baseline": "Restores byte-string and arithmetic instructions. Transaction policies also use OP_TX.",
+    "bytes": "Adds OP_BYTEREV to the restored-opcode approach.",
+    "full": "Adds OP_DEFINE and OP_INVOKE for shared functions. Keeps OP_BYTEREV and the restored instructions.",
+    "catfix": "No additional opcode over shared functions. The compiler removes unnecessary instructions from CAT joins.",
+    "multi": "Adds OP_MULTI for hashing, concatenation, and cleanup. Keeps shared functions and optimized CAT joins.",
+    "multisel": "Uses the same added opcodes as the all-uses variant. The compiler selects OP_MULTI only for cheaper hash joins.",
+}
 
 
 def instruction_names(program):
@@ -60,7 +75,7 @@ def prepare_opcode_details(report):
     OPCODE_DETAILS.clear()
     for scope, rows in (("transactions", report["transactions"]), ("standalone", report["standalone"])):
         for name in ORDER:
-            union_names, union_pushes = set(), set()
+            union_names = set()
             for mode in ("stateful", "stateless"):
                 row = rows[f"{name}-{mode}"]
                 if scope == "transactions":
@@ -72,18 +87,16 @@ def prepare_opcode_details(report):
                                else multi.compile_verifier(name, mode))
                 if hashlib.sha256(program.code).hexdigest() != row["program_sha256"]:
                     raise ValueError(f"Opcode inventory differs from report: {scope}/{name}-{mode}")
-                names, pushes = instruction_names(program)
+                names, _ = instruction_names(program)
+                names &= ADDED_OPCODES
                 union_names.update(names)
-                union_pushes.update(pushes)
                 OPCODE_DETAILS[f"{scope}-{name}-{mode}"] = dict(
                     title=LABELS[name], note=f"{mode.capitalize()} {'transaction policy and verifier' if scope == 'transactions' else 'standalone verifier'}. "
-                    "All unique opcodes present, including function bodies and conditional branches. This is not an execution trace.",
-                    opcodes=sorted(names), pushes=sorted(pushes))
+                    + TECHNIQUES[name], opcodes=sorted(names))
             OPCODE_DETAILS[f"{scope}-{name}-both"] = dict(
-                title=LABELS[name], note="Combined opcode list for the stateful and stateless transaction programs. Includes function bodies and conditional branches.",
-                opcodes=sorted(union_names), pushes=sorted(union_pushes))
-    OPCODE_DETAILS["p2tr"] = dict(title="Today: P2TR key spend", note="No Script opcodes execute in a Taproot key-path spend. The node verifies the Schnorr signature natively. OP_CHECKSIG is not executed here.", opcodes=[], pushes=[])
-    OPCODE_DETAILS["native"] = dict(title="Native SHRINCS opcode (hypothetical)", note="No implemented opcode list exists. This row estimates size for a proposed built-in SHRINCS verifier. No opcode name or byte value has been assigned in this experiment.", opcodes=[], pushes=[])
+                title=LABELS[name], note=TECHNIQUES[name], opcodes=sorted(union_names))
+    OPCODE_DETAILS["p2tr"] = dict(title="Today: P2TR key spend", note="No added opcodes. Bitcoin already verifies Taproot key-path Schnorr signatures natively.", opcodes=[])
+    OPCODE_DETAILS["native"] = dict(title="Native SHRINCS opcode (hypothetical)", note="Would add one native SHRINCS verification instruction. It is hypothetical; this experiment assigns no opcode name or byte value.", opcodes=[])
 
 
 def tip_key(label, mode="both", scope="transactions"):
@@ -234,10 +247,9 @@ def mined_tables(costs, manifest):
         program = compile_policy(bytes.fromhex(r["public_key"]), mode=r["mode"], profile=r["profile"])
         if len(program.code) != r["program_bytes"]:
             raise ValueError(f"Mined opcode inventory size mismatch: {name}")
-        names, pushes = instruction_names(program)
+        names, _ = instruction_names(program)
         OPCODE_DETAILS[f"mined-{name}"] = dict(title=label,
-            note="Mined transaction policy and verifier. All unique opcodes present, including function bodies and conditional branches.",
-            opcodes=sorted(names), pushes=sorted(pushes))
+            note=TECHNIQUES[r["profile"]], opcodes=sorted(names & ADDED_OPCODES))
         m = r["metrics"]
         ops = sum(m["opcodes"].values())
         fixed = sum(v * fixed_price(k) for k, v in m["opcodes"].items())
@@ -396,7 +408,7 @@ def main():
         for tag in ("td", "th"):
             page = page.replace(f"<{tag}>{label}</{tag}>", f"<{tag}>{opcode_label(label)}</{tag}>")
     payload = json.dumps(OPCODE_DETAILS, ensure_ascii=False).replace("<", "\\u003c")
-    panel = '<aside id="opcode-panel" class="opcode-panel" aria-label="Opcode list" hidden></aside>'
+    panel = '<aside id="opcode-panel" class="opcode-panel" aria-label="Added opcodes" hidden></aside>'
     page = page.replace("</body>", panel + '<script id="opcode-data" type="application/json">' + payload + '</script><script src="opcode-tooltips.js"></script></body>')
     (ROOT / "docs/index.html").write_text(page)
     print("docs/index.html", len(page))
