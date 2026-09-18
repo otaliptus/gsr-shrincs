@@ -66,6 +66,7 @@
   main { max-width: 720px; margin: 0 auto; padding: 40px 16px 64px; }
   h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; }
   h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
   p, li { color: var(--ink); }
   .lead { color: var(--ink-2); margin-top: 0; }
   a { color: var(--link); }
@@ -86,6 +87,9 @@
   .plot, .wide { overflow-x: auto; }
   .wide table { min-width: 820px; }
   .wide td:first-child, .wide th:first-child { white-space: nowrap; }
+  .prose table { min-width: 0; }
+  .prose td, .prose th { vertical-align: top; padding: 6px 10px 6px 0; }
+  .prose th:first-child, .prose td:first-child { width: 30%; }
   svg { width: 100%; min-width: 560px; height: auto; display: block; }
   svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 13px; fill: var(--ink-2); }
   svg text.val { fill: var(--ink); font-variant-numeric: tabular-nums; }
@@ -109,7 +113,7 @@
 <main>
 
 <h1>Checking post-quantum signatures in Bitcoin Script</h1>
-<p class="lead">A small experiment. It ran on a private test network with an experimental fork. It is not production software and it does not make any coins quantum-safe.</p>
+<p class="lead">What a SHRINCS spend costs under four sets of Script opcodes, measured on an experimental fork's private test network. Not production software. It does not make any coins quantum-safe.</p>
 
 <details class="summary">
   <summary>Simple summary</summary>
@@ -131,186 +135,131 @@
 </ol>
 </details>
 
-<h2>Transactions per second</h2>
-<p>If every transaction on the network used one scheme, how many transactions would fit? This follows <a href="https://x.com/n1ckler/status/2039338319603999036">a chart by Jonas Nick</a> and its <a href="https://gist.github.com/jonasnick/0e7a3c4a41063e39afe8a16f70662fd3">script</a>: 4,000,000 weight units per block, one block every 600 seconds, an average transaction with 2.27 inputs and 2.64 outputs. The P2TR row reproduces his number. The other rows use the witness sizes we measured, which include the checker program because there is no native opcode.</p>
-<figure>
-  <figcaption>His plot, redrawn with our points added. Higher is better.</figcaption>
-<a href="tps.png"><img src="tps.png" alt="Scatter plot of transactions per second against witness bytes per input. Jonas Nick's six points run from P2TR at 6.55 down to SLH-DSA at 0.36. Our points: a hypothetical native opcode at 2.81, SHRINCS in Script stateful at 0.53, stateless at 0.14, and the inline versions at 0.03 and 0.02." style="width:100%;height:auto;display:block;border-radius:4px"></a>
-  <details><summary>Show as table</summary>
-    <table><tr><th>Scheme</th><th class="n">Tx per second</th><th class="n">Tx per block</th><th class="n">Inputs spent per block</th><th class="n">vbytes per tx</th></tr>
-      <tr><td>P2TR key spend, today</td><td class="n">6.55</td><td class="n">3,929</td><td class="n">8,918</td><td class="n">254</td></tr>
-      <tr><td>Native opcode, hypothetical</td><td class="n">2.81</td><td class="n">1,684</td><td class="n">3,822</td><td class="n">594</td></tr>
-      <tr><td>Script, stateful, shared</td><td class="n">0.53</td><td class="n">315</td><td class="n">715</td><td class="n">3,173</td></tr>
-      <tr><td>Script, stateless, shared</td><td class="n">0.14</td><td class="n">87</td><td class="n">197</td><td class="n">11,534</td></tr>
-      <tr><td>Script, stateful, inline</td><td class="n">0.03</td><td class="n">18</td><td class="n">41</td><td class="n">54,745</td></tr>
-      <tr><td>Script, stateless, inline</td><td class="n">0.02</td><td class="n">13</td><td class="n">29</td><td class="n">79,272</td></tr></table>
-  </details>
-</figure>
-<p>The native-opcode row is not measured. It assumes a consensus change that checks the same 660-byte signature with nothing else in the witness. His SHRINCS point sits higher, at 4.13, because it uses a 324-byte signature from a different parameter set. Our signature comes from the pinned specification and is 660 bytes for this key.</p>
-<p>The checker program, not the signature, sets the throughput. Moving it into the node would raise the stateful figure about five times. "Inline" means the same checker written out without shared functions. Shared functions raise the stateful figure about seventeen times over that.</p>
+<h2>The four scenarios</h2>
+<p>SHRINCS is a hash-based signature scheme. Checking one signature means recomputing a few thousand SHA256 hashes in a fixed pattern. The question is what Bitcoin Script would need to do that check, and what a spend costs under each answer.</p>
+<div class="prose"><table>
+  <tr><th>Scenario</th><th>Opcodes the checker needs beyond today's Bitcoin</th><th>Where those opcodes exist</th></tr>
+  <tr><td>Today: P2TR key spend</td><td>None. A 64-byte Schnorr signature, checked natively.</td><td>Bitcoin mainnet. Not quantum-safe. The reference row.</td></tr>
+  <tr><td>A. Restoration only</td><td>The byte-string and arithmetic opcodes of <a href="https://bips.dev/441/">BIP 441</a> under the <a href="https://bips.dev/440/">BIP 440</a> budget, for the checker. OP_TX, for the spending policy to read the transaction.</td><td>BIP 440 and 441 are drafts by Rusty Russell and Julian Moik. OP_TX is in Rusty Russell's 2024 draft and in the <a href="https://github.com/jmoik/bitcoin/tree/d2799052604eb138c5a79acf88514a0c8b07f4ef">fork</a>.</td></tr>
+  <tr><td>B. Restoration + byte reversal</td><td>Scenario A plus OP_BYTEREV, which reverses a byte string in one step.</td><td>Rusty Russell's 2024 covenant-support draft and the fork.</td></tr>
+  <tr><td>C. Restoration + byte reversal + functions</td><td>Scenario B plus OP_DEFINE and OP_INVOKE, which store a piece of code once and run it many times.</td><td>Only the fork, added 11 September 2026. No written specification. Known safety problems, listed below.</td></tr>
+  <tr><td>D. Native SHRINCS opcode</td><td>One new opcode that checks the whole signature inside the node.</td><td>Nowhere. Hypothetical, included to show the floor.</td></tr>
+</table></div>
+<p>Scenarios A, B, and C were measured. The same checker was compiled three ways, and the same signature was spent under each. A and C were also mined on the test network. Scenario D is computed from the signature size alone. "Stateful" and "stateless" are the two SHRINCS signature types: the small one a wallet normally uses, and the large fallback for when signing state is lost.</p>
 
-<h2>How big is a SHRINCS transaction?</h2>
-<p>One input, two outputs, one SHRINCS signature, using the compact checker with shared functions. These are the real transactions the test network mined.</p>
-<div class="big">
-  <div class="tile"><div class="label">Stateful spend</div><div class="value">1,416 vbytes</div><div class="label">5,324 bytes on the wire, 5,663 weight units</div></div>
-  <div class="tile"><div class="label">Stateless spend</div><div class="value">5,099 vbytes</div><div class="label">20,056 bytes on the wire, 20,395 weight units</div></div>
-</div>
+<h2>Transaction size and fee</h2>
+<p>One input, two outputs, one signature. Fees are paid per vbyte, and witness bytes count for a quarter, so the whole-transaction byte count and the vbyte count differ. The fee columns assume the shown rates and nothing else.</p>
+
+<h3>Stateful signature, 660 bytes</h3>
+<figure><figcaption>Transaction size in vbytes. Lower is better.</figcaption>
+<div class="plot"><svg viewBox="0 0 640 160" role="img" aria-label="Transaction size in vbytes per scenario, stateful">
+<line x1="290" y1="6" x2="290" y2="154" stroke="var(--axis)" stroke-width="1"/>
+<g><title>Today: P2TR key spend: 130 vbytes</title><text x="0" y="24">Today: P2TR key spend</text><rect x="290" y="10" width="2" height="18" rx="4" fill="var(--dim)"/><text class="val" x="300" y="24">130</text></g>
+<g><title>A. Restoration only: 24,135 vbytes</title><text x="0" y="54">A. Rest. only</text><rect x="290" y="40" width="300.0" height="18" rx="4" fill="var(--s1)"/><text class="val" x="598.0" y="54">24,135</text></g>
+<g><title>B. Restoration + byte reversal: 13,342 vbytes</title><text x="0" y="84">B. Rest. + byte reversal</text><rect x="290" y="70" width="165.8" height="18" rx="4" fill="var(--s1)"/><text class="val" x="463.8" y="84">13,342</text></g>
+<g><title>C. Restoration + byte reversal + functions: 1,416 vbytes</title><text x="0" y="114">C. Rest. + byte reversal + functions</text><rect x="290" y="100" width="17.6" height="18" rx="4" fill="var(--s1)"/><text class="val" x="315.6" y="114">1,416</text></g>
+<g><title>D. Native SHRINCS opcode (hypothetical): 279 vbytes</title><text x="0" y="144">D. Native SHRINCS opcode</text><rect x="290" y="130" width="3.5" height="18" rx="4" fill="var(--dim)"/><text class="val" x="301.5" y="144">279</text></g>
+</svg></div>
+<ul class="legend"><li style="--sw: var(--s1)">Measured</li><li style="--sw: var(--dim)">Reference or hypothetical</li></ul>
+<details><summary>Show as table</summary><div class="wide"><table><tr><th>Scenario</th><th class="n">Signature</th><th class="n">Program</th><th class="n">Control block</th><th class="n">Whole tx, bytes</th><th class="n">Weight</th><th class="n">vbytes</th><th class="n">Fee at 1 sat/vB</th><th class="n">Fee at 10 sat/vB</th></tr>
+<tr><td>Today: P2TR key spend</td><td class="n">64</td><td class="n">none</td><td class="n">none</td><td class="n">179</td><td class="n">518</td><td class="n">130</td><td class="n">130 sat</td><td class="n">1,300 sat</td></tr>
+<tr><td>A. Restoration only</td><td class="n">660</td><td class="n">95,350</td><td class="n">65</td><td class="n">96,200</td><td class="n">96,539</td><td class="n">24,135</td><td class="n">24,135 sat</td><td class="n">241,350 sat</td></tr>
+<tr><td>B. Restoration + byte reversal</td><td class="n">660</td><td class="n">52,179</td><td class="n">65</td><td class="n">53,027</td><td class="n">53,366</td><td class="n">13,342</td><td class="n">13,342 sat</td><td class="n">133,420 sat</td></tr>
+<tr><td>C. Restoration + byte reversal + functions</td><td class="n">660</td><td class="n">4,476</td><td class="n">65</td><td class="n">5,324</td><td class="n">5,663</td><td class="n">1,416</td><td class="n">1,416 sat</td><td class="n">14,160 sat</td></tr>
+<tr><td>D. Native SHRINCS opcode (hypothetical)</td><td class="n">660</td><td class="n">none</td><td class="n">none</td><td class="n">777</td><td class="n">1,116</td><td class="n">279</td><td class="n">279 sat</td><td class="n">2,790 sat</td></tr></table></div></details></figure>
+
+<h3>Stateless signature, 5,777 bytes</h3>
+<figure><figcaption>Transaction size in vbytes. Lower is better.</figcaption>
+<div class="plot"><svg viewBox="0 0 640 160" role="img" aria-label="Transaction size in vbytes per scenario, stateless">
+<line x1="290" y1="6" x2="290" y2="154" stroke="var(--axis)" stroke-width="1"/>
+<g><title>Today: P2TR key spend: 130 vbytes</title><text x="0" y="24">Today: P2TR key spend</text><rect x="290" y="10" width="2" height="18" rx="4" fill="var(--dim)"/><text class="val" x="300" y="24">130</text></g>
+<g><title>A. Restoration only: 34,940 vbytes</title><text x="0" y="54">A. Rest. only</text><rect x="290" y="40" width="300.0" height="18" rx="4" fill="var(--s1)"/><text class="val" x="598.0" y="54">34,940</text></g>
+<g><title>B. Restoration + byte reversal: 31,764 vbytes</title><text x="0" y="84">B. Rest. + byte reversal</text><rect x="290" y="70" width="272.7" height="18" rx="4" fill="var(--s1)"/><text class="val" x="570.7" y="84">31,764</text></g>
+<g><title>C. Restoration + byte reversal + functions: 5,099 vbytes</title><text x="0" y="114">C. Rest. + byte reversal + functions</text><rect x="290" y="100" width="43.8" height="18" rx="4" fill="var(--s1)"/><text class="val" x="341.8" y="114">5,099</text></g>
+<g><title>D. Native SHRINCS opcode (hypothetical): 1,559 vbytes</title><text x="0" y="144">D. Native SHRINCS opcode</text><rect x="290" y="130" width="13.4" height="18" rx="4" fill="var(--dim)"/><text class="val" x="311.4" y="144">1,559</text></g>
+</svg></div>
+<ul class="legend"><li style="--sw: var(--s1)">Measured</li><li style="--sw: var(--dim)">Reference or hypothetical</li></ul>
+<details><summary>Show as table</summary><div class="wide"><table><tr><th>Scenario</th><th class="n">Signature</th><th class="n">Program</th><th class="n">Control block</th><th class="n">Whole tx, bytes</th><th class="n">Weight</th><th class="n">vbytes</th><th class="n">Fee at 1 sat/vB</th><th class="n">Fee at 10 sat/vB</th></tr>
+<tr><td>Today: P2TR key spend</td><td class="n">64</td><td class="n">none</td><td class="n">none</td><td class="n">179</td><td class="n">518</td><td class="n">130</td><td class="n">130 sat</td><td class="n">1,300 sat</td></tr>
+<tr><td>A. Restoration only</td><td class="n">5,777</td><td class="n">133,452</td><td class="n">65</td><td class="n">139,419</td><td class="n">139,758</td><td class="n">34,940</td><td class="n">34,940 sat</td><td class="n">349,400 sat</td></tr>
+<tr><td>B. Restoration + byte reversal</td><td class="n">5,777</td><td class="n">120,748</td><td class="n">65</td><td class="n">126,715</td><td class="n">127,054</td><td class="n">31,764</td><td class="n">31,764 sat</td><td class="n">317,640 sat</td></tr>
+<tr><td>C. Restoration + byte reversal + functions</td><td class="n">5,777</td><td class="n">14,091</td><td class="n">65</td><td class="n">20,056</td><td class="n">20,395</td><td class="n">5,099</td><td class="n">5,099 sat</td><td class="n">50,990 sat</td></tr>
+<tr><td>D. Native SHRINCS opcode (hypothetical)</td><td class="n">5,777</td><td class="n">none</td><td class="n">none</td><td class="n">5,894</td><td class="n">6,233</td><td class="n">1,559</td><td class="n">1,559 sat</td><td class="n">15,590 sat</td></tr></table></div></details></figure>
+
+<p>Reading the two charts: under scenario A the checker program is 95 kB and the spend costs 24,135 vbytes, about 185 ordinary payments. Byte reversal alone cuts the program almost in half. Functions cut it by a further factor of twelve, to 1,416 vbytes, about 11 ordinary payments. A native opcode would bring it to 279 vbytes, about twice an ordinary payment. For the stateless type the signature itself is 5,777 bytes, so even a native opcode leaves the spend at 1,559 vbytes.</p>
+
+<h2>Execution cost</h2>
+<p>The fork gives every transaction an execution allowance of 10,000 units per weight unit and charges each opcode a fixed price plus data-dependent extras. A spend that exceeds its allowance is invalid. Interpreter time is the median of seven runs on one machine with counters off; it is indicative, not a benchmark.</p>
+<h3>Stateful</h3>
+<div class="wide"><table><tr><th>Scenario</th><th class="n">Charged units</th><th class="n">Allowance</th><th class="n">Share used</th><th class="n">Interpreter time</th><th class="n">Opcodes executed</th><th class="n">SHA256 calls</th><th class="n">Function calls</th><th class="n">Peak memory</th><th class="n">Largest item</th></tr>
+<tr><td>A. Restoration only</td><td class="n">24,150,510</td><td class="n">965,390,000</td><td class="n">2.5%</td><td class="n">1.24 ms</td><td class="n">16,357</td><td class="n">253</td><td class="n">0</td><td class="n">3,624 B</td><td class="n">660 B</td></tr>
+<tr><td>B. Restoration + byte reversal</td><td class="n">22,761,377</td><td class="n">533,660,000</td><td class="n">4.3%</td><td class="n">0.92 ms</td><td class="n">15,335</td><td class="n">253</td><td class="n">0</td><td class="n">3,624 B</td><td class="n">660 B</td></tr>
+<tr><td>C. Restoration + byte reversal + functions</td><td class="n">20,577,528</td><td class="n">56,630,000</td><td class="n">36.3%</td><td class="n">0.69 ms</td><td class="n">13,701</td><td class="n">253</td><td class="n">62</td><td class="n">7,971 B</td><td class="n">2,672 B</td></tr></table></div>
+<h3>Stateless</h3>
+<div class="wide"><table><tr><th>Scenario</th><th class="n">Charged units</th><th class="n">Allowance</th><th class="n">Share used</th><th class="n">Interpreter time</th><th class="n">Opcodes executed</th><th class="n">SHA256 calls</th><th class="n">Function calls</th><th class="n">Peak memory</th><th class="n">Largest item</th></tr>
+<tr><td>A. Restoration only</td><td class="n">130,347,114</td><td class="n">1,397,580,000</td><td class="n">9.3%</td><td class="n">3.64 ms</td><td class="n">87,304</td><td class="n">1,439</td><td class="n">0</td><td class="n">17,876 B</td><td class="n">5,777 B</td></tr>
+<tr><td>B. Restoration + byte reversal</td><td class="n">119,112,473</td><td class="n">1,270,540,000</td><td class="n">9.4%</td><td class="n">3.27 ms</td><td class="n">78,733</td><td class="n">1,514</td><td class="n">0</td><td class="n">17,876 B</td><td class="n">5,777 B</td></tr>
+<tr><td>C. Restoration + byte reversal + functions</td><td class="n">119,995,961</td><td class="n">203,950,000</td><td class="n">58.8%</td><td class="n">3.19 ms</td><td class="n">78,562</td><td class="n">1,469</td><td class="n">357</td><td class="n">31,665 B</td><td class="n">7,411 B</td></tr></table></div>
+<p>Three things stand out. The charged work barely changes across A, B, and C: functions and byte reversal compress the program, not the computation. The share of the allowance rises from 2.5% to 36.3% for the stateful spend not because C does more work but because a smaller transaction gets a smaller allowance. And the stateless spend under C uses 59% of its allowance, which leaves little room for anything else in the same transaction.</p>
+
 <figure>
-  <figcaption>What the bytes are. Same scale for both transactions.</figcaption>
-  <div class="plot"><svg viewBox="0 0 640 110" role="img" aria-labelledby="c0t">
-    <title id="c0t">Composition of each transaction in bytes: signature, checker program, control block, and the rest of the transaction</title>
-    <text x="0" y="30">Stateful</text>
-    <g><title>Signature: 660 bytes</title><rect x="90" y="16" width="15.1" height="20" rx="4" fill="var(--s1)"/></g>
-    <g><title>Checker program: 4,476 bytes</title><rect x="107.1" y="16" width="102.7" height="20" fill="var(--s2)"/></g>
-    <g><title>Control block: 65 bytes</title><rect x="211.8" y="16" width="1.5" height="20" fill="var(--s3)"/></g>
-    <g><title>Rest of the transaction (inputs, outputs, counts): 123 bytes</title><rect x="215.3" y="16" width="2.8" height="20" rx="4" fill="var(--dim)"/></g>
-    <text class="val" x="226.1" y="30">5,324</text>
-    <text x="0" y="80">Stateless</text>
-    <g><title>Signature: 5,777 bytes</title><rect x="90" y="66" width="132.5" height="20" rx="4" fill="var(--s1)"/></g>
-    <g><title>Checker program: 14,091 bytes</title><rect x="224.5" y="66" width="323.2" height="20" fill="var(--s2)"/></g>
-    <g><title>Control block: 65 bytes</title><rect x="549.7" y="66" width="1.5" height="20" fill="var(--s3)"/></g>
-    <g><title>Rest of the transaction: 123 bytes</title><rect x="553.2" y="66" width="2.8" height="20" rx="4" fill="var(--dim)"/></g>
-    <text class="val" x="564.0" y="80">20,056</text>
+  <figcaption>Where the charged units go, stateful spend, scenario C.</figcaption>
+  <div class="plot"><svg viewBox="0 0 640 60" role="img" aria-label="Fixed per-instruction charge 90 percent, data-dependent charges 10 percent, function body copying 0.3 percent">
+    <g><title>Fixed charge per instruction: 90.1%</title><rect x="0" y="14" width="537.1" height="24" rx="4" fill="var(--s1)"/><text class="in" x="12" y="31">90% fixed charge per instruction</text></g>
+    <g><title>Data-dependent charges: 9.6%</title><rect x="539.1" y="14" width="57.1" height="24" fill="var(--s2)"/></g>
+    <g><title>Function body copying: 0.3%</title><rect x="598.2" y="14" width="2" height="24" rx="4" fill="var(--s3)"/></g>
   </svg></div>
-  <ul class="legend">
-    <li style="--sw: var(--s1)">Signature</li>
-    <li style="--sw: var(--s2)">Checker program</li>
-    <li style="--sw: var(--s3)">Control block</li>
-    <li style="--sw: var(--dim)">Rest of the transaction</li>
-  </ul>
-  <details><summary>Show as table</summary>
-    <table><tr><th>Part</th><th class="n">Stateful, bytes</th><th class="n">Stateless, bytes</th></tr>
-      <tr><td>Signature</td><td class="n">660</td><td class="n">5,777</td></tr>
-      <tr><td>Checker program</td><td class="n">4,476</td><td class="n">14,091</td></tr>
-      <tr><td>Control block</td><td class="n">65</td><td class="n">65</td></tr>
-      <tr><td>Rest of the transaction</td><td class="n">123</td><td class="n">123</td></tr>
-      <tr><th>Total on the wire</th><th class="n">5,324</th><th class="n">20,056</th></tr>
-      <tr><th>Virtual size</th><th class="n">1,416</th><th class="n">5,099</th></tr></table>
-  </details>
+  <ul class="legend"><li style="--sw: var(--s1)">Fixed charge per instruction, 90%</li><li style="--sw: var(--s2)">Data-dependent: hashing, copying, arithmetic, 10%</li><li style="--sw: var(--s3)">Function body copying, 0.3%</li></ul>
 </figure>
-<p>The program is the biggest part, not the signature. Fees are paid per vbyte, and witness bytes count for a quarter, so the stateful spend costs about ten times an ordinary payment of around 150 vbytes. Without shared functions the same spends are 24,135 and 34,940 vbytes.</p>
+<p>Nine tenths of the charge is the fixed price of instructions, most of them stack shuffling: PICK, CAT, DROP, small pushes, IF and ENDIF. The SHA256 hashing is under a tenth. The cost model prices this checker as bookkeeping, not cryptography. Programs with a lot of skipped code, as in scenario A, also run slower per charged unit than the model predicts, because parsing skipped code is not charged. Both points bear on any recalibration of the fork's prices.</p>
 
-<div class="big">
-  <div class="tile"><div class="label">Valid spends mined</div><div class="value">14</div></div>
-  <div class="tile"><div class="label">Tampered spends rejected</div><div class="value">128</div></div>
-  <div class="tile"><div class="label">Tree depths tested</div><div class="value">255</div></div>
-</div>
+<h2>Throughput</h2>
+<p>If every transaction on the network used one scenario, how many would fit per second? Same method and assumptions as <a href="https://x.com/n1ckler/status/2039338319603999036">Jonas Nick's chart</a>: 4,000,000 weight units per block, one block per 600 seconds, an average transaction with 2.27 inputs and 2.64 outputs. The P2TR row reproduces his figure. These are capacity estimates from size, not measured network throughput.</p>
+<figure><figcaption>His plot, redrawn with scenarios A, C, and D added. Scenario B is in the table only.</figcaption>
+<a href="tps.png"><img src="tps.png" alt="Scatter plot of transactions per second against witness bytes per input, with reference schemes and this experiment's scenarios" style="width:100%;height:auto;display:block;border-radius:4px"></a>
+<details><summary>Show as table</summary><div class="wide"><table><tr><th>Scenario</th><th class="n">Witness bytes per input</th><th class="n">Tx per second</th><th class="n">Tx per block</th></tr>
+<tr><td>Today: P2TR key spend</td><td class="n">64</td><td class="n">6.55</td><td class="n">3,929</td></tr>
+<tr><td>A. Restoration only, stateful</td><td class="n">96,075</td><td class="n">0.03</td><td class="n">18</td></tr>
+<tr><td>B. Restoration + byte reversal, stateful</td><td class="n">52,904</td><td class="n">0.06</td><td class="n">33</td></tr>
+<tr><td>C. Restoration + byte reversal + functions, stateful</td><td class="n">5,201</td><td class="n">0.53</td><td class="n">315</td></tr>
+<tr><td>D. Native SHRINCS opcode (hypothetical), stateful</td><td class="n">660</td><td class="n">2.81</td><td class="n">1,684</td></tr>
+<tr><td>A. Restoration only, stateless</td><td class="n">139,294</td><td class="n">0.02</td><td class="n">13</td></tr>
+<tr><td>B. Restoration + byte reversal, stateless</td><td class="n">126,590</td><td class="n">0.02</td><td class="n">14</td></tr>
+<tr><td>C. Restoration + byte reversal + functions, stateless</td><td class="n">19,933</td><td class="n">0.14</td><td class="n">87</td></tr>
+<tr><td>D. Native SHRINCS opcode (hypothetical), stateless</td><td class="n">5,777</td><td class="n">0.48</td><td class="n">286</td></tr></table></div></details></figure>
+<p>His SHRINCS point sits at 4.13 because it uses a 324-byte signature from a different parameter set. Ours is 660 bytes from the pinned specification. The gap between scenario C and scenario D, about five times, is the cost of checking in Script instead of in the node. The gap between A and C, about seventeen times, is what the fork's two extra opcode groups buy.</p>
 
-<h2>Shared functions make it small</h2>
-<p>The fork lets a program define a function once and call it many times. Without that, every repeated step must be written out in full.</p>
+<h2>Feasibility</h2>
+<div class="prose"><table>
+  <tr><th>Question</th><th>A. Restoration only</th><th>B. + byte reversal</th><th>C. + functions</th><th>D. Native opcode</th></tr>
+  <tr><td>Fits the fork's consensus limits? (4 MB per item, 8 MB stack, 4 MB of executed function bodies, execution allowance)</td><td>Yes, all types</td><td>Yes, all types</td><td>Yes, all types</td><td>Not applicable</td></tr>
+  <tr><td>Standard under the fork's relay policy? (400,000 weight units; leaf 0xc2 has no witness-item size limit)</td><td>Yes, mined on regtest</td><td>Yes by the same limits, not spent on a node</td><td>Yes, mined on regtest</td><td>Not applicable</td></tr>
+  <tr><td>Standard under Bitcoin Core's policy today?</td><td colspan="3">No. Core limits tapscript witness items to 80 bytes. Every signature here is larger. The fork exempts its new leaf version from that rule.</td><td>Would need its own rule</td></tr>
+  <tr><td>Share of execution allowance, stateful / stateless</td><td>3% / 9%</td><td>4% / 9%</td><td>36% / 59%</td><td>None</td></tr>
+  <tr><td>Fee at 10 sat/vB, stateful / stateless</td><td>241,350 / 349,400 sat</td><td>133,420 / 317,640 sat</td><td>14,160 / 50,990 sat</td><td>2,790 / 15,590 sat</td></tr>
+  <tr><td>Specification status</td><td>Draft BIPs</td><td>2024 draft text</td><td>None. Code only.</td><td>None</td></tr>
+  <tr><td>Open problems</td><td>Program size. Cost model undercharges skipped code.</td><td>As A, halved</td><td>Function bodies can come from the witness. A reserved opcode inside a body makes the spend succeed. No call frames. See the <a href="https://github.com/otaliptus/gsr-shrincs/blob/main/spec/FUNCTION-DESIGN.md">design note</a>.</td><td>Consensus change per scheme</td></tr>
+</table></div>
+<p>Three things apply to every scenario. The output is ordinary Taproot, so its key path remains vulnerable to a quantum computer; a SHRINCS leaf alone does not protect the coins. There is no wallet, no signer state management, and no security proof; the scheme's own specification lists its proof as unfinished. And the numbers come from one experimental fork whose cost table is being recalibrated, so the execution costs will move; the sizes will not.</p>
 
-<figure>
-  <figcaption>Program size in bytes. Lower is better.</figcaption>
-  <div class="plot"><svg viewBox="0 0 640 150" role="img" aria-labelledby="c1t">
-    <title id="c1t">Program size: with shared functions versus without, for the stateful and stateless signature types</title>
-    <line x1="160" y1="10" x2="160" y2="140" stroke="var(--axis)" stroke-width="1"/>
-    <text x="0" y="30">Stateful</text>
-    <g><title>Stateful, with functions: 4,476 bytes</title>
-      <rect x="160" y="18" width="12.7" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="180" y="32">4,476</text></g>
-    <g><title>Stateful, without functions: 95,350 bytes</title>
-      <rect x="160" y="40" width="271.5" height="18" rx="4" fill="var(--dim)"/>
-      <text class="val" x="439" y="54">95,350</text></g>
-    <text x="0" y="100">Stateless</text>
-    <g><title>Stateless, with functions: 14,091 bytes</title>
-      <rect x="160" y="88" width="40.1" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="208" y="102">14,091</text></g>
-    <g><title>Stateless, without functions: 133,452 bytes</title>
-      <rect x="160" y="110" width="380" height="18" rx="4" fill="var(--dim)"/>
-      <text class="val" x="548" y="124">133,452</text></g>
-  </svg></div>
-  <ul class="legend">
-    <li style="--sw: var(--s1)">With shared functions</li>
-    <li style="--sw: var(--dim)">Without</li>
-  </ul>
-  <details><summary>Show as table</summary>
-    <table><tr><th>Signature type</th><th class="n">With functions</th><th class="n">Without</th></tr>
-      <tr><td>Stateful</td><td class="n">4,476</td><td class="n">95,350</td></tr>
-      <tr><td>Stateless</td><td class="n">14,091</td><td class="n">133,452</td></tr></table>
-  </details>
-</figure>
+<h2>What was not done</h2>
 
-<p><strong>What "with shared functions" means.</strong> The fork has two opcodes, OP_DEFINE and OP_INVOKE, that let a program store a piece of code once and run it many times. The checker repeats a few steps thousands of times: one hash-chain step, one Merkle-tree step, one WOTS check. "With shared functions" defines each of those once and calls it. "Without" writes every repetition out in full. Both programs do the same work and accept exactly the same signatures.</p>
-<p>Two things differ between the bars, not one. The "with" version also uses OP_BYTEREV, a byte-reversal opcode the fork adds; the "without" version builds byte reversal from slices. Measured on the standalone stateful checker: 95,209 bytes with neither, 52,038 bytes with byte reversal alone, 4,335 bytes with byte reversal and shared functions. So reversal accounts for a bit under half of the baseline size, and functions for nearly all of the rest. The bars above add the 141-byte spending policy to those figures.</p>
-<p>The "without" checker itself uses only the restoration opcodes from BIP 440 and BIP 441. The spending policy around it, in both versions, also needs the fork's OP_TX opcode to read the transaction being signed. Every spend on this page therefore depends on OP_TX; only the verifier inside the "without" policy is restoration-only.</p>
-
-<figure>
-  <figcaption>Complete transaction size in vbytes, the unit Bitcoin fees are paid in. Lower is better.</figcaption>
-  <div class="plot"><svg viewBox="0 0 640 150" role="img" aria-labelledby="c2t">
-    <title id="c2t">Complete spend size: with shared functions versus without</title>
-    <line x1="160" y1="10" x2="160" y2="140" stroke="var(--axis)" stroke-width="1"/>
-    <text x="0" y="30">Stateful</text>
-    <g><title>Stateful, with functions: 1,416 vbytes</title>
-      <rect x="160" y="18" width="15.4" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="183" y="32">1,416</text></g>
-    <g><title>Stateful, without functions: 24,135 vbytes</title>
-      <rect x="160" y="40" width="262.5" height="18" rx="4" fill="var(--dim)"/>
-      <text class="val" x="430" y="54">24,135</text></g>
-    <text x="0" y="100">Stateless</text>
-    <g><title>Stateless, with functions: 5,099 vbytes</title>
-      <rect x="160" y="88" width="55.5" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="223" y="102">5,099</text></g>
-    <g><title>Stateless, without functions: 34,940 vbytes</title>
-      <rect x="160" y="110" width="380" height="18" rx="4" fill="var(--dim)"/>
-      <text class="val" x="548" y="124">34,940</text></g>
-  </svg></div>
-  <ul class="legend">
-    <li style="--sw: var(--s1)">With shared functions</li>
-    <li style="--sw: var(--dim)">Without</li>
-  </ul>
-  <details><summary>Show as table</summary>
-    <table><tr><th>Signature type</th><th class="n">With functions</th><th class="n">Without</th></tr>
-      <tr><td>Stateful</td><td class="n">1,416</td><td class="n">24,135</td></tr>
-      <tr><td>Stateless</td><td class="n">5,099</td><td class="n">34,940</td></tr></table>
-  </details>
-</figure>
-
-<p>For scale: an ordinary Bitcoin payment today is about 150 vbytes. The stateful spend is about ten times that. The signature itself is 660 bytes; the rest is the checker program and the transaction.</p>
-<p>The stateful spend uses about 36% of the execution budget the fork allows for a transaction of its size. The stateless spend uses about 60%. Both fit without any tricks.</p>
-
-<h2>Where the cost goes</h2>
-<p>The fork charges every instruction a fixed price: 1,250 units for most, 3,000 for comparisons and arithmetic, 4,000 for a function call. On top of that it charges for data-dependent work, such as 50 units per byte hashed. We expected hashing to dominate. It does not.</p>
-
-<figure>
-  <figcaption>Share of the charged execution cost for one stateful spend.</figcaption>
-  <div class="plot"><svg viewBox="0 0 640 60" role="img" aria-labelledby="c3t">
-    <title id="c3t">Cost breakdown: fixed per-instruction charge 90 percent, data-dependent charges 10 percent, function body copying under 1 percent</title>
-    <g><title>Fixed charge per instruction: 90.1%</title>
-      <rect x="0" y="14" width="537.0" height="24" rx="4" fill="var(--s1)"/>
-      <text class="in" x="12" y="31">90% fixed charge per instruction</text></g>
-    <g><title>Data-dependent charges (hashing, copying, arithmetic): 9.6%</title>
-      <rect x="539.0" y="14" width="57.2" height="24" fill="var(--s2)"/></g>
-    <g><title>Function body copying: 0.3%</title>
-      <rect x="598.2" y="14" width="2" height="24" rx="4" fill="var(--s3)"/></g>
-  </svg></div>
-  <ul class="legend">
-    <li style="--sw: var(--s1)">Fixed charge per instruction, 90%</li>
-    <li style="--sw: var(--s2)">Data-dependent: hashing, copying, arithmetic, 10%</li>
-    <li style="--sw: var(--s3)">Function body copying, 0.3%</li>
-  </ul>
-  <details><summary>Show as table</summary>
-    <table><tr><th>Part</th><th class="n">Share</th></tr>
-      <tr><td>Fixed charge per instruction</td><td class="n">90.1%</td></tr>
-      <tr><td>Data-dependent charges. Hashing is at most 8 points of this.</td><td class="n">9.6%</td></tr>
-      <tr><td>Function body copying</td><td class="n">0.3%</td></tr></table>
-  </details>
-</figure>
-
-<p>Almost all of the cost is bookkeeping: moving bytes around and branching. The cryptography is a small slice. Two things follow:</p>
 <ul>
-  <li>Byte reversal and shared functions together shrink the stateful program by 95% (95,350 to 4,476 bytes) but reduce the charged work by only 15% (24,150,510 to 20,577,528 units). They compress code, not execution.</li>
-  <li>Programs with lots of skipped code run slower per charged unit than the cost table predicts. Parsing skipped code is not charged. This is a real input to recalibrating the fork's prices, and we built a tool to measure it.</li>
+  <li><strong>No comparison with Simplicity.</strong> Simplicity is a rival approach, and <a href="https://x.com/robin_linus/status/2100686813866402115">a recent post</a> put its SHRINCS checker at about 50 kilobytes. The existing <a href="https://github.com/BlockstreamResearch/shrincs-simplicity-verifier">Simplicity implementation</a> uses different SHRINCS parameters, so its size cannot be compared with ours yet. Someone has to build both to the same spec first.</li>
+  <li><strong>The coins are not quantum-safe.</strong> Our outputs use ordinary <a href="https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki">Taproot</a>, which keeps an old-style key path. Removing that path is a separate consensus change.</li>
+  <li><strong>No wallet, no signer, no security proof.</strong> This is a checker, running in a lab.</li>
 </ul>
 
-<h2>The numbers behind the charts</h2>
-<p>One row per program. "Shared" uses shared functions, "inline" writes everything out, and "unified" is one program that accepts both signature types. Executed opcodes and calls are for one spend. The fixed charge is the sum of each executed opcode's fixed price. Charged units are what the fork actually deducted, which includes the data-dependent part.</p>
-<div class="wide"><table>
+
+
+<details>
+  <summary>The numbers behind the charts</summary>
+  <p>One row per program in the mined transactions. "Shared" is scenario C, "inline" is scenario A. Executed opcodes and calls are for one spend. The fixed charge is the sum of each executed opcode's fixed price.</p>
+  <div class="wide"><table>
   <tr><th>Program</th><th class="n">Script bytes</th><th class="n">Of which function bodies</th><th class="n">Executed opcodes</th><th class="n">Function calls</th><th class="n">SHA256 calls</th><th class="n">Fixed charge</th><th class="n">Charged units</th><th class="n">Fixed share</th><th class="n">Budget used</th></tr>
   <tr><td>Stateful, shared</td><td class='n'>4,476</td><td class='n'>4,147</td><td class='n'>13,701</td><td class='n'>62</td><td class='n'>253</td><td class='n'>18,542,750</td><td class='n'>20,577,528</td><td class='n'>90%</td><td class='n'>36.3%</td></tr><tr><td>Stateful, inline</td><td class='n'>95,350</td><td class='n'>0</td><td class='n'>16,357</td><td class='n'>0</td><td class='n'>253</td><td class='n'>22,182,250</td><td class='n'>24,150,510</td><td class='n'>92%</td><td class='n'>2.5%</td></tr><tr><td>Stateless, shared</td><td class='n'>14,091</td><td class='n'>13,790</td><td class='n'>78,562</td><td class='n'>357</td><td class='n'>1,469</td><td class='n'>106,357,500</td><td class='n'>119,994,389</td><td class='n'>89%</td><td class='n'>58.8%</td></tr><tr><td>Stateless, inline</td><td class='n'>133,452</td><td class='n'>0</td><td class='n'>92,704</td><td class='n'>0</td><td class='n'>1,709</td><td class='n'>123,972,000</td><td class='n'>138,826,875</td><td class='n'>89%</td><td class='n'>9.9%</td></tr><tr><td>Unified, shared</td><td class='n'>17,755</td><td class='n'>17,386</td><td class='n'>13,720</td><td class='n'>62</td><td class='n'>253</td><td class='n'>18,566,500</td><td class='n'>20,642,955</td><td class='n'>90%</td><td class='n'>10.9%</td></tr><tr><td>Unified, inline</td><td class='n'>228,549</td><td class='n'>0</td><td class='n'>24,767</td><td class='n'>0</td><td class='n'>253</td><td class='n'>32,694,750</td><td class='n'>34,665,006</td><td class='n'>94%</td><td class='n'>1.5%</td></tr>
 </table></div>
-<p class="note">"Budget used" is charged units divided by the allowance of 10,000 units per weight unit of the transaction. A smaller program gets a smaller allowance, which is why the compact programs use a larger share even though they do less work.</p>
-
-<p>Every opcode executed by the stateful spend, with and without shared functions, sorted by how often it runs. The last two columns multiply the count by the opcode's fixed price.</p>
+  <p>Every opcode executed by the stateful spend, with and without shared functions, sorted by how often it runs. The last two columns multiply the count by the opcode's fixed price.</p>
 <details>
   <summary>Show all 51 opcodes</summary>
   <div class="wide"><table>
@@ -318,49 +267,11 @@
     <tr><td>OP_PICK</td><td class='n'>2,104</td><td class='n'>2,257</td><td class='n'>1,250</td><td class='n'>2,630,000</td><td class='n'>2,821,250</td></tr><tr><td>OP_CAT</td><td class='n'>1,657</td><td class='n'>1,881</td><td class='n'>1,250</td><td class='n'>2,071,250</td><td class='n'>2,351,250</td></tr><tr><td>OP_0</td><td class='n'>848</td><td class='n'>939</td><td class='n'>1,250</td><td class='n'>1,060,000</td><td class='n'>1,173,750</td></tr><tr><td>OP_1</td><td class='n'>789</td><td class='n'>884</td><td class='n'>1,250</td><td class='n'>986,250</td><td class='n'>1,105,000</td></tr><tr><td>OP_DROP</td><td class='n'>892</td><td class='n'>752</td><td class='n'>1,250</td><td class='n'>1,115,000</td><td class='n'>940,000</td></tr><tr><td>OP_3</td><td class='n'>806</td><td class='n'>837</td><td class='n'>1,250</td><td class='n'>1,007,500</td><td class='n'>1,046,250</td></tr><tr><td>OP_ELSE</td><td class='n'>500</td><td class='n'>990</td><td class='n'>1,250</td><td class='n'>625,000</td><td class='n'>1,237,500</td></tr><tr><td>OP_IF</td><td class='n'>500</td><td class='n'>990</td><td class='n'>1,250</td><td class='n'>625,000</td><td class='n'>1,237,500</td></tr><tr><td>OP_ENDIF</td><td class='n'>500</td><td class='n'>990</td><td class='n'>1,250</td><td class='n'>625,000</td><td class='n'>1,237,500</td></tr><tr><td>push 1 to 75 bytes</td><td class='n'>493</td><td class='n'>785</td><td class='n'>1,250</td><td class='n'>616,250</td><td class='n'>981,250</td></tr><tr><td>OP_2</td><td class='n'>523</td><td class='n'>488</td><td class='n'>1,250</td><td class='n'>653,750</td><td class='n'>610,000</td></tr><tr><td>OP_LESSTHANOREQUAL</td><td class='n'>481</td><td class='n'>481</td><td class='n'>3,000</td><td class='n'>1,443,000</td><td class='n'>1,443,000</td></tr><tr><td>OP_ROLL</td><td class='n'>460</td><td class='n'>440</td><td class='n'>1,250</td><td class='n'>575,000</td><td class='n'>550,000</td></tr><tr><td>OP_16</td><td class='n'>431</td><td class='n'>420</td><td class='n'>1,250</td><td class='n'>538,750</td><td class='n'>525,000</td></tr><tr><td>OP_4</td><td class='n'>367</td><td class='n'>355</td><td class='n'>1,250</td><td class='n'>458,750</td><td class='n'>443,750</td></tr><tr><td>OP_LEFT</td><td class='n'>299</td><td class='n'>355</td><td class='n'>1,250</td><td class='n'>373,750</td><td class='n'>443,750</td></tr><tr><td>OP_SHA256</td><td class='n'>253</td><td class='n'>253</td><td class='n'>1,250</td><td class='n'>316,250</td><td class='n'>316,250</td></tr><tr><td>OP_9</td><td class='n'>71</td><td class='n'>325</td><td class='n'>1,250</td><td class='n'>88,750</td><td class='n'>406,250</td></tr><tr><td>OP_SUBSTR</td><td class='n'>125</td><td class='n'>225</td><td class='n'>1,250</td><td class='n'>156,250</td><td class='n'>281,250</td></tr><tr><td>OP_LESSTHAN</td><td class='n'>48</td><td class='n'>291</td><td class='n'>3,000</td><td class='n'>144,000</td><td class='n'>873,000</td></tr><tr><td>OP_8</td><td class='n'>125</td><td class='n'>178</td><td class='n'>1,250</td><td class='n'>156,250</td><td class='n'>222,500</td></tr><tr><td>OP_VERIFY</td><td class='n'>144</td><td class='n'>144</td><td class='n'>1,250</td><td class='n'>180,000</td><td class='n'>180,000</td></tr><tr><td>OP_5</td><td class='n'>159</td><td class='n'>73</td><td class='n'>1,250</td><td class='n'>198,750</td><td class='n'>91,250</td></tr><tr><td>OP_NUMEQUAL</td><td class='n'>105</td><td class='n'>105</td><td class='n'>3,000</td><td class='n'>315,000</td><td class='n'>315,000</td></tr><tr><td>OP_SIZE</td><td class='n'>104</td><td class='n'>104</td><td class='n'>1,250</td><td class='n'>130,000</td><td class='n'>130,000</td></tr><tr><td>OP_SWAP</td><td class='n'>104</td><td class='n'>104</td><td class='n'>1,250</td><td class='n'>130,000</td><td class='n'>130,000</td></tr><tr><td>OP_7</td><td class='n'>81</td><td class='n'>98</td><td class='n'>1,250</td><td class='n'>101,250</td><td class='n'>122,500</td></tr><tr><td>OP_6</td><td class='n'>94</td><td class='n'>57</td><td class='n'>1,250</td><td class='n'>117,500</td><td class='n'>71,250</td></tr><tr><td>OP_11</td><td class='n'>41</td><td class='n'>103</td><td class='n'>1,250</td><td class='n'>51,250</td><td class='n'>128,750</td></tr><tr><td>OP_RSHIFT</td><td class='n'>31</td><td class='n'>88</td><td class='n'>3,000</td><td class='n'>93,000</td><td class='n'>264,000</td></tr><tr><td>OP_ADD</td><td class='n'>52</td><td class='n'>61</td><td class='n'>1,250</td><td class='n'>65,000</td><td class='n'>76,250</td></tr><tr><td>OP_FROMALTSTACK</td><td class='n'>63</td><td class='n'>43</td><td class='n'>1,250</td><td class='n'>78,750</td><td class='n'>53,750</td></tr><tr><td>OP_TOALTSTACK</td><td class='n'>63</td><td class='n'>43</td><td class='n'>1,250</td><td class='n'>78,750</td><td class='n'>53,750</td></tr><tr><td>OP_10</td><td class='n'>38</td><td class='n'>44</td><td class='n'>1,250</td><td class='n'>47,500</td><td class='n'>55,000</td></tr><tr><td>OP_12</td><td class='n'>42</td><td class='n'>39</td><td class='n'>1,250</td><td class='n'>52,500</td><td class='n'>48,750</td></tr><tr><td>OP_14</td><td class='n'>37</td><td class='n'>38</td><td class='n'>1,250</td><td class='n'>46,250</td><td class='n'>47,500</td></tr><tr><td>OP_13</td><td class='n'>35</td><td class='n'>36</td><td class='n'>1,250</td><td class='n'>43,750</td><td class='n'>45,000</td></tr><tr><td>OP_INVOKE</td><td class='n'>62</td><td class='n'>0</td><td class='n'>4,000</td><td class='n'>248,000</td><td class='n'>0</td></tr><tr><td>OP_BYTEREV</td><td class='n'>49</td><td class='n'>0</td><td class='n'>1,250</td><td class='n'>61,250</td><td class='n'>0</td></tr><tr><td>OP_MOD</td><td class='n'>24</td><td class='n'>24</td><td class='n'>3,000</td><td class='n'>72,000</td><td class='n'>72,000</td></tr><tr><td>OP_MIN</td><td class='n'>26</td><td class='n'>2</td><td class='n'>1,250</td><td class='n'>32,500</td><td class='n'>2,500</td></tr><tr><td>OP_15</td><td class='n'>4</td><td class='n'>21</td><td class='n'>1,250</td><td class='n'>5,000</td><td class='n'>26,250</td></tr><tr><td>OP_MUL</td><td class='n'>21</td><td class='n'>1</td><td class='n'>3,000</td><td class='n'>63,000</td><td class='n'>3,000</td></tr><tr><td>OP_SUB</td><td class='n'>16</td><td class='n'>2</td><td class='n'>1,250</td><td class='n'>20,000</td><td class='n'>2,500</td></tr><tr><td>OP_DEFINE</td><td class='n'>13</td><td class='n'>0</td><td class='n'>1,250</td><td class='n'>16,250</td><td class='n'>0</td></tr><tr><td>OP_PUSHDATA</td><td class='n'>10</td><td class='n'>0</td><td class='n'>1,250</td><td class='n'>12,500</td><td class='n'>0</td></tr><tr><td>OP_TX</td><td class='n'>5</td><td class='n'>5</td><td class='n'>1,250</td><td class='n'>6,250</td><td class='n'>6,250</td></tr><tr><td>OP_EQUAL</td><td class='n'>3</td><td class='n'>3</td><td class='n'>1,250</td><td class='n'>3,750</td><td class='n'>3,750</td></tr><tr><td>OP_DEPTH</td><td class='n'>1</td><td class='n'>1</td><td class='n'>1,250</td><td class='n'>1,250</td><td class='n'>1,250</td></tr><tr><td>OP_LSHIFT</td><td class='n'>1</td><td class='n'>1</td><td class='n'>3,000</td><td class='n'>3,000</td><td class='n'>3,000</td></tr><tr><td>OP_DIV</td><td class='n'>1</td><td class='n'>1</td><td class='n'>3,000</td><td class='n'>3,000</td><td class='n'>3,000</td></tr><tr><th>Total</th><th class='n'>13,701</th><th class='n'>16,357</th><th></th><th class='n'>18,542,750</th><th class='n'>22,182,250</th></tr>
   </table></div>
 </details>
-<p>The three most common opcodes, PICK, CAT, and DROP, move data around. Together with the small constant pushes and the IF, ELSE, and ENDIF triple they account for most of the executed instructions. SHA256 runs 253 times in both versions. Shared functions cut the executed instruction count by about a sixth, mostly by removing skipped branches. They do not change the number of hashes.</p>
-
-<h2>OP_MULTI was not needed</h2>
-<p>The fork has an instruction called OP_MULTI that applies one operation to a variable number of values. The SHRINCS checker never used it. The one real use we found in the fork's own tests, summing all the output amounts of a transaction, can be done with an existing simpler instruction.</p>
-
-<figure>
-  <figcaption>Charged cost of three ways to sum 32 output amounts. Lower is better.</figcaption>
-  <div class="plot"><svg viewBox="0 0 640 100" role="img" aria-labelledby="c4t">
-    <title id="c4t">Cost to sum 32 amounts: existing instruction 25,698; OP_MULTI 66,593; unrolled loop 393,961</title>
-    <line x1="200" y1="6" x2="200" y2="94" stroke="var(--axis)" stroke-width="1"/>
-    <g><title>Existing sum instruction: 31 bytes, 25,698 units</title>
-      <text x="0" y="24">Existing instruction</text>
-      <rect x="200" y="10" width="24.8" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="232" y="24">25,698</text></g>
-    <g><title>OP_MULTI: 34 bytes, 66,593 units</title>
-      <text x="0" y="54">OP_MULTI</text>
-      <rect x="200" y="40" width="64.2" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="272" y="54">66,593</text></g>
-    <g><title>Unrolled loop: 296 bytes, 393,961 units</title>
-      <text x="0" y="84">Unrolled loop</text>
-      <rect x="200" y="70" width="380" height="18" rx="4" fill="var(--s1)"/>
-      <text class="val" x="588" y="84">393,961</text></g>
-  </svg></div>
-  <details><summary>Show as table</summary>
-    <table><tr><th>Construction</th><th class="n">Program bytes</th><th class="n">Charged units</th></tr>
-      <tr><td>Existing instruction</td><td class="n">31</td><td class="n">25,698</td></tr>
-      <tr><td>OP_MULTI</td><td class="n">34</td><td class="n">66,593</td></tr>
-      <tr><td>Unrolled loop</td><td class="n">296</td><td class="n">393,961</td></tr></table>
-  </details>
-</figure>
-
-<p>The cost difference is small in practice. The real argument is simpler: OP_MULTI is about 230 lines of interpreter code with several different behaviours hidden behind one instruction, and nothing we found needs it. We recommend deferring it.</p>
-
-<h2>What we did not do</h2>
-<ul>
-  <li><strong>No comparison with Simplicity.</strong> Simplicity is a rival approach, and <a href="https://x.com/robin_linus/status/2100686813866402115">a recent post</a> put its SHRINCS checker at about 50 kilobytes. The existing <a href="https://github.com/BlockstreamResearch/shrincs-simplicity-verifier">Simplicity implementation</a> uses different SHRINCS parameters, so its size cannot be compared with ours yet. Someone has to build both to the same spec first.</li>
-  <li><strong>The coins are not quantum-safe.</strong> Our outputs use ordinary <a href="https://github.com/bitcoin/bips/blob/master/bip-0341.mediawiki">Taproot</a>, which keeps an old-style key path. Removing that path is a separate consensus change.</li>
-  <li><strong>No wallet, no signer, no security proof.</strong> This is a checker, running in a lab.</li>
-</ul>
+</details>
 
 <h2>Check it yourself</h2>
-<p>Everything is in the <a href="https://github.com/otaliptus/gsr-shrincs">repository</a>. It is private for now, so the links need access. Start with the README's reading guide. The code, the test inputs, the transactions, and the measurements are all there, and a clean build on GitHub reproduces the programs and test results byte for byte.</p>
-<p class="note">Figures on this page come from the measured results at tag <code>baseline-2026-09-18</code> and the later evidence refresh. Execution cost is measured in the fork's own charged units, not seconds.</p>
+<p>Everything is in the <a href="https://github.com/otaliptus/gsr-shrincs">repository</a>, which is private for now. Its README has a reading guide. The code, the test inputs, the mined transactions, and the measurements are all there, and a clean build on GitHub reproduces the programs and test results byte for byte. The scenario tables on this page come from an offline run of the fork's own transaction checker over the three compiled policies with one signature per signature type.</p>
+<p class="note">Sources: <a href="https://github.com/SHRINCS/shrincs-bip/blob/4cd63a6497a0ba7c5e99699b94d33973546d9e37/SHRINCS.md">SHRINCS specification</a>, <a href="https://github.com/jmoik/bitcoin/tree/d2799052604eb138c5a79acf88514a0c8b07f4ef">the fork</a>, <a href="https://bips.dev/440/">BIP 440</a>, <a href="https://bips.dev/441/">BIP 441</a>, <a href="https://github.com/rustyrussell/bips/pull/1">Rusty Russell's 2024 draft</a>, <a href="https://gist.github.com/jonasnick/0e7a3c4a41063e39afe8a16f70662fd3">Jonas Nick's throughput script</a>.</p>
 
 <footer>
   Written 18 September 2026. Fork revision <code>d279905</code>. SHRINCS specification revision <code>4cd63a6</code>.
