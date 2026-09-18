@@ -1,0 +1,409 @@
+{
+  "rows": [
+    {
+      "name": "full-unified",
+      "result": {
+        "errors": [],
+        "consumed": 20643015,
+        "allowance": 189420000,
+        "weight": 18942,
+        "transaction_bytes": 18603,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 20643015
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 38794,
+        "parsed_instructions": 18745,
+        "skipped_bytes": 6006,
+        "skipped_instructions": 5025,
+        "skipped_push_bytes": 981
+      }
+    },
+    {
+      "name": "full-stateful",
+      "result": {
+        "errors": [],
+        "consumed": 20577516,
+        "allowance": 56630000,
+        "weight": 5663,
+        "transaction_bytes": 5324,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 20577516
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 25515,
+        "parsed_instructions": 18712,
+        "skipped_bytes": 5992,
+        "skipped_instructions": 5011,
+        "skipped_push_bytes": 981
+      }
+    },
+    {
+      "name": "full-stateless",
+      "result": {
+        "errors": [],
+        "consumed": 122351759,
+        "allowance": 203950000,
+        "weight": 20395,
+        "transaction_bytes": 20056,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 122351759
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 135275,
+        "parsed_instructions": 106787,
+        "skipped_bytes": 31825,
+        "skipped_instructions": 26725,
+        "skipped_push_bytes": 5100
+      }
+    },
+    {
+      "name": "baseline-unified",
+      "result": {
+        "errors": [],
+        "consumed": 34665042,
+        "allowance": 2297380000,
+        "weight": 229738,
+        "transaction_bytes": 229399,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 34665042
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 228549,
+        "parsed_instructions": 185458,
+        "skipped_bytes": 201424,
+        "skipped_instructions": 160691,
+        "skipped_push_bytes": 40733
+      }
+    },
+    {
+      "name": "baseline-stateful",
+      "result": {
+        "errors": [],
+        "consumed": 24150510,
+        "allowance": 965390000,
+        "weight": 96539,
+        "transaction_bytes": 96200,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 24150510
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 95350,
+        "parsed_instructions": 69398,
+        "skipped_bytes": 76636,
+        "skipped_instructions": 53041,
+        "skipped_push_bytes": 23595
+      }
+    },
+    {
+      "name": "baseline-stateless",
+      "result": {
+        "errors": [],
+        "consumed": 132702858,
+        "allowance": 1397580000,
+        "weight": 139758,
+        "transaction_bytes": 139419,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 132702858
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 133452,
+        "parsed_instructions": 116129,
+        "skipped_bytes": 32545,
+        "skipped_instructions": 27325,
+        "skipped_push_bytes": 5220
+      }
+    },
+    {
+      "name": "full-unified-sl",
+      "result": {
+        "errors": [],
+        "consumed": 121491584,
+        "allowance": 240590000,
+        "weight": 24059,
+        "transaction_bytes": 23720,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 121491584
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 138939,
+        "parsed_instructions": 106844,
+        "skipped_bytes": 32559,
+        "skipped_instructions": 27339,
+        "skipped_push_bytes": 5220
+      }
+    },
+    {
+      "name": "baseline-unified-sl",
+      "result": {
+        "errors": [],
+        "consumed": 135972516,
+        "allowance": 2348550000,
+        "weight": 234855,
+        "transaction_bytes": 234516,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 135972516
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 228549,
+        "parsed_instructions": 185458,
+        "skipped_bytes": 125021,
+        "skipped_instructions": 93974,
+        "skipped_push_bytes": 31047
+      }
+    },
+    {
+      "name": "full-2-input-mixed",
+      "result": {
+        "errors": [],
+        "consumed": 140256195,
+        "allowance": 425230000,
+        "weight": 42523,
+        "transaction_bytes": 42154,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 20645915
+          },
+          {
+            "input": 1,
+            "success": true,
+            "consumed": 119610280
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 177733,
+        "parsed_instructions": 125589,
+        "skipped_bytes": 40005,
+        "skipped_instructions": 33564,
+        "skipped_push_bytes": 6441
+      }
+    },
+    {
+      "name": "full-4-input-mixed",
+      "result": {
+        "errors": [],
+        "consumed": 283846613,
+        "allowance": 848800000,
+        "weight": 84880,
+        "transaction_bytes": 84265,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 20655223
+          },
+          {
+            "input": 1,
+            "success": true,
+            "consumed": 122446443
+          },
+          {
+            "input": 2,
+            "success": true,
+            "consumed": 20655223
+          },
+          {
+            "input": 3,
+            "success": true,
+            "consumed": 120089724
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 355466,
+        "parsed_instructions": 251178,
+        "skipped_bytes": 77490,
+        "skipped_instructions": 65028,
+        "skipped_push_bytes": 12462
+      }
+    },
+    {
+      "name": "full-cap1-boundary",
+      "result": {
+        "errors": [],
+        "consumed": 20575792,
+        "allowance": 55070000,
+        "weight": 5507,
+        "transaction_bytes": 5261,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 20575792
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 25515,
+        "parsed_instructions": 18712,
+        "skipped_bytes": 5992,
+        "skipped_instructions": 5011,
+        "skipped_push_bytes": 981
+      }
+    },
+    {
+      "name": "full-cap2-boundary",
+      "result": {
+        "errors": [],
+        "consumed": 41160856,
+        "allowance": 108480000,
+        "weight": 10848,
+        "transaction_bytes": 10479,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 20580428
+          },
+          {
+            "input": 1,
+            "success": true,
+            "consumed": 20580428
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 51030,
+        "parsed_instructions": 37424,
+        "skipped_bytes": 11984,
+        "skipped_instructions": 10022,
+        "skipped_push_bytes": 1962
+      }
+    },
+    {
+      "name": "full-cap3-boundary",
+      "result": {
+        "errors": [],
+        "consumed": 61755216,
+        "allowance": 161890000,
+        "weight": 16189,
+        "transaction_bytes": 15697,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 20585064
+          },
+          {
+            "input": 1,
+            "success": true,
+            "consumed": 20585076
+          },
+          {
+            "input": 2,
+            "success": true,
+            "consumed": 20585076
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 76545,
+        "parsed_instructions": 56136,
+        "skipped_bytes": 17976,
+        "skipped_instructions": 15033,
+        "skipped_push_bytes": 2943
+      }
+    },
+    {
+      "name": "full-cap4-boundary",
+      "result": {
+        "errors": [],
+        "consumed": 82358917,
+        "allowance": 215300000,
+        "weight": 21530,
+        "transaction_bytes": 20915,
+        "inputs": [
+          {
+            "input": 0,
+            "success": true,
+            "consumed": 20589733
+          },
+          {
+            "input": 1,
+            "success": true,
+            "consumed": 20589724
+          },
+          {
+            "input": 2,
+            "success": true,
+            "consumed": 20589724
+          },
+          {
+            "input": 3,
+            "success": true,
+            "consumed": 20589736
+          }
+        ],
+        "classification": "accept"
+      },
+      "counts": {
+        "parsed_bytes": 102060,
+        "parsed_instructions": 74848,
+        "skipped_bytes": 23968,
+        "skipped_instructions": 20044,
+        "skipped_push_bytes": 3924
+      }
+    }
+  ],
+  "source_manifest_sha256": "5d2a7ac20ca4d4c52a073ae92d726a34eb536f0d450ca8b1066e0befd607ba6e",
+  "binary_sha256": "0ac2d524e01179192ac2b9c56b599fc48df5554ab79bc6e0461e14367742efa8",
+  "reference_binary_sha256": "044fde632685c44817f09b5b02091479820bba6ace43155a90b5785e830a1c02",
+  "corpus_sha256": "d45c2171cca76e0b02922bf37e41e9c99dcd384f39f26905e8bf2f46be726702",
+  "scope": "Counts inside EvalTapscriptV2Impl, including invoked bodies. Does not count the separate success-opcode scan or decode OP_MULTI's second opcode separately. No causal timing claim."
+}

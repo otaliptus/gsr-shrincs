@@ -1,5 +1,27 @@
 # GSR SHRINCS verifier — cross-machine handoff
 
+## Current follow-up: compare fork revisions
+
+The user approved the five-step follow-up after the implementation and review at `937e058`.
+Preserve the measured package, build a fork-comparison harness, investigate parsing costs, and write function and OP_MULTI design notes.
+Check Simplicity compatibility before starting a full port.
+
+Read `spec/FORK-COMPARISON.md` for the new driver. It has separate replay and recompile modes.
+Read `spec/FUNCTION-DESIGN.md`, `spec/OP-MULTI-BENEFIT.md`, `reports/PARSING-ANALYSIS.md`, and `spec/SIMPLICITY-COMPATIBILITY.md` for the follow-up findings.
+
+The original package is tagged `baseline-2026-09-18` at `937e05811e45b1b61f505201ac8f06c05abf2253`.
+Verify the tag and CI result remotely. A tag alone does not establish a successful clean build.
+
+No function opcode or consensus cost has changed in this follow-up.
+The parsing counters establish skipped work, not its causal share of CPU time.
+The OP_TX total selector wins the tested all-output sum construction on program bytes and varops.
+The pinned Simplicity implementation has different parameters and a different top-level key relation.
+
+New comparison outputs live under `build/comparisons/` unless explicitly exported.
+Read their status and configuration before treating them as evidence. Partial journals and development runs are not completed experiments.
+
+The original handoff follows. Its pre-implementation status is historical; the later implementation reports supersede it.
+
 > **Implementation update — 18 September 2026:** Milestones M0–M7 are complete.
 > [README.md](README.md) gives the build procedure.
 > [reports/RESULTS.md](reports/RESULTS.md) gives the measurements.

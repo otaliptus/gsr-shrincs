@@ -16,6 +16,21 @@ implementation:
 - [Milestone audit](reports/AUDIT.md)
 - [Review changes](reports/REVIEW-FOLLOWUP.md)
 
+## Fork-change experiments
+
+The measured package is frozen at tag `baseline-2026-09-18`, commit `937e058`.
+The original reports describe that package. New experiments retain separate evidence.
+
+- [Replay and recompile comparison procedure](spec/FORK-COMPARISON.md)
+- [Proposed function design](spec/FUNCTION-DESIGN.md)
+- [Measured OP_MULTI comparison](spec/OP-MULTI-BENEFIT.md)
+- [Parsed-work counts and timing limits](reports/PARSING-ANALYSIS.md)
+- [Pinned Simplicity compatibility check](spec/SIMPLICITY-COMPATIBILITY.md)
+
+The comparison driver accepts another fork commit and an optional compiler commit.
+It builds separate checkouts. It does not update the pinned submodules or overwrite historical reports.
+No consensus costs or function opcodes have changed in this follow-up.
+
 [PLAN.md](PLAN.md) and [HANDOFF.md](HANDOFF.md) preserve the original requirements
 and project state. [WRITING.md](WRITING.md) gives the current writing instructions.
 
