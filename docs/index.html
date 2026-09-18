@@ -91,6 +91,9 @@
   .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; color: var(--ink-2); margin: 4px 0 0; padding: 0; list-style: none; }
   .legend li::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--sw); }
   details { margin: 6px 0 0; font-size: 14px; color: var(--ink-2); }
+  details.summary { margin: 16px 0 0; font-size: inherit; color: inherit; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 10px 14px; }
+  details.summary > summary { font-weight: 600; }
+  details.summary h3 { font-size: 17px; margin: 16px 0 4px; }
   summary { cursor: pointer; }
   table { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 14px; }
   th, td { text-align: left; padding: 4px 8px 4px 0; border-bottom: 1px solid var(--grid); }
@@ -106,7 +109,9 @@
 <h1>Checking post-quantum signatures in Bitcoin Script</h1>
 <p class="lead">A small experiment. It ran on a private test network with an experimental fork. It is not production software and it does not make any coins quantum-safe.</p>
 
-<h2>The question</h2>
+<details class="summary">
+  <summary>Simple summary</summary>
+<h3>The question</h3>
 <p>Bitcoin's signatures break if large quantum computers arrive. <a href="https://github.com/SHRINCS/shrincs-bip/blob/4cd63a6497a0ba7c5e99699b94d33973546d9e37/SHRINCS.md">SHRINCS</a> is a proposed replacement. It relies only on hash functions, which quantum computers do not break the same way.</p>
 <p>Bitcoin would need a way to check these new signatures. There are two options:</p>
 <ol>
@@ -115,13 +120,14 @@
 </ol>
 <p>The <a href="https://github.com/jmoik/bitcoin/tree/d2799052604eb138c5a79acf88514a0c8b07f4ef">Script Restoration fork</a> (based on <a href="https://bips.dev/440/">BIP 440</a> and <a href="https://bips.dev/441/">BIP 441</a>) is option two. So we asked: if we write the SHRINCS checker using only that fork's general instructions, does it work, how big is it, and what does it cost to run?</p>
 
-<h2>What we did</h2>
+<h3>What we did</h3>
 <ol>
   <li><strong>Wrote the checker in Bitcoin Script.</strong> It handles both kinds of SHRINCS signature and agrees with the official Python reference on every test, including all 255 tree depths and every kind of tampered input.</li>
   <li><strong>Spent real test coins with it.</strong> On a private network running the fork, we locked coins behind the checker and spent them with SHRINCS signatures.</li>
   <li><strong>Measured it.</strong> Program size, transaction size, and execution cost, with and without the fork's reusable-function feature.</li>
   <li><strong>Made it repeatable.</strong> Anyone with the repository can rebuild everything from scratch and get the same programs and test results.</li>
 </ol>
+</details>
 
 <div class="big">
   <div class="tile"><div class="label">Valid spends mined</div><div class="value">14</div></div>
