@@ -1,0 +1,102 @@
+{
+  "versions": {
+    "bitcoin": {
+      "url": "https://github.com/jmoik/bitcoin.git",
+      "commit": "d2799052604eb138c5a79acf88514a0c8b07f4ef"
+    },
+    "shrincs": {
+      "url": "https://github.com/SHRINCS/shrincs-bip.git",
+      "commit": "4cd63a6497a0ba7c5e99699b94d33973546d9e37"
+    },
+    "context": "after-quantum/gsr-lab/v1",
+    "message_bytes": 32,
+    "public_key_bytes": 48,
+    "generator": "Python stdlib, stack-checked bounded code generation",
+    "build": {
+      "type": "Release",
+      "ENABLE_IPC": false,
+      "ENABLE_WALLET": false,
+      "BUILD_GUI": false,
+      "WITH_CCACHE": false
+    }
+  },
+  "platform": "Linux-6.12.105+deb13-amd64-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "python": "3.13.5 (main, Aug 10 2026, 12:06:59) [GCC 14.2.0]",
+  "compiler": "c++ (Debian 14.2.0-19) 14.2.0",
+  "cmake": "cmake version 3.31.6",
+  "ninja": "1.12.1",
+  "sources_sha256": {
+    "generator/script.py": "79a828b2b0213d6ce60e350dd34bb89e8153edc910bea2d0450af47cd1a2c0f9",
+    "generator/transaction.py": "82a937f0776472f67a25b29f7be7cc45a87985218de304ad5b95d77df73a6391",
+    "generator/verifier.py": "e202591bb091c0f054d9a776b41155fdce707b0b21acc54ce455e889df98b16f",
+    "runner/bitcoin.py": "efd4f4f27fdac43d341544d82cc78e1a6cb1b3eaceb1d735bcb57fa265835680",
+    "runner/evaluator.py": "2c73410df17b1ee7f63acc5d517235fded66dbdcd4d0f6cd7ae5258a4598c560",
+    "runner/measuretx.inc": "d52f03ec91bf73cfb1e87b56f1e798e8027001e2d0566fa13cf35bd781803b1c",
+    "runner/profile.hpp": "c21bdc855d4dc9479497e2131970d940a38e719d213a76e1c032412d67be5f87",
+    "runner/profile.py": "e8f0e82fa0cc7d8c33b9f963fc19bde0330343dcc32ac817d240553762d6fee5",
+    "reference/oracle.py": "10aac5649a4f8be71ecd54a8628f65cd1da8461c25e44013a6cab6186e37195b",
+    "tests/regtest.py": "036f11e760fea3c81448b1d039945e061863274b2409a9b70c1d08e5be399788",
+    "tests/test_runner.py": "673a1bf4cf7d14d3c3da50e4737df19a71623a55b8e611cacaa7250c1dc4c342",
+    "tests/test_verifier.py": "42b024a4a956a8735a311c48aa1075fb95ef231d4a6a2ad1cfec708773436f62",
+    "scripts/audit.py": "99b75e996a2363addbce2790baebd9969843f2af6125216abfc278fb4afd06a5",
+    "scripts/boundary_costs.py": "f536ed639f05cad29e2bb8247c19afbd78830d4917ff3fa9b5a885315a8794cd",
+    "scripts/build.sh": "c8ae9b6ddb6c6bee12ab695f91abcb2cff332489596bddfff9e4893d20931f95",
+    "scripts/check.sh": "82f024dc3a8235a9a096aa3f79e459e50afc45fbfa4181b8dd9abec1c57fbf4e",
+    "scripts/component_costs.py": "05bb0adf3b2706c489bfbddbca7fb0fb31877a37e8674569e4784206a27fe9fa",
+    "scripts/export.py": "7eee28021f31bb7031e408a99846cbe076b1d31b3a8d07c25f25348d26d03e9d",
+    "scripts/fixtures.py": "3efc5148e2768edd93610d9e1d3e959f8e29e987a25bd77bace7da93003de0b6",
+    "scripts/measure.py": "21a9572320b93ced749f4dddab7c5b2d06b008c46c7dc9b139439bd40ccc96f4",
+    "scripts/profile_build.py": "fb717d64db907501a87b8f0f2d1a19b3aa4a7e54cd0ead75ccb5969aa4a740be",
+    "scripts/record_tests.py": "95fd7bcbe50e3126259cfd7ec9ea0683a92d24fe0666c3a8ae11a075dccf6f8a",
+    "spec/ACCEPTANCE.md": "b5965487a3c99275c0a81324d43ec5304ef6b91e315b7b9c4a25acf5cb0cab10",
+    "spec/FEATURES.md": "452a0294ce20cd057914f1d66345c7d2e903e29352a1b81c5fe379a9d08e76da",
+    "spec/TRANSCRIPT.md": "c667a1e50c601c3ee874a1edfe7fc9e00944d0d08f9b9020a62d9cdf7176bac4"
+  },
+  "fixtures_sha256": "b4e9e0bb3890e26ad964a36853c606b6771494866e00c17b2846d300a3af4457",
+  "binaries": {
+    "build/bitcoin/bin/bitcoin-util": "06ee8b397763451823b76329fa06570e11ab3638a7fee0bfe5a4cee2d852492a",
+    "build/bitcoin/bin/bitcoind": "60a8a57ce4bae56b9439ed6b93d64b0983399c54a0a9807243abd18c6d7ba330",
+    "build/profile/bin/bitcoin-util": "126a157fbf0a5cb4c45173ad849b40d094736b4f679d2c752d6aba3886708a8e"
+  },
+  "dependencies": {
+    "libboost1.83-dev_1.83.0-4.2_amd64.deb": "1f11fc6fb2ffe9378a0f0ebc8f2fd9223fb958b4a40bb9381c67a8857d947ca3"
+  },
+  "cpu": "AMD Ryzen 9 7945HX with Radeon Graphics",
+  "bitcoin_build_flags": [
+    "BUILD_GUI:BOOL=OFF",
+    "CMAKE_BUILD_TYPE:STRING=Release",
+    "CMAKE_CXX_FLAGS:STRING=",
+    "CMAKE_CXX_FLAGS_DEBUG:STRING=-O0 -ftrapv -g3",
+    "CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os",
+    "CMAKE_CXX_FLAGS_RELEASE:STRING=-O2",
+    "CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g",
+    "ENABLE_IPC:BOOL=OFF",
+    "ENABLE_WALLET:BOOL=OFF",
+    "WITH_CCACHE:BOOL=OFF",
+    "CMAKE_BUILD_TYPE-STRINGS:INTERNAL=RelWithDebInfo;Debug;Release;MinSizeRel",
+    "CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1"
+  ],
+  "profile_build_flags": [
+    "BUILD_GUI:BOOL=OFF",
+    "CMAKE_BUILD_TYPE:STRING=Release",
+    "CMAKE_CXX_FLAGS:STRING=",
+    "CMAKE_CXX_FLAGS_DEBUG:STRING=-O0 -ftrapv -g3",
+    "CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os",
+    "CMAKE_CXX_FLAGS_RELEASE:STRING=-O2",
+    "CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g",
+    "ENABLE_IPC:BOOL=OFF",
+    "ENABLE_WALLET:BOOL=OFF",
+    "WITH_CCACHE:BOOL=OFF",
+    "CMAKE_BUILD_TYPE-STRINGS:INTERNAL=RelWithDebInfo;Debug;Release;MinSizeRel",
+    "CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1",
+    "CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1"
+  ]
+}

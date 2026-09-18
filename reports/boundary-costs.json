@@ -1,0 +1,37 @@
+{
+  "rows": 1530,
+  "depths": 255,
+  "index_classes": [
+    "zero",
+    "maximum"
+  ],
+  "fixture_provenance": "Synthetic authentication siblings with genuine WOTS signing and computed root binding",
+  "allowance": "Standalone functional allowance; transaction feasibility is measured separately in costs.json",
+  "profiles": {
+    "baseline": {
+      "varops_min": 32748470,
+      "varops_max": 103049504,
+      "peak_total_bytes": 14415,
+      "peak_total_entries": 37,
+      "maximum_item": 4619,
+      "maximum_invoked_body_bytes": 0
+    },
+    "bytes": {
+      "varops_min": 32384230,
+      "varops_max": 65581425,
+      "peak_total_bytes": 14415,
+      "peak_total_entries": 37,
+      "maximum_item": 4619,
+      "maximum_invoked_body_bytes": 0
+    },
+    "full": {
+      "varops_min": 21384976,
+      "varops_max": 56900175,
+      "peak_total_bytes": 53686,
+      "peak_total_entries": 44,
+      "maximum_item": 22809,
+      "maximum_invoked_body_bytes": 52479
+    }
+  },
+  "details_sha256": "20f96822be06e1da16750dd8205455c2e0d399c934c221630a4114d2bf35dc32"
+}

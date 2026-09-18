@@ -1,5 +1,12 @@
 # GSR SHRINCS verifier — cross-machine handoff
 
+> **Implementation update — 18 September 2026:** M0–M7 now have implementation
+> and execution evidence. Start with [README.md](README.md),
+> [reports/RESULTS.md](reports/RESULTS.md), and the requirement-by-requirement
+> [reports/AUDIT.md](reports/AUDIT.md). Both upstream submodules remain at the
+> original pins. This file preserves the original pre-implementation snapshot
+> and acceptance contract below; its “not done” list describes that earlier state.
+
 Snapshot: 18 September 2026. Read this file before continuing. This records project context and engineering decisions; it is not a statement that the milestones have been completed.
 
 ## 1. User objective and immediate request

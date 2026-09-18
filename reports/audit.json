@@ -1,0 +1,32 @@
+{
+  "status": "pass",
+  "source_pins_clean": true,
+  "generated_programs": 9,
+  "reference_fixtures": 40,
+  "stateful_depths_tested": 255,
+  "accepted_mined_transactions": 10,
+  "rejected_transactions": 124,
+  "scope": "Laboratory verifier/transaction package M0-M7; no external review, production signer, or quantum-safe output wrapper",
+  "evidence_hashes": {
+    "reports/RESULTS.md": "7e78a89bc5a721b5e63b71ccaee9c78fe802c31a8f12bfcd7de5abf349cf70cd",
+    "reports/boundary-costs.json": "c368c9c50f70e0ac2fb3a969415ad6f21e34dc2c7c7327766dd353af7163e466",
+    "reports/boundary-costs.json.gz": "20f96822be06e1da16750dd8205455c2e0d399c934c221630a4114d2bf35dc32",
+    "reports/boundary-costs.log": "d769fa6cb6ac5481f73702d9699e2c8228a19c8c504f708b07e3b12a0482f473",
+    "reports/components.json": "aca51a7cf00d0b83e374b9358eb7bda222a165e2e06f237bf46782c813497a16",
+    "reports/components.log": "c3473e024edb56a0bbecb30d15ebd7f43f6ce4bf8e76b6f442ea4cb9e8125c63",
+    "reports/costs.json": "5975919197d4f39bfe9a95c60a88dc55b65ae72b4821acb829c7d20b067dce5e",
+    "reports/environment.json": "8de9128b428b332e7e7fc5d215faf21ad7565fa74732f758f55eb710b7144a7f",
+    "reports/fixtures.log": "17b507cffbdbe6a17adbda12eaee5c5d25fd14f4a5b16ce110186097af1fdb2b",
+    "reports/measure.log": "0066529c6c1a87b1238f153a4a89aabf9c19b1dc87289f8b0256ffca1a612f94",
+    "reports/profile-build.log": "36d5c90880d32d443c96e087ccf2f5df0f0471c8a45676e3ce605c4c3d8f8c78",
+    "reports/regtest-details.json.gz": "4ed74bddaa245dcbeb52c6c734093d2ce2357e89afb55bda661424492a0d8db5",
+    "reports/regtest.json": "c2e02b009cf47b11b561ba0c751a41bacfdbc164b582420719108da4655bc74b",
+    "reports/regtest.log": "e4a073a1a941bad21b50ef40c22f7ab1bd1027061236dad5e516d849f9478907",
+    "reports/tests-native-provenance.json": "16955c4e9a62bc05a06945c044e035e743abc529a0b85ae800535ebf2196b584",
+    "reports/tests-profiled-provenance.json": "8c7d191ad01d5bfe6ef30a63dcd97713e05559cfdf41b1d922a34bf79bcc1db1",
+    "reports/tests-profiled.log": "bf066f594b255c9be698b7d9897a4cde4e3f36a8254789e9d94ceb5e255b2b6a",
+    "reports/tests.log": "4287d607dfb623a1724d0fac49e4330b15eaff1535f71dd47e200d991beaae13",
+    "reports/upstream-functional.log": "f0538338d74d784eac8c50a9d83d1ea5c12215547ad8dc87259976560a7c7ac9",
+    "reports/upstream-unit.log": "dbc7951b153d38995c0a0eb0e3f54257848234bebb69266e1eec40b5db05d0c3"
+  }
+}

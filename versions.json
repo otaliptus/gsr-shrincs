@@ -1,0 +1,9 @@
+{
+  "bitcoin": {"url": "https://github.com/jmoik/bitcoin.git", "commit": "d2799052604eb138c5a79acf88514a0c8b07f4ef"},
+  "shrincs": {"url": "https://github.com/SHRINCS/shrincs-bip.git", "commit": "4cd63a6497a0ba7c5e99699b94d33973546d9e37"},
+  "context": "after-quantum/gsr-lab/v1",
+  "message_bytes": 32,
+  "public_key_bytes": 48,
+  "generator": "Python stdlib, stack-checked bounded code generation",
+  "build": {"type":"Release", "ENABLE_IPC":false, "ENABLE_WALLET":false, "BUILD_GUI":false, "WITH_CCACHE":false}
+}

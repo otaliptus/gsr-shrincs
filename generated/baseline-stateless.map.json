@@ -1,0 +1,3861 @@
+{
+  "main": [
+    {
+      "offset": 0,
+      "component": "input_profile",
+      "stack": [
+        "sig",
+        "pk",
+        "msg"
+      ]
+    },
+    {
+      "offset": 124,
+      "component": "shrincs_verify.stateless_parser",
+      "stack": [
+        "sig",
+        "pk",
+        "msg",
+        "seed",
+        "pad",
+        "framing"
+      ]
+    },
+    {
+      "offset": 524,
+      "component": "fors_pubkey_from_sig",
+      "stack": [
+        "sig",
+        "digest",
+        "pad",
+        "location",
+        "keypair"
+      ]
+    },
+    {
+      "offset": 855,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 1003,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 1151,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 1299,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 1447,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 1595,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 1743,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 1891,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 2039,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 2187,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 2335,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 2483,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 2631,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 2904,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 3053,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 3202,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 3351,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 3500,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 3649,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 3798,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 3947,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 4096,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 4245,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 4394,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 4543,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 4692,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 4967,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 5116,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 5265,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 5414,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 5563,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 5712,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 5861,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 6010,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 6159,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 6308,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 6457,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 6606,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 6755,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 7030,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 7179,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 7328,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 7477,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 7626,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 7775,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 7924,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 8073,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 8222,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 8371,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 8520,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 8669,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 8818,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 9093,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 9242,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 9391,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 9540,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 9689,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 9838,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 9987,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 10136,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 10285,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 10434,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 10583,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 10732,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 10881,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 11156,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 11305,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 11454,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 11603,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 11752,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 11901,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 12050,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 12199,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 12348,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 12497,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 12646,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 12795,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 12944,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 13219,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 13368,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 13517,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 13666,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 13815,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 13964,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 14113,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 14262,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 14411,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 14560,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 14709,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 14858,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 15007,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 15282,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 15431,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 15580,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 15729,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 15878,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 16027,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 16176,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 16325,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 16474,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 16623,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 16772,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 16921,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 17070,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 17346,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 17495,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 17644,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 17793,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 17942,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 18091,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 18240,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 18389,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 18538,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 18687,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 18836,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 18985,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 19134,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 19409,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 19558,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 19707,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 19856,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 20005,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 20154,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 20303,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 20452,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 20601,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 20750,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 20899,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 21048,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 21197,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 21295,
+      "component": "hypertree_verify.layer0",
+      "stack": [
+        "sig",
+        "pk",
+        "msg",
+        "seed",
+        "pad",
+        "framing",
+        "randomizer",
+        "bound",
+        "digest",
+        "tree",
+        "leaf",
+        "node"
+      ]
+    },
+    {
+      "offset": 21541,
+      "component": "wots_tw_pubkey_from_sig",
+      "stack": [
+        "sig",
+        "msg",
+        "pad",
+        "location",
+        "keypair"
+      ]
+    },
+    {
+      "offset": 22972,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 23522,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 24073,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 24624,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 25175,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 25726,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 26277,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 26828,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 27379,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 27930,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 28481,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 29032,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 29583,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 30134,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 30685,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 31236,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 31788,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 32341,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 32894,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 33447,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 34000,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 34553,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 35106,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 35659,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 36212,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 36765,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 37318,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 37871,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 38424,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 38977,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 39530,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 40083,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 40636,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 41189,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 41742,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 42416,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 42568,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 42720,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 42872,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 43024,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 43176,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 43328,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 43480,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 43632,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 43693,
+      "component": "hypertree_verify.layer1",
+      "stack": [
+        "sig",
+        "pk",
+        "msg",
+        "seed",
+        "pad",
+        "framing",
+        "randomizer",
+        "bound",
+        "digest",
+        "location",
+        "node",
+        "leaf",
+        "tree"
+      ]
+    },
+    {
+      "offset": 43941,
+      "component": "wots_tw_pubkey_from_sig",
+      "stack": [
+        "sig",
+        "msg",
+        "pad",
+        "location",
+        "keypair"
+      ]
+    },
+    {
+      "offset": 45372,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 45922,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 46473,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 47024,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 47575,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 48126,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 48677,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 49228,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 49779,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 50330,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 50881,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 51432,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 51983,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 52534,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 53085,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 53636,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 54188,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 54741,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 55294,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 55847,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 56400,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 56953,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 57506,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 58059,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 58612,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 59165,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 59718,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 60271,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 60824,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 61377,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 61930,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 62483,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 63036,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 63589,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 64142,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 64816,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 64968,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 65120,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 65272,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 65424,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 65576,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 65728,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 65880,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 66032,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 66093,
+      "component": "hypertree_verify.layer2",
+      "stack": [
+        "sig",
+        "pk",
+        "msg",
+        "seed",
+        "pad",
+        "framing",
+        "randomizer",
+        "bound",
+        "digest",
+        "location",
+        "node",
+        "leaf",
+        "tree"
+      ]
+    },
+    {
+      "offset": 66341,
+      "component": "wots_tw_pubkey_from_sig",
+      "stack": [
+        "sig",
+        "msg",
+        "pad",
+        "location",
+        "keypair"
+      ]
+    },
+    {
+      "offset": 67772,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 68322,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 68873,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 69424,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 69975,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 70526,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 71077,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 71628,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 72179,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 72730,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 73281,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 73832,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 74383,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 74934,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 75485,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 76036,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 76588,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 77141,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 77694,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 78247,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 78800,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 79353,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 79906,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 80459,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 81012,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 81565,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 82118,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 82671,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 83224,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 83777,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 84330,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 84883,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 85436,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 85989,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 86542,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 87216,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 87368,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 87520,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 87672,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 87824,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 87976,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 88128,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 88280,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 88432,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 88493,
+      "component": "hypertree_verify.layer3",
+      "stack": [
+        "sig",
+        "pk",
+        "msg",
+        "seed",
+        "pad",
+        "framing",
+        "randomizer",
+        "bound",
+        "digest",
+        "location",
+        "node",
+        "leaf",
+        "tree"
+      ]
+    },
+    {
+      "offset": 88741,
+      "component": "wots_tw_pubkey_from_sig",
+      "stack": [
+        "sig",
+        "msg",
+        "pad",
+        "location",
+        "keypair"
+      ]
+    },
+    {
+      "offset": 90172,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 90722,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 91273,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 91824,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 92375,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 92926,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 93477,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 94028,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 94579,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 95130,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 95681,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 96232,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 96783,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 97334,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 97885,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 98436,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 98988,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 99541,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 100094,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 100647,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 101200,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 101753,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 102306,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 102859,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 103412,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 103965,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 104518,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 105071,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 105624,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 106177,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 106730,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 107283,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 107836,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 108389,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 108942,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 109616,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 109768,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 109920,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 110072,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 110224,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 110376,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 110528,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 110680,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 110832,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 110893,
+      "component": "hypertree_verify.layer4",
+      "stack": [
+        "sig",
+        "pk",
+        "msg",
+        "seed",
+        "pad",
+        "framing",
+        "randomizer",
+        "bound",
+        "digest",
+        "location",
+        "node",
+        "leaf",
+        "tree"
+      ]
+    },
+    {
+      "offset": 111141,
+      "component": "wots_tw_pubkey_from_sig",
+      "stack": [
+        "sig",
+        "msg",
+        "pad",
+        "location",
+        "keypair"
+      ]
+    },
+    {
+      "offset": 112572,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 113122,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 113673,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 114224,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 114775,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 115326,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 115877,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 116428,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 116979,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 117530,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 118081,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 118632,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 119183,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 119734,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 120285,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 120836,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 121388,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 121941,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 122494,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 123047,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 123600,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 124153,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 124706,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 125259,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 125812,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 126365,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 126918,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 127471,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 128024,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 128577,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 129130,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 129683,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 130236,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 130789,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 131342,
+      "component": "bounded_chain_suffix",
+      "stack": [
+        "node",
+        "digit",
+        "prefix",
+        "pad"
+      ]
+    },
+    {
+      "offset": 132016,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 132168,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 132320,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 132472,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 132624,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 132776,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 132928,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 133080,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    },
+    {
+      "offset": 133232,
+      "component": "merkle_parent",
+      "stack": [
+        "node",
+        "sibling",
+        "index",
+        "address",
+        "pad"
+      ]
+    }
+  ],
+  "functions": {}
+}

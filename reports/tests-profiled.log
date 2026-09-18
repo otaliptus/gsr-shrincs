@@ -1,0 +1,21 @@
+test_accept_reject_budget (test_runner.EvaluatorContract.test_accept_reject_budget) ... ok
+test_failures_are_not_rejections (test_runner.EvaluatorContract.test_failures_are_not_rejections) ... ok
+test_addressed_hashes (test_verifier.Components.test_addressed_hashes) ... ok
+test_compiler_rejects_bad_programs (test_verifier.Components.test_compiler_rejects_bad_programs) ... ok
+test_every_chain_step (test_verifier.Components.test_every_chain_step) ... ok
+test_fixed_width_bytes (test_verifier.Components.test_fixed_width_bytes) ... ok
+test_all_stateful_depths_and_index_extremes (test_verifier.FullVerifier.test_all_stateful_depths_and_index_extremes) ... ok
+test_budget_boundary_and_clean_stack (test_verifier.FullVerifier.test_budget_boundary_and_clean_stack) ... ok
+test_context_binding_and_mode_leaves (test_verifier.FullVerifier.test_context_binding_and_mode_leaves) ... ok
+test_invalid_index_encoding (test_verifier.FullVerifier.test_invalid_index_encoding) ... ok
+test_reference_roundtrips_and_boundaries (test_verifier.FullVerifier.test_reference_roundtrips_and_boundaries) ... ok
+test_rejection_matches_oracle (test_verifier.FullVerifier.test_rejection_matches_oracle) ... ok
+test_message_hashes_and_grinding (test_verifier.HashAndWotsAgreement.test_message_hashes_and_grinding) ... ok
+test_wots_intermediate_keys_and_counter_extremes (test_verifier.HashAndWotsAgreement.test_wots_intermediate_keys_and_counter_extremes) ... ok
+test_fors_digest_extremes_and_unused_bits (test_verifier.StatelessComponents.test_fors_digest_extremes_and_unused_bits) ... ok
+test_wots_tw_checksum_boundaries (test_verifier.StatelessComponents.test_wots_tw_checksum_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 44.574s
+
+OK

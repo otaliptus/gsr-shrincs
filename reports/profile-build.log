@@ -1,0 +1,125 @@
+-- Checking for required C++ features
+-- Checking for required C++ features - done
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE dot) 
+
+Configuring secp256k1 subtree...
+-- Could NOT find Valgrind (missing: Valgrind_INCLUDE_DIR Valgrind_WORKS) 
+
+
+secp256k1 configure summary
+===========================
+Build artifacts:
+  library type ........................ Static
+Optional modules:
+  ECDH ................................ OFF
+  ECDSA pubkey recovery ............... ON
+  extrakeys ........................... ON
+  schnorrsig .......................... ON
+  musig ............................... ON
+  ElligatorSwift ...................... ON
+  Silent Payments ..................... ON
+Parameters:
+  ecmult window size .................. 15
+  ecmult gen table size ............... 86 KiB
+Optional features:
+  assembly ............................ x86_64
+  external callbacks .................. OFF
+Optional binaries:
+  benchmark ........................... OFF
+  noverify_tests ...................... OFF
+  tests ............................... OFF
+  exhaustive tests .................... OFF
+  ctime_tests ......................... OFF
+  examples ............................ OFF
+
+Cross compiling ....................... FALSE
+API visibility attributes ............. OFF
+Valgrind .............................. OFF
+Preprocessor defined macros ........... ECMULT_WINDOW_SIZE=15 COMB_BLOCKS=43 COMB_TEETH=6 USE_ASM_X86_64=1
+C compiler ............................ GNU 14.2.0, /usr/bin/cc
+CFLAGS ................................ 
+Compile options ....................... -Wall -pedantic -Wcast-align -Wcast-align=strict -Wextra -Wnested-externs -Wno-long-long -Wno-overlength-strings -Wno-unused-function -Wshadow -Wstrict-prototypes -Wundef
+Build type:
+ - CMAKE_BUILD_TYPE ................... Release
+ - CFLAGS ............................. -O2 -g 
+ - LDFLAGS for executables ............ 
+ - LDFLAGS for shared libraries ....... 
+
+
+
+Configure summary
+=================
+Executables:
+  bitcoin ............................. ON
+  bitcoind ............................ OFF
+  bitcoin-node (multiprocess) ......... OFF
+  bitcoin-qt (GUI) .................... OFF
+  bitcoin-gui (GUI, multiprocess) ..... OFF
+  bitcoin-cli ......................... OFF
+  bitcoin-tx .......................... OFF
+  bitcoin-util ........................ ON
+  bitcoin-wallet ...................... OFF
+  bitcoin-chainstate (experimental) ... OFF
+  libbitcoinkernel (experimental) ..... OFF
+  kernel-test (experimental) .......... OFF
+Optional features:
+  wallet support ...................... OFF
+  external signer ..................... ON
+  ZeroMQ .............................. OFF
+  IPC ................................. OFF
+  Embedded ASMap ...................... ON
+  USDT tracing ........................ OFF
+  QR code (GUI) ....................... OFF
+  DBus (GUI) .......................... OFF
+Tests:
+  test_bitcoin ........................ OFF
+  test_bitcoin-qt ..................... OFF
+  bench_bitcoin ....................... OFF
+  fuzz binary ......................... OFF
+
+Cross compiling ....................... FALSE
+C++ compiler .......................... GNU 14.2.0, /usr/bin/c++
+CMAKE_BUILD_TYPE ...................... Release
+Preprocessor defined macros ........... 
+C++ compiler flags .................... -O2 -std=c++20 -fPIC -fno-extended-identifiers -fmacro-prefix-map=/home/taliwork/gsr-shrincs/build/profile-source/src=. -fstack-reuse=none -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=3 -Wstack-protector -fstack-protector-all -fcf-protection=full -fstack-clash-protection -Wall -Wextra -Wformat -Wformat-security -Wvla -Wredundant-decls -Wdate-time -Wduplicated-branches -Wduplicated-cond -Wlogical-op -Woverloaded-virtual -Wsuggest-override -Wimplicit-fallthrough -Wunreachable-code -Wbidi-chars=any -Wundef -Wno-unused-parameter
+Linker flags .......................... -O2 -fstack-reuse=none -fstack-protector-all -fcf-protection=full -fstack-clash-protection -Wl,-z,relro -Wl,-z,now -Wl,-z,separate-code -fPIE -pie
+
+NOTE: The summary above may not exactly match the final applied build flags
+      if any additional CMAKE_* or environment variables have been modified.
+      To see the exact flags applied, build with the --verbose option.
+
+Treat compiler warnings as errors ..... OFF
+Use ccache for compiling .............. OFF
+
+
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/taliwork/gsr-shrincs/build/profile
+[1/5] Generating bitcoin-build-info.h
+[2/3] Building CXX object src/CMakeFiles/bitcoin-util.dir/bitcoin-util.cpp.o
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp: In function ‘int EvalScriptCommand(const std::vector<std::__cxx11::basic_string<char> >&, std::string&)’:
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp:261:21: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  261 |     const UniValue& protocol{RequiredEvalScriptField(request, "protocol")};
+      |                     ^~~~~~~~
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp:261:53: note: the temporary was destroyed at the end of the full expression ‘RequiredEvalScriptField(request, std::__cxx11::basic_string<char>(((const char*)"protocol"), std::allocator<char>()))’
+  261 |     const UniValue& protocol{RequiredEvalScriptField(request, "protocol")};
+      |                              ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp:265:21: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  265 |     const UniValue& sigversion{RequiredEvalScriptField(request, "sigversion")};
+      |                     ^~~~~~~~~~
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp:265:55: note: the temporary was destroyed at the end of the full expression ‘RequiredEvalScriptField(request, std::__cxx11::basic_string<char>(((const char*)"sigversion"), std::allocator<char>()))’
+  265 |     const UniValue& sigversion{RequiredEvalScriptField(request, "sigversion")};
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp:273:21: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  273 |     const UniValue& stack_value{RequiredEvalScriptField(request, "stack")};
+      |                     ^~~~~~~~~~~
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp:273:56: note: the temporary was destroyed at the end of the full expression ‘RequiredEvalScriptField(request, std::__cxx11::basic_string<char>(((const char*)"stack"), std::allocator<char>()))’
+  273 |     const UniValue& stack_value{RequiredEvalScriptField(request, "stack")};
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp:283:21: warning: possibly dangling reference to a temporary [-Wdangling-reference]
+  283 |     const UniValue& budget_value{RequiredEvalScriptField(request, "varops_budget")};
+      |                     ^~~~~~~~~~~~
+/home/taliwork/gsr-shrincs/build/profile-source/src/bitcoin-util.cpp:283:57: note: the temporary was destroyed at the end of the full expression ‘RequiredEvalScriptField(request, std::__cxx11::basic_string<char>(((const char*)"varops_budget"), std::allocator<char>()))’
+  283 |     const UniValue& budget_value{RequiredEvalScriptField(request, "varops_budget")};
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+[3/3] Linking CXX executable bin/bitcoin-util

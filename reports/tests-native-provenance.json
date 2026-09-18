@@ -1,0 +1,17 @@
+{
+  "build/bitcoin/bin/bitcoin-util": "06ee8b397763451823b76329fa06570e11ab3638a7fee0bfe5a4cee2d852492a",
+  "fixtures/vectors.json": "b4e9e0bb3890e26ad964a36853c606b6771494866e00c17b2846d300a3af4457",
+  "generator/script.py": "79a828b2b0213d6ce60e350dd34bb89e8153edc910bea2d0450af47cd1a2c0f9",
+  "generator/transaction.py": "82a937f0776472f67a25b29f7be7cc45a87985218de304ad5b95d77df73a6391",
+  "generator/verifier.py": "e202591bb091c0f054d9a776b41155fdce707b0b21acc54ce455e889df98b16f",
+  "reference/oracle.py": "10aac5649a4f8be71ecd54a8628f65cd1da8461c25e44013a6cab6186e37195b",
+  "reports/tests.log": "4287d607dfb623a1724d0fac49e4330b15eaff1535f71dd47e200d991beaae13",
+  "runner/bitcoin.py": "efd4f4f27fdac43d341544d82cc78e1a6cb1b3eaceb1d735bcb57fa265835680",
+  "runner/evaluator.py": "2c73410df17b1ee7f63acc5d517235fded66dbdcd4d0f6cd7ae5258a4598c560",
+  "runner/measuretx.inc": "d52f03ec91bf73cfb1e87b56f1e798e8027001e2d0566fa13cf35bd781803b1c",
+  "runner/profile.hpp": "c21bdc855d4dc9479497e2131970d940a38e719d213a76e1c032412d67be5f87",
+  "runner/profile.py": "e8f0e82fa0cc7d8c33b9f963fc19bde0330343dcc32ac817d240553762d6fee5",
+  "tests/regtest.py": "036f11e760fea3c81448b1d039945e061863274b2409a9b70c1d08e5be399788",
+  "tests/test_runner.py": "673a1bf4cf7d14d3c3da50e4737df19a71623a55b8e611cacaa7250c1dc4c342",
+  "tests/test_verifier.py": "42b024a4a956a8735a311c48aa1075fb95ef231d4a6a2ad1cfec708773436f62"
+}
