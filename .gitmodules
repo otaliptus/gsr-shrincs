@@ -1,0 +1,6 @@
+[submodule "vendor/bitcoin"]
+	path = vendor/bitcoin
+	url = https://github.com/jmoik/bitcoin.git
+[submodule "vendor/shrincs-spec"]
+	path = vendor/shrincs-spec
+	url = https://github.com/SHRINCS/shrincs-bip.git
