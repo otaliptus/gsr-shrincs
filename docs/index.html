@@ -230,7 +230,9 @@
   </details>
 </figure>
 
-<p><strong>What "with shared functions" means.</strong> The fork has two opcodes, OP_DEFINE and OP_INVOKE, that let a program store a piece of code once and run it many times. The checker repeats a few steps thousands of times: one hash-chain step, one Merkle-tree step, one WOTS check. "With shared functions" defines each of those once and calls it. "Without" writes every repetition out in full, using only the baseline BIP 440 and 441 opcodes. Both programs do the same work and accept exactly the same signatures.</p>
+<p><strong>What "with shared functions" means.</strong> The fork has two opcodes, OP_DEFINE and OP_INVOKE, that let a program store a piece of code once and run it many times. The checker repeats a few steps thousands of times: one hash-chain step, one Merkle-tree step, one WOTS check. "With shared functions" defines each of those once and calls it. "Without" writes every repetition out in full. Both programs do the same work and accept exactly the same signatures.</p>
+<p>Two things differ between the bars, not one. The "with" version also uses OP_BYTEREV, a byte-reversal opcode the fork adds; the "without" version builds byte reversal from slices. Measured on the standalone stateful checker: 95,209 bytes with neither, 52,038 bytes with byte reversal alone, 4,335 bytes with byte reversal and shared functions. So reversal accounts for a bit under half of the baseline size, and functions for nearly all of the rest. The bars above add the 141-byte spending policy to those figures.</p>
+<p>The "without" checker itself uses only the restoration opcodes from BIP 440 and BIP 441. The spending policy around it, in both versions, also needs the fork's OP_TX opcode to read the transaction being signed. Every spend on this page therefore depends on OP_TX; only the verifier inside the "without" policy is restoration-only.</p>
 
 <figure>
   <figcaption>Complete transaction size in vbytes, the unit Bitcoin fees are paid in. Lower is better.</figcaption>
@@ -274,12 +276,12 @@
   <div class="plot"><svg viewBox="0 0 640 60" role="img" aria-labelledby="c3t">
     <title id="c3t">Cost breakdown: fixed per-instruction charge 90 percent, data-dependent charges 10 percent, function body copying under 1 percent</title>
     <g><title>Fixed charge per instruction: 90.1%</title>
-      <rect x="0" y="14" width="541" height="24" rx="4" fill="var(--s1)"/>
+      <rect x="0" y="14" width="537.0" height="24" rx="4" fill="var(--s1)"/>
       <text class="in" x="12" y="31">90% fixed charge per instruction</text></g>
     <g><title>Data-dependent charges (hashing, copying, arithmetic): 9.6%</title>
-      <rect x="543" y="14" width="57" height="24" fill="var(--s2)"/></g>
+      <rect x="539.0" y="14" width="57.2" height="24" fill="var(--s2)"/></g>
     <g><title>Function body copying: 0.3%</title>
-      <rect x="602" y="14" width="-2" height="24" rx="4" fill="var(--s3)"/></g>
+      <rect x="598.2" y="14" width="2" height="24" rx="4" fill="var(--s3)"/></g>
   </svg></div>
   <ul class="legend">
     <li style="--sw: var(--s1)">Fixed charge per instruction, 90%</li>
@@ -296,7 +298,7 @@
 
 <p>Almost all of the cost is bookkeeping: moving bytes around and branching. The cryptography is a small slice. Two things follow:</p>
 <ul>
-  <li>Shared functions shrink the program by about 83% but reduce the charged work by only about 15%. They compress code, not execution.</li>
+  <li>Byte reversal and shared functions together shrink the stateful program by 95% (95,350 to 4,476 bytes) but reduce the charged work by only 15% (24,150,510 to 20,577,528 units). They compress code, not execution.</li>
   <li>Programs with lots of skipped code run slower per charged unit than the cost table predicts. Parsing skipped code is not charged. This is a real input to recalibrating the fork's prices, and we built a tool to measure it.</li>
 </ul>
 
