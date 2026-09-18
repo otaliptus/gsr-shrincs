@@ -18,8 +18,9 @@ implementation:
 - [Committed evidence repair](reports/EVIDENCE-REPAIR.md)
 - [Follow-up provenance and portable checks](reports/FOLLOWUP-PROVENANCE.md)
 
-A [plain-language summary page](https://otaliptus.github.io/gsr-shrincs/) gives the question,
-the results, and the limits without technical detail.
+[docs/index.html](docs/index.html) is a plain-language summary page. It gives the question,
+the results, and the limits without technical detail. It is written for GitHub Pages.
+The current GitHub plan does not permit Pages on a private repository, so the page is not yet served.
 
 ## Things you can check
 
