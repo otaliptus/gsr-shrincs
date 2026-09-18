@@ -94,17 +94,23 @@ def validate_multi_scenario(root, data, *, check_builds=True):
     from runner.profile import run_profile
     from test_framework.messages import CTxOut, tx_from_hex
 
+    # The contract is fixed here, not read from the report: the audited profiles,
+    # the three extended variants, five argument variants per vector in both leaf
+    # forms, and three sample depths at both index extremes.
     audited = ("baseline", "bytes", "full")
-    variants = tuple(data["variants"])
-    require(set(variants) >= set(audited) and set(data["audited"]) == set(audited), "OP_MULTI scenario variant set changed")
+    extended = ("catfix", "multi", "multisel")
+    variants = audited + extended
+    argument_variants, sample_depths = 5, [1, 64, 255]
+    require(tuple(data["variants"]) == variants and tuple(data["audited"]) == audited, "OP_MULTI scenario variant set changed")
     modes = ("stateful", "stateless")
     expected = {f"{name}-{mode}" for name in variants for mode in modes}
     require(set(data["standalone"]) == expected and set(data["transactions"]) == expected, "OP_MULTI scenario row inventory changed")
     inventory = data["agreement"]
     vectors = json.loads((root / "fixtures/vectors.json").read_text())["vectors"]
-    require(inventory["vectors"] == len(vectors) and inventory["leaf_forms"] == 2 and inventory["index_extremes"] == 2,
-            "OP_MULTI scenario agreement inventory changed")
-    computed = len(vectors) * 2 * inventory["argument_variants"] + len(inventory["sample_depths"]) * 2
+    require(len(vectors) == 40 and inventory["vectors"] == 40 and inventory["leaf_forms"] == 2 and inventory["index_extremes"] == 2 and
+            inventory["argument_variants"] == argument_variants and inventory["sample_depths"] == sample_depths and
+            tuple(inventory["variants"]) == extended, "OP_MULTI scenario agreement inventory differs from the contract")
+    computed = 40 * 2 * argument_variants + len(sample_depths) * 2
     require(inventory["expected_cases"] == computed == data["agreement_cases"], "OP_MULTI scenario agreement count inconsistent")
 
     def program(name, mode):
@@ -122,6 +128,7 @@ def validate_multi_scenario(root, data, *, check_builds=True):
         require(row["metrics"]["fixed_charge"] <= row["varops_consumed"] < data["standalone_budget"] and
                 row["metrics"]["fixed_charge"] >= 1250 * row["metrics"]["sha256_calls"], ("OP_MULTI standalone accounting", key))
         require(bool(row["multi_uses"]) == (name in ("multi", "multisel")), ("OP_MULTI use inventory wrong", key))
+        require(set(row["multi_uses"]) <= {"SHA256"} if name == "multisel" else True, ("OP_MULTI selective use wrong", key))
         if check_builds:
             result = evaluate(code, args, data["standalone_budget"])
             require(result.success and result.consumed == row["varops_consumed"], ("OP_MULTI standalone result differs", key))

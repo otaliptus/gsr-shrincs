@@ -27,7 +27,7 @@
   "cmake": "cmake version 3.31.6",
   "ninja": "1.12.1",
   "sources_sha256": {
-    "generator/multi.py": "41dc7cddeec22aff88140d065087fccd9ad0a5745d84c39795dc21f4f2db6ef3",
+    "generator/multi.py": "fae35f7dff2ac2dcb2586f6ff7392d3b520829905ea8ac2934a851243c767031",
     "generator/script.py": "2c71fdb8d1dd806a562f635c8c9af9d3527965619e87e8fe2e01cf05e4077076",
     "generator/transaction.py": "2cf8814c2c23e3ea6c3cc7c4032c2b4c397376b8b0ee03862062aa7c9081f6ab",
     "generator/verifier.py": "db5296addbe5db148a7e1e54561540855c6b22e4a9aed426fdeb569237cc9567",
@@ -36,7 +36,7 @@
     "runner/comparison.py": "0f2c7ef75e41a124c0c075d5939c8420f42da7f2c9b5fff451a79b20d7f5d79b",
     "runner/evaluator.py": "342ff5d2f780599b662b2a612599ae33c333e108b1b22f71fe02e8e226defaeb",
     "runner/evidence.py": "6113d1dd9141a587a56e96eff4c94c7680204c866fd91b0e689c5c77be1e3339",
-    "runner/followup.py": "9660af167cbccd34f7c37b791890c26afd74e75476caa32c011b4f1083e499f2",
+    "runner/followup.py": "3de76c8a22dbb6d0d9c57221c6d51dfa742edb1b144e7cce7cda3032fcc0d718",
     "runner/measuretx.inc": "d52f03ec91bf73cfb1e87b56f1e798e8027001e2d0566fa13cf35bd781803b1c",
     "runner/parsebench.inc": "50dc37dc2542a97dbeeb7f3aa578297db6201a92270ba795e76958896bff906f",
     "runner/profile.hpp": "aacd994526915dc48774ced157270c85ede3506e1d4c69f57a53d2829ea03738",
@@ -47,7 +47,7 @@
     "tests/test_assurance.py": "f3a1d89a2340c7108a1b51b475b0390e0cdfeb975e43c9e4d31841380641011c",
     "tests/test_comparison.py": "cf75d36245947f2d2c8a0cf042d01287b3272ca2f079f702e9b18773b1704909",
     "tests/test_followup_evidence.py": "591e7f42d50c1b3f404b1b62526d6c44923e744e9f8bcafdf1adec1c4c13d1dd",
-    "tests/test_multi.py": "2bba1f3e25e755bfb590115966bdc5c19f189a674d2ab4031f2634d1dacbdde5",
+    "tests/test_multi.py": "95418712e0a1627ab9d65e400c725fb74d03cb0a0aa191f85edc2b9806a0b805",
     "tests/test_runner.py": "e0799972cf786f06fa74b1a5f80ab105f1415663a79dd7f50023953fa40daa0f",
     "tests/test_verifier.py": "65b34711865113d88e9f006fc7b4d1cda49e6446f676b8e8044856a7923ed468",
     "scripts/audit.py": "461e0822b33cdcc64471891bd09ff6d07b602501426b8e1661630434e15264d2",
@@ -73,7 +73,7 @@
     "spec/FORK-COMPARISON.md": "456cc8fa458b0bf06a72a517364599381f0af17c4215dbbcd8441ccc83b5da77",
     "spec/FUNCTION-DESIGN.md": "766d3da5684d72ec7121d7e4167baa5f4c054a237de6d9df575312f388d69631",
     "spec/OP-MULTI-BENEFIT.md": "cdf5eac2e6cb975ac1885e1c3234fc6bc0f78988241a293e3c8992b792a0c32a",
-    "spec/OP-MULTI-SCENARIO.md": "411bb47fa237d13c6f6166684df516f9b12d7a6073c388827647b54538669586",
+    "spec/OP-MULTI-SCENARIO.md": "273758c16b0d7b8e265f9f1af9c0efa2b85133ed8db5dbda8c9a37325edd480f",
     "spec/SIMPLICITY-COMPATIBILITY.md": "617c818c5fbf82a0bd820068ec7a61417cb75d6981891e4a71efe006272f8935",
     "spec/TRANSCRIPT.md": "74db33fe5b832bdb107562205fecbc082aca8fa85376295ec6c961f967932270"
   },
@@ -82,8 +82,8 @@
     "build/bitcoin/bin/bitcoin-util": "06ee8b397763451823b76329fa06570e11ab3638a7fee0bfe5a4cee2d852492a",
     "build/bitcoin/bin/bitcoind": "60a8a57ce4bae56b9439ed6b93d64b0983399c54a0a9807243abd18c6d7ba330",
     "build/profile/bin/bitcoin-util": "3157344d23d135dbb28116750846aba362a931e8f9daf911783757b55300c1cd",
-    "build/parsing-probe/build/bin/bitcoin-util": "4cce4898bdaad59f9511db4abe7eb78806fa6ec53a8ac78f91ad48eb4be9fcf9",
-    "build/parser-benchmark/build/bin/bitcoin-util": "7f20f98840ae87e20ad0d1e906c0473090e7f2163ca97a6487207b26bd852103"
+    "build/parsing-probe/build/bin/bitcoin-util": "6cf93d98ac2868b5ed6c8a3246576195482ec31677398992dc3762d4c2de3771",
+    "build/parser-benchmark/build/bin/bitcoin-util": "b217252dead4dfcad56c7708bfd1427e2cf05bd9d45bc169ce11c6dcc5c4d9ca"
   },
   "dependencies": {
     "libboost1.83-dev_1.83.0-4.2_amd64.deb": "1f11fc6fb2ffe9378a0f0ebc8f2fd9223fb958b4a40bb9381c67a8857d947ca3"

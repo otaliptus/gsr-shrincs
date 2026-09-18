@@ -10,7 +10,7 @@
       "build/profile/bin/bitcoin-util": "3157344d23d135dbb28116750846aba362a931e8f9daf911783757b55300c1cd"
     },
     "drivers": {
-      "generator/multi.py": "41dc7cddeec22aff88140d065087fccd9ad0a5745d84c39795dc21f4f2db6ef3",
+      "generator/multi.py": "fae35f7dff2ac2dcb2586f6ff7392d3b520829905ea8ac2934a851243c767031",
       "generator/script.py": "2c71fdb8d1dd806a562f635c8c9af9d3527965619e87e8fe2e01cf05e4077076",
       "generator/transaction.py": "2cf8814c2c23e3ea6c3cc7c4032c2b4c397376b8b0ee03862062aa7c9081f6ab",
       "generator/verifier.py": "db5296addbe5db148a7e1e54561540855c6b22e4a9aed426fdeb569237cc9567",
@@ -19,7 +19,7 @@
       "runner/comparison.py": "0f2c7ef75e41a124c0c075d5939c8420f42da7f2c9b5fff451a79b20d7f5d79b",
       "runner/evaluator.py": "342ff5d2f780599b662b2a612599ae33c333e108b1b22f71fe02e8e226defaeb",
       "runner/evidence.py": "6113d1dd9141a587a56e96eff4c94c7680204c866fd91b0e689c5c77be1e3339",
-      "runner/followup.py": "9660af167cbccd34f7c37b791890c26afd74e75476caa32c011b4f1083e499f2",
+      "runner/followup.py": "3de76c8a22dbb6d0d9c57221c6d51dfa742edb1b144e7cce7cda3032fcc0d718",
       "runner/measuretx.inc": "d52f03ec91bf73cfb1e87b56f1e798e8027001e2d0566fa13cf35bd781803b1c",
       "runner/parsebench.inc": "50dc37dc2542a97dbeeb7f3aa578297db6201a92270ba795e76958896bff906f",
       "runner/profile.hpp": "aacd994526915dc48774ced157270c85ede3506e1d4c69f57a53d2829ea03738",
@@ -375,15 +375,15 @@
       "varops_allowed": 965390000,
       "budget_fraction": 0.02501632500854577,
       "times_ns": [
-        1280034,
-        1280605,
-        1252980,
-        1260906,
-        1277498,
-        1271557,
-        1276657
+        1258808,
+        1264909,
+        1241193,
+        1249389,
+        1295599,
+        1208019,
+        1281361
       ],
-      "median_interpreter_ms": 1.276657,
+      "median_interpreter_ms": 1.258808,
       "metrics": {
         "opcodes": 16357,
         "multi_operations": 0,
@@ -417,15 +417,15 @@
       "varops_allowed": 533660000,
       "budget_fraction": 0.04265145785706255,
       "times_ns": [
-        943688,
-        921836,
-        1079162,
-        923499,
-        877159,
-        868121,
-        1087228
+        955137,
+        862607,
+        949916,
+        889870,
+        933655,
+        886443,
+        939757
       ],
-      "median_interpreter_ms": 0.923499,
+      "median_interpreter_ms": 0.933655,
       "metrics": {
         "opcodes": 15335,
         "multi_operations": 0,
@@ -459,15 +459,15 @@
       "varops_allowed": 56630000,
       "budget_fraction": 0.3633679675083878,
       "times_ns": [
-        665656,
-        708821,
-        667710,
-        628174,
-        717277,
-        679323,
-        669725
+        687326,
+        642670,
+        644132,
+        631437,
+        641517,
+        720451,
+        686004
       ],
-      "median_interpreter_ms": 0.669725,
+      "median_interpreter_ms": 0.644132,
       "metrics": {
         "opcodes": 13701,
         "multi_operations": 0,
@@ -501,15 +501,15 @@
       "varops_allowed": 53170000,
       "budget_fraction": 0.35431623095730674,
       "times_ns": [
-        640978,
-        627452,
-        648523,
-        625248,
-        646258,
-        626781,
-        633113
+        637990,
+        620095,
+        632039,
+        620196,
+        627841,
+        621769,
+        643831
       ],
-      "median_interpreter_ms": 0.633113,
+      "median_interpreter_ms": 0.627841,
       "metrics": {
         "opcodes": 12387,
         "multi_operations": 0,
@@ -543,15 +543,15 @@
       "varops_allowed": 52510000,
       "budget_fraction": 0.3645760236145496,
       "times_ns": [
-        649926,
-        683982,
-        633715,
-        799617,
-        646349,
-        656919,
-        684904
+        900922,
+        650725,
+        631407,
+        633211,
+        638591,
+        637440,
+        642199
       ],
-      "median_interpreter_ms": 0.656919,
+      "median_interpreter_ms": 0.638591,
       "metrics": {
         "opcodes": 11884,
         "multi_operations": 1215,
@@ -589,15 +589,15 @@
       "varops_allowed": 53110000,
       "budget_fraction": 0.35469561287893053,
       "times_ns": [
-        797012,
-        649946,
-        624817,
-        659515,
-        609828,
-        658052,
-        630758
+        627620,
+        736502,
+        627710,
+        672597,
+        659032,
+        639142,
+        625356
       ],
-      "median_interpreter_ms": 0.649946,
+      "median_interpreter_ms": 0.639142,
       "metrics": {
         "opcodes": 12379,
         "multi_operations": 12,
@@ -633,15 +633,15 @@
       "varops_allowed": 1397580000,
       "budget_fraction": 0.09326629888807797,
       "times_ns": [
-        3708513,
-        3542159,
-        4003759,
-        3785714,
-        3361989,
-        3619590,
-        3480018
+        3483022,
+        3386885,
+        3461670,
+        3524041,
+        3390060,
+        3563308,
+        3535654
       ],
-      "median_interpreter_ms": 3.61959,
+      "median_interpreter_ms": 3.483022,
       "metrics": {
         "opcodes": 87304,
         "multi_operations": 0,
@@ -675,15 +675,15 @@
       "varops_allowed": 1270540000,
       "budget_fraction": 0.09374948683237048,
       "times_ns": [
-        3277805,
-        3189943,
-        3268847,
-        3274297,
-        3152019,
-        3333222,
-        3260731
+        3372516,
+        3241522,
+        3172027,
+        3325586,
+        3287161,
+        3266060,
+        3242213
       ],
-      "median_interpreter_ms": 3.268847,
+      "median_interpreter_ms": 3.26606,
       "metrics": {
         "opcodes": 78733,
         "multi_operations": 0,
@@ -717,15 +717,15 @@
       "varops_allowed": 203950000,
       "budget_fraction": 0.5883597009070851,
       "times_ns": [
-        3188691,
-        3141399,
-        3224590,
-        3140126,
-        3431845,
-        3180014,
-        3151368
+        3216764,
+        3041413,
+        3481819,
+        3065460,
+        3206534,
+        3027836,
+        3143812
       ],
-      "median_interpreter_ms": 3.180014,
+      "median_interpreter_ms": 3.143812,
       "metrics": {
         "opcodes": 78562,
         "multi_operations": 0,
@@ -759,15 +759,15 @@
       "varops_allowed": 192170000,
       "budget_fraction": 0.583411838476349,
       "times_ns": [
-        2967329,
-        2940738,
-        3038879,
-        2831926,
-        3012718,
-        3189923,
-        2940938
+        2971077,
+        2867715,
+        3123633,
+        2941980,
+        3015082,
+        2990594,
+        2992518
       ],
-      "median_interpreter_ms": 2.967329,
+      "median_interpreter_ms": 2.990594,
       "metrics": {
         "opcodes": 72194,
         "multi_operations": 0,
@@ -801,15 +801,15 @@
       "varops_allowed": 189650000,
       "budget_fraction": 0.6377166148167678,
       "times_ns": [
-        3077504,
-        3316419,
-        3086021,
-        3262043,
-        3109045,
-        3500869,
-        3497051
+        3112591,
+        3242714,
+        3066442,
+        3273664,
+        3086641,
+        3240600,
+        3066401
       ],
-      "median_interpreter_ms": 3.262043,
+      "median_interpreter_ms": 3.112591,
       "metrics": {
         "opcodes": 72749,
         "multi_operations": 8599,
@@ -847,15 +847,15 @@
       "varops_allowed": 191710000,
       "budget_fraction": 0.5889020447550989,
       "times_ns": [
-        2999561,
-        2962921,
-        3002699,
-        3309667,
-        3040712,
-        3000574,
-        3073456
+        2880771,
+        3090789,
+        2877965,
+        3083534,
+        2998589,
+        2978120,
+        2846855
       ],
-      "median_interpreter_ms": 3.002699,
+      "median_interpreter_ms": 2.97812,
       "metrics": {
         "opcodes": 72600,
         "multi_operations": 106,

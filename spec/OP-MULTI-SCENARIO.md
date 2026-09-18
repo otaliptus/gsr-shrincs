@@ -59,7 +59,8 @@ so the signature bytes are identical and only the program differs.
 | `multi`, stateless | 12,661 | 4,742 | 120,942,956 | 63.8% |
 | `multisel`, stateless | 12,867 | 4,793 | 112,898,411 | 58.9% |
 
-The `full` rows reproduce the mined regtest spends byte for byte.
+These are separately constructed offline transactions. The `full` rows match the mined regtest spends in program size,
+signature size, and transaction shape, not in transaction bytes: their outpoints, outputs, and signatures differ.
 The report also measures the `baseline` and `bytes` profiles the same way.
 
 ## The charging rule
@@ -71,9 +72,12 @@ The opcode then charges the target's fixed price once per logical operation:
 A chain of CATs pays 3 units per byte of every intermediate result.
 Hashing `n` parts with OP_MULTI costs `(n + 1) × 1,250` plus the hash charge.
 Joining and hashing costs `n × 1,250` plus the hash charge plus `3 × (sum of intermediate lengths)`.
-OP_MULTI is therefore cheaper when the intermediate lengths sum to more than about 417 bytes.
-Three 200-byte parts cross that line; on the pinned evaluator they cost 42,364 units joined and hashed
-against 40,630 with `MULTI SHA256`. The 16-byte hashes that dominate this checker do not come close.
+Decoding the count costs a further 16 units for small counts, measured on the pinned evaluator.
+OP_MULTI is therefore cheaper when three times the intermediate lengths exceed 1,266 plus the part count,
+that is, above about 422 intermediate bytes for three parts. Parts of 83, 84, and 83 bytes sum to 417
+intermediate bytes and cost 22,065 units joined and hashed against 22,080 with `MULTI SHA256`;
+three 200-byte parts cost 42,364 against 40,630. The 16-byte hashes that dominate this checker do not come close.
+`tests/test_multi.py` checks the rule against the evaluator on both sides of the line.
 
 `MULTI CAT` charges the same copying as the chain plus the count push, so it never wins under this table.
 `MULTI DROP` charges one fixed price per item plus the count push, so it never wins either.

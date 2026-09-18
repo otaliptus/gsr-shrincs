@@ -9,8 +9,9 @@ Two variants build on the ``full`` profile (byte reversal and shared functions):
   parts that are not hashed, and MULTI DROP for cleanup runs of three or more items.
 - ``multisel``: ``catfix`` plus MULTI SHA256 only where the pinned cost table makes it
   cheaper. A chain of CATs pays 3 units per byte of every intermediate result; a MULTI
-  SHA256 pays one extra push of 1,250 instead. The selective variant hashes with
-  OP_MULTI when the estimated intermediate bytes exceed ``SELECT_THRESHOLD``.
+  SHA256 pays one extra push of 1,250 plus a small count-decoding charge instead.
+  The selective variant hashes with OP_MULTI when three times the estimated
+  intermediate bytes exceed that extra charge; see ``multi_sha_is_cheaper``.
   MULTI CAT and MULTI DROP never win under this table, so the variant does not use them.
 
 The extension patches the compiler's builder and helpers only for the duration of a
@@ -27,7 +28,8 @@ OPS.setdefault("MULTI", 0xBF)
 EXTRA.add("MULTI")
 MULTI_MIN_PARTS = 3
 VARIANTS = ("catfix", "multi", "multisel")
-SELECT_THRESHOLD = 1250 // 3  # intermediate bytes at which chained copying exceeds one push
+COUNT_PUSH_COST = 1250  # the count operand is an ordinary push
+COUNT_DECODE_COST = 16  # measured on the pinned evaluator for counts up to 4; grows about one unit per dozen parts
 
 # Static width estimates for the values the verifier joins, in bytes. Unknown
 # values are assumed small, which keeps the selective variant on the chained form.
@@ -100,9 +102,15 @@ def sha_multi(value):
     return Expr("SHA256", (value,))
 
 
+def multi_sha_is_cheaper(intermediate_bytes, part_count):
+    """Chained CATs pay 3 units per intermediate byte; MULTI SHA256 pays the count push,
+    its decoding, and about one unit per part more. True when the chain costs more."""
+    return 3 * intermediate_bytes > COUNT_PUSH_COST + COUNT_DECODE_COST + part_count
+
+
 def sha_selective(value):
     parts = flatten((value,), "CAT")
-    if len(parts) >= MULTI_MIN_PARTS and chained_intermediate_bytes(parts) > SELECT_THRESHOLD:
+    if len(parts) >= MULTI_MIN_PARTS and multi_sha_is_cheaper(chained_intermediate_bytes(parts), len(parts)):
         return Expr("MULTISHA", parts)
     return Expr("SHA256", (value,))
 

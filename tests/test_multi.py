@@ -3,6 +3,7 @@ import json
 import unittest
 
 from generator import multi
+from generator.script import OPS, push
 from generator.verifier import compile_verifier
 from reference.oracle import ROOT, decode, verify
 from runner.evaluator import evaluate
@@ -37,3 +38,19 @@ class MultiExtension(unittest.TestCase):
     def test_extension_leaves_audited_compiler_unchanged(self):
         multi.compile_verifier("multi")
         self.assertEqual(compile_verifier("full").code, self.audited)
+
+
+class SelectionRule(unittest.TestCase):
+    def test_rule_matches_evaluator_on_both_sides_of_the_line(self):
+        def chained(sizes):
+            code = b"".join(push(bytes(n)) for n in sizes) + bytes([OPS["CAT"]]) * (len(sizes) - 1) + bytes([OPS["SHA256"]])
+            return evaluate(code + bytes([OPS["DROP"]]) + b"\x51").consumed
+
+        def multi_hash(sizes):
+            code = b"".join(push(bytes(n)) for n in sizes) + push(len(sizes)) + bytes([OPS["MULTI"], OPS["SHA256"]])
+            return evaluate(code + bytes([OPS["DROP"]]) + b"\x51").consumed
+
+        for sizes in ((83, 84, 83), (86, 86, 86), (100, 100, 100, 100), (16,) * 17, (16, 16, 16), (64, 22, 512)):
+            intermediate = sum(sum(sizes[:k + 1]) for k in range(1, len(sizes)))
+            predicted = multi.multi_sha_is_cheaper(intermediate, len(sizes))
+            self.assertEqual(predicted, multi_hash(sizes) < chained(sizes), sizes)

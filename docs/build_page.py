@@ -2,14 +2,12 @@
 """Generate docs/index.html from the committed reports.
 
 Every number on the page comes from reports/multi-scenario.json, reports/costs.json,
-and generated/manifest.json. The page stamps the commit and the report hashes it was
-built from. Static prose lives in docs/_static_parts.json and in this file.
+and generated/manifest.json. The page stamps the hashes of the reports it was built from. Static prose lives in docs/_static_parts.json and in this file.
 
     python3 docs/build_page.py
 """
 import hashlib
 import json
-import subprocess
 import sys
 from pathlib import Path
 
@@ -48,9 +46,11 @@ def tps(items):
 
 
 def shape(items):
+    """Bytes, weight and vbytes of our one-input two-output shape: 113 non-witness bytes,
+    the two SegWit marker and flag bytes, and the witness."""
     witness = 1 + sum(compact_size(n) + n for n in items)
-    weight = 113 * 4 + witness
-    return 113 + witness, weight, -(-weight // 4)
+    weight = 113 * 4 + 2 + witness
+    return 113 + 2 + witness, weight, -(-weight // 4)
 
 
 def opcode_name(o):
@@ -174,7 +174,7 @@ def mined_tables(costs, manifest):
         agg[nm][0] += a.get(k, 0)
         agg[nm][1] += b.get(k, 0)
     op = ['<table><tr><th>Opcode</th><th class="n">Count, with functions</th><th class="n">Count, without</th><th class="n">Fixed price</th><th class="n">Fixed charge, with</th><th class="n">Fixed charge, without</th></tr>']
-    for nm, (x, y, price) in sorted(agg.items(), key=lambda kv: -(kv[1][0] + kv[1][1])):
+    for nm, (x, y, price) in sorted(agg.items(), key=lambda kv: (-(kv[1][0] + kv[1][1]), kv[0])):
         op.append(f'<tr><td>{nm}</td><td class="n">{f(x)}</td><td class="n">{f(y)}</td><td class="n">{f(price)}</td><td class="n">{f(x * price)}</td><td class="n">{f(y * price)}</td></tr>')
     ta, tb = sum(a.values()), sum(b.values())
     fa, fb = sum(v * fixed_price(k) for k, v in a.items()), sum(v * fixed_price(k) for k, v in b.items())
@@ -191,9 +191,11 @@ def main():
     costs = json.loads((ROOT / "reports/costs.json").read_text())
     manifest = json.loads((ROOT / "generated/manifest.json").read_text())
     tx, st = report["transactions"], report["standalone"]
-    commit = subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "--short", "HEAD"], text=True).strip()
-    stamp = (f'reports at commit <code>{commit}</code>: multi-scenario.json <code>{sha(ROOT / "reports/multi-scenario.json")[:12]}</code>, '
-             f'costs.json <code>{sha(ROOT / "reports/costs.json")[:12]}</code>')
+    # Identify the inputs by content, not by commit: the reports may not be committed yet
+    # when the page is built, and CI regenerates the page from the committed reports to
+    # check that the committed page matches them.
+    stamp = (f'reports/multi-scenario.json <code>{sha(ROOT / "reports/multi-scenario.json")[:16]}</code>, '
+             f'reports/costs.json <code>{sha(ROOT / "reports/costs.json")[:16]}</code>')
     mined, opcodes, n_opcodes, fixed_pct, body_pct = mined_tables(costs, manifest)
     data_pct = 100 - fixed_pct - body_pct
     avail = 596
@@ -262,7 +264,7 @@ def main():
 <h3>Matched input, stateless</h3>
 <div class="wide">{standalone_table(st, "stateless")}</div>
 <p>The join fix removes {(ff["program_bytes"] - cf["program_bytes"]) / ff["program_bytes"]:.1%} of the stateful program bytes and {(ff["varops_consumed"] - cf["varops_consumed"]) / ff["varops_consumed"]:.1%} of its charged cost; {(fl["program_bytes"] - cl["program_bytes"]) / fl["program_bytes"]:.1%} and {(fl["varops_consumed"] - cl["varops_consumed"]) / fl["varops_consumed"]:.1%} for the stateless type. OP_MULTI everywhere then removes a further {(cf["program_bytes"] - mf["program_bytes"]) / cf["program_bytes"]:.1%} of bytes but adds {(mf["varops_consumed"] - cf["varops_consumed"]) / cf["varops_consumed"]:.1%} to the charged cost, {(ml["varops_consumed"] - cl["varops_consumed"]) / cl["varops_consumed"]:.1%} for the stateless type. OP_MULTI where it is cheaper changes the charged cost by {f(ef["varops_consumed"] - cf["varops_consumed"])} and {f(el["varops_consumed"] - cl["varops_consumed"])} units, from {sum(ef["multi_uses"].values())} and {sum(el["multi_uses"].values())} uses.</p>
-<p>The reason is in the cost table. The OP_MULTI byte itself is free, but its count is an ordinary push and pays the fixed 1,250, and the opcode then charges the target's fixed price once per logical operation. Against that, a chain of CATs pays 3 units per byte of every intermediate result. So hashing with OP_MULTI wins once the intermediate bytes of a join exceed about 417: three 200-byte parts already cross that line, at 40,630 units against 42,364 on the pinned evaluator. The 16-byte hashes that dominate this checker do not come close, and the few large joins it has, {sum(el["multi_uses"].values())} in the stateless program, are too few to matter. OP_MULTI applied to joins that are not hashed, or to cleanups, always pays the count push for nothing under this table.</p>
+<p>The reason is in the cost table. The OP_MULTI byte itself is free, but its count is an ordinary push and pays the fixed 1,250, and the opcode then charges the target's fixed price once per logical operation. Against that, a chain of CATs pays 3 units per byte of every intermediate result. So hashing with OP_MULTI wins once the intermediate bytes of a join exceed about 422, after the count's own push and decoding: three 200-byte parts already cross that line, at 40,630 units against 42,364 on the pinned evaluator. The 16-byte hashes that dominate this checker do not come close, and the few large joins it has, {sum(el["multi_uses"].values())} in the stateless program, are too few to matter. OP_MULTI applied to joins that are not hashed, or to cleanups, always pays the count push for nothing under this table.</p>
 <p>So the result is specific: a hash-based signature verifier, whose joins are short, does not gain from OP_MULTI. A program that hashes long lists of large items would. All extended programs pass the same {f(report["agreement_cases"])} acceptance and rejection checks as scenario C.</p>
 
 <h2>Throughput</h2>

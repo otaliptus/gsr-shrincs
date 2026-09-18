@@ -1,13 +1,13 @@
-2026-09-18T16:21:22.234496Z TestFramework (INFO): PRNG seed is: 1287257261778897137
-2026-09-18T16:21:22.284840Z TestFramework (INFO): Initializing test directory /home/taliwork/.cache/opencode/tmp/bitcoin_func_test_7i1nktef
-2026-09-18T16:21:24.371944Z TestFramework (INFO): Accepted full-unified: 18942 weight, 660 signature bytes
-2026-09-18T16:21:25.008072Z TestFramework (INFO): Accepted full-stateful: 5663 weight, 660 signature bytes
-2026-09-18T16:21:28.032248Z TestFramework (INFO): Accepted full-stateless: 20395 weight, 5777 signature bytes
-2026-09-18T16:21:33.462260Z TestFramework (INFO): Accepted baseline-unified: 229738 weight, 660 signature bytes
-2026-09-18T16:21:34.159203Z TestFramework (INFO): Accepted baseline-stateful: 96539 weight, 660 signature bytes
-2026-09-18T16:21:37.242045Z TestFramework (INFO): Accepted baseline-stateless: 139758 weight, 5777 signature bytes
-2026-09-18T16:21:45.140983Z TestFramework (INFO): Accepted full-unified-sl: 24059 weight, 5777 signature bytes
-2026-09-18T16:21:52.983648Z TestFramework (INFO): Accepted baseline-unified-sl: 234855 weight, 5777 signature bytes
-2026-09-18T16:22:11.893225Z TestFramework (INFO): Stopping nodes
-2026-09-18T16:22:12.044456Z TestFramework (INFO): Cleaning up /home/taliwork/.cache/opencode/tmp/bitcoin_func_test_7i1nktef on exit
-2026-09-18T16:22:12.044484Z TestFramework (INFO): Tests successful
+2026-09-18T18:03:33.978927Z TestFramework (INFO): PRNG seed is: 3381106241372459974
+2026-09-18T18:03:34.029276Z TestFramework (INFO): Initializing test directory /home/taliwork/.cache/opencode/tmp/bitcoin_func_test_l33hi_zj
+2026-09-18T18:03:35.964859Z TestFramework (INFO): Accepted full-unified: 18942 weight, 660 signature bytes
+2026-09-18T18:03:36.585001Z TestFramework (INFO): Accepted full-stateful: 5663 weight, 660 signature bytes
+2026-09-18T18:03:39.541707Z TestFramework (INFO): Accepted full-stateless: 20395 weight, 5777 signature bytes
+2026-09-18T18:03:44.886828Z TestFramework (INFO): Accepted baseline-unified: 229738 weight, 660 signature bytes
+2026-09-18T18:03:45.593809Z TestFramework (INFO): Accepted baseline-stateful: 96539 weight, 660 signature bytes
+2026-09-18T18:03:48.517576Z TestFramework (INFO): Accepted baseline-stateless: 139758 weight, 5777 signature bytes
+2026-09-18T18:03:56.281038Z TestFramework (INFO): Accepted full-unified-sl: 24059 weight, 5777 signature bytes
+2026-09-18T18:04:04.041374Z TestFramework (INFO): Accepted baseline-unified-sl: 234855 weight, 5777 signature bytes
+2026-09-18T18:04:22.662158Z TestFramework (INFO): Stopping nodes
+2026-09-18T18:04:22.813622Z TestFramework (INFO): Cleaning up /home/taliwork/.cache/opencode/tmp/bitcoin_func_test_l33hi_zj on exit
+2026-09-18T18:04:22.813669Z TestFramework (INFO): Tests successful
