@@ -18,6 +18,37 @@ implementation:
 - [Committed evidence repair](reports/EVIDENCE-REPAIR.md)
 - [Follow-up provenance and portable checks](reports/FOLLOWUP-PROVENANCE.md)
 
+A [plain-language summary page](https://otaliptus.github.io/gsr-shrincs/) gives the question,
+the results, and the limits without technical detail.
+
+## Things you can check
+
+Read these files in this order. Each one answers a question.
+
+1. [report.md](report.md): why verifier size matters, and what this experiment adds to the Script and Simplicity discussion.
+2. [reports/RESULTS.md](reports/RESULTS.md): the measured sizes, budgets, and memory for every spend.
+3. [spec/ACCEPTANCE.md](spec/ACCEPTANCE.md): exactly which inputs the verifier accepts, with the reference function for each rule.
+4. [spec/TRANSCRIPT.md](spec/TRANSCRIPT.md): what a transaction signature commits to, and why it is not BIP-341 signing.
+5. [spec/FEATURES.md](spec/FEATURES.md): the three compiler profiles and the fork's resource limits.
+6. [generator/verifier.py](generator/verifier.py): the verifier. [generator/script.py](generator/script.py) is the compiler under it, and [generator/transaction.py](generator/transaction.py) is the spending policy.
+7. [reports/AUDIT.md](reports/AUDIT.md): each milestone and the evidence that closed it.
+8. [reports/REVIEW-FOLLOWUP.md](reports/REVIEW-FOLLOWUP.md): how shared functions reduced the stateful program from 26 kB to 4.5 kB.
+9. The fork-change notes: [spec/OP-MULTI-BENEFIT.md](spec/OP-MULTI-BENEFIT.md), [spec/FUNCTION-DESIGN.md](spec/FUNCTION-DESIGN.md), [reports/PARSING-ANALYSIS.md](reports/PARSING-ANALYSIS.md), [spec/SIMPLICITY-COMPATIBILITY.md](spec/SIMPLICITY-COMPATIBILITY.md), and [spec/FORK-COMPARISON.md](spec/FORK-COMPARISON.md).
+10. [tests/test_verifier.py](tests/test_verifier.py) and [tests/regtest.py](tests/regtest.py): what was tested against the reference and on the regtest node.
+
+To check a claim rather than read about it, run `./scripts/check.sh` after the build. The [GitHub Actions workflow](.github/workflows/verify.yml) does the same from a clean checkout.
+
+## Things you do not need to read
+
+- `generated/`: compiler output. The audit compares these files; people do not read them.
+- `reports/*.json`, `reports/*.json.gz`, and `reports/*.log`: raw evidence and captured logs. The Markdown reports summarize them.
+- `reports/fork-self-check/`: an archived harness self-test. Its README is enough.
+- `reports/EVIDENCE-REPAIR.md`, `reports/baseline-ci.json`, and `reports/follow-up-ci.json`: housekeeping records.
+- [PLAN.md](PLAN.md) and [HANDOFF.md](HANDOFF.md): the plan before implementation and a handoff for a coding agent. Historical.
+- `runner/` and `scripts/`: plumbing between Python and the C++ evaluator.
+- `vendor/`: the two upstream projects, unmodified.
+- `docs/`: the source of the summary page.
+
 ## Fork-change experiments
 
 The measured package is frozen at tag `baseline-2026-09-18`, commit `937e058`.
