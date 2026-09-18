@@ -19,11 +19,10 @@ INV = {v: k for k, v in OPS.items()}
 FIXED = {"INVOKE": 4000, "MUL": 3000, "DIV": 3000, "MOD": 3000, "NUMEQUAL": 3000, "LESSTHAN": 3000,
          "LESSTHANOREQUAL": 3000, "LSHIFT": 3000, "RSHIFT": 3000}
 INPUTS, OUTPUTS = 2.27, 2.64
-LABELS = {"baseline": "A. Restoration only", "bytes": "B. Restoration + byte reversal",
-          "full": "C. Restoration + byte reversal + functions", "catfix": "C′. C with the join fix",
-          "multi": "E. C′ + OP_MULTI everywhere", "multisel": "E′. C′ + OP_MULTI where it is cheaper"}
-SHORT = {"baseline": "A. Rest. only", "bytes": "B. Rest. + byte reversal", "full": "C. + functions",
-         "catfix": "C′. C + join fix", "multi": "E. C′ + OP_MULTI everywhere", "multisel": "E′. C′ + OP_MULTI selective"}
+LABELS = {"baseline": "Restored opcodes (inline)", "bytes": "OP_BYTEREV (inline)",
+          "full": "OP_DEFINE + OP_INVOKE", "catfix": "Functions + optimized CAT joins",
+          "multi": "OP_MULTI — all uses", "multisel": "OP_MULTI — selective hashing"}
+SHORT = LABELS
 ORDER = ("baseline", "bytes", "full", "catfix", "multi", "multisel")
 
 
@@ -77,7 +76,7 @@ def size_rows(tx, mode):
         r = tx[f"{name}-{mode}"]
         rows.append((LABELS[name], r["signature_bytes"], r["program_bytes"], r["control_block_bytes"],
                      r["transaction_bytes"], r["weight"], r["vbytes"], "s1"))
-    rows.append(("D. Native SHRINCS opcode (hypothetical)", sig, 0, 0, *shape([sig]), "dim"))
+    rows.append(("Native SHRINCS opcode (hypothetical)", sig, 0, 0, *shape([sig]), "dim"))
     return rows
 
 
@@ -100,7 +99,7 @@ def size_chart(rows, mode):
 
 
 def size_table(rows):
-    out = ['<table><tr><th>Scenario</th><th class="n">Signature</th><th class="n">Program</th><th class="n">Control block</th>'
+    out = ['<table><tr><th>Implementation</th><th class="n">Signature</th><th class="n">Program</th><th class="n">Control block</th>'
            '<th class="n">Whole tx, bytes</th><th class="n">Weight</th><th class="n">vbytes</th><th class="n">Fee at 1 sat/vB</th><th class="n">Fee at 10 sat/vB</th></tr>']
     for label, sg, pg, cb, b, w, vb, _ in rows:
         out.append(f'<tr><td>{label}</td><td class="n">{f(sg)}</td><td class="n">{f(pg) if pg else "none"}</td><td class="n">{f(cb) if cb else "none"}</td>'
@@ -109,7 +108,7 @@ def size_table(rows):
 
 
 def cost_table(tx, mode):
-    out = ['<table><tr><th>Scenario</th><th class="n">Charged units</th><th class="n">Allowance</th><th class="n">Share used</th>'
+    out = ['<table><tr><th>Implementation</th><th class="n">Charged units</th><th class="n">Allowance</th><th class="n">Share used</th>'
            '<th class="n">Interpreter time</th><th class="n">Opcodes executed</th><th class="n">SHA256 calls</th><th class="n">Function calls</th>'
            '<th class="n">Peak memory</th><th class="n">Largest item</th></tr>']
     for name in ORDER:
@@ -124,7 +123,7 @@ def cost_table(tx, mode):
 
 def standalone_table(st, mode):
     base = st[f"full-{mode}"]["varops_consumed"]
-    out = ['<table><tr><th>Program</th><th class="n">Program bytes</th><th class="n">Charged units</th><th class="n">Change from C</th>'
+    out = ['<table><tr><th>Program</th><th class="n">Program bytes</th><th class="n">Charged units</th><th class="n">Change from shared functions</th>'
            '<th class="n">Fixed charge</th><th class="n">SHA256 calls</th><th class="n">OP_MULTI uses</th></tr>']
     for name in ORDER:
         r = st[f"{name}-{mode}"]
@@ -137,7 +136,7 @@ def standalone_table(st, mode):
 
 
 def tps_table(tx):
-    out = ['<table><tr><th>Scenario</th><th class="n">Witness bytes per input</th><th class="n">Tx per second</th><th class="n">Tx per block</th></tr>',
+    out = ['<table><tr><th>Implementation</th><th class="n">Witness bytes per input</th><th class="n">Tx per second</th><th class="n">Tx per block</th></tr>',
            f'<tr><td>Today: P2TR key spend</td><td class="n">64</td><td class="n">{tps([64]):.2f}</td><td class="n">{f(round(tps([64]) * 600))}</td></tr>']
     for mode in ("stateful", "stateless"):
         for name in ORDER:
@@ -147,7 +146,7 @@ def tps_table(tx):
             out.append(f'<tr><td>{LABELS[name]}, {mode}</td><td class="n">{f(sum(items))}</td><td class="n">{t:.2f}</td><td class="n">{f(round(t * 600))}</td></tr>')
         sig = tx[f"full-{mode}"]["signature_bytes"]
         t = tps([sig])
-        out.append(f'<tr><td>D. Native SHRINCS opcode (hypothetical), {mode}</td><td class="n">{f(sig)}</td><td class="n">{t:.2f}</td><td class="n">{f(round(t * 600))}</td></tr>')
+        out.append(f'<tr><td>Native SHRINCS opcode (hypothetical), {mode}</td><td class="n">{f(sig)}</td><td class="n">{t:.2f}</td><td class="n">{f(round(t * 600))}</td></tr>')
     return "\n".join(out) + "</table>"
 
 
@@ -215,8 +214,8 @@ def main():
 
 {parts["summary"]}
 
-{parts["scenarios"].replace("<tr><td>E. Scenario C + OP_MULTI</td>", "<tr><td>C′. C with the join fix</td><td>Scenario C compiled without a wasted empty push at the start of every join. No new opcode.</td><td>A compiler fix found while building scenario E. Not yet in the audited compiler.</td></tr>\n  <tr><td>E. C′ + OP_MULTI</td>").replace("Used here for hashing a list of parts in one step, joining three or more parts, and dropping several items at once.", "E uses it everywhere it applies. E′ uses it only for hashing, and only where the cost table makes it cheaper.")}
-<p>Scenarios A, B, C, C′, E, and E′ were measured with the same checker compiled six ways. A and C were also mined on the test network. Scenario D is computed from the signature size alone. "Stateful" and "stateless" are the two SHRINCS signature types: the small one a wallet normally uses, and the large fallback for when signing state is lost.</p>
+{parts["scenarios"]}
+<p>The same checker was compiled six ways. The restored-opcode and shared-function variants were also mined on the test network. The native SHRINCS estimate uses the signature size alone. "Stateful" and "stateless" are the two SHRINCS signature types: the small one a wallet normally uses, and the large fallback for when signing state is lost.</p>
 
 <h2>Transaction size and fee</h2>
 <p>One input, two outputs, one signature. Fees are paid per vbyte, and witness bytes count for a quarter, so the whole-transaction byte count and the vbyte count differ. The fee columns assume the shown rates and nothing else.</p>
@@ -233,7 +232,7 @@ def main():
 <ul class="legend"><li style="--sw: var(--s1)">Measured</li><li style="--sw: var(--dim)">Reference or hypothetical</li></ul>
 <details><summary>Show as table</summary><div class="wide">{size_table(size_sl)}</div></details></figure>
 
-<p>Reading the two charts: under scenario A the checker program is {f(tx["baseline-stateful"]["program_bytes"])} bytes and the spend costs {f(tx["baseline-stateful"]["vbytes"])} vbytes, about {round(tx["baseline-stateful"]["vbytes"] / 130)} ordinary payments. Byte reversal alone cuts the program almost in half. Functions cut it by a further factor of twelve, to {f(sf["vbytes"])} vbytes, about {round(sf["vbytes"] / 130)} ordinary payments. The join fix takes {f(sf["vbytes"] - tx["catfix-stateful"]["vbytes"])} vbytes more off. A native opcode would bring it to {f(d_sf)} vbytes, about twice an ordinary payment. For the stateless type the signature itself is {f(sl["signature_bytes"])} bytes, so even a native opcode leaves the spend at {f(d_sl)} vbytes.</p>
+<p>Reading the two charts: with restored opcodes alone, the checker program is {f(tx["baseline-stateful"]["program_bytes"])} bytes and the spend costs {f(tx["baseline-stateful"]["vbytes"])} vbytes, about {round(tx["baseline-stateful"]["vbytes"] / 130)} ordinary payments. Byte reversal alone cuts the program almost in half. Functions cut it by a further factor of twelve, to {f(sf["vbytes"])} vbytes, about {round(sf["vbytes"] / 130)} ordinary payments. The join fix takes {f(sf["vbytes"] - tx["catfix-stateful"]["vbytes"])} vbytes more off. A native opcode would bring it to {f(d_sf)} vbytes, about twice an ordinary payment. For the stateless type the signature itself is {f(sl["signature_bytes"])} bytes, so even a native opcode leaves the spend at {f(d_sl)} vbytes.</p>
 
 <h2>Execution cost</h2>
 <p>The fork gives every transaction an execution allowance of 10,000 units per weight unit and charges each opcode a fixed price plus data-dependent extras. A spend that exceeds its allowance is invalid. Interpreter time is the median of {report["repeats"]} runs on one machine with counters off; it is indicative, not a benchmark.</p>
@@ -242,10 +241,10 @@ def main():
 <div class="wide">{cost_table(tx, "stateful")}</div>
 <h3>Stateless</h3>
 <div class="wide">{cost_table(tx, "stateless")}</div>
-<p>Three things stand out. The charged work barely changes across A, B, and C: functions and byte reversal compress the program, not the computation. The share of the allowance rises from {tx["baseline-stateful"]["budget_fraction"]:.1%} to {sf["budget_fraction"]:.1%} for the stateful spend not because C does more work but because a smaller transaction gets a smaller allowance. And the stateless spend under C uses {sl["budget_fraction"]:.0%} of its allowance, which leaves little room for anything else in the same transaction.</p>
+<p>Three things stand out. Restored opcodes, OP_BYTEREV, and shared functions have similar charged costs. Byte reversal and functions mainly reduce program size. The share of the allowance rises from {tx["baseline-stateful"]["budget_fraction"]:.1%} to {sf["budget_fraction"]:.1%} for the stateful spend because a smaller transaction gets a smaller allowance. And the stateless spend with shared functions uses {sl["budget_fraction"]:.0%} of its allowance, which leaves little room for anything else in the same transaction.</p>
 
 <figure>
-  <figcaption>Where the charged units go, stateful spend, scenario C, as mined.</figcaption>
+  <figcaption>Where the charged units go: mined stateful spend with OP_DEFINE + OP_INVOKE.</figcaption>
   <div class="plot"><svg viewBox="0 0 640 60" role="img" aria-label="Fixed per-instruction charge {fixed_pct:.0f} percent, data-dependent charges {data_pct:.0f} percent, function body copying {body_pct:.1f} percent">
     <g><title>Fixed charge per instruction: {fixed_pct:.1f}%</title><rect x="0" y="14" width="{w1}" height="24" rx="4" fill="var(--s1)"/><text class="in" x="12" y="31">{fixed_pct:.0f}% fixed charge per instruction</text></g>
     <g><title>Data-dependent charges: {data_pct:.1f}%</title><rect x="{w1 + 2}" y="14" width="{w2}" height="24" fill="var(--s2)"/></g>
@@ -253,11 +252,11 @@ def main():
   </svg></div>
   <ul class="legend"><li style="--sw: var(--s1)">Fixed charge per instruction, {fixed_pct:.0f}%</li><li style="--sw: var(--s2)">Data-dependent: hashing, copying, arithmetic, {data_pct:.0f}%</li><li style="--sw: var(--s3)">Function body copying, {body_pct:.1f}%</li></ul>
 </figure>
-<p>Nine tenths of the charge is the fixed price of instructions, most of them stack shuffling: PICK, CAT, DROP, small pushes, IF and ENDIF. The SHA256 hashing is under a tenth. The cost model prices this checker as bookkeeping, not cryptography. Programs with a lot of skipped code, as in scenario A, also run slower per charged unit than the model predicts, because parsing skipped code is not charged. Both points bear on any recalibration of the fork's prices.</p>
+<p>Nine tenths of the charge is the fixed price of instructions, most of them stack shuffling: PICK, CAT, DROP, small pushes, IF and ENDIF. The SHA256 hashing is under a tenth. The cost model prices this checker as bookkeeping, not cryptography. Programs with much skipped code, such as the restored-opcode verifier, also run slower per charged unit than the model predicts, because parsing skipped code is not charged. Both points bear on any recalibration of the fork's prices.</p>
 
 <h2>What OP_MULTI changes</h2>
 <p>OP_MULTI applies one operation to a run-time number of stack items: push the items, push the count, then <code>OP_MULTI OP_SHA256</code> hashes them all as one message. The checker builds every hash input by joining parts, so this is where the opcode would help if it helped anywhere.</p>
-<p>Building the scenario exposed something else. The audited compiler starts every join from an empty push, which costs two extra opcodes per join. Fixing that needs no new opcode, and it is scenario C′. Scenario E then adds OP_MULTI everywhere it applies. Scenario E′ adds it only for hashing, and only where the cost table says it is cheaper.</p>
+<p>The OP_MULTI comparison exposed a compiler issue. The audited compiler starts every join from an empty push, which costs two extra opcodes per join. The optimized CAT joins remove these instructions without a new opcode. The all-uses variant then adds OP_MULTI wherever supported. The selective-hashing variant uses OP_MULTI only where hashing costs less.</p>
 <p>These tables use one public test signature per signature type and run every program on it, so the signature bytes are identical across rows and only the program differs. That is the fair comparison; the transaction tables above cannot give it, because each program there signs a different message.</p>
 <h3>Matched input, stateful</h3>
 <div class="wide">{standalone_table(st, "stateful")}</div>
@@ -265,25 +264,25 @@ def main():
 <div class="wide">{standalone_table(st, "stateless")}</div>
 <p>The join fix removes {(ff["program_bytes"] - cf["program_bytes"]) / ff["program_bytes"]:.1%} of the stateful program bytes and {(ff["varops_consumed"] - cf["varops_consumed"]) / ff["varops_consumed"]:.1%} of its charged cost; {(fl["program_bytes"] - cl["program_bytes"]) / fl["program_bytes"]:.1%} and {(fl["varops_consumed"] - cl["varops_consumed"]) / fl["varops_consumed"]:.1%} for the stateless type. OP_MULTI everywhere then removes a further {(cf["program_bytes"] - mf["program_bytes"]) / cf["program_bytes"]:.1%} of bytes but adds {(mf["varops_consumed"] - cf["varops_consumed"]) / cf["varops_consumed"]:.1%} to the charged cost, {(ml["varops_consumed"] - cl["varops_consumed"]) / cl["varops_consumed"]:.1%} for the stateless type. OP_MULTI where it is cheaper changes the charged cost by {f(ef["varops_consumed"] - cf["varops_consumed"])} and {f(el["varops_consumed"] - cl["varops_consumed"])} units, from {sum(ef["multi_uses"].values())} and {sum(el["multi_uses"].values())} uses.</p>
 <p>The reason is in the cost table. The OP_MULTI byte itself is free, but its count is an ordinary push and pays the fixed 1,250, and the opcode then charges the target's fixed price once per logical operation. Against that, a chain of CATs pays 3 units per byte of every intermediate result. So hashing with OP_MULTI wins once the intermediate bytes of a join exceed about 422, after the count's own push and decoding: three 200-byte parts already cross that line, at 40,630 units against 42,364 on the pinned evaluator. The 16-byte hashes that dominate this checker do not come close, and the few large joins it has, {sum(el["multi_uses"].values())} in the stateless program, are too few to matter. OP_MULTI applied to joins that are not hashed, or to cleanups, always pays the count push for nothing under this table.</p>
-<p>So the result is specific: a hash-based signature verifier, whose joins are short, does not gain from OP_MULTI. A program that hashes long lists of large items would. All extended programs pass the same {f(report["agreement_cases"])} acceptance and rejection checks as scenario C.</p>
+<p>So the result is specific: a hash-based signature verifier, whose joins are short, does not gain from OP_MULTI. A program that hashes long lists of large items would. All extended programs pass the same {f(report["agreement_cases"])} acceptance and rejection checks as the shared-function verifier.</p>
 
 <h2>Throughput</h2>
 <p>If every transaction on the network used one scenario, how many would fit per second? Same method and assumptions as <a href="https://x.com/n1ckler/status/2039338319603999036">Jonas Nick's chart</a>: 4,000,000 weight units per block, one block per 600 seconds, an average transaction with 2.27 inputs and 2.64 outputs. The P2TR row reproduces his figure. These are capacity estimates from size, not measured network throughput.</p>
-<figure><figcaption>His plot, redrawn with scenarios A, C, and D added. The other scenarios are in the table; they sit within a few percent of their neighbours.</figcaption>
+<figure><figcaption>His plot, with restored opcodes, shared functions, and the native SHRINCS estimate added. The other scenarios are in the table; they sit within a few percent of their neighbours.</figcaption>
 <a href="tps.png"><img src="tps.png" alt="Scatter plot of transactions per second against witness bytes per input, with reference schemes and this experiment's scenarios" style="width:100%;height:auto;display:block;border-radius:4px"></a>
 <details><summary>Show as table</summary><div class="wide">{tps_table(tx)}</div></details></figure>
-<p>His SHRINCS point sits at 4.13 because it uses a 324-byte signature from a different parameter set. Ours is {f(sf["signature_bytes"])} bytes from the pinned specification. The gap between scenario C and scenario D, about five times, is the cost of checking in Script instead of in the node. The gap between A and C, about seventeen times, is what the fork's two extra opcode groups buy.</p>
+<p>His SHRINCS point sits at 4.13 because it uses a 324-byte signature from a different parameter set. Ours is {f(sf["signature_bytes"])} bytes from the pinned specification. The gap between shared functions and a native SHRINCS opcode, about five times, is the cost of checking in Script instead of in the node. The gap between restored opcodes alone and shared functions, about seventeen times, is what the fork's two extra opcode groups buy.</p>
 
 <h2>Feasibility</h2>
-<div class="prose"><table>
-  <tr><th>Question</th><th>A. Restoration only</th><th>B. + byte reversal</th><th>C. + functions</th><th>E. + OP_MULTI</th><th>D. Native opcode</th></tr>
+<div class="prose feasibility"><table>
+  <tr><th>Question</th><th>Restored opcodes (inline)</th><th>OP_BYTEREV (inline)</th><th>OP_DEFINE + OP_INVOKE</th><th>OP_MULTI — all uses</th><th>Native SHRINCS opcode</th></tr>
   <tr><td>Fits the fork's consensus limits? (4 MB per item, 8 MB stack, 4 MB of executed function bodies, execution allowance)</td><td>Yes, all types</td><td>Yes, all types</td><td>Yes, all types</td><td>Yes, all types</td><td>Not applicable</td></tr>
   <tr><td>Standard under the fork's relay policy? (400,000 weight units; leaf 0xc2 has no witness-item size limit)</td><td>Yes, mined on regtest</td><td>Yes by the same limits, not spent on a node</td><td>Yes, mined on regtest</td><td>Yes by the same limits, not spent on a node</td><td>Not applicable</td></tr>
   <tr><td>Standard under Bitcoin Core's policy today?</td><td colspan="4">No. Core limits tapscript witness items to 80 bytes. Every signature here is larger. The fork exempts its new leaf version from that rule.</td><td>Would need its own rule</td></tr>
   <tr><td>Share of execution allowance, stateful / stateless</td><td>{tx["baseline-stateful"]["budget_fraction"]:.0%} / {tx["baseline-stateless"]["budget_fraction"]:.0%}</td><td>{tx["bytes-stateful"]["budget_fraction"]:.0%} / {tx["bytes-stateless"]["budget_fraction"]:.0%}</td><td>{sf["budget_fraction"]:.0%} / {sl["budget_fraction"]:.0%}</td><td>{tx["multi-stateful"]["budget_fraction"]:.0%} / {tx["multi-stateless"]["budget_fraction"]:.0%}</td><td>None</td></tr>
   <tr><td>Fee at 10 sat/vB, stateful / stateless</td><td>{f(tx["baseline-stateful"]["vbytes"] * 10)} / {f(tx["baseline-stateless"]["vbytes"] * 10)} sat</td><td>{f(tx["bytes-stateful"]["vbytes"] * 10)} / {f(tx["bytes-stateless"]["vbytes"] * 10)} sat</td><td>{f(sf["vbytes"] * 10)} / {f(sl["vbytes"] * 10)} sat</td><td>{f(tx["multi-stateful"]["vbytes"] * 10)} / {f(tx["multi-stateless"]["vbytes"] * 10)} sat</td><td>{f(d_sf * 10)} / {f(d_sl * 10)} sat</td></tr>
   <tr><td>Specification status</td><td>Draft BIPs</td><td>2024 draft text</td><td>None. Code only.</td><td>2024 draft text; inclusion questioned in review</td><td>None</td></tr>
-  <tr><td>Open problems</td><td>Program size. Cost model undercharges skipped code.</td><td>As A, halved</td><td>Function bodies can come from the witness. A reserved opcode inside a body makes the spend succeed. No call frames. See the <a href="https://github.com/otaliptus/gsr-shrincs/blob/main/spec/FUNCTION-DESIGN.md">design note</a>.</td><td>As C. Raises charged cost here; saves under 2% of bytes.</td><td>Consensus change per scheme</td></tr>
+  <tr><td>Open problems</td><td>Program size. Cost model undercharges skipped code.</td><td>Skipped code remains uncharged. Program size is reduced.</td><td>Function bodies can come from the witness. A reserved opcode inside a body makes the spend succeed. No call frames. See the <a href="https://github.com/otaliptus/gsr-shrincs/blob/main/spec/FUNCTION-DESIGN.md">design note</a>.</td><td>Same function-safety issues. Raises charged cost here; saves under 2% of bytes.</td><td>Consensus change per scheme</td></tr>
 </table></div>
 <p>Three things apply to every scenario. The output is ordinary Taproot, so its key path remains vulnerable to a quantum computer; a SHRINCS leaf alone does not protect the coins. There is no wallet, no signer state management, and no security proof; the scheme's own specification lists its proof as unfinished. And the numbers come from one experimental fork whose cost table is being recalibrated, so the execution costs will move; the sizes will not.</p>
 
@@ -292,7 +291,7 @@ def main():
 
 <details>
   <summary>The numbers behind the charts</summary>
-  <p>One row per program in the mined transactions, from {stamp}. "Shared" is scenario C, "inline" is scenario A. Executed opcodes and calls are for one spend. The fixed charge is the sum of each executed opcode's fixed price.</p>
+  <p>One row per program in the mined transactions, from {stamp}. "Shared" uses OP_BYTEREV, OP_DEFINE, and OP_INVOKE. "Inline" uses restored opcodes without these additions. Executed opcodes and calls are for one spend. The fixed charge is the sum of each executed opcode's fixed price.</p>
   {mined}
   <p>Every opcode executed by the mined stateful spend, with and without shared functions, sorted by how often it runs. The last two columns multiply the count by the opcode's fixed price.</p>
   <details><summary>Show all {n_opcodes} opcodes</summary><div class="wide">{opcodes}</div></details>
