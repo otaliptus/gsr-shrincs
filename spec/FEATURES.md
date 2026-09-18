@@ -1,45 +1,83 @@
 # Execution profiles and compiler design
 
-Authoritative execution target: jmoik/bitcoin at
-`d2799052604eb138c5a79acf88514a0c8b07f4ef`. Scheme: SHRINCS/shrincs-bip at
-`4cd63a6497a0ba7c5e99699b94d33973546d9e37`.
+The execution target is `jmoik/bitcoin` at this revision:
 
-1. **baseline**: the BIP 440/441 restoration surface as represented by the pinned
-   fork. Uses CAT, SUBSTR, LEFT, unsigned arithmetic/shifts, hashes, conditionals,
-   and ordinary stack operations. Byte reversal is expanded into exact slices;
-   all bounded computation is inlined. No function opcodes or OP_TX.
-2. **full**: baseline plus BYTEREV and DEFINE/INVOKE. Hash-chain, WOTS, FORS,
-   stateful/stateless recovery, and Merkle-pair bodies are shared nonrecursive
-   functions. No MULTI, TWEAKADD, or CHECKSIGFROMSTACK is needed.
-3. **transaction**: either verifier placement plus authenticated OP_TX. This is
-   always an additional fork extension; a baseline verifier inside this wrapper
-   does not make the complete spending policy BIP-441-only.
+```text
+d2799052604eb138c5a79acf88514a0c8b07f4ef
+```
 
-Pinned limits from `src/script/script.h`, `interpreter.cpp`, and `varops.h`:
-32,768 combined stack entries including function definitions; 4,000,000 bytes
-per item; 8,000,000 total stack/altstack/function-body bytes; 4,000,000 cumulative
-invoked function-body bytes per evaluation. Transaction-wide varops allowance is
-10,000 times weight. Active recursion and function-local code separators reject.
-Consensus ceilings, mempool standardness, and everyday-payment practicality are
-separate. No padding is added to purchase execution budget.
+The signature reference is `SHRINCS/shrincs-bip` at this revision:
 
-The handoff proposed a Rust generator; this implementation deliberately uses a
-small Python generator instead. That removes a second build/tool dependency and
-lets one deterministic stack-checked compiler cover all fixed scheme components.
-There is no Python consensus VM. Only the pinned C++ execution result establishes
-Script behavior. The reference module remains an independent upstream oracle.
+```text
+4cd63a6497a0ba7c5e99699b94d33973546d9e37
+```
 
-Expressions leave one stack item. Named values track stack depth; missing values
-and different branch stack shapes fail generation. Function inputs and outputs
-have explicit contracts; each consumes its own arguments/locals and returns one
-item. Input/hash widths are checked or derived from validated slices. All loops
-are bounded at generation time. Reference addresses are copied before mutable
-upstream calls. Original signature storage and scratch copying are included in
-measured peak memory.
+## Profiles
 
-The separate profiling build applies the reviewable `scripts/profile_build.py`
-observation overlay to a disposable copy under build/. The original vendor tree
-and the node used for regtest remain unchanged. Observation counters do not alter
-branches, budgets, limits, or comparison results. Instrumented/uninstrumented
-acceptance and varops must agree. Offline transaction measurements use recorded
-UTXOs; they are not an independent source of authenticated chain data.
+The `baseline` profile uses the BIP 440/441 restoration operations present in the pinned fork.
+These include CAT, SUBSTR, LEFT, unsigned arithmetic, shifts, hashes, conditionals,
+and ordinary stack operations.
+Exact slices implement byte reversal.
+The compiler expands all bounded computation inline.
+This standalone profile uses no function opcodes or `OP_TX`.
+
+The `bytes` profile adds BYTEREV to the baseline operations.
+It retains inline execution for comparison with shared functions.
+
+The `full` profile also adds DEFINE and INVOKE.
+It shares functions for hash chains, WOTS, FORS, root recovery, and Merkle pairs.
+The functions do not use recursion.
+No profile needs MULTI, TWEAKADD, or CHECKSIGFROMSTACK.
+
+A transaction policy adds authenticated `OP_TX` access to the selected verifier.
+This is an additional fork extension in every case.
+A baseline verifier within this policy does not make the complete policy BIP-441-only.
+
+## Resource limits
+
+The following limits come from `src/script/script.h`, `interpreter.cpp`, and `varops.h`
+in the pinned fork.
+
+| Resource | Limit |
+|---|---:|
+| Combined stack entries, including function definitions | 32,768 |
+| Bytes per item | 4,000,000 |
+| Total stack, altstack, and function-body bytes | 8,000,000 |
+| Cumulative invoked function-body bytes per evaluation | 4,000,000 |
+| Transaction-wide varops allowance | 10,000 × transaction weight |
+
+The VM rejects active recursion and function-local code separators.
+The experiments add no padding to obtain a larger budget.
+Consensus limits, relay policy, and payment costs are separate constraints.
+Meeting a consensus limit does not establish practical payment costs.
+
+## Compiler
+
+The handoff proposed Rust for the generator.
+This implementation uses Python to avoid another build dependency.
+One deterministic compiler covers all fixed components of the scheme.
+Python does not implement the consensus VM.
+Only execution in the pinned C++ fork establishes Script behavior.
+
+The reference module remains an independent upstream implementation.
+The generator copies address objects before upstream calls that can change them.
+
+Each expression leaves one stack item.
+Named values track stack depth.
+Generation fails if a value is missing or branches have different stack shapes.
+Function contracts specify their inputs and outputs.
+Each function consumes its arguments and local values and returns one item.
+
+The compiler checks input and hash widths or derives them from validated slices.
+All generated repetition has a fixed bound.
+Measured peak memory includes the original signature and temporary copies.
+
+## Measurements
+
+`scripts/profile_build.py` applies measurement changes to a separate source copy under `build/`.
+The original upstream source and regtest node remain unchanged.
+Measurement counters do not change branches, budgets, limits, or comparison results.
+Instrumented and uninstrumented execution must agree on acceptance and varops.
+
+Offline transaction measurements use recorded UTXOs.
+These records are not an independent source of authenticated chain data.

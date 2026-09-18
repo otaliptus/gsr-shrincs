@@ -18081,13 +18081,13 @@
     }
   ],
   "caveats": [
-    "Timing excludes process startup/JSON parsing from interpreter_ns.",
-    "Unobserved timings use the same overlay binary with counters disabled; remaining conditional overhead is not subtracted.",
-    "CLI overhead includes launch, initialization, JSON IO and teardown; it is not pure process startup.",
-    "Function-body costs are inclusive of nested calls and must not be summed.",
-    "Executed-function-body bytes is the maximum per input evaluation, matching the per-evaluation limit; invocation counts and varops sum across inputs.",
-    "Peak memory is logical VM bytes, not allocator capacity or process RSS.",
-    "Rejected-input peaks include completed opcode states; transient values before failing operations can be larger."
+    "Interpreter timing excludes process startup and JSON parsing.",
+    "Timing with counters disabled uses the profiling executable. Conditional measurement hooks remain active. Their overhead is not subtracted.",
+    "CLI overhead includes launch, initialization, JSON input and output, and teardown. It does not measure process startup alone.",
+    "Each function cost includes its nested calls. Adding these costs would count some work more than once.",
+    "Executed function-body bytes give the maximum for one input evaluation. The limit applies per evaluation. Invocation counts and varops sum across inputs.",
+    "Peak memory measures logical VM bytes. It excludes allocator capacity and process resident memory.",
+    "Peaks for rejected inputs include completed opcode states. Temporary values before a failing operation can be larger."
   ],
   "empty_program_cli_baseline": {
     "observed_interpreter_ns": {

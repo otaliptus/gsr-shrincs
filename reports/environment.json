@@ -49,13 +49,13 @@
     "scripts/component_costs.py": "98ad642e64efaf67c93077e3763b6308012f53a469be6810851dbb5b2c8fde1c",
     "scripts/export.py": "739558129b689b5d250822d1f001e9bf1fbb203f21c75abb263dc2df31e8542a",
     "scripts/fixtures.py": "45c385e5104b11ba0c558f6196c3c720d097f8e2a810ff801ddc29c85ef023c6",
-    "scripts/measure.py": "8f050f2f788573306e8fe08a708f73f3614e70e3ae807083f271a4a090e7d45e",
+    "scripts/measure.py": "3990505861e1c82b5e1147a08f20835f4d6c541062ea88cdb7c32125ea589e13",
     "scripts/profile_build.py": "2f44c5110db70a5fcf93a1f9b5b0a01e4511f0456096cad6f74b5927583bc23e",
     "scripts/record_tests.py": "6f9f77d85268209ad5138910b3bdb84999a0a2243491a5d4166cdf16314aba40",
     "scripts/run_tests.py": "abc081b1adb2a990ad813bdc4230d6b1d5b11559940131515b1196a767d82809",
-    "spec/ACCEPTANCE.md": "b5965487a3c99275c0a81324d43ec5304ef6b91e315b7b9c4a25acf5cb0cab10",
-    "spec/FEATURES.md": "452a0294ce20cd057914f1d66345c7d2e903e29352a1b81c5fe379a9d08e76da",
-    "spec/TRANSCRIPT.md": "c667a1e50c601c3ee874a1edfe7fc9e00944d0d08f9b9020a62d9cdf7176bac4"
+    "spec/ACCEPTANCE.md": "9aa0a6c90012e5424dfa36fa68479898d92936fe03a653a079edb50501a71e2c",
+    "spec/FEATURES.md": "0fdc6c75c6b01737c915e745480e51329fbcee2b48a63db286777ffd68861f7d",
+    "spec/TRANSCRIPT.md": "74db33fe5b832bdb107562205fecbc082aca8fa85376295ec6c961f967932270"
   },
   "fixtures_sha256": "b4e9e0bb3890e26ad964a36853c606b6771494866e00c17b2846d300a3af4457",
   "binaries": {

@@ -1,11 +1,13 @@
 # GSR SHRINCS verifier — cross-machine handoff
 
-> **Implementation update — 18 September 2026:** M0–M7 now have implementation
-> and execution evidence. Start with [README.md](README.md),
-> [reports/RESULTS.md](reports/RESULTS.md), and the requirement-by-requirement
-> [reports/AUDIT.md](reports/AUDIT.md). Both upstream submodules remain at the
-> original pins. This file preserves the original pre-implementation snapshot
-> and acceptance contract below; its “not done” list describes that earlier state.
+> **Implementation update — 18 September 2026:** Milestones M0–M7 are complete.
+> [README.md](README.md) gives the build procedure.
+> [reports/RESULTS.md](reports/RESULTS.md) gives the measurements.
+> [reports/AUDIT.md](reports/AUDIT.md) maps each milestone to its evidence.
+> Both upstream submodules remain at their original revisions.
+> The text below records the project before implementation.
+> Its incomplete-work lists describe that earlier state.
+> [report.md](report.md) contains the current Simplicity discussion.
 
 Snapshot: 18 September 2026. Read this file before continuing. This records project context and engineering decisions; it is not a statement that the milestones have been completed.
 

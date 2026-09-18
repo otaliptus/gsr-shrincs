@@ -1,64 +1,128 @@
 # SHRINCS verification in GSR Bitcoin Script
 
-A reproducible laboratory implementation of **both complete SHRINCS verification
-modes** in the pinned experimental GSR fork. It includes generated Script, a
-reference fixture corpus, exact-byte tests, execution measurements, and actual
-transaction-bound regtest spends.
+This repository implements both complete SHRINCS verification modes in an
+experimental GSR fork. It is a reproducible laboratory experiment.
+The package includes generated Script, reference test inputs, execution
+measurements, and actual spends on a local regtest chain.
 
-Start with [measured results](reports/RESULTS.md), [accepted inputs](spec/ACCEPTANCE.md),
-[transaction transcript](spec/TRANSCRIPT.md), and the [milestone audit](reports/AUDIT.md).
-The [review follow-up](reports/REVIEW-FOLLOWUP.md) records the tooling repairs and
-stateful size optimization. The original research plan is [PLAN.md](PLAN.md); [HANDOFF.md](HANDOFF.md) preserves
-its requirements and the original pre-implementation snapshot.
+The [main report](report.md) explains Simplicity, jets, program size, and the
+possible contribution of this experiment. The following documents describe the
+implementation:
 
-## Reproduce
+- [Measured results](reports/RESULTS.md)
+- [Accepted inputs](spec/ACCEPTANCE.md)
+- [Transaction transcript](spec/TRANSCRIPT.md)
+- [Execution profiles](spec/FEATURES.md)
+- [Milestone audit](reports/AUDIT.md)
+- [Review changes](reports/REVIEW-FOLLOWUP.md)
 
-Requires Python 3.11+, a C++20 compiler supported by the pinned fork, CMake 3.22+,
-Ninja, Boost headers (at least 1.74), Git, and localhost networking for regtest.
-See the fork's [Linux build instructions](vendor/bitcoin/doc/build-unix.md) for
-platform dependencies. This run used Python 3.13.5, GCC 14.2 and Boost 1.83; see
-[environment.json](reports/environment.json) for exact flags and hashes.
+[PLAN.md](PLAN.md) and [HANDOFF.md](HANDOFF.md) preserve the original requirements
+and project state. [WRITING.md](WRITING.md) gives the current writing instructions.
 
-```sh
-git clone --recurse-submodules https://github.com/otaliptus/gsr-shrincs.git
-cd gsr-shrincs
-./scripts/build.sh
-python3 scripts/profile_build.py
-# Optional: regenerate the committed PUBLIC TEST fixtures.
-python3 scripts/fixtures.py
-./scripts/check.sh
-```
+## Build and test
 
-`build.sh` defaults to four build jobs; set `GSR_BUILD_JOBS` to change it. If Boost
-is unavailable system-wide on Debian, it can be downloaded and unpacked under
-`build/deps/` with `apt-get download libboost1.83-dev` and `dpkg-deb -x`; both build
-scripts detect `build/deps/usr`. No machine-specific build cache is committed.
-The scripts create local regtest nodes only, activate the experimental deployment,
-and stop them after testing. No real-network coins or production secrets are used.
+The build requires the following tools:
 
-To run just the verifier tests after the normal build:
+- Python 3.11 or later
+- A C++20 compiler that the pinned fork supports
+- CMake 3.22 or later
+- Ninja
+- Boost headers, version 1.74 or later
+- Git
+- Localhost networking for regtest
+
+The fork's [Linux build instructions](vendor/bitcoin/doc/build-unix.md) list the
+platform dependencies. The recorded run used Python 3.13.5, GCC 14.2, and Boost
+1.83. [environment.json](reports/environment.json) records the compiler flags and
+source hashes.
+
+1. Clone the repository and its submodules.
+
+   ```sh
+   git clone --recurse-submodules https://github.com/otaliptus/gsr-shrincs.git
+   ```
+
+2. Open the project directory.
+
+   ```sh
+   cd gsr-shrincs
+   ```
+
+3. Build the unmodified fork.
+
+   ```sh
+   ./scripts/build.sh
+   ```
+
+4. Build the separate executable for measurements.
+
+   ```sh
+   python3 scripts/profile_build.py
+   ```
+
+5. If new copies of the public test inputs are necessary, regenerate them.
+
+   ```sh
+   python3 scripts/fixtures.py
+   ```
+
+6. Run the complete check procedure.
+
+   ```sh
+   ./scripts/check.sh
+   ```
+
+`build.sh` uses four build jobs by default. The `GSR_BUILD_JOBS` environment
+variable changes this number. Both build scripts also detect Boost headers under
+`build/deps/usr`.
+
+If Debian has no suitable system installation of Boost, prepare a local copy:
+
+1. Download `libboost1.83-dev` with `apt-get download`.
+2. Extract the package into `build/deps/` with `dpkg-deb -x`.
+
+The scripts start local regtest nodes, activate the experimental deployment, and
+stop the nodes after the tests. They use public test keys and no public-network
+funds. The repository contains no machine-specific build cache.
+
+To run only the verifier tests after the normal build, use this command:
 
 ```sh
 python3 -m unittest discover -s tests -v
 ```
 
-To regenerate bytecode and inspect it:
+To regenerate the programs and reports, do these steps:
 
-```sh
-python3 scripts/export.py
-python3 scripts/measure.py  # requires profiling build and recorded regtest transactions
-python3 scripts/audit.py
-```
+1. Generate the bytecode and its readable forms.
 
-The final audit checks source/binary hashes, clean source pins, fresh generated
-programs, fixture verification, current transaction policy bytecode, actual weight
-allowances, all recorded positive/negative transaction results, and structured test outcomes. Native, profiled and optimized-Python runs must
-cover the complete discovered suite. Disassemblies and source maps are regenerated
-and compared as well as binaries. Profiling cache contents and the built executable
-are bound by verified source/build manifests. A GitHub Actions workflow performs
-a clean build and runs the same pipeline.
-Timings, test durations, local block hashes and funding transactions can vary by
-machine/run. Bytecode and public fixtures are deterministic.
+   ```sh
+   python3 scripts/export.py
+   ```
+
+2. With the profiling build and recorded regtest transactions available, measure execution.
+
+   ```sh
+   python3 scripts/measure.py
+   ```
+
+3. Check the generated evidence.
+
+   ```sh
+   python3 scripts/audit.py
+   ```
+
+The audit checks source and executable hashes, upstream revisions, generated
+programs, and test inputs. It also checks transaction policies, weight allowances,
+and recorded transaction results. All three Python test runs must cover every
+discovered test method: native, profiled, and optimized.
+
+The audit regenerates the disassemblies and source maps for comparison. A
+source map connects generated instructions to their source definitions. Source
+and build manifests connect the profiling executable to its permitted source
+changes. The GitHub Actions workflow runs the complete procedure from a fresh checkout.
+
+Timing, test duration, local block hashes, and funding transactions can vary
+between runs. Generated bytecode and public test inputs are deterministic.
 
 ## Use the laboratory API
 
@@ -73,25 +137,34 @@ if not result.success or result.stack:
     raise ValueError("signature verification failed")
 ```
 
-`baseline` inlines the restoration-only verifier; `bytes` adds byte reversal while
-retaining inline execution; `full` adds reusable functions. `mode` can also be
-`stateful` or `stateless`. All preserve the same byte-level acceptance rules.
-Standalone verification is not spending authorization: use `compile_policy` from
-`generator.transaction` to commit a key/context and derive the message with OP_TX.
-That wrapper is always an additional transaction-introspection extension.
+The `baseline` profile expands all operations inline. The `bytes` profile adds
+byte reversal. The `full` profile also uses shared functions. All profiles use
+the same acceptance rules. The mode can be `unified`, `stateful`, or `stateless`.
+
+Standalone verification checks the supplied message. Transaction authorization
+also requires a policy that derives the message from authenticated transaction data.
+For this purpose, use `compile_policy` from `generator.transaction`.
+This policy commits the key and context and uses the additional `OP_TX` extension.
 
 ## Package contents
 
-- `generator/`: bounded stack-checked compiler, verifier, transaction policy.
-- `reference/`, `fixtures/`: pinned oracle and public fixtures with provenance.
-- `generated/`: deterministic binaries, disassemblies, source maps and hashes.
-- `runner/`: strict C++ evaluator adapter and separate observation-only overlay.
-- `tests/`: component, full-range parser, cross-profile, and actual regtest tests.
-- `spec/`: acceptance, feature profiles and exact laboratory signing transcript.
-- `reports/`: results, environment, raw logs, audit and compressed full transaction evidence.
+| Directory | Contents |
+|---|---|
+| `generator/` | Compiler, verifier, and transaction policy |
+| `reference/`, `fixtures/` | Pinned reference implementation and public test inputs |
+| `generated/` | Binaries, disassemblies, source maps, and hashes |
+| `runner/` | C++ evaluator adapter and separate measurement code |
+| `tests/` | Component tests, parser tests, profile comparisons, and regtest tests |
+| `spec/` | Acceptance rules, profiles, and signing transcript |
+| `reports/` | Results, environment data, logs, audit, and transaction evidence |
 
-This is experimental research, not a production wallet or an activation proposal.
-One-time signer state, key custody and formal/independent review are outside this
-package. The regtest output is ordinary Taproot: **its key path remains
-quantum-vulnerable**, including with a NUMS internal key. Verifying SHRINCS in a
-leaf does not make the complete output post-quantum safe.
+## Limits
+
+The package is experimental research. It supplies no production wallet, signer
+state manager, or activation proposal. It has no formal proof or independent
+cryptographic audit.
+
+The regtest output uses ordinary Taproot. Its key path remains vulnerable to
+quantum attacks, including with a NUMS internal key. A NUMS key is a point selected
+without a known private key. SHRINCS verification in a leaf does not make the
+complete output post-quantum safe.

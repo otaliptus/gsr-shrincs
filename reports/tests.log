@@ -26,6 +26,6 @@ test_fors_digest_extremes_and_unused_bits (tests.test_verifier.StatelessComponen
 test_wots_tw_checksum_boundaries (tests.test_verifier.StatelessComponents.test_wots_tw_checksum_boundaries) ... ok
 
 ----------------------------------------------------------------------
-Ran 26 tests in 53.504s
+Ran 26 tests in 53.951s
 
 OK

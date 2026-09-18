@@ -1,16 +1,32 @@
-# Accepted relation and scope
+# Accepted inputs and verification rules
 
-This laboratory implements the pinned `shrincs_verify` relation in Bitcoin Script,
-with exactly 32 message bytes and exactly 48 public-key bytes. The default context
-is the 24 bytes `after-quantum/gsr-lab/v1`, committed in the generated program.
-Generation can explicitly select a different context of at most 255 bytes; that
-produces a different policy, not a witness-selected context. Context framing is
-`00 || uint8(context_length) || context`.
+This laboratory implements the pinned `shrincs_verify` relation in Bitcoin Script.
+Messages have exactly 32 bytes, and public keys have exactly 48 bytes.
+The default context is the 24-byte string `after-quantum/gsr-lab/v1`.
+The generated program commits this context.
 
-`pk = pk_seed[16] || sl_root[16] || sf_root[16]`. Both roots are bound in both modes.
-All hash comparisons use byte equality, not numeric equality. All integers in
-addresses/signatures are fixed-width **big endian**. GSR arithmetic uses unsigned
-little-endian byte strings; conversion preserves leading/trailing zero bytes.
+Generation can select another context with zero through 255 bytes.
+A different context produces a different policy.
+The witness cannot select the context.
+Context framing has this format:
+
+```text
+00 || uint8(context_length) || context
+```
+
+The public key has this format:
+
+```text
+pk = pk_seed[16] || sl_root[16] || sf_root[16]
+```
+
+Both modes bind both roots.
+Hash comparisons require byte equality.
+Integers in addresses and signatures use fixed-width big-endian encoding.
+GSR arithmetic uses unsigned little-endian byte strings.
+Conversions preserve leading and trailing zero bytes.
+
+## Reference mapping
 
 | Requirement | Pinned reference (`impl/shrincs.py`) | Compiler |
 |---|---|---|
@@ -26,65 +42,103 @@ little-endian byte strings; conversion preserves leading/trailing zero bytes.
 
 ## Stateful encoding
 
-Indicator `h` is 0..254; depth `d=255-h` is 1..255. Let `w=ceil(min(d,64)/8)`.
-The signature is exactly `h[1] || R[16] || index[w] || counter[2] || chains[512]
-|| authentication[16*d]`, or `531+w+16*d` bytes (548..4619).
-`0 <= index < 2**min(d,64)`; unused high bits must be zero.
+The indicator `h` has a value from 0 through 254.
+The depth is `d = 255 - h`, with a range from 1 through 255.
+The index width is `w = ceil(min(d,64)/8)` bytes.
+The signature has exactly this format:
 
-`location=h[1] || index_BE[8]`. The contextualized message is framing || sl_root
-|| message. `H_msg_sf` includes R, pk_seed, **sf_root**, location, and that bound
-message in its nested SHA256 construction. `H_grind` is
-`SHA256(pk_seed || zero[48] || location || 16_hex || digest[32] || zero[4]
-|| counter_BE[2])[:16]`. Its 32 high-nibble-first digits must sum to 240.
-Every uint16 counter satisfying that condition is accepted; the verifier does
-not require it to be the first working counter and never searches for one.
+```text
+h[1] || R[16] || index[w] || counter[2] || chains[512] || authentication[16*d]
+```
 
-The 32 WOTS+C chains each finish at index 15, using type 16 and reserved zeros;
-compression uses type 17. FXMSS parents use height h+k+1, index>>(k+1), type 18,
-and twelve zero bytes. Child ordering uses index bit k. The recovered root must
-be byte-equal to sf_root.
+The length is `531+w+16*d` bytes, with a range from 548 through 4,619.
+The index must satisfy `0 <= index < 2**min(d,64)`.
+Unused high bits must be zero.
+The location is `h[1] || index_BE[8]`.
+
+The bound message is `framing || sl_root || message`.
+The nested SHA256 construction of `H_msg_sf` includes `R`, `pk_seed`, `sf_root`,
+`location`, and the bound message.
+`H_grind` has this definition:
+
+```text
+SHA256(pk_seed || zero[48] || location || 16_hex || digest[32] || zero[4]
+       || counter_BE[2])[:16]
+```
+
+The 32 digits use the high nibble first and must sum to 240.
+The verifier accepts any uint16 counter that meets this condition.
+It does not search for a counter or require the first valid counter.
+
+Each of the 32 WOTS+C chains ends at index 15.
+The chains use type 16 and reserved zero bytes.
+Endpoint compression uses type 17.
+FXMSS parents use height `h+k+1`, index `index>>(k+1)`, type 18, and twelve zero bytes.
+Bit `k` of the index determines child order.
+The recovered root must equal `sf_root` byte for byte.
 
 ## Stateless encoding
 
-Indicator 255 selects exactly 5777 bytes:
-`ff || R[16] || FORS[2240] || hypertree[3520]`.
-The contextualized message is framing || sf_root || message. H_msg_sl also binds
-sl_root. Digest bytes 0..16 hold 130 high-order FORS bits (the final six bits are
-unused); bytes 17..21 interpreted big endian modulo 2**36 select the tree; bytes
-22..23 modulo 512 select the leaf. The remaining digest bytes are unused exactly
-as in the pinned specification.
+Indicator 255 selects a signature of exactly 5,777 bytes:
 
-FORS has ten height-13 trees, types 3 (nodes) and 4 (roots). Each of five hypertree
-layers has a height-9 XMSS tree. WOTS-TW has 32 message digits and three checksum
-digits encoding `480-sum(message_digits)` in big-endian base 16. Types 0, 1 and 2
-identify WOTS-TW chains, endpoint compression, and XMSS nodes. The final root
-must be byte-equal to sl_root. No SHA256 chain or tree step is replaced by a hint.
+```text
+ff || R[16] || FORS[2240] || hypertree[3520]
+```
+
+The bound message is `framing || sf_root || message`.
+`H_msg_sl` also binds `sl_root`.
+The digest fields have the following meanings.
+
+| Digest bytes | Meaning |
+|---|---|
+| 0 through 16 | The 130 high-order FORS bits. The final six bits are unused. |
+| 17 through 21 | Big-endian integer modulo `2**36`, which selects the tree. |
+| 22 through 23 | Big-endian integer modulo 512, which selects the leaf. |
+| Remaining bytes | Unused, as specified by the pinned reference. |
+
+FORS uses ten trees of height 13.
+Type 3 identifies nodes, and type 4 identifies root compression.
+Each of the five hypertree layers has an XMSS tree of height 9.
+
+WOTS-TW uses 32 message digits and three checksum digits.
+The checksum encodes `480-sum(message_digits)` in big-endian base 16.
+Types 0, 1, and 2 identify chains, endpoint compression, and XMSS nodes, respectively.
+The final root must equal `sl_root` byte for byte.
+Script computes every SHA256 chain and tree step.
 
 ## Rejection and final result
 
-Standalone stack, bottom to top: signature, public key, message. All parsing and
-cryptographic checks run inside Script. Generated Script leaves exactly one
-truth value; the pinned final-result checker consumes it, yielding an empty
-stack on acceptance. Extra initial items fail clean-stack checking. Exact-length
-checks precede slices, since the VM's slice operation clamps rather than rejects.
+The standalone initial stack contains signature, public key, and message, from bottom to top.
+Script performs all parsing and cryptographic checks.
+The generated program leaves exactly one truth value.
+The final-result checker consumes that value, so successful execution leaves an empty stack.
+Extra initial items fail the clean-stack check.
 
-A malformed encoding, false comparison, unsupported mode-specific path, or failed
-constant sum rejects. Budget exhaustion is a distinct VM result. Missing binaries,
-timeouts, process errors, malformed JSON, and invalid response fields are harness
-errors, never successful negative signature tests. The adapter requires a bounded
-uint64 allowance. Large standalone allowances test semantics only; transaction
-feasibility is evaluated with 10,000 times the actual serialized transaction weight.
+Exact-length checks occur before slicing.
+This order matters because the VM clamps slices to available data instead of rejecting them.
 
-The opcode auditor rejects all unknown/reserved-success opcodes, including
-OP_1NEGATE, and checks every generated function body. The byte 0x81 cannot use
-its legacy minimal-push opcode in this fork: the compiler constructs it as
-128+1. OP_TX selectors are fixed, version-zero constants in the transaction wrapper.
+Malformed encodings, false comparisons, unsupported mode-specific paths, and incorrect digit sums cause rejection.
+Budget exhaustion has a distinct VM result.
+Missing executables, timeouts, process errors, malformed JSON, and invalid response fields are harness errors.
+These errors do not count as successful negative signature tests.
 
-## Laboratory limitations
+The adapter requires an allowance within the uint64 range.
+Large standalone allowances test semantics only.
+Transaction feasibility uses an allowance of 10,000 times the actual serialized transaction weight.
 
-These are experimental source pins, not activated Bitcoin consensus. Reference
-signing is used only with public test seeds. This verifier cannot enforce one-time
-signer state, rollback protection, seed custody, backup safety, or scheme security.
-Synthetic boundary fixtures use genuine WOTS signing and computed roots with
-synthetic siblings; they are not claims of generating enormous complete trees.
-No independent external review or formal proof is claimed.
+The opcode auditor checks every generated function body.
+It rejects unknown opcodes and reserved opcodes that would cause immediate success.
+These include `OP_1NEGATE` in this fork.
+The compiler constructs byte `0x81` as `128+1` because its legacy minimal-push opcode is unavailable.
+The transaction policy uses fixed version-zero `OP_TX` selectors.
+
+## Laboratory limits
+
+The pinned sources are experimental and do not define activated Bitcoin mainnet consensus.
+Reference signing uses public test seeds only.
+The verifier cannot enforce one-time signer state, rollback protection, seed custody,
+backup safety, or scheme security.
+
+Synthetic boundary inputs use genuine WOTS signing and computed roots with synthetic siblings.
+They do not imply generation of enormous complete trees.
+The implementation has no independent external audit or formal proof.

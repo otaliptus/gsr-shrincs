@@ -1,6 +1,6 @@
 # Measured results
 
-These results use the pinned fork and exact SHRINCS parameters. All listed spends were accepted and mined by the unmodified local regtest node. No budget padding was added.
+These measurements use the pinned fork and SHRINCS parameters. The unmodified local regtest node accepted and mined every listed spend. The transactions contain no budget padding.
 
 | Program / signature mode | Script bytes | Signature bytes | Weight | vbytes | Varops used / allowed | Budget used |
 |---|---:|---:|---:|---:|---:|---:|
@@ -19,11 +19,15 @@ These results use the pinned fork and exact SHRINCS parameters. All listed spend
 | full-cap3-boundary | 13428 | 1980 | 16,189 | 4,048 | 61,755,216 / 161,890,000 | 38.1% |
 | full-cap4-boundary | 17904 | 2640 | 21,530 | 5,383 | 82,358,917 / 215,300,000 | 38.3% |
 
-The stateful-only spend is now 1,416 vbytes, compared with 6,879 vbytes at the reviewed commit 6e1e807 (79.4% smaller). Its Script uses a bounded acyclic tree of shared authentication functions; each child receives only its portion of the path. The inline profiles retain their expanded authentication logic as differential controls. The 660-byte stateful signature and transaction/control-block shape are unchanged. Varops comparisons use newly signed transactions, so their hash-chain digit distributions can differ.
+The stateful spend uses 1,416 vbytes. The same transaction shape used 6,879 vbytes at commit `6e1e807`. This is a reduction of 79.4%. The Script uses shared authentication functions with a fixed execution bound and no call cycle. Each child receives only its required path portion.
 
-The public key is 48 bytes, embedded in each policy. Original single-input rows use a 65-byte control block (two committed leaves); the mixed-input and cap-boundary rows use a 33-byte control block per input. Mixed-input policies have a four-input cap; cap-boundary policies exercise each limit from one through four. Mode-specific leaves are paired with their opposite mode in one tree; combined leaves have an extra mode-specific sibling for cross-policy replay tests.
+The inline profiles retain their expanded authentication code for comparison. The signature remains 660 bytes. The transaction and control-block shapes remain unchanged. Newly signed transactions can have different hash-chain digits, which affect varops comparisons.
 
-Program size and execution allowance are distinct: compressed programs reduce witness weight and therefore the budget they purchase. The full mode-specific stateless leaf has substantially less budget headroom than the larger combined leaf, while performing the same signature computation.
+Each policy contains a 48-byte public key. Original single-input rows use a 65-byte control block for two committed leaves. Mixed-input and cap-boundary rows use a 33-byte control block per input.
+
+Mixed-input policies permit a maximum of four inputs. Cap-boundary policies test each limit from one through four. A mode-specific tree pairs its leaf with the opposite mode. A combined leaf has an additional mode-specific sibling for replay tests under another policy.
+
+A smaller program reduces witness weight. In this fork, lower weight also reduces the execution allowance. The full stateless leaf therefore has less unused allowance than the larger combined leaf. Both perform the same signature computation.
 
 | Program | Peak stack bytes | Stack + functions bytes | Maximum item | Invoked body bytes | Median interpreter ms, counters off |
 |---|---:|---:|---:|---:|---:|
@@ -42,20 +46,26 @@ Program size and execution allowance are distinct: compressed programs reduce wi
 | full-cap3-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 1.798 |
 | full-cap4-boundary | 3,824 | 7,971 | 2,672 | 21,039 | 2.360 |
 
-All 128 recorded negative transactions also fail the offline transaction-aware Script checker, including annex and oversized two-input cases that relay policy rejects first. Four cap+1 cases carry fresh, independently valid signatures for every input; the one-through-four-input caps are the rejecting condition. Each allowed cap boundary is accepted and mined. The older append-input cases remain transcript-binding tests. This distinguishes cryptographic/policy rejection from process failure or insufficient budget.
+All 128 recorded negative transactions also fail the offline Script checker with transaction data. These include annex and large two-input cases that relay policy rejects before Script executes.
 
-Detailed accepted and rejected costs, function calls, inclusive component costs, SHA256 counts/compressions, stack entries, timing distributions, script/input hashes, and byte-helper-only comparisons are in `costs.json`. Early parser/message failures and late authentication-path failures are recorded separately. `components.json` contains 384 local component contract measurements; `boundary-costs.json.gz` covers all 1,530 stateful boundary executions. `environment.json` records source/binary hashes, platform and compiler flags. `regtest-details.json.gz` holds full transactions, transcripts, and authenticated spent-output records from the test.
+Four over-limit cases have fresh, independently valid signatures for every input. The input-count limits cause these rejections. The node accepts and mines each corresponding transaction at its permitted limit. The older append-input cases check transcript binding. The checks distinguish cryptographic and policy rejection from process failure and insufficient budget.
 
-Consensus limits: 32,768 entries including definitions, 4,000,000 bytes per item, 8,000,000 stack/altstack/function bytes, and 4,000,000 cumulative invoked body bytes. The measured programs fit. This does not establish everyday-payment economics or production readiness. Fee at any chosen rate is vbytes × sat/vbyte.
+`costs.json` records accepted and rejected execution costs, function calls, hash operations, stack entries, timing distributions, and script and input hashes. It also compares the byte-helper profile. Function costs include nested calls. The records distinguish early parser and message failures from later authentication-path failures.
 
-Ordinary Taproot retains its quantum-vulnerable key path. These are direct SHRINCS leaf-verification measurements, not an end-to-end post-quantum Bitcoin output. No independent review or formal proof is claimed.
+`components.json` contains 384 component measurements. `boundary-costs.json.gz` covers all 1,530 stateful boundary executions. `environment.json` records source and executable hashes, platform details, and compiler flags. `regtest-details.json.gz` contains complete transactions, transcripts, and authenticated spent-output records.
+
+The measured programs fit the pinned consensus limits. These limits permit 32,768 entries, including definitions, and 4,000,000 bytes per item. Total stack, altstack, and function storage cannot exceed 8,000,000 bytes. Cumulative invoked function-body bytes cannot exceed 4,000,000 per evaluation.
+
+These results do not establish low payment costs or production readiness. The fee at a selected rate is `vbytes × sat/vbyte`.
+
+Ordinary Taproot retains its key path, which remains vulnerable to quantum attacks. These measurements concern SHRINCS leaf verification. They do not establish complete post-quantum protection for the output. The implementation has no independent cryptographic audit or formal proof.
 
 ## Measurement boundaries
 
-- Timing excludes process startup/JSON parsing from interpreter_ns.
-- Unobserved timings use the same overlay binary with counters disabled; remaining conditional overhead is not subtracted.
-- CLI overhead includes launch, initialization, JSON IO and teardown; it is not pure process startup.
-- Function-body costs are inclusive of nested calls and must not be summed.
-- Executed-function-body bytes is the maximum per input evaluation, matching the per-evaluation limit; invocation counts and varops sum across inputs.
-- Peak memory is logical VM bytes, not allocator capacity or process RSS.
-- Rejected-input peaks include completed opcode states; transient values before failing operations can be larger.
+- Interpreter timing excludes process startup and JSON parsing.
+- Timing with counters disabled uses the profiling executable. Conditional measurement hooks remain active. Their overhead is not subtracted.
+- CLI overhead includes launch, initialization, JSON input and output, and teardown. It does not measure process startup alone.
+- Each function cost includes its nested calls. Adding these costs would count some work more than once.
+- Executed function-body bytes give the maximum for one input evaluation. The limit applies per evaluation. Invocation counts and varops sum across inputs.
+- Peak memory measures logical VM bytes. It excludes allocator capacity and process resident memory.
+- Peaks for rejected inputs include completed opcode states. Temporary values before a failing operation can be larger.

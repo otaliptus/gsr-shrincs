@@ -1,71 +1,161 @@
 # Milestone completion audit
 
-Scope: a direct, proper implementation of both modes of the pinned SHRINCS verifier
-under the 32-byte-message laboratory profile, including authenticated transaction
-binding and a reproducible review package. No milestone is replaced by a component
-example, a different scheme, a host-trusted digest, or an unlimited transaction budget.
+The laboratory implements both modes of the pinned SHRINCS verifier.
+It uses messages of exactly 32 bytes and authenticates the transaction data.
+All milestones have implementation and execution evidence.
+The [review changes](REVIEW-FOLLOWUP.md) describe the subsequent repairs.
+[RESULTS.md](RESULTS.md) contains the current measurements.
 
-| Gate | Implementation and authoritative evidence | Result |
-|---|---|---|
-| M0 — reproducible execution | Both clean source pins in `versions.json`; `scripts/build.sh`; actual evaluator/node/test binaries; `reports/environment.json`; 76 selected upstream C++ tests; four upstream functional suites; strict runner failure/timeout/JSON/budget contracts | Complete |
-| M1 — bytes, integers, addresses, hashes | `generator/script.py`, hash expressions in `generator/verifier.py`; byte-for-byte tests for widths 1/2/4/8/17, zeros/high bits/0x81, fixed-width endian reversal, truncation, address domains, all tweaked hash input sizes, H_msg_sf/H_msg_sl and H_grind counters 0..65535 boundaries | Complete |
-| M2 — WOTS+C | Supplied-counter check, nibble decomposition, sum=240, all 32 chains and endpoint compression in Script; every suffix length 0..15 checked against reference; recovered keys with valid counters 0,1,255,256,32768,65535; invalid encodings and statements; inclusive function costs in `costs.json` | Complete |
-| M3 — full stateful range | Genuine balanced and unbalanced keygen/sign/verify fixtures; every depth 1..255 at index zero and maximum under three code-generation profiles; index-width/range failures, exact lengths, root/message/key/context/path mutations; resource metrics for all 1,530 boundary executions | Complete |
-| M4 — stateless and unified | Full FORS, WOTS-TW, XMSS and five-layer hypertree; genuine stateless signatures under two public test keys; FORS all-zero/all-one digest and unused-bit agreement; WOTS-TW checksum extremes; both mode-specific leaves and unified dispatch; all cross-root/context checks preserved | Complete |
-| M5 — costs and optimization | Baseline inline, byte-helper inline, and function profiles accept the same corpus; deterministic bytecode/source maps; exact varops, stack/item/function ceilings, SHA256 counts/compressions, per-function inclusive costs, rejected-input costs, timing distributions and CLI overhead; one-mode vs combined placement; two/four-input shared budgets; no padding | Complete |
-| M6 — authenticated spend | `spec/TRANSCRIPT.md`, OP_TX policy and `tests/regtest.py`; fourteen actual accepted/mined spends under the unmodified fork; 128 negative transactions, including four freshly signed cap+1 cases; all also checked through transaction-aware C++ with recorded UTXOs; true weight×10,000 allowance | Complete |
-| M7 — review package | `README.md` rebuild commands; public seeds/provenance; source pins and hashes; binaries/disassembly/maps under `generated/`; raw logs and compressed transaction/resource evidence; `scripts/check.sh` and `scripts/audit.py`; explicit limitations below | Complete |
+## M0: Reproducible execution — complete
 
-The review follow-up is summarized in [REVIEW-FOLLOWUP.md](REVIEW-FOLLOWUP.md).
-Current sizes and budget fractions are generated in [RESULTS.md](RESULTS.md).
+`versions.json` identifies both upstream revisions.
+The source trees remain clean at those revisions.
+`scripts/build.sh` builds the evaluator, node, and test executables.
+`reports/environment.json` records the environment and executable hashes.
 
-## Evidence interpretation
+The checks include 76 selected upstream C++ tests and four upstream functional suites.
+Runner tests cover process failure, timeout, JSON format, and budget contracts.
 
-- `tests.log` and `tests-profiled.log` and `tests-optimized.log` run the same discovered test methods; their loops cover
-  many individual executions. Structured results record exact test IDs and outcomes. Each checks the full supported stateful
-  range under baseline, byte-helper and full-function generation. Process failures
-  raise harness errors instead of counting as rejected signatures.
-- `fixtures/vectors.json` contains 40 deterministic public fixtures: ten genuine
-  reference keygen/sign/verify cases (two stateless), plus 30 explicitly synthetic
-  boundary cases. The exhaustive 510 stateful cases are generated deterministically
-  in tests and resource measurement, not falsely labeled as full-tree signing.
-- `components.json` records 384 local component contract costs, including the
-  expected-output comparison and cleanup, so these are not mislabeled as pure
-  intrinsic hash-operation costs.
-- `boundary-costs.json.gz` contains all 1,530 stateful boundary measurements with
-  bytecode/input hashes and native/instrumented varops agreement. `costs.json`
-  contains the representative timing/component and full-transaction measurements.
-- `regtest-details.json.gz` contains exact serialized transactions, transcripts,
-  public keys and spent-output records. `regtest.json` is its readable summary.
-  The test sends accepted transactions and asserts their inclusion in newly mined
-  local blocks. It obtains spent outputs from its own funded UTXOs.
-- Outpoint txid and index are changed separately. Amounts, destinations, version,
-  locktime, sequences, counts, order, current input, annex and executing policy are
-  covered. Wrong spent amount/script tests sign the wrong proposed transcript and
-  demonstrate rejection against the actual node-authenticated UTXO data.
-- A paired mode-specific tree commits separate stateful/stateless leaves. Combined
-  leaves include an additional mode-specific sibling to test cross-policy replay
-  with the same key/context and valid relation. Control-block bytes are counted.
-- Annexes and oversized baseline two-input mutations can reject at relay policy
-  before Script runs. Their separate transaction-aware replay confirms an actual
-  Script failure as well. These are not reported as node cryptographic failures.
-- All source pins remain unchanged. The measurement overlay lives in a separate
-  disposable source/build tree and never changes the regtest node or its limits.
-  Every cached source is synchronized, the permitted overlay diff is verified, and
-  a build manifest binds the executable to the source/overlay manifests.
-  Timing with counters disabled still includes conditional instrumentation hooks;
-  process/protocol overhead is measured separately. No native-only timing is inferred.
+## M1: Bytes, integers, addresses, and hashes — complete
 
-## Explicit limits
+`generator/script.py` implements the byte and integer operations.
+`generator/verifier.py` defines the hash expressions.
+Tests compare exact bytes for widths 1, 2, 4, 8, and 17.
+They include zero bytes, high bits, and `0x81`.
 
-This completes the **laboratory verification plan**, not production deployment or
-cryptographic certification. The reference is experimental. There is no independent
-external review, formal proof, production seed protection, stateful signer management,
-hardware wallet, activation, public-network spending, or full wallet implementation.
-Those were excluded by the handoff and remain excluded.
+Tests cover endian reversal, truncation, address domains, and all tweaked-hash input sizes.
+They also cover `H_msg_sf`, `H_msg_sl`, and boundary counters for `H_grind`.
+The counter range is 0 through 65,535.
 
-Ordinary Taproot retains its key path, even with a NUMS internal key. The output used
-here is therefore not end-to-end post-quantum safe. Removing/securing that path needs
-a separate specified output/consensus rule; it is not an automatic consequence of GSR.
-Consensus resource compliance does not establish sensible everyday fees or broad
-relay support. Costs are for the exact pinned experimental VM and the recorded machine.
+## M2: WOTS+C — complete
+
+Script checks the supplied counter, separates the digest into nibbles, and requires a digit sum of 240.
+It evaluates all 32 chains and compresses their endpoints.
+Tests compare every suffix length from 0 through 15 with the reference.
+Recovered-key tests use valid counters 0, 1, 255, 256, 32,768, and 65,535.
+
+Tests reject invalid encodings and statements.
+`costs.json` records function costs that include nested calls.
+
+## M3: Complete stateful range — complete
+
+Reference key generation and signing produce valid balanced-tree and unbalanced-tree examples.
+Tests cover every depth from 1 through 255 at index zero and the maximum permitted index.
+All three generation profiles execute these cases.
+The resource report contains all 1,530 boundary measurements.
+
+Rejection tests cover index widths, index ranges, and exact lengths.
+They also change roots, messages, keys, contexts, and authentication paths.
+
+## M4: Stateless and unified verification — complete
+
+The implementation includes complete FORS, WOTS-TW, XMSS, and five-layer hypertree verification.
+The corpus includes genuine stateless signatures from two public test keys.
+FORS tests cover all-zero and all-one digest bits and agreement about unused bits.
+WOTS-TW tests cover checksum extremes.
+
+The tests exercise separate stateful and stateless leaves and unified mode selection.
+They preserve all checks that bind the context and both public-key roots.
+
+## M5: Costs and size reduction — complete
+
+All three profiles accept the same corpus.
+Generated bytecode and source maps are deterministic.
+The reports measure varops, memory limits, hash operations, function costs, and rejection costs.
+They also record timing distributions and command-line overhead.
+
+The experiments compare separate mode placement with combined mode placement.
+They include shared transaction budgets for two and four inputs.
+They add no padding to increase the budget.
+
+## M6: Authenticated spends — complete
+
+`spec/TRANSCRIPT.md` specifies the signed transaction data.
+The policy obtains this data through `OP_TX`.
+`tests/regtest.py` produces fourteen spends that the unmodified fork accepts and mines.
+It also produces 128 negative transactions, including four freshly signed over-limit cases.
+
+The offline C++ transaction checker also evaluates all these transactions with recorded spent outputs.
+Each transaction receives an allowance of 10,000 times its actual weight.
+No transaction receives an unlimited allowance.
+
+## M7: Review package — complete
+
+`README.md` gives the build and test procedure.
+The package includes public seeds, source revisions, executable hashes, and test provenance.
+`generated/` contains binaries, disassemblies, and source maps.
+The reports include raw logs and compressed transaction and resource evidence.
+
+`scripts/check.sh` runs the complete procedure.
+`scripts/audit.py` checks the evidence against the current source and executables.
+The limits below remain part of the result.
+
+## Interpretation of the evidence
+
+The native, profiled, and optimized test logs cover the same discovered test methods.
+Loops within each method cover many executions.
+Structured records identify every method and its result.
+Process failures produce harness errors; they do not count as rejected signatures.
+
+`fixtures/vectors.json` contains 40 deterministic public test inputs.
+Ten use reference key generation, signing, and verification; two of these are stateless.
+The other 30 are explicitly synthetic boundary cases.
+Tests and measurements separately generate 510 stateful boundary cases.
+These cases do not imply generation of complete trees at every depth.
+
+`components.json` contains 384 component measurements.
+Each measurement includes the expected-output comparison and cleanup.
+Thus, these values are not the costs of isolated intrinsic hash operations.
+
+`boundary-costs.json.gz` contains all 1,530 stateful boundary measurements.
+It records bytecode hashes, input hashes, and agreement between native and instrumented varops.
+`costs.json` contains representative timing, component, and complete transaction measurements.
+
+`regtest-details.json.gz` contains complete serialized transactions, transcripts,
+public keys, and spent-output records.
+`regtest.json` gives a readable summary.
+The test obtains spent outputs from its funded UTXOs.
+It sends valid transactions and checks their inclusion in newly mined local blocks.
+
+Mutation tests change the outpoint transaction identifier and index separately.
+They also change amounts, destinations, version, locktime, sequences, counts, order,
+current input, annex, and executing policy.
+Wrong-amount and wrong-script cases sign an incorrect proposed transcript.
+The node rejects them against the authenticated UTXO data.
+
+A paired tree commits separate stateful and stateless leaves.
+A combined leaf has an additional mode-specific sibling for tests of replay under another policy.
+These tests retain the same key, context, and valid signature relation.
+All size measurements include the control blocks.
+
+Relay policy can reject annexes and large baseline two-input mutations before Script executes.
+Separate offline execution also confirms their Script rejection.
+The report distinguishes these results from cryptographic rejection by the node.
+
+The profiling source and build trees are separate from the upstream source trees.
+The measurement changes do not modify the regtest node or its limits.
+The build checks every cached source and permits only the specified profiling changes.
+A build manifest connects the executable to the source manifests.
+
+Timing with counters disabled still includes conditional measurement hooks.
+The report measures process and protocol overhead separately.
+These values do not establish timing for an executable with all instrumentation removed.
+
+## Limits
+
+The evidence completes the laboratory verification plan.
+It does not establish production readiness or cryptographic certification.
+The reference implementation is experimental.
+The work has no independent external audit or formal proof.
+
+The package excludes production seed protection, signer state management,
+hardware wallets, activation, public-network spends, and a complete wallet.
+The original handoff excluded these tasks.
+
+Ordinary Taproot retains its key path, including with a NUMS internal key.
+Thus, the complete output remains vulnerable to quantum attacks.
+Removing or securing that path needs a separate output specification and consensus rule.
+GSR alone does not supply that rule.
+
+Compliance with consensus resource limits does not establish low fees or broad relay support.
+The reported costs apply to the pinned experimental VM and the recorded machine.

@@ -1,65 +1,122 @@
-# Review follow-up
+# Review changes
 
-This revision addresses the five tooling/compiler findings against `6e1e807`,
-adds regression coverage, and reduces the complete stateful spend size. Current
-measurements are in [RESULTS.md](RESULTS.md); executable evidence is bound by
-[audit.json](audit.json). The original plan and handoff remain historical records.
+Commit `891d77a` addresses five findings from the review of `6e1e807`.
+It also reduces the size of the complete stateful spend.
+[RESULTS.md](RESULTS.md) contains the measurements.
+[audit.json](audit.json) records hashes of the supporting evidence.
 
-| Review finding | Change | Regression evidence |
-|---|---|---|
-| Stale profiling source cache | Synchronize every source file, delete stale files, preserve unchanged mtimes, verify the permitted overlay diff, and bind source/overlay identity to the built executable | A temporary source tree changes revision, gains/loses files, and has its cache deliberately altered; refresh restores it and verification rejects stale contents |
-| Validation disappears with Python optimization | Explicit exceptions replace assertions in adapters, generators, oracle fixture checks, measurement scripts, regtest checks, export and audit gates | The full suite also runs under `-O`; malformed protocol/type/budget responses and stale audit evidence are rejected |
-| Function name collisions | Compile each requested definition and compare its input contract and emitted body; reject conflicts and roll back failed registrations | Repeated equivalent lambdas succeed; changed bodies/contracts fail; registration remains usable after errors |
-| Unchecked function arity | Validate argument count before emission, enforce one result, and check expression opcode arities | Too few/many arguments fail without changing the caller; zero-argument calls preserve outer stack values in all profiles |
-| Input-cap test attribution | Keep append-input cases labeled as transcript-binding checks; add independently verified fresh signatures for cap+1 transactions, with allowed-boundary transactions for caps 1–4 | Each allowed boundary is mined; every over-limit transaction fails Script with valid signatures for its complete proposed transcript |
+## Profiling source cache
 
-The audit also compares regenerated disassemblies and source maps, not just binary
-hashes. Structured test IDs/outcomes replace the fixed `Ran 16 tests` string.
-Python sources are consistently formatted so stack operations and checks can be
-reviewed individually. The GitHub Actions workflow builds both executables from a
-fresh checkout, regenerates public fixtures, runs all checks, and compares the
-generated review artifacts.
+The build script synchronizes every source file and deletes obsolete files.
+It preserves the modification times of unchanged files.
+It checks that the profiling changes match the permitted changes.
+A build manifest connects the executable to the source and profiling manifests.
 
-## Stateful authentication optimization
+The regression test changes a temporary source revision and adds and removes files.
+It also changes cached content directly.
+A cache refresh restores the expected content.
+The manifest check rejects stale content.
 
-The full-function profile uses nine acyclic authentication functions for blocks of
-up to 1, 2, 4, …, 256 siblings. Each nonempty block splits its actual path between
-lower-level functions; the second child executes only when that part exists. The
-leaf combines exactly one sibling with the current node, using the same address
-and parity rules. The parser still accepts precisely depths 1–255 and the original
-index range. Only the path fragment needed by a child is passed into its frame,
-which limits copying costs for deep signatures.
+## Checks under optimized Python
 
-The baseline and byte-helper profiles retain the expanded implementation as
-comparison controls. All 510 depth/index-extreme cases run through all three
-profiles. The baseline and byte-helper binaries, and the full stateless binary,
-remain byte-for-byte identical to the reviewed commit. Additional coverage preserves mixed-bit interior indices and valid
-empty, binary and maximum-length contexts from the review. Eighteen synthetic
-stateful transactions spanning depth/index boundaries, including depth 255, are
-checked with their actual serialized weight-derived budgets; these are offline
-Script checks, separately identified from the funded and mined regtest spends.
+Explicit exceptions replace assertions in the validation code.
+The checks remain active when Python runs with `-O`.
+This change covers adapters, generators, reference checks, measurement scripts,
+regtest checks, export, and audit.
 
-The size comparison in RESULTS uses the same signature length and transaction
-shape as the original stateful-only spend. Newly signed transaction transcripts
-can have different hash-chain digit distributions, so timing and varops differences
-are not attributed solely to the optimization.
+The complete test suite also runs with `-O`.
+It rejects malformed protocol responses, incorrect types, invalid budgets,
+and stale audit evidence.
 
-## Measured before/after
+## Function definitions
 
-| Same stateful-only transaction shape | Reviewed commit | This revision |
+The compiler checks each requested function definition.
+It compares the input contract and emitted body with any existing definition
+that has the same name.
+It rejects conflicts and removes incomplete registrations after a failure.
+
+Repeated equivalent lambda definitions succeed.
+Definitions with different bodies or contracts fail.
+Tests also confirm that registration remains usable after an error.
+
+## Function arguments and results
+
+The compiler checks argument counts before it emits a call.
+Each function must return exactly one result.
+The compiler also checks the argument counts of expression opcodes.
+
+Calls with too few or too many arguments fail without changing the caller.
+Calls with no arguments preserve the outer stack values in all profiles.
+
+## Input-count limits
+
+The new tests separately check transcript binding and input-count limits.
+The existing append-input cases check transcript binding.
+The new over-limit transactions have fresh signatures for every input.
+An independent check confirms that each signature is valid for the complete proposed transcript.
+
+Each limit from one through four inputs has a valid boundary transaction.
+The node accepts and mines these transactions.
+Each corresponding transaction with one extra input fails the Script limit check.
+Thus, an invalid signature does not explain these four rejections.
+
+## Other review checks
+
+The audit compares regenerated disassemblies, source maps, and binaries.
+Structured test records replace the fixed `Ran 16 tests` text check.
+The records identify every test and its result.
+Consistent Python formatting makes individual stack operations and checks easier to inspect.
+
+The GitHub Actions workflow builds both executables from a fresh checkout.
+It regenerates public test inputs, runs all checks, and compares generated files.
+The local results provide execution evidence independently of hosted CI availability.
+
+## Smaller stateful authentication code
+
+The full profile uses nine shared authentication functions.
+Their maximum block lengths are 1, 2, 4, 8, 16, 32, 64, 128, and 256 siblings.
+Their call graph has no cycle.
+Each nonempty block divides its actual path between lower-level functions.
+The second child executes only when its path portion exists.
+
+The leaf operation combines one sibling with the current node.
+It uses the original address and parity rules.
+The parser still accepts depths 1 through 255 and the original index range.
+Each child receives only the path portion that it needs.
+This reduces copying for deep signatures.
+
+The baseline and byte-helper profiles keep their expanded implementations for comparison.
+All 510 depth and extreme-index cases run through all three profiles.
+The baseline and byte-helper binaries remain identical to `6e1e807`.
+The full stateless binary also remains identical.
+
+Additional tests cover interior indices with mixed bits.
+They also cover empty, binary, and maximum-length contexts.
+Eighteen synthetic transactions cover stateful depth and index boundaries, including depth 255.
+These offline Script checks use budgets calculated from the actual serialized transaction weight.
+They are separate from the funded and mined regtest spends.
+
+## Size comparison
+
+The comparison uses the same signature length and transaction shape.
+New transaction transcripts can produce different hash-chain digits.
+Thus, the changes in timing and varops cannot be attributed only to the smaller program.
+
+| Same stateful transaction shape | Reviewed commit, `6e1e807` | Revised implementation, `891d77a` |
 |---|---:|---:|
 | Script bytes | 26,328 | 4,476 |
 | Signature bytes | 660 | 660 |
 | Complete transaction vbytes | 6,879 | 1,416 |
 
-The complete spend is **79.4% smaller** and fits its 56,630,000-varop allowance
-without padding. Exact current execution costs are generated in RESULTS.md.
-The stateless-only Script and its 5,099-vbyte transaction shape are unchanged.
+The complete spend is **79.4% smaller**.
+It fits its allowance of 56,630,000 varops without padding.
+[RESULTS.md](RESULTS.md) gives the exact execution costs.
+The stateless Script and its transaction shape of 5,099 vbytes remain unchanged.
 
-## Remaining research scope
+## Remaining research
 
-A native-verifier economic comparison would require a separately specified and
-implemented consensus experiment. This revision does not supply that comparison,
-a production signer/state manager, a formal proof, or an independent cryptographic
-audit. The ordinary Taproot key-path limitation remains unchanged. These limits
-are separate from the repaired laboratory tooling and measured Script verifier.
+A cost comparison with a native verifier needs a separate consensus specification
+and implementation.
+This repository does not supply that comparison.
+It also supplies no production signer, state manager, formal proof, or independent cryptographic audit.
+Ordinary Taproot retains its key path, which remains vulnerable to quantum attacks.
