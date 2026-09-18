@@ -18,9 +18,10 @@ implementation:
 - [Committed evidence repair](reports/EVIDENCE-REPAIR.md)
 - [Follow-up provenance and portable checks](reports/FOLLOWUP-PROVENANCE.md)
 
-[docs/index.html](docs/index.html) is a plain-language summary page. It gives the question,
-the results, and the limits without technical detail. It is written for GitHub Pages.
-The current GitHub plan does not permit Pages on a private repository, so the page is not yet served.
+A [plain-language summary page](https://gsr-shrincs.pages.dev/) gives the question,
+the results, and the limits without technical detail. Its source is [docs/index.html](docs/index.html).
+It is served by Cloudflare Pages, because the current GitHub plan does not permit GitHub Pages on a private repository.
+To publish a new version, run `npx wrangler@3 pages deploy docs --project-name gsr-shrincs --branch main`.
 
 ## Things you can check
 
