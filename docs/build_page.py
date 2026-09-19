@@ -308,8 +308,7 @@ def main():
 
 {parts["summary"]}
 
-{parts["scenarios"]}
-<p>The same checker was compiled six ways. The restored-opcode and shared-function variants were also mined on the test network. The native SHRINCS estimate uses the signature size alone. "Stateful" and "stateless" are the two SHRINCS signature types: the small one a wallet normally uses, and the large fallback for when signing state is lost.</p>
+
 
 <h2>Transaction size and fee</h2>
 <p>One input, two outputs, one signature. Fees are paid per vbyte, and witness bytes count for a quarter, so the whole-transaction byte count and the vbyte count differ. The fee columns assume the shown rates and nothing else.</p>
@@ -347,6 +346,9 @@ def main():
   <ul class="legend"><li style="--sw: var(--s1)">Fixed charge per instruction, {fixed_pct:.0f}%</li><li style="--sw: var(--s2)">Data-dependent: hashing, copying, arithmetic, {data_pct:.0f}%</li><li style="--sw: var(--s3)">Function body copying, {body_pct:.1f}%</li></ul>
 </figure>
 <p>Nine tenths of the charge is the fixed price of instructions, most of them stack shuffling: PICK, CAT, DROP, small pushes, IF and ENDIF. The SHA256 hashing is under a tenth. The cost model prices this checker as bookkeeping, not cryptography. Programs with much skipped code, such as the restored-opcode verifier, also run slower per charged unit than the model predicts, because parsing skipped code is not charged. Both points bear on any recalibration of the fork's prices.</p>
+
+{parts["scenarios"]}
+<p>The same checker was compiled six ways. The restored-opcode and shared-function variants were also mined on the test network. The native SHRINCS estimate uses the signature size alone. "Stateful" and "stateless" are the two SHRINCS signature types: the small one a wallet normally uses, and the large fallback for when signing state is lost.</p>
 
 <h2>What OP_MULTI changes</h2>
 <p>OP_MULTI applies one operation to a run-time number of stack items: push the items, push the count, then <code>OP_MULTI OP_SHA256</code> hashes them all as one message. The checker builds every hash input by joining parts, so this is where the opcode would help if it helped anywhere.</p>

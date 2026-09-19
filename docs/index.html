@@ -116,14 +116,13 @@
   .opcode-label:hover, .opcode-label:focus-visible { color: var(--link); }
   .opcode-label:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 2px; }
   svg .opcode-label:hover text, svg .opcode-label:focus-visible text { fill: var(--link); }
-  .opcode-panel { position: fixed; z-index: 20; width: min(480px, calc(100vw - 20px)); max-height: min(480px, calc(100dvh - 20px)); overflow-y: auto; padding: 18px; background: var(--surface); color: var(--ink); border: 1px solid var(--axis); border-radius: 10px; box-shadow: 0 10px 40px #0004; font-size: 14px; line-height: 1.5; }
+  .opcode-panel { position: fixed; z-index: 20; width: min(360px, calc(100vw - 20px)); max-height: min(480px, calc(100dvh - 20px)); overflow-y: auto; padding: 12px; background: var(--surface); color: var(--ink); border: 1px solid var(--axis); border-radius: 6px; box-shadow: 0 4px 16px #0002; font-size: 12px; line-height: 1.45; }
   .opcode-panel[hidden] { display: none; }
-  .opcode-panel > strong { display: block; padding-right: 30px; font-size: 16px; }
-  .opcode-panel p { margin: 10px 0; color: var(--ink-2); }
-  .opcode-panel h3 { margin: 14px 0 8px; font-size: 13px; }
-  .opcode-chips { display: flex; flex-wrap: wrap; gap: 5px; }
-  .opcode-chips code { font-size: 12px; padding: 2px 5px; border: 1px solid var(--grid); border-radius: 4px; }
-  .opcode-close { float: right; width: 28px; height: 28px; border: 0; border-radius: 4px; background: var(--grid); color: var(--ink); cursor: pointer; font-size: 20px; line-height: 1; }
+  .opcode-panel p { margin: 0 20px 8px 0; color: var(--ink-2); }
+  .opcode-panel p:last-child { margin-bottom: 0; }
+  .opcode-chips { overflow-wrap: anywhere; }
+  .opcode-chips code { font-size: 11px; }
+  .opcode-close { float: right; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 3px; background: transparent; color: var(--ink); cursor: pointer; font-size: 16px; line-height: 1; }
 </style>
 </head>
 <body>
@@ -152,22 +151,7 @@
 </ol>
 </details>
 
-<h2>Opcodes and compiler techniques</h2>
-<p>SHRINCS is a hash-based signature scheme. Its verifier recomputes SHA256 hashes in a fixed pattern. We compare the instructions needed to run that verifier and the cost of each approach.</p>
-<p>Each Script variant builds on the previous features. Both OP_MULTI variants use shared functions and optimized CAT joins.</p>
-<p class="note">Hover, focus, or tap an implementation name to see which opcodes it adds or restores.</p>
-<div class="prose"><table>
-  <tr><th>Implementation</th><th>Opcodes and techniques</th><th>Where those opcodes exist</th></tr>
-  <tr><td><button type="button" class="opcode-label" data-opcodes="p2tr" aria-expanded="false" aria-controls="opcode-panel">Today: P2TR key spend</button></td><td>A 64-byte Schnorr signature, checked natively.</td><td>Bitcoin mainnet. Not quantum-safe. The reference row.</td></tr>
-  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-baseline-both" aria-expanded="false" aria-controls="opcode-panel">Restored opcodes (inline)</button></td><td>Byte-string and arithmetic instructions from <a href="https://bips.dev/441/">BIP 441</a>, under the <a href="https://bips.dev/440/">BIP 440</a> budget. OP_TX reads the transaction. The verifier repeats its code instead of calling shared functions.</td><td>BIP 440 and 441 are drafts by Rusty Russell and Julian Moik. OP_TX is in Rusty Russell's 2024 draft and the <a href="https://github.com/jmoik/bitcoin/tree/d2799052604eb138c5a79acf88514a0c8b07f4ef">fork</a>.</td></tr>
-  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-bytes-both" aria-expanded="false" aria-controls="opcode-panel">OP_BYTEREV (inline)</button></td><td>Adds OP_BYTEREV to the restored opcodes. It reverses a byte string in one step.</td><td>Rusty Russell's 2024 covenant-support draft and the fork.</td></tr>
-  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-full-both" aria-expanded="false" aria-controls="opcode-panel">OP_DEFINE + OP_INVOKE</button></td><td>Adds shared functions to the OP_BYTEREV variant. OP_DEFINE stores a function body; OP_INVOKE runs it.</td><td>Only the fork, added 11 September 2026. No written specification. Known safety problems, listed below.</td></tr>
-  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-catfix-both" aria-expanded="false" aria-controls="opcode-panel">Functions + optimized CAT joins</button></td><td>Keeps shared functions. Removes an unnecessary empty push and CAT operation from each join. No new opcode.</td><td>A compiler change found during the OP_MULTI comparison. Not yet in the audited compiler.</td></tr>
-  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-multi-both" aria-expanded="false" aria-controls="opcode-panel">OP_MULTI — all uses</button></td><td>Adds OP_MULTI wherever the compiler supports it: hashing parts, joining parts, and dropping items.</td><td>Rusty Russell's 2024 covenant-support draft and the fork. A reviewer has questioned its inclusion.</td></tr>
-  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-multisel-both" aria-expanded="false" aria-controls="opcode-panel">OP_MULTI — selective hashing</button></td><td>Uses OP_MULTI only for hashing joins where the cost estimate predicts a saving. Other joins use CAT.</td><td>The same OP_MULTI opcode, with a different compiler selection rule.</td></tr>
-  <tr><td><button type="button" class="opcode-label" data-opcodes="native" aria-expanded="false" aria-controls="opcode-panel">Native SHRINCS opcode</button></td><td>One instruction checks the entire signature inside the node.</td><td>Hypothetical. Included to estimate the size without a Script verifier.</td></tr>
-</table></div>
-<p>The same checker was compiled six ways. The restored-opcode and shared-function variants were also mined on the test network. The native SHRINCS estimate uses the signature size alone. "Stateful" and "stateless" are the two SHRINCS signature types: the small one a wallet normally uses, and the large fallback for when signing state is lost.</p>
+
 
 <h2>Transaction size and fee</h2>
 <p>One input, two outputs, one signature. Fees are paid per vbyte, and witness bytes count for a quarter, so the whole-transaction byte count and the vbyte count differ. The fee columns assume the shown rates and nothing else.</p>
@@ -253,6 +237,23 @@
   <ul class="legend"><li style="--sw: var(--s1)">Fixed charge per instruction, 90%</li><li style="--sw: var(--s2)">Data-dependent: hashing, copying, arithmetic, 10%</li><li style="--sw: var(--s3)">Function body copying, 0.3%</li></ul>
 </figure>
 <p>Nine tenths of the charge is the fixed price of instructions, most of them stack shuffling: PICK, CAT, DROP, small pushes, IF and ENDIF. The SHA256 hashing is under a tenth. The cost model prices this checker as bookkeeping, not cryptography. Programs with much skipped code, such as the restored-opcode verifier, also run slower per charged unit than the model predicts, because parsing skipped code is not charged. Both points bear on any recalibration of the fork's prices.</p>
+
+<h2>Opcodes and compiler techniques</h2>
+<p>SHRINCS is a hash-based signature scheme. Its verifier recomputes SHA256 hashes in a fixed pattern. We compare the instructions needed to run that verifier and the cost of each approach.</p>
+<p>Each Script variant builds on the previous features. Both OP_MULTI variants use shared functions and optimized CAT joins.</p>
+<p class="note">Hover, focus, or tap an implementation name to see which opcodes it adds or restores.</p>
+<div class="prose"><table>
+  <tr><th>Implementation</th><th>Opcodes and techniques</th><th>Where those opcodes exist</th></tr>
+  <tr><td><button type="button" class="opcode-label" data-opcodes="p2tr" aria-expanded="false" aria-controls="opcode-panel">Today: P2TR key spend</button></td><td>A 64-byte Schnorr signature, checked natively.</td><td>Bitcoin mainnet. Not quantum-safe. The reference row.</td></tr>
+  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-baseline-both" aria-expanded="false" aria-controls="opcode-panel">Restored opcodes (inline)</button></td><td>Byte-string and arithmetic instructions from <a href="https://bips.dev/441/">BIP 441</a>, under the <a href="https://bips.dev/440/">BIP 440</a> budget. OP_TX reads the transaction. The verifier repeats its code instead of calling shared functions.</td><td>BIP 440 and 441 are drafts by Rusty Russell and Julian Moik. OP_TX is in Rusty Russell's 2024 draft and the <a href="https://github.com/jmoik/bitcoin/tree/d2799052604eb138c5a79acf88514a0c8b07f4ef">fork</a>.</td></tr>
+  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-bytes-both" aria-expanded="false" aria-controls="opcode-panel">OP_BYTEREV (inline)</button></td><td>Adds OP_BYTEREV to the restored opcodes. It reverses a byte string in one step.</td><td>Rusty Russell's 2024 covenant-support draft and the fork.</td></tr>
+  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-full-both" aria-expanded="false" aria-controls="opcode-panel">OP_DEFINE + OP_INVOKE</button></td><td>Adds shared functions to the OP_BYTEREV variant. OP_DEFINE stores a function body; OP_INVOKE runs it.</td><td>Only the fork, added 11 September 2026. No written specification. Known safety problems, listed below.</td></tr>
+  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-catfix-both" aria-expanded="false" aria-controls="opcode-panel">Functions + optimized CAT joins</button></td><td>Keeps shared functions. Removes an unnecessary empty push and CAT operation from each join. No new opcode.</td><td>A compiler change found during the OP_MULTI comparison. Not yet in the audited compiler.</td></tr>
+  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-multi-both" aria-expanded="false" aria-controls="opcode-panel">OP_MULTI — all uses</button></td><td>Adds OP_MULTI wherever the compiler supports it: hashing parts, joining parts, and dropping items.</td><td>Rusty Russell's 2024 covenant-support draft and the fork. A reviewer has questioned its inclusion.</td></tr>
+  <tr><td><button type="button" class="opcode-label" data-opcodes="transactions-multisel-both" aria-expanded="false" aria-controls="opcode-panel">OP_MULTI — selective hashing</button></td><td>Uses OP_MULTI only for hashing joins where the cost estimate predicts a saving. Other joins use CAT.</td><td>The same OP_MULTI opcode, with a different compiler selection rule.</td></tr>
+  <tr><td><button type="button" class="opcode-label" data-opcodes="native" aria-expanded="false" aria-controls="opcode-panel">Native SHRINCS opcode</button></td><td>One instruction checks the entire signature inside the node.</td><td>Hypothetical. Included to estimate the size without a Script verifier.</td></tr>
+</table></div>
+<p>The same checker was compiled six ways. The restored-opcode and shared-function variants were also mined on the test network. The native SHRINCS estimate uses the signature size alone. "Stateful" and "stateless" are the two SHRINCS signature types: the small one a wallet normally uses, and the large fallback for when signing state is lost.</p>
 
 <h2>What OP_MULTI changes</h2>
 <p>OP_MULTI applies one operation to a run-time number of stack items: push the items, push the count, then <code>OP_MULTI OP_SHA256</code> hashes them all as one message. The checker builds every hash input by joining parts, so this is where the opcode would help if it helped anywhere.</p>

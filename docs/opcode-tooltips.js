@@ -4,6 +4,7 @@
   const triggers = [...document.querySelectorAll('[data-opcodes]')];
   let active = null;
   let pinned = false;
+  let keyboardFocus = false;
   let timer;
 
   function close() {
@@ -11,13 +12,14 @@
     if (active) active.setAttribute('aria-expanded', 'false');
     active = null;
     pinned = false;
+    keyboardFocus = false;
     panel.hidden = true;
   }
 
   function position() {
     if (!active) return;
     const rect = active.getBoundingClientRect();
-    const gap = 10;
+    const gap = 6;
     const width = panel.offsetWidth;
     const height = panel.offsetHeight;
     const below = rect.bottom + gap;
@@ -49,13 +51,12 @@
       previous.focus();
       close();
     });
-    add('strong', details.title);
+    panel.setAttribute('aria-label', `${details.title}: added opcodes`);
     add('p', details.note);
     if (details.opcodes.length) {
-      add('h3', 'Added or restored opcodes used');
       const list = add('div', '');
       list.className = 'opcode-chips';
-      for (const name of details.opcodes) add('code', name, list);
+      add('code', details.opcodes.join(' · '), list);
     }
     trigger.setAttribute('aria-expanded', 'true');
     panel.hidden = false;
@@ -65,7 +66,9 @@
 
   function later() {
     clearTimeout(timer);
-    if (!pinned && document.activeElement !== active && !panel.contains(document.activeElement)) timer = setTimeout(close, 180);
+    if (!pinned) timer = setTimeout(() => {
+      if (!(keyboardFocus && document.activeElement === active) && !panel.contains(document.activeElement)) close();
+    }, 50);
   }
 
   for (const trigger of triggers) {
@@ -74,13 +77,18 @@
       show(trigger);
     });
     trigger.addEventListener('pointerleave', later);
-    trigger.addEventListener('focus', () => { pinned = false; show(trigger); });
+    trigger.addEventListener('focus', () => {
+      keyboardFocus = trigger.matches(':focus-visible');
+      pinned = false;
+      show(trigger);
+    });
     trigger.addEventListener('blur', event => {
       if (!panel.contains(event.relatedTarget)) { pinned = false; later(); }
     });
-    trigger.addEventListener('click', () => {
+    trigger.addEventListener('click', event => {
+      const keepOpen = event.pointerType === 'touch' || event.detail === 0;
       if (active === trigger && pinned) close();
-      else { show(trigger); pinned = true; }
+      else { show(trigger); pinned = keepOpen; }
     });
     // SVG chart rows have button semantics but need keyboard activation.
     trigger.addEventListener('keydown', event => {
@@ -106,6 +114,9 @@
   });
   window.addEventListener('resize', position);
   document.addEventListener('scroll', event => {
-    if (!panel.contains(event.target)) position();
+    if (!panel.contains(event.target)) {
+      if (pinned || keyboardFocus) position();
+      else close();
+    }
   }, true);
 })();
