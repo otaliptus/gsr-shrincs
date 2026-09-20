@@ -4,7 +4,10 @@ import argparse
 import copy
 import hashlib
 import json
+import os
 import platform
+import shlex
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -21,7 +24,7 @@ from runner.profile import run_profile, BINARY as PROFILE
 WORK = ROOT / "build/simplicity-version-comparison"
 UPSTREAM = ROOT / "build/simplicity-upstream"
 BINARY = ROOT / "build/simplicityhl/target/release/simplicity-comparison-runner"
-PROFILES = ("baseline", "bytes", "full", "catfix")
+PROFILES = ("baseline", "bytes", "full", "catfix", "multi", "multisel")
 MODES = ("stateful", "stateless")
 TYPES = {
     "stateful": "(u256, (u128, u128), ((u256, u32, [u128; 64]), List<u128, 512>, u32), u128)",
@@ -50,11 +53,26 @@ def check(ok, message):
         raise ValueError(message)
 
 
+def preprocessor():
+    """CPP selects a compiler driver or preprocessor, with optional arguments."""
+    if os.environ.get("CPP"):
+        args = shlex.split(os.environ["CPP"])
+        check(bool(args) and shutil.which(args[0]) is not None, "CPP executable not found")
+        return args
+    candidates = ["clang", *(f"clang-{v}" for v in range(22, 13, -1)), "cc", "cpp"]
+    for name in candidates:
+        if shutil.which(name):
+            return [name]
+    raise ValueError("No C preprocessor found; set CPP, for example CPP=clang-18")
+
+
 def prepare():
     WORK.mkdir(parents=True, exist_ok=True)
     check(command(["git", "-C", str(UPSTREAM), "rev-parse", "HEAD"]) == ref.PIN, "upstream revision changed")
     check(not command(["git", "-C", str(UPSTREAM), "status", "--porcelain", "--untracked-files=no"]), "upstream source changed")
-    source = command(["clang", "-E", "-P", "-x", "c", "-Wno-invalid-pp-token",
+    cpp = preprocessor()
+    warnings = ["-Wno-invalid-pp-token"] if "clang" in Path(cpp[0]).name else []
+    source = command([*cpp, "-E", "-P", "-x", "c", *warnings,
                       str(UPSTREAM / "examples/shrincs/shrincs_main.simf")])
     body, entry = source.rsplit("fn main()", 1)
     check("shrincs_verify(witness::PROOF)" in entry, "upstream entry changed")
@@ -114,7 +132,7 @@ def run_simplicity(mode, inputs, repeats):
 
 def source_hashes():
     paths = [p for p in HERE.iterdir() if p.name != "build_page.py" and p.suffix in (".py", ".rs", ".toml", ".lock", ".sh")]
-    paths += [ROOT / p for p in ("generator/script.py", "generator/verifier.py", "runner/evaluator.py", "runner/profile.py", "runner/profile.hpp", "scripts/profile_build.py")]
+    paths += [ROOT / p for p in ("generator/script.py", "generator/verifier.py", "generator/multi.py", "runner/evaluator.py", "runner/profile.py", "runner/profile.hpp", "scripts/profile_build.py")]
     return {str(p.relative_to(ROOT)): file_sha(p) for p in sorted(paths)}
 
 
@@ -124,7 +142,8 @@ def measure(repeats):
                   upstream_revision=ref.PIN, compiler_revision="f3fa882e77c221e96e10acde9f0e46e68e69930f",
                   gsr_revision=command(["git", "-C", "vendor/bitcoin", "rev-parse", "HEAD"]),
                   host=dict(platform=platform.platform(), machine=platform.machine(), python=sys.version,
-                            rustc=command(["rustc", "--version"]), clang=command(["clang", "--version"])),
+                            rustc=command(["rustc", "--version"]), preprocessor=preprocessor(),
+                            preprocessor_version=command([*preprocessor(), "--version"])),
                   sources=source_hashes(), upstream_sources=upstream_sources,
                   binaries={str(p.relative_to(ROOT)): file_sha(p) for p in (DEFAULT_BINARY, PROFILE, BINARY)},
                   modes={}, repeats=repeats)
@@ -136,7 +155,7 @@ def measure(repeats):
         programs = {profile: gsr.compile_verifier(mode, profile) for profile in PROFILES}
         print(f"{mode}: evaluating {len(inputs)} public fixture cases in Simplicity", flush=True)
         observed = run_simplicity(mode, inputs, repeats)
-        print(f"{mode}: checking the same cases in four GSR profiles", flush=True)
+        print(f"{mode}: checking the same cases in {len(PROFILES)} GSR profiles", flush=True)
         inventory = []
         for (name, vector), simp in zip(inputs, observed):
             expected = ref.verify(vector)
@@ -169,7 +188,7 @@ def measure(repeats):
             row["gsr"][profile] = dict(program_bytes=len(program.code), program_sha256=sha(program.code),
                                        varops=native.consumed, interpreter_ns=times, metrics=profiled["profile"])
         result["modes"][mode] = row
-        print(f"{mode}: {len(inputs)} cases agree across Python, Simplicity, and four GSR profiles", flush=True)
+        print(f"{mode}: {len(inputs)} cases agree across Python, Simplicity, and {len(PROFILES)} GSR profiles", flush=True)
     (HERE / "results.json").write_text(json.dumps(result, indent=2) + "\n")
     return result
 
@@ -191,6 +210,7 @@ def audit(execute=False):
         check(s["success"] is True and int(s["cost_bound"]) == s["c_cost_bound"], "invalid Simplicity result")
         for name in ("program", "witness"):
             check(len(bytes.fromhex(s[f"{name}_hex"])) == s[f"{name}_bytes"], "Simplicity encoded size changed")
+        check(set(row["gsr"]) == set(PROFILES), "GSR profile inventory changed")
         for profile in PROFILES:
             p = gsr.compile_verifier(mode, profile)
             measured = row["gsr"][profile]

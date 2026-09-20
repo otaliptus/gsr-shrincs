@@ -55,11 +55,3 @@ Measure runtime on matched hardware with a documented method.
 
 The source of the quoted approximate 50 kB figure remains unverified.
 Do not use that figure as a measured comparison row without its program revision, mode, and size definition.
-
-## Separate follow-up
-
-The [simplicity-version-comparison experiment](../experiments/simplicity-version-comparison/README.md)
-implements the pinned Simplicity construction in GSR and measures both languages.
-It uses shared public fixtures, separate mode-specific entry points, and a compiler built from pinned source.
-It does not change this repository's original SHRINCS specification or transaction measurements.
-Its initial measurements cover standalone verification, not complete spends.

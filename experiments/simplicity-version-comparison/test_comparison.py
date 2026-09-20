@@ -2,11 +2,44 @@
 import copy
 import json
 import unittest
+from unittest.mock import patch
 
 import run
 
 
 class ComparisonTests(unittest.TestCase):
+    def test_preprocessor_selection(self):
+        with patch.dict(run.os.environ, {"CPP": "clang-18 -DPORTABLE=1"}), patch.object(run.shutil, "which", return_value="/usr/bin/clang-18"):
+            self.assertEqual(run.preprocessor(), ["clang-18", "-DPORTABLE=1"])
+        for available in ("clang-18", "cc", "cpp"):
+            with patch.dict(run.os.environ, {"CPP": ""}), patch.object(run.shutil, "which", side_effect=lambda name: name if name == available else None):
+                self.assertEqual(run.preprocessor(), [available])
+        with patch.dict(run.os.environ, {"CPP": "missing-compiler"}), patch.object(run.shutil, "which", return_value=None):
+            with self.assertRaisesRegex(ValueError, "CPP executable"):
+                run.preprocessor()
+
+    def test_multi_cost_and_compiler_isolation(self):
+        from generator import multi, script
+        for mode in run.MODES:
+            proof = run.ref.load_fixture(run.HERE / f"fixtures/{mode}.wit")
+            plain = run.gsr.compile_verifier(mode, "catfix")
+            old_builder, old_widths = script.Builder, multi.KNOWN_WIDTHS.copy()
+            costs = {}
+            for profile in ("catfix", "multi", "multisel"):
+                program = run.gsr.compile_verifier(mode, profile)
+                result = run.evaluate(program.code, run.ref.stack(proof))
+                self.assertTrue(result.success)
+                costs[profile] = result.consumed
+                if profile != "catfix":
+                    uses = multi.multi_uses(program.code, [v[1] for v in program.functions.values()])
+                    self.assertGreater(uses.get("SHA256", 0), 0)
+                    if profile == "multisel":
+                        self.assertEqual(set(uses), {"SHA256"})
+                self.assertIs(script.Builder, old_builder)
+                self.assertEqual(multi.KNOWN_WIDTHS, old_widths)
+            self.assertLess(costs["multisel"], costs["catfix"])
+            self.assertEqual(run.gsr.compile_verifier(mode, "catfix").code, plain.code)
+
     def test_original_fixtures_and_witness_round_trip(self):
         for mode in run.MODES:
             fixture = run.HERE / f"fixtures/{mode}.wit"

@@ -180,7 +180,9 @@ def size_rows(tx, mode):
 
 def size_chart(rows, mode):
     mx = max(r[6] for r in rows)
-    W, x0 = 300, 300
+    # Keep space for the value after the longest bar inside the 640-unit viewBox.
+    x0 = 300
+    W = 640 - x0 - 8 - 9 * len(f(mx)) - 12
     out = [f'<div class="plot"><svg viewBox="0 0 640 {10 + len(rows) * 30}" role="img" aria-label="Transaction size in vbytes per scenario, {mode}">',
            f'<line x1="{x0}" y1="6" x2="{x0}" y2="{4 + len(rows) * 30}" stroke="var(--axis)" stroke-width="1"/>']
     for i, (label, *_, vb, col) in enumerate(rows):

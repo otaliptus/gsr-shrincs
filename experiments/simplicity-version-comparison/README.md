@@ -30,8 +30,12 @@ The bundled upstream executable is not used.
 
 ## Reproduce
 
-Requirements: Python 3.11+, Git, Clang, Cargo, and the native and profiling GSR builds.
+Requirements: Python 3.11+, Git, a C preprocessor, Cargo, and the native and profiling GSR builds.
 Use the repository's existing build instructions for those GSR executables.
+
+Set `CPP=clang-18` if the preprocessor has a versioned name. `CPP` can include arguments.
+Without `CPP`, the driver tries Clang, versioned Clang, `cc`, then `cpp`.
+The report records the selected command and its version.
 
 ```sh
 bash experiments/simplicity-version-comparison/setup.sh
@@ -93,7 +97,7 @@ The two unchanged upstream fixtures are the positive reference inputs.
 The corpus flips two bits separately in every supplied chain value and authentication node.
 It also changes the message, seed, expected root, unused root, counters, and stateful index.
 Changes to the unused stateless WOTS randomizers must remain accepted, as upstream specifies.
-Python, Rust Simplicity, and all four GSR programs must agree on every case.
+Python, Rust Simplicity, and all six GSR programs must agree on every case.
 The C evaluator additionally verifies each accepted, pruned program and witness.
 Budget exhaustion is a harness error, never a valid rejection.
 
@@ -101,6 +105,46 @@ These checks do not prove equivalence for all inputs or assess the construction'
 Only one original positive fixture per mode is measured. Stateful path depths are not exhaustively covered.
 The GSR translation is an initial implementation, not a claim of optimal code generation.
 Future work needs more independently generated positive signatures, boundary cases, and complete transaction policies.
+
+## OP_MULTI variants
+
+The two additional variants start from shared functions and optimized CAT joins.
+`multi` groups hashed joins, other joins, and cleanup operations with OP_MULTI.
+`multisel` groups only hashed joins that pass the pinned cost estimate.
+Its width estimates use this construction's 32-byte addresses and 1,024-byte WOTS chain collection.
+The compiler restores all shared helpers after each build. Tests check this isolation.
+Both variants use the same fixture cases and execution checks as the other profiles.
+
+## Execution budget and padding
+
+The Elements input budget is the serialized witness stack size plus 50 units.
+The C evaluator multiplies that budget by 1,000 before comparing it with the milliweight cost bound.
+For cost `C`, the minimum stack size is `max(0, ceil(C / 1000) - 50)` bytes.
+The program, encoded input, control data, item lengths, and annex already contribute to that size.
+Adding program and input bytes to this minimum would count them twice.
+
+Sources at Elements revision `301acc64be91d9fce1282d1af7bb673a397b6df2`:
+
+- [Input budget](https://github.com/ElementsProject/elements/blob/301acc64be91d9fce1282d1af7bb673a397b6df2/src/script/interpreter.cpp#L3348).
+- [50-unit offset](https://github.com/ElementsProject/elements/blob/301acc64be91d9fce1282d1af7bb673a397b6df2/src/script/script.h#L68).
+- [Milliweight conversion](https://github.com/ElementsProject/elements/blob/301acc64be91d9fce1282d1af7bb673a397b6df2/src/simplicity/eval.c#L790).
+
+This rule gives minimum serialized witness sizes of 33,942 and 83,479 bytes for our measured Simplicity checkers.
+The upstream report explicitly includes padding in its Liquid transactions.
+Its 37.755 kWU and 92.450 kWU figures do not measure encoded program size.
+Our standalone entry points and compiler differ from those transactions. The formula does not reproduce their exact weights.
+The separate 50 kB quotation still has no verified program revision or size definition.
+
+GSR allows 10,000 varops per transaction weight unit.
+For the measured checker, program bytes alone supply enough allowance without padding.
+A complete spending policy adds public-key commitment and transaction-message binding.
+Neither the witness minimum nor this GSR calculation establishes a complete-spend size ratio.
+
+## Website exports
+
+The page builder copies this README and `results.json` into the deployment directory.
+These generated downloads are ignored by Git. The experiment directory holds the only tracked copies.
+Run the page builder before deployment. This keeps public evidence downloads available despite the repository being private.
 
 The copied fixtures and translated algorithms derive from the upstream CC0-1.0 project.
 The native adapter follows the CC0-1.0 simplicity-sys test interfaces.

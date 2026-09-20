@@ -5,3 +5,5 @@ __pycache__/
 /target/
 .DS_Store
 /.wrangler/
+/docs/simplicity-version-comparison/README.md
+/docs/simplicity-version-comparison/results.json

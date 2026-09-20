@@ -7,7 +7,8 @@ import run
 from docs.build_page import ADDED_OPCODES, experiment_nav, instruction_names
 
 LABELS = {"baseline": "Restored opcodes · inline", "bytes": "OP_BYTEREV · inline",
-          "full": "OP_DEFINE + OP_INVOKE", "catfix": "Functions + optimized CAT joins"}
+          "full": "OP_DEFINE + OP_INVOKE", "catfix": "Functions + optimized CAT joins",
+          "multi": "OP_MULTI · all uses", "multisel": "OP_MULTI · selective hashing"}
 
 
 def fmt(n): return f"{n:,}"
@@ -30,7 +31,6 @@ def main():
     .bar-track { background:var(--grid); margin-top:6px; height:10px; }
     .bar-fill { height:10px; background:var(--s1); }
     .bar-fill.simplicity { background:var(--s3); }
-    .evidence-strip { border-left:3px solid var(--s3); padding-left:16px; margin:24px 0; }
     .comparison-table { overflow-x:auto; }
     .comparison-table table { min-width:630px; }
     .comparison-table th, .comparison-table td { padding:10px 12px 10px 0; }
@@ -44,8 +44,6 @@ def main():
     @media(max-width:650px) { .comparison-figures { grid-template-columns:1fr; } .jets { columns:1; } }
     '''
     head = head.replace("</style>", extra_css + "</style>")
-    total = sum(len(x["cases"]) for x in report["modes"].values())
-    accepted = sum(sum(c["accepted"] for c in x["cases"]) for x in report["modes"].values())
     tips = {}
     for mode in run.MODES:
         for profile in run.PROFILES:
@@ -58,14 +56,14 @@ def main():
 <h1>SHRINCS in Script and Simplicity</h1>
 <p class="lead comparison-intro">We translated Blockstream Research’s Simplicity verifier into GSR Bitcoin Script. Both implementations check the same public keys, messages, and signature fields.</p>
 <p>The <a href="/">original Script experiment</a> uses different SHRINCS parameters. This page measures the Simplicity verification rules in both languages.</p>
-<div class="evidence-strip"><strong>{fmt(total)} test cases.</strong> Python, Simplicity, and all four Script variants accept {fmt(accepted)} cases and reject {fmt(total-accepted)} cases.
-<p class="note">The tests start from two public signatures, one per mode. They change individual fields. Four changes affect unused fields and remain valid.</p></div>
 <h2>Program size</h2>
-<p>These bars show encoded instructions, without input data or transaction overhead. The Script programs use shared functions and optimized CAT joins.</p>
+<p>These bars show encoded instructions, without input data or transaction overhead. All three Script variants use shared functions and optimized CAT joins.</p>
 <div class="comparison-figures">
 '''
     for mode, row in report["modes"].items():
         values = [("Script · functions + CAT joins", row["gsr"]["catfix"]["program_bytes"], ""),
+                  ("Script · OP_MULTI all uses", row["gsr"]["multi"]["program_bytes"], ""),
+                  ("Script · OP_MULTI selective hashing", row["gsr"]["multisel"]["program_bytes"], ""),
                   ("Simplicity · pruned", row["simplicity"]["program_bytes"], "simplicity")]
         maximum = max(v for _, v, _ in values)
         page += f'<figure><figcaption><strong>{mode.capitalize()}</strong> · program bytes</figcaption>'
@@ -97,7 +95,28 @@ def main():
         page += f'<tr class="featured"><td>Simplicity · pruned</td><td class="n">{fmt(s["program_bytes"])}</td><td class="n">{fmt(s["witness_bytes"])}</td><td class="n">{fmt(int(s["cost_bound"]))} milliweight</td></tr></tbody></table></div>'
         page += f'<p class="note">Simplicity before pruning: {fmt(s["unpruned_program_bytes"])} program bytes. C and Rust agree on its cost bound.</p>'
     page += '''<p>GSR charges execution in varops. Simplicity gives an upper limit in milliweight. These units do not give a common performance scale.</p>
+<p>Both OP_MULTI variants use shared functions and optimized CAT joins. “All uses” groups hashes, joins, and cleanup operations. “Selective hashing” groups only hashes that pass the compiler’s cost estimate.</p>
 <p class="note">Script input sizes exclude the length prefixes for stack items. Simplicity input sizes include witness encoding. Pruning can remove unused fields.</p>
+<h2 id="execution-budget">Why a small program can require padding</h2>
+<p>Liquid gives each Simplicity input a budget based on its complete serialized witness stack. It adds 50 free units.</p>
+<p><code>C ≤ 1,000 × (W + 50)</code></p>
+<p><code>C</code> is the program’s cost bound in milliweight. <code>W</code> is the serialized witness stack size in bytes.</p>
+<p><code>W</code> includes the program, encoded input, control data, item lengths, and any annex. An annex can carry padding.</p>
+<p class="note">Sources: <a href="https://github.com/ElementsProject/elements/blob/301acc64be91d9fce1282d1af7bb673a397b6df2/src/script/interpreter.cpp#L3348">witness budget</a>, <a href="https://github.com/ElementsProject/elements/blob/301acc64be91d9fce1282d1af7bb673a397b6df2/src/script/script.h#L68">50-unit offset</a>, and <a href="https://github.com/ElementsProject/elements/blob/301acc64be91d9fce1282d1af7bb673a397b6df2/src/simplicity/eval.c#L790">milliweight conversion</a>.</p>
+<div class="comparison-table"><table><thead><tr><th>Derived from the measured Simplicity checker</th><th class="n">Stateful</th><th class="n">Stateless</th></tr></thead><tbody>'''
+    for label, values in (
+        ("Program + encoded input, bytes", [report["modes"][mode]["simplicity"]["program_bytes"] + report["modes"][mode]["simplicity"]["witness_bytes"] for mode in run.MODES]),
+        ("Minimum serialized witness stack, bytes", [max(0, (int(report["modes"][mode]["simplicity"]["cost_bound"]) + 999) // 1000 - 50) for mode in run.MODES]),
+    ):
+        page += f'<tr><td>{label}</td><td class="n">{fmt(values[0])}</td><td class="n">{fmt(values[1])}</td></tr>'
+    page += '''</tbody></table></div>
+<p>For these costs, the minimum is the bound in weight units, rounded up, minus 50. Program and input bytes already contribute to this minimum. Do not add them again.</p>
+<p>The <a href="https://github.com/BlockstreamResearch/shrincs-simplicity-verifier/blob/d13165d3d21bac73e8794eede21f0f1527f3b837/docs/shrincs_liquid_benchmarks/performance_report.md">Liquid report</a> records 37.755 kWU and 92.450 kWU and explicitly includes padding. Those figures are not encoded program sizes.</p>
+<p>Our standalone build differs from those transaction programs. The budget rule explains why padding is needed; it does not reproduce those exact weights.</p>
+<p>The <a href="https://github.com/jmoik/bitcoin/blob/d2799052604eb138c5a79acf88514a0c8b07f4ef/src/script/varops.h#L113">GSR budget rule</a> allows 10,000 varops per transaction weight unit. Its checker with shared functions already has enough allowance from its program bytes alone.</p>'''
+    gsr_min = [(report["modes"][mode]["gsr"]["catfix"]["varops"] + 9999) // 10000 for mode in run.MODES]
+    page += f'''<p class="note">The GSR checker with optimized CAT joins needs {fmt(gsr_min[0])} weight units for stateful verification and {fmt(gsr_min[1])} for stateless verification. These are derived budget requirements, not measured transaction weights.</p>
+<p>Complete spend comparisons still need transaction-message binding, a committed public key, and the same transaction structure. No complete-spend ratio is established here.</p>
 <h2>Verification steps</h2>
 <div class="comparison-table"><table><thead><tr><th>Step</th><th>Script restoration</th><th>Simplicity</th></tr></thead><tbody>
 <tr><td>Read the input</td><td>Check byte lengths and extract fields.</td><td>Decode the witness according to its data types.</td></tr>
@@ -122,7 +141,8 @@ def main():
     page += '''</tbody></table></div><p class="note">The timers cover different work. Do not use these values to calculate a speed ratio between the languages. The experiment notes define each timer.</p>
 <h2>Limits</h2>
 <ul>
-<li>These tests do not prove equivalence for every input. We measured one original signature per mode, without testing all stateful path depths.</li>
+<li>Positive coverage is one public signature per mode. Other stateful keys, path depths, and valid FORS and XMSS values remain untested.</li>
+<li>Rejection tests show that changed inputs fail. They do not establish acceptance of other valid signatures or prove equivalence for every input.</li>
 <li>These programs receive the public key and message as inputs. A spending policy must commit to the key and calculate the transaction message.</li>
 <li>We have not measured complete transaction sizes or fees. A smaller program does not guarantee a cheaper transaction.</li>
 <li>Compiler choices affect program size. We have not established the smallest possible program in either language.</li>

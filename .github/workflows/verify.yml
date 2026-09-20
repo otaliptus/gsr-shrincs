@@ -20,6 +20,23 @@ jobs:
           python-version: '3.13'
       - name: Check committed follow-up provenance before regeneration
         run: python3 scripts/audit_followups.py --portable
+      - name: Check baseline source provenance before regeneration
+        run: |
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          recorded = json.loads(Path('reports/environment.json').read_text())['sources_sha256']
+          actual = {
+              str(p): hashlib.sha256(p.read_bytes()).hexdigest()
+              for folder in ('generator', 'runner', 'reference', 'tests', 'scripts', 'spec')
+              for p in Path(folder).rglob('*')
+              if p.is_file() and '__pycache__' not in str(p)
+          }
+          changed = sorted(p for p in recorded.keys() | actual.keys() if recorded.get(p) != actual.get(p))
+          if changed:
+              raise SystemExit('Stale baseline source provenance: ' + ', '.join(changed))
+          print('Committed baseline source provenance matches the checkout.')
+          PY
       - name: Check that the committed summary page matches the committed reports
         run: |
           python3 docs/build_page.py

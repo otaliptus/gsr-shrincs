@@ -3,7 +3,8 @@
 The compiler never reads a witness. Fixed-width arithmetic follows upstream jets.
 The top-level input is (signature fields, public key, message, unused root).
 """
-from functools import reduce
+from contextlib import contextmanager
+from generator import multi, script
 from generator.script import Builder, Library, Ref, cat, cut, op, sha
 from generator.verifier import Program, be, from_be
 
@@ -145,14 +146,33 @@ def stateless(b):
     return cat(R("unused"), R("node"))
 
 
-def compile_verifier(mode, profile="full"):
-    if mode not in ("stateful", "stateless") or profile not in ("baseline", "bytes", "full", "catfix"):
-        raise ValueError("unknown configuration")
-    global cat
-    saved = cat
-    if profile == "catfix":
-        cat = lambda *xs: reduce(lambda a, b: op("CAT", a, b), xs) if xs else b""
+@contextmanager
+def compiler_variant(profile):
+    global cat, sha, Builder
+    saved = cat, sha, Builder, script.Builder, multi.KNOWN_WIDTHS
     try:
+        if profile in ("catfix", "multi", "multisel"):
+            cat = multi.cat_fixed
+        if profile == "multi":
+            cat, sha = multi.cat_multi, multi.sha_multi
+            Builder = script.Builder = multi.MultiBuilder
+        elif profile == "multisel":
+            sha = multi.sha_selective
+            Builder = script.Builder = multi.SelectiveBuilder
+            # Widths for this construction, not the original SHRINCS parameter set.
+            # Unknown values keep the helper's conservative small-width fallback.
+            multi.KNOWN_WIDTHS = dict(pad=64, address=32, prefix=92, node=16,
+                sibling=16, children=32, tips=1024, roots=80, seed=16,
+                location=16, mapped=16, tip=16, pk=32, msg=32, unused=16)
+        yield
+    finally:
+        cat, sha, Builder, script.Builder, multi.KNOWN_WIDTHS = saved
+
+
+def compile_verifier(mode, profile="full"):
+    if mode not in ("stateful", "stateless") or profile not in ("baseline", "bytes", "full", "catfix", "multi", "multisel"):
+        raise ValueError("unknown configuration")
+    with compiler_variant(profile):
         lib = Library(inline=profile == "bytes")
         b = Builder(("sig", "pk", "msg", "unused"), "baseline" if profile == "baseline" else "full", lib)
         b.exact(R("pk"), 32)
@@ -162,9 +182,7 @@ def compile_verifier(mode, profile="full"):
         b.let("pad", cat(R("seed"), bytes(48)))
         roots = (stateful if mode == "stateful" else stateless)(b)
         b.finish(eq(first16(cat(R("pad"), domain(16), roots)), cut(R("pk"), 16, 16)))
-        prefix = lib.prefix() if profile in ("full", "catfix") else b""
+        prefix = lib.prefix() if profile in ("full", "catfix", "multi", "multisel") else b""
         p = Program(prefix + bytes(b.code), "baseline" if profile == "baseline" else "full", mode, [], lib.functions)
         p.audit()
         return p
-    finally:
-        cat = saved
