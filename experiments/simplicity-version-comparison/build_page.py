@@ -4,7 +4,7 @@ from html import escape
 import json
 import statistics
 import run
-from docs.build_page import ADDED_OPCODES, instruction_names
+from docs.build_page import ADDED_OPCODES, experiment_nav, instruction_names
 
 LABELS = {"baseline": "Restored opcodes · inline", "bytes": "OP_BYTEREV · inline",
           "full": "OP_DEFINE + OP_INVOKE", "catfix": "Functions + optimized CAT joins"}
@@ -20,11 +20,8 @@ def main():
     parts = json.loads((run.ROOT / "docs/_static_parts.json").read_text())
     head = parts["head"].replace("<title>SHRINCS in Bitcoin Script</title>", "<title>Simplicity version comparison · SHRINCS</title>")
     head = head.replace('content="A plain summary of an experiment: checking SHRINCS post-quantum signatures with general-purpose Bitcoin Script on an experimental fork."',
-                        'content="The same SHRINCS verification rules measured in GSR Script and Simplicity. Separate, reproducible research experiment."')
+                        'content="SHRINCS verification in GSR Script and Simplicity: program sizes, execution charges, test results, and limits."')
     extra_css = '''
-    .comparison-nav { display:flex; flex-wrap:wrap; gap:8px 24px; padding-bottom:14px; margin-bottom:28px; border-bottom:1px solid var(--grid); font-size:14px; }
-    .comparison-nav a { text-decoration:none; }
-    .comparison-nav [aria-current] { color:var(--ink); font-weight:600; }
     .comparison-intro { max-width:740px; }
     .comparison-figures { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
     .comparison-figures figure { margin:0; padding:18px; }
@@ -39,6 +36,10 @@ def main():
     .comparison-table th, .comparison-table td { padding:10px 12px 10px 0; }
     .comparison-table tr.featured { background:var(--surface); }
     .hash { overflow-wrap:anywhere; }
+    .size-note { border-top:1px solid var(--grid); border-bottom:1px solid var(--grid); padding:18px 0; margin:28px 0; }
+    .size-note h2 { margin:0 0 8px; }
+    .size-note p:last-child { margin-bottom:0; }
+    .size-note table { max-width:580px; }
     .jets { columns:2; font-size:13px; }
     @media(max-width:650px) { .comparison-figures { grid-template-columns:1fr; } .jets { columns:1; } }
     '''
@@ -53,15 +54,14 @@ def main():
                 note=f"{mode.capitalize()} standalone verifier. Restored instructions and fork extensions used by this program.",
                 opcodes=sorted(names & ADDED_OPCODES))
     page = head + f'''
-<nav class="comparison-nav" aria-label="Experiments"><a href="/">Script restoration</a><a href="/simplicity-version-comparison/" aria-current="page">Simplicity version comparison</a></nav>
-<p class="note">Separate experiment · same verification rules</p>
-<h1>SHRINCS, using the Simplicity construction</h1>
-<p class="lead comparison-intro">One set of signatures. Two execution languages. This experiment translates Blockstream Research’s Simplicity verifier into GSR Bitcoin Script.</p>
-<div class="evidence-strip"><strong>{fmt(total)} cases agree.</strong> Python, Simplicity, and all four Script variants agree on {fmt(accepted)} accepted cases and {fmt(total-accepted)} rejected cases.
-<p class="note">The corpus starts from two public signatures, one per mode. It changes their fields one at a time. This is testing, not a proof of equivalence.</p></div>
-<p>Our <a href="/">original experiment</a> follows a different SHRINCS specification. Its measurements remain separate. The results below follow the Simplicity construction on both sides.</p>
-<h2>Encoded program size</h2>
-<p>These bars compare the Script variant with shared functions and optimized CAT joins against the pruned Simplicity program.</p>
+{experiment_nav("simplicity")}
+<h1>SHRINCS in Script and Simplicity</h1>
+<p class="lead comparison-intro">We translated Blockstream Research’s Simplicity verifier into GSR Bitcoin Script. Both implementations check the same public keys, messages, and signature fields.</p>
+<p>The <a href="/">original Script experiment</a> uses different SHRINCS parameters. This page measures the Simplicity verification rules in both languages.</p>
+<div class="evidence-strip"><strong>{fmt(total)} test cases.</strong> Python, Simplicity, and all four Script variants accept {fmt(accepted)} cases and reject {fmt(total-accepted)} cases.
+<p class="note">The tests start from two public signatures, one per mode. They change individual fields. Four changes affect unused fields and remain valid.</p></div>
+<h2>Program size</h2>
+<p>These bars show encoded instructions, without input data or transaction overhead. The Script programs use shared functions and optimized CAT joins.</p>
 <div class="comparison-figures">
 '''
     for mode, row in report["modes"].items():
@@ -72,9 +72,22 @@ def main():
         for label, value, kind in values:
             page += f'<div class="bar-row"><div class="bar-label"><span>{label}</span><strong>{fmt(value)}</strong></div><div class="bar-track" aria-hidden="true"><div class="bar-fill {kind}" style="width:{100*value/maximum:.3f}%"></div></div></div>'
         page += '</figure>'
-    page += '''</div><p class="note">Program bytes exclude input data and transaction overhead. Simplicity removes unexecuted branches before encoding. Script retains its conditional branches.</p>
-<h2>All measured implementations</h2>
-<p>The signatures contain the same logical values. Each language uses its own input encoding.</p>'''
+    page += '''</div><p class="note">Simplicity removes unused branches before encoding. This operation is called pruning. Script keeps its conditional branches.</p>
+<section class="size-note" id="50kb" aria-labelledby="50kb-title">
+<h2 id="50kb-title">What about the 50 kB claim?</h2>
+<p>We previously cited an approximate 50 kB verifier size. We have not verified its program revision, compiler, or size definition.</p>
+<p>Our current Simplicity build gives these sizes. One kB equals 1,000 bytes.</p>
+<table><thead><tr><th>Program bytes</th><th class="n">Stateful</th><th class="n">Stateless</th></tr></thead><tbody>'''
+    for label, key in (("Before pruning", "unpruned_program_bytes"), ("After pruning", "program_bytes")):
+        page += f'<tr><td>{label}</td><td class="n">{fmt(report["modes"]["stateful"]["simplicity"][key])}</td><td class="n">{fmt(report["modes"]["stateless"]["simplicity"][key])}</td></tr>'
+    page += '''</tbody></table>
+<p>Pruning alone cannot explain 50 kB: these programs are already below 5 kB before pruning.</p>
+<p>These are separate stateful and stateless programs, compiled with SimplicityHL 0.7.2. They exclude transaction data and execution-budget padding.</p>
+<p>The <a href="https://github.com/BlockstreamResearch/shrincs-simplicity-verifier/blob/d13165d3d21bac73e8794eede21f0f1527f3b837/docs/shrincs_liquid_benchmarks/performance_report.md">upstream Liquid report</a> measures transaction witness size and includes padding. It does not establish the source of the 50 kB figure.</p>
+<p>We need the original program and build settings to explain the difference. Until then, 50 kB is an unverified reference.</p>
+</section>
+<h2>Measurements</h2>
+<p>Each language encodes its input fields differently. Simplicity calls its encoded input data the witness.</p>'''
     for mode, row in report["modes"].items():
         page += f'<h3>{mode.capitalize()}</h3><div class="comparison-table"><table><thead><tr><th>Implementation</th><th class="n">Program bytes</th><th class="n">Input bytes</th><th class="n">Execution charge or bound</th></tr></thead><tbody>'
         for profile, g in row["gsr"].items():
@@ -83,21 +96,21 @@ def main():
         s = row["simplicity"]
         page += f'<tr class="featured"><td>Simplicity · pruned</td><td class="n">{fmt(s["program_bytes"])}</td><td class="n">{fmt(s["witness_bytes"])}</td><td class="n">{fmt(int(s["cost_bound"]))} milliweight</td></tr></tbody></table></div>'
         page += f'<p class="note">Simplicity before pruning: {fmt(s["unpruned_program_bytes"])} program bytes. C and Rust agree on its cost bound.</p>'
-    page += '''<p><strong>Varops and milliweight are different units.</strong> Do not divide one by the other to compare performance.</p>
-<p class="note">Script input bytes count the fixed-width fields placed on its initial stack. They exclude stack-item length prefixes. Simplicity input bytes count its encoded witness. Pruning can remove unused fields.</p>
-<h2>What the two languages do</h2>
+    page += '''<p>GSR charges execution in varops. Simplicity gives an upper limit in milliweight. These units do not give a common performance scale.</p>
+<p class="note">Script input sizes exclude the length prefixes for stack items. Simplicity input sizes include witness encoding. Pruning can remove unused fields.</p>
+<h2>Verification steps</h2>
 <div class="comparison-table"><table><thead><tr><th>Step</th><th>Script restoration</th><th>Simplicity</th></tr></thead><tbody>
-<tr><td>Read the proof</td><td>Check byte lengths and extract fields.</td><td>Decode a typed witness.</td></tr>
+<tr><td>Read the input</td><td>Check byte lengths and extract fields.</td><td>Decode the witness according to its data types.</td></tr>
 <tr><td>Recover the signature root</td><td>Run hash chains and authentication paths with Script instructions.</td><td>Run the same hash rules with typed functions and SHA-256 jets.</td></tr>
 <tr><td>Check the public key</td><td>Combine the recovered root with the supplied unused root. Compare the resulting hash.</td><td>Apply the same root-combination rule.</td></tr>
-<tr><td>Remove unused code</td><td>Keep conditional branches in the Script.</td><td>Prune branches that this witness does not execute.</td></tr>
+<tr><td>Remove unused code</td><td>Keep conditional branches in the Script.</td><td>Remove branches that this input does not use.</td></tr>
 </tbody></table></div>
-<p>A jet is a native implementation of a specified Simplicity operation. This verifier uses general hashing and arithmetic jets; it has no dedicated SHRINCS jet.</p>
-<details><summary>Jets present in the measured, pruned programs</summary><ul class="jets">'''
+<p>A jet runs a specified Simplicity operation through native code. This verifier uses general hash and arithmetic jets. It has no dedicated SHRINCS jet.</p>
+<details><summary>Jets used by these programs</summary><ul class="jets">'''
     jets = sorted(set(j for row in report["modes"].values() for j in row["simplicity"]["jets"]))
     page += ''.join(f'<li><code>{escape(j)}</code></li>' for j in jets) + '</ul></details>'
-    page += f'''<h2>Timing, with the boundaries shown</h2>
-<p>These samples use the same machine and {report["repeats"]} repetitions. The table shows medians. Compilation and process startup are excluded.</p>
+    page += f'''<h2>Execution time</h2>
+<p>The table shows the median of {report["repeats"]} runs on one machine. The timers exclude compilation and process startup.</p>
 <div class="comparison-table"><table><thead><tr><th>Timed operation</th><th class="n">Stateful, ms</th><th class="n">Stateless, ms</th></tr></thead><tbody>'''
     sf, sl = (report["modes"][m] for m in run.MODES)
     for label, values in (
@@ -106,14 +119,15 @@ def main():
         ("Simplicity C · decode, check, and evaluate", [x["simplicity"]["c_validation_ns"] for x in (sf, sl)]),
         ("Simplicity Rust · Bit Machine execution", [x["simplicity"]["execution_ns"] for x in (sf, sl)])):
         page += f'<tr><td>{label}</td><td class="n">{ms(values[0])}</td><td class="n">{ms(values[1])}</td></tr>'
-    page += '''</tbody></table></div><p class="note">The timed boundaries differ. These figures do not establish a VM speed ratio. The C adapter is documented in the experiment notes.</p>
-<h2>What this establishes</h2>
-<p>Both languages execute this construction on the same public fixtures. The recorded sizes include the effects of their actual compilers and encodings.</p>
-<p>The comparison does not establish a complete Bitcoin spend cost. Both standalone programs receive the public key and message as inputs.</p>
-<p>A spending policy must commit to the expected key and derive the message from the transaction. That work remains separate.</p>
-<p>A smaller program does not guarantee a cheaper spend. The <a href="https://github.com/BlockstreamResearch/shrincs-simplicity-verifier/blob/d13165d3d21bac73e8794eede21f0f1527f3b837/docs/shrincs_liquid_benchmarks/performance_report.md">published Liquid transactions</a> include padding to meet their execution budget.</p>
-<p>We have not proved equivalence for every input, measured all stateful depths, or established that either compiler produces optimal code.</p>
-<h2>Reproduce and inspect</h2>
+    page += '''</tbody></table></div><p class="note">The timers cover different work. Do not use these values to calculate a speed ratio between the languages. The experiment notes define each timer.</p>
+<h2>Limits</h2>
+<ul>
+<li>These tests do not prove equivalence for every input. We measured one original signature per mode, without testing all stateful path depths.</li>
+<li>These programs receive the public key and message as inputs. A spending policy must commit to the key and calculate the transaction message.</li>
+<li>We have not measured complete transaction sizes or fees. A smaller program does not guarantee a cheaper transaction.</li>
+<li>Compiler choices affect program size. We have not established the smallest possible program in either language.</li>
+</ul>
+<h2>Source and data</h2>
 <ul>
 <li><a href="results.json">Recorded measurements and case inventory</a></li>
 <li><a href="README.md">Method, exact pins, commands, and limits</a></li>
