@@ -53,6 +53,11 @@ To check a claim rather than read about it, run `./scripts/check.sh` after the b
 
 ## Fork-change experiments
 
+The separate [Simplicity version comparison](experiments/simplicity-version-comparison/README.md)
+ports the pinned Simplicity construction into GSR Script.
+It uses shared public fixtures and keeps its measurements separate from this baseline.
+The [comparison page](https://gsr-shrincs.pages.dev/simplicity-version-comparison/) shows the measured programs and explains the limits.
+
 The measured package is frozen at tag `baseline-2026-09-18`, commit `937e058`.
 The tag preserves the original reports. Top-level reports are regenerated with the current checkout's complete check procedure.
 Separate experiments retain their own evidence.

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simplicity version comparison · SHRINCS</title>
+<meta name="description" content="The same SHRINCS verification rules measured in GSR Script and Simplicity. Separate, reproducible research experiment.">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7;
+    --surface: #fcfcfb;
+    --ink: #0b0b0b;
+    --ink-2: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --s1: #2a78d6;
+    --s2: #eb6834;
+    --s3: #1baf7a;
+    --dim: #c3c2b7;
+    --link: #1c5cab;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --page: #0d0d0d;
+      --surface: #1a1a19;
+      --ink: #ffffff;
+      --ink-2: #c3c2b7;
+      --muted: #898781;
+      --grid: #2c2c2a;
+      --axis: #383835;
+      --border: rgba(255,255,255,0.10);
+      --s1: #3987e5;
+      --s2: #d95926;
+      --s3: #199e70;
+      --dim: #383835;
+      --link: #86b6ef;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255,255,255,0.10);
+    --s1: #3987e5;
+    --s2: #d95926;
+    --s3: #199e70;
+    --dim: #383835;
+    --link: #86b6ef;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font: 17px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  main { max-width: 1040px; margin: 0 auto; padding: 40px 24px 64px; }
+  @media (max-width: 600px) { main { padding: 28px 16px 48px; } }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 8px; }
+  h2 { font-size: 21px; margin: 40px 0 8px; }
+  h3 { font-size: 17px; margin: 24px 0 4px; }
+  p, li { color: var(--ink); }
+  .lead { color: var(--ink-2); margin-top: 0; }
+  a { color: var(--link); }
+  ol, ul { padding-left: 22px; }
+  li { margin: 4px 0; }
+  .big {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 16px 0;
+  }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px;
+  }
+  .tile .label { font-size: 14px; color: var(--ink-2); }
+  .tile .value { font-size: 30px; font-weight: 600; line-height: 1.2; }
+  figure {
+    margin: 16px 0; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 14px 8px;
+  }
+  figcaption { font-size: 14px; color: var(--ink-2); margin-bottom: 6px; }
+  .plot, .wide { overflow-x: auto; }
+  .wide table { min-width: 820px; }
+  .wide td:first-child, .wide th:first-child { min-width: 190px; max-width: 240px; }
+  .prose { overflow-x: auto; }
+  .prose table { min-width: 640px; }
+  .prose.feasibility table { min-width: 960px; }
+  .prose td, .prose th { vertical-align: top; padding: 6px 10px 6px 0; }
+  .prose th:first-child, .prose td:first-child { width: 30%; }
+  svg { width: 100%; min-width: 560px; height: auto; display: block; }
+  svg text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 13px; fill: var(--ink-2); }
+  svg text.val { fill: var(--ink); font-variant-numeric: tabular-nums; }
+  svg text.in { fill: #ffffff; }
+  .legend { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; color: var(--ink-2); margin: 4px 0 0; padding: 0; list-style: none; }
+  .legend li::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; background: var(--sw); }
+  details { margin: 6px 0 0; font-size: 14px; color: var(--ink-2); }
+  details.summary { margin: 16px 0 0; font-size: inherit; color: inherit; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding: 10px 14px; }
+  details.summary > summary { font-weight: 600; }
+  details.summary h3 { font-size: 17px; margin: 16px 0 4px; }
+  summary { cursor: pointer; }
+  table { border-collapse: collapse; width: 100%; margin-top: 6px; font-size: 14px; }
+  th, td { text-align: left; padding: 4px 8px 4px 0; border-bottom: 1px solid var(--grid); }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .note { font-size: 14px; color: var(--ink-2); }
+  footer { margin-top: 48px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--grid); padding-top: 12px; }
+  code { font-size: 15px; }
+
+  .opcode-label { cursor: help; }
+  button.opcode-label { font: inherit; color: inherit; text-align: inherit; background: none; border: 0; padding: 0; text-decoration: underline dotted var(--muted); text-underline-offset: 4px; }
+  .opcode-label:hover, .opcode-label:focus-visible { color: var(--link); }
+  .opcode-label:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 2px; }
+  svg .opcode-label:hover text, svg .opcode-label:focus-visible text { fill: var(--link); }
+  .opcode-panel { position: fixed; z-index: 20; width: min(360px, calc(100vw - 20px)); max-height: min(480px, calc(100dvh - 20px)); overflow-y: auto; padding: 12px; background: var(--surface); color: var(--ink); border: 1px solid var(--axis); border-radius: 6px; box-shadow: 0 4px 16px #0002; font-size: 12px; line-height: 1.45; }
+  .opcode-panel[hidden] { display: none; }
+  .opcode-panel p { margin: 0 20px 8px 0; color: var(--ink-2); }
+  .opcode-panel p:last-child { margin-bottom: 0; }
+  .opcode-chips { overflow-wrap: anywhere; }
+  .opcode-chips code { font-size: 11px; }
+  .opcode-close { float: right; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 3px; background: transparent; color: var(--ink); cursor: pointer; font-size: 16px; line-height: 1; }
+
+    .comparison-nav { display:flex; flex-wrap:wrap; gap:8px 24px; padding-bottom:14px; margin-bottom:28px; border-bottom:1px solid var(--grid); font-size:14px; }
+    .comparison-nav a { text-decoration:none; }
+    .comparison-nav [aria-current] { color:var(--ink); font-weight:600; }
+    .comparison-intro { max-width:740px; }
+    .comparison-figures { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+    .comparison-figures figure { margin:0; padding:18px; }
+    .bar-row { margin:14px 0; }
+    .bar-label { display:flex; justify-content:space-between; gap:12px; font-size:14px; }
+    .bar-track { background:var(--grid); margin-top:6px; height:10px; }
+    .bar-fill { height:10px; background:var(--s1); }
+    .bar-fill.simplicity { background:var(--s3); }
+    .evidence-strip { border-left:3px solid var(--s3); padding-left:16px; margin:24px 0; }
+    .comparison-table { overflow-x:auto; }
+    .comparison-table table { min-width:630px; }
+    .comparison-table th, .comparison-table td { padding:10px 12px 10px 0; }
+    .comparison-table tr.featured { background:var(--surface); }
+    .hash { overflow-wrap:anywhere; }
+    .jets { columns:2; font-size:13px; }
+    @media(max-width:650px) { .comparison-figures { grid-template-columns:1fr; } .jets { columns:1; } }
+    </style>
+</head>
+<body>
+<main>
+<nav class="comparison-nav" aria-label="Experiments"><a href="/">Script restoration</a><a href="/simplicity-version-comparison/" aria-current="page">Simplicity version comparison</a></nav>
+<p class="note">Separate experiment · same verification rules</p>
+<h1>SHRINCS, using the Simplicity construction</h1>
+<p class="lead comparison-intro">One set of signatures. Two execution languages. This experiment translates Blockstream Research’s Simplicity verifier into GSR Bitcoin Script.</p>
+<div class="evidence-strip"><strong>698 cases agree.</strong> Python, Simplicity, and all four Script variants agree on 6 accepted cases and 692 rejected cases.
+<p class="note">The corpus starts from two public signatures, one per mode. It changes their fields one at a time. This is testing, not a proof of equivalence.</p></div>
+<p>Our <a href="/">original experiment</a> follows a different SHRINCS specification. Its measurements remain separate. The results below follow the Simplicity construction on both sides.</p>
+<h2>Encoded program size</h2>
+<p>These bars compare the Script variant with shared functions and optimized CAT joins against the pruned Simplicity program.</p>
+<div class="comparison-figures">
+<figure><figcaption><strong>Stateful</strong> · program bytes</figcaption><div class="bar-row"><div class="bar-label"><span>Script · functions + CAT joins</span><strong>6,584</strong></div><div class="bar-track" aria-hidden="true"><div class="bar-fill " style="width:100.000%"></div></div></div><div class="bar-row"><div class="bar-label"><span>Simplicity · pruned</span><strong>2,851</strong></div><div class="bar-track" aria-hidden="true"><div class="bar-fill simplicity" style="width:43.302%"></div></div></div></figure><figure><figcaption><strong>Stateless</strong> · program bytes</figcaption><div class="bar-row"><div class="bar-label"><span>Script · functions + CAT joins</span><strong>10,215</strong></div><div class="bar-track" aria-hidden="true"><div class="bar-fill " style="width:100.000%"></div></div></div><div class="bar-row"><div class="bar-label"><span>Simplicity · pruned</span><strong>4,166</strong></div><div class="bar-track" aria-hidden="true"><div class="bar-fill simplicity" style="width:40.783%"></div></div></div></figure></div><p class="note">Program bytes exclude input data and transaction overhead. Simplicity removes unexecuted branches before encoding. Script retains its conditional branches.</p>
+<h2>All measured implementations</h2>
+<p>The signatures contain the same logical values. Each language uses its own input encoding.</p><h3>Stateful</h3><div class="comparison-table"><table><thead><tr><th>Implementation</th><th class="n">Program bytes</th><th class="n">Input bytes</th><th class="n">Execution charge or bound</th></tr></thead><tbody><tr><td><button type="button" class="opcode-label" data-opcodes="stateful-baseline" aria-expanded="false" aria-controls="opcode-panel">Restored opcodes · inline</button></td><td class="n">384,841</td><td class="n">1,160</td><td class="n">23,265,133 varops</td></tr><tr><td><button type="button" class="opcode-label" data-opcodes="stateful-bytes" aria-expanded="false" aria-controls="opcode-panel">OP_BYTEREV · inline</button></td><td class="n">118,676</td><td class="n">1,160</td><td class="n">15,675,150 varops</td></tr><tr><td><button type="button" class="opcode-label" data-opcodes="stateful-full" aria-expanded="false" aria-controls="opcode-panel">OP_DEFINE + OP_INVOKE</button></td><td class="n">6,870</td><td class="n">1,160</td><td class="n">12,379,290 varops</td></tr><tr><td><button type="button" class="opcode-label" data-opcodes="stateful-catfix" aria-expanded="false" aria-controls="opcode-panel">Functions + optimized CAT joins</button></td><td class="n">6,584</td><td class="n">1,160</td><td class="n">11,774,652 varops</td></tr><tr class="featured"><td>Simplicity · pruned</td><td class="n">2,851</td><td class="n">1,162</td><td class="n">33,991,524 milliweight</td></tr></tbody></table></div><p class="note">Simplicity before pruning: 4,811 program bytes. C and Rust agree on its cost bound.</p><h3>Stateless</h3><div class="comparison-table"><table><thead><tr><th>Implementation</th><th class="n">Program bytes</th><th class="n">Input bytes</th><th class="n">Execution charge or bound</th></tr></thead><tbody><tr><td><button type="button" class="opcode-label" data-opcodes="stateless-baseline" aria-expanded="false" aria-controls="opcode-panel">Restored opcodes · inline</button></td><td class="n">133,744</td><td class="n">4,456</td><td class="n">119,116,431 varops</td></tr><tr><td><button type="button" class="opcode-label" data-opcodes="stateless-bytes" aria-expanded="false" aria-controls="opcode-panel">OP_BYTEREV · inline</button></td><td class="n">44,750</td><td class="n">4,456</td><td class="n">45,048,045 varops</td></tr><tr><td><button type="button" class="opcode-label" data-opcodes="stateless-full" aria-expanded="false" aria-controls="opcode-panel">OP_DEFINE + OP_INVOKE</button></td><td class="n">10,585</td><td class="n">4,456</td><td class="n">46,653,390 varops</td></tr><tr><td><button type="button" class="opcode-label" data-opcodes="stateless-catfix" aria-expanded="false" aria-controls="opcode-panel">Functions + optimized CAT joins</button></td><td class="n">10,215</td><td class="n">4,456</td><td class="n">44,384,370 varops</td></tr><tr class="featured"><td>Simplicity · pruned</td><td class="n">4,166</td><td class="n">4,392</td><td class="n">83,528,972 milliweight</td></tr></tbody></table></div><p class="note">Simplicity before pruning: 4,813 program bytes. C and Rust agree on its cost bound.</p><p><strong>Varops and milliweight are different units.</strong> Do not divide one by the other to compare performance.</p>
+<p class="note">Script input bytes count the fixed-width fields placed on its initial stack. They exclude stack-item length prefixes. Simplicity input bytes count its encoded witness. Pruning can remove unused fields.</p>
+<h2>What the two languages do</h2>
+<div class="comparison-table"><table><thead><tr><th>Step</th><th>Script restoration</th><th>Simplicity</th></tr></thead><tbody>
+<tr><td>Read the proof</td><td>Check byte lengths and extract fields.</td><td>Decode a typed witness.</td></tr>
+<tr><td>Recover the signature root</td><td>Run hash chains and authentication paths with Script instructions.</td><td>Run the same hash rules with typed functions and SHA-256 jets.</td></tr>
+<tr><td>Check the public key</td><td>Combine the recovered root with the supplied unused root. Compare the resulting hash.</td><td>Apply the same root-combination rule.</td></tr>
+<tr><td>Remove unused code</td><td>Keep conditional branches in the Script.</td><td>Prune branches that this witness does not execute.</td></tr>
+</tbody></table></div>
+<p>A jet is a native implementation of a specified Simplicity operation. This verifier uses general hashing and arithmetic jets; it has no dedicated SHRINCS jet.</p>
+<details><summary>Jets present in the measured, pruned programs</summary><ul class="jets"><li><code>add_32</code></li><li><code>add_64</code></li><li><code>add_8</code></li><li><code>and_32</code></li><li><code>div_mod_32</code></li><li><code>divide_8</code></li><li><code>eq_256</code></li><li><code>eq_32</code></li><li><code>eq_8</code></li><li><code>left_shift_32</code></li><li><code>left_shift_64</code></li><li><code>lt_8</code></li><li><code>modulo_8</code></li><li><code>multiply_32</code></li><li><code>multiply_8</code></li><li><code>or_64</code></li><li><code>right_shift_32</code></li><li><code>right_shift_64</code></li><li><code>sha_256_ctx_8_add_16</code></li><li><code>sha_256_ctx_8_add_32</code></li><li><code>sha_256_ctx_8_add_4</code></li><li><code>sha_256_ctx_8_add_8</code></li><li><code>sha_256_ctx_8_finalize</code></li><li><code>sha_256_ctx_8_init</code></li><li><code>subtract_32</code></li><li><code>subtract_8</code></li><li><code>verify</code></li></ul></details><h2>Timing, with the boundaries shown</h2>
+<p>These samples use the same machine and 11 repetitions. The table shows medians. Compilation and process startup are excluded.</p>
+<div class="comparison-table"><table><thead><tr><th>Timed operation</th><th class="n">Stateful, ms</th><th class="n">Stateless, ms</th></tr></thead><tbody><tr><td>GSR interpreter · functions + CAT joins</td><td class="n">0.533</td><td class="n">1.765</td></tr><tr><td>Simplicity C · evaluation and bounds checks</td><td class="n">1.226</td><td class="n">3.723</td></tr><tr><td>Simplicity C · decode, check, and evaluate</td><td class="n">3.424</td><td class="n">7.633</td></tr><tr><td>Simplicity Rust · Bit Machine execution</td><td class="n">16.144</td><td class="n">52.472</td></tr></tbody></table></div><p class="note">The timed boundaries differ. These figures do not establish a VM speed ratio. The C adapter is documented in the experiment notes.</p>
+<h2>What this establishes</h2>
+<p>Both languages execute this construction on the same public fixtures. The recorded sizes include the effects of their actual compilers and encodings.</p>
+<p>The comparison does not establish a complete Bitcoin spend cost. Both standalone programs receive the public key and message as inputs.</p>
+<p>A spending policy must commit to the expected key and derive the message from the transaction. That work remains separate.</p>
+<p>A smaller program does not guarantee a cheaper spend. The <a href="https://github.com/BlockstreamResearch/shrincs-simplicity-verifier/blob/d13165d3d21bac73e8794eede21f0f1527f3b837/docs/shrincs_liquid_benchmarks/performance_report.md">published Liquid transactions</a> include padding to meet their execution budget.</p>
+<p>We have not proved equivalence for every input, measured all stateful depths, or established that either compiler produces optimal code.</p>
+<h2>Reproduce and inspect</h2>
+<ul>
+<li><a href="results.json">Recorded measurements and case inventory</a></li>
+<li><a href="README.md">Method, exact pins, commands, and limits</a></li>
+<li><a href="https://github.com/BlockstreamResearch/shrincs-simplicity-verifier/tree/d13165d3d21bac73e8794eede21f0f1527f3b837">Pinned upstream verifier</a></li>
+<li><a href="https://github.com/otaliptus/gsr-shrincs/tree/main/experiments/simplicity-version-comparison">Experiment source in our private repository</a></li>
+</ul><p class="note">Recorded host: macOS-26.4-arm64-arm-64bit-Mach-O · arm64</p><footer><p>Research experiment. No production wallet or mainnet activation is claimed.</p><p class="hash">Evidence SHA-256: 90bfdd8696eee936e6bd117aadfd7a9238a600bf0deeca41699f605ec13e564f</p><a href="/">Return to the original Script experiment</a></footer></main><aside id="opcode-panel" class="opcode-panel" aria-label="Added opcodes" hidden></aside><script id="opcode-data" type="application/json">{"stateful-baseline": {"title": "Restored opcodes · inline", "note": "Stateful standalone verifier. Restored instructions and fork extensions used by this program.", "opcodes": ["OP_CAT", "OP_LEFT", "OP_MOD", "OP_RIGHT", "OP_RSHIFT", "OP_SUBSTR"]}, "stateful-bytes": {"title": "OP_BYTEREV · inline", "note": "Stateful standalone verifier. Restored instructions and fork extensions used by this program.", "opcodes": ["OP_BYTEREV", "OP_CAT", "OP_LEFT", "OP_MOD", "OP_RIGHT", "OP_RSHIFT", "OP_SUBSTR"]}, "stateful-full": {"title": "OP_DEFINE + OP_INVOKE", "note": "Stateful standalone verifier. Restored instructions and fork extensions used by this program.", "opcodes": ["OP_BYTEREV", "OP_CAT", "OP_DEFINE", "OP_INVOKE", "OP_LEFT", "OP_MOD", "OP_RIGHT", "OP_RSHIFT", "OP_SUBSTR"]}, "stateful-catfix": {"title": "Functions + optimized CAT joins", "note": "Stateful standalone verifier. Restored instructions and fork extensions used by this program.", "opcodes": ["OP_BYTEREV", "OP_CAT", "OP_DEFINE", "OP_INVOKE", "OP_LEFT", "OP_MOD", "OP_RIGHT", "OP_RSHIFT", "OP_SUBSTR"]}, "stateless-baseline": {"title": "Restored opcodes · inline", "note": "Stateless standalone verifier. Restored instructions and fork extensions used by this program.", "opcodes": ["OP_CAT", "OP_LEFT", "OP_MOD", "OP_RSHIFT", "OP_SUBSTR"]}, "stateless-bytes": {"title": "OP_BYTEREV · inline", "note": "Stateless standalone verifier. Restored instructions and fork extensions used by this program.", "opcodes": ["OP_BYTEREV", "OP_CAT", "OP_LEFT", "OP_MOD", "OP_RSHIFT", "OP_SUBSTR"]}, "stateless-full": {"title": "OP_DEFINE + OP_INVOKE", "note": "Stateless standalone verifier. Restored instructions and fork extensions used by this program.", "opcodes": ["OP_BYTEREV", "OP_CAT", "OP_DEFINE", "OP_INVOKE", "OP_LEFT", "OP_MOD", "OP_RSHIFT", "OP_SUBSTR"]}, "stateless-catfix": {"title": "Functions + optimized CAT joins", "note": "Stateless standalone verifier. Restored instructions and fork extensions used by this program.", "opcodes": ["OP_BYTEREV", "OP_CAT", "OP_DEFINE", "OP_INVOKE", "OP_LEFT", "OP_MOD", "OP_RSHIFT", "OP_SUBSTR"]}}</script><script src="/opcode-tooltips.js"></script></body></html>

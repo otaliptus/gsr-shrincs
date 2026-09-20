@@ -303,6 +303,7 @@ def main():
 
     page = parts["head"] + f'''
 
+<nav aria-label="Experiments" style="display:flex;flex-wrap:wrap;gap:8px 24px;padding-bottom:14px;margin-bottom:28px;border-bottom:1px solid var(--grid);font-size:14px"><a href="/" aria-current="page" style="color:var(--ink);font-weight:600;text-decoration:none">Script restoration</a><a href="/simplicity-version-comparison/" style="text-decoration:none">Simplicity version comparison</a></nav>
 <h1>Checking post-quantum signatures in Bitcoin Script</h1>
 <p class="lead">What a SHRINCS spend costs under different sets of Script opcodes, measured on an experimental fork's private test network. Not production software. It does not make any coins quantum-safe.</p>
 

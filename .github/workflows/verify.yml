@@ -24,12 +24,19 @@ jobs:
         run: |
           python3 docs/build_page.py
           git diff --exit-code -- docs/index.html
+      - name: Check the separate Simplicity comparison evidence and page
+        run: |
+          python3 experiments/simplicity-version-comparison/run.py audit
+          python3 experiments/simplicity-version-comparison/build_page.py
+          git diff --exit-code -- docs/simplicity-version-comparison/
       - name: Install build dependencies
         run: sudo apt-get update && sudo apt-get install -y build-essential cmake ninja-build libboost-dev pkg-config
       - name: Build the unmodified fork and profiling overlay
         run: |
           GSR_BUILD_JOBS=2 ./scripts/build.sh
           python3 scripts/profile_build.py 2
+      - name: Test the separate Simplicity-construction Script port
+        run: python3 experiments/simplicity-version-comparison/test_comparison.py
       - name: Regenerate public fixtures
         run: |
           python3 scripts/fixtures.py
