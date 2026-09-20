@@ -55,7 +55,7 @@ def main():
 {experiment_nav("simplicity")}
 <h1>SHRINCS in Script and Simplicity</h1>
 <p class="lead comparison-intro">We translated Blockstream Research’s Simplicity verifier into GSR Bitcoin Script. Both implementations check the same public keys, messages, and signature fields.</p>
-<p>The <a href="/">original Script experiment</a> uses different SHRINCS parameters. This page measures the Simplicity verification rules in both languages.</p>
+<p class="note comparison-intro">The original experiment uses the <a href="https://github.com/SHRINCS/shrincs-bip/blob/4cd63a6497a0ba7c5e99699b94d33973546d9e37/SHRINCS.md">SHRINCS BIP draft</a>; this comparison uses <a href="https://github.com/BlockstreamResearch/shrincs-simplicity-verifier/tree/d13165d3d21bac73e8794eede21f0f1527f3b837">Blockstream Research’s construction</a>. They use different hash-tree parameters. The draft’s 48-byte public key stores two root hashes separately. Blockstream’s 32-byte public key stores a hash of both roots. Results from the two constructions are not directly comparable.</p>
 <h2>Program size</h2>
 <p>These bars show encoded instructions, without input data or transaction overhead. All three Script variants use shared functions and optimized CAT joins.</p>
 <div class="comparison-figures">
